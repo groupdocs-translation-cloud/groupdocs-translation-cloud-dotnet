@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Translation.Cloud.SDK.NET", "GroupDocs.Translation.Cloud.SDK.NET\GroupDocs.Translation.Cloud.SDK.NET.csproj", "{ED5B3375-122E-439F-A27E-4D1BFD0D2158}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Translation.Cloud.SDK.Net.Demo", "GroupDocs.Translation.Cloud.SDK.Net.Demo\GroupDocs.Translation.Cloud.SDK.Net.Demo.csproj", "{1E181245-94BF-43F7-B575-CA585A9C3589}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED5B3375-122E-439F-A27E-4D1BFD0D2158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED5B3375-122E-439F-A27E-4D1BFD0D2158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED5B3375-122E-439F-A27E-4D1BFD0D2158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED5B3375-122E-439F-A27E-4D1BFD0D2158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E181245-94BF-43F7-B575-CA585A9C3589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E181245-94BF-43F7-B575-CA585A9C3589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E181245-94BF-43F7-B575-CA585A9C3589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E181245-94BF-43F7-B575-CA585A9C3589}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
