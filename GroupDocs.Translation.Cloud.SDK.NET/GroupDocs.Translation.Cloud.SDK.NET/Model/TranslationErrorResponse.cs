@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="TranslationErrorResponse.cs">
-//   Copyright (c) 2019 Aspose.Ocr for Cloud
+//   Copyright (c) 2020 GroupDocs.Translation for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,7 +40,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OcrErrorResponse {\n");
+            sb.Append("class TrranslationErrorResponse {\n");
             sb.Append("  Message: ").Append(this.Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

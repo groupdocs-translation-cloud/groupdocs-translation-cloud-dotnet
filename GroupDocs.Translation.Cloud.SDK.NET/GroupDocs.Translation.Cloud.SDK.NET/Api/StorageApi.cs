@@ -97,7 +97,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         public DiscUsage GetDiscUsage(GetDiscUsageRequest request)
         {
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/disc";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/disc";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -144,7 +144,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/version/{path}";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/version/{path}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -192,7 +192,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/exist/{path}";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/exist/{path}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -241,7 +241,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/{storageName}/exist";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/{storageName}/exist";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
