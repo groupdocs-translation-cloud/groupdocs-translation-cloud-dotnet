@@ -25,8 +25,10 @@
 
 namespace GroupDocs.Translation.Cloud.SDK.NET
 {
+    using System;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
+    using Newtonsoft.Json;
     using GroupDocs.Translation.Cloud.SDK.NET.Model;
     using GroupDocs.Translation.Cloud.SDK.NET.Model.Requests;
     using GroupDocs.Translation.Cloud.SDK.NET.RequestHandlers;
@@ -76,6 +78,56 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
             requestHandlers.Add(new ApiExceptionRequestHandler());
             this.apiInvoker = new ApiInvoker(requestHandlers);
+        }
+
+        /// <summary>
+        /// Create request for document translation
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="folder"></param>
+        /// <param name="pair"></param>
+        /// <param name="format"></param>
+        /// <param name="storage"></param>
+        /// <param name="savefile"></param>
+        /// <param name="savepath"></param>
+        /// <returns></returns>
+        public TranslateDocumentRequest CreateDocumentRequest(string name,
+                                                               string folder,
+                                                               string pair,
+                                                               string format,
+                                                               string storage,
+                                                               string savefile,
+                                                               string savepath)
+        {
+            Model.FileInfo fileInfo = new Model.FileInfo();
+            fileInfo.Folder = folder;
+            fileInfo.Format = format;
+            fileInfo.Name = name;
+            fileInfo.Pair = pair;
+            fileInfo.SaveFile = savefile;
+            fileInfo.SavePath = savepath;
+            fileInfo.Storage = storage;
+            string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(fileInfo));
+            TranslateDocumentRequest request = new TranslateDocumentRequest(userRequest);
+            return request;
+        }
+
+        /// <summary>
+        /// Create request for text translation
+        /// </summary>
+        /// <param name="pair"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public TranslateTextRequest CreateTextRequest(string pair, string text)
+        {
+            TextInfo textInfo = new TextInfo();
+            textInfo.Pair = pair;
+            textInfo.Text = text;
+            string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo,
+                                                                                      Formatting.None,
+                                                                                      new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml }));
+            TranslateTextRequest request = new TranslateTextRequest(userRequest);
+            return request;
         }
 
         /// <summary>
