@@ -1,8 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Net;
-using System.Threading;
-using Newtonsoft.Json;
 using GroupDocs.Translation.Cloud.SDK.NET;
 using GroupDocs.Translation.Cloud.SDK.NET.Model;
 using GroupDocs.Translation.Cloud.SDK.NET.Model.Requests;
@@ -13,6 +9,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
     {
         static void Main(string[] args)
         {
+            // add your AppKey and AppSid
             Configuration conf = new Configuration();
             conf.AppSid = "";
             conf.AppKey = "";
@@ -52,35 +49,29 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
 
         static TranslationResponse TranslateDocument(Configuration conf)
         {
-            NET.Model.FileInfo fileInfo = new NET.Model.FileInfo();
-
-            fileInfo.Name = "";
-            fileInfo.Folder = "";
-            fileInfo.Storage = "";
-            fileInfo.SaveFile = "";
-            fileInfo.SavePath = "";
-            fileInfo.Format = "";
-            fileInfo.Pair = "";
-
-            string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(fileInfo));
+            // add necessary file info for translation here
+            string name = "";
+            string folder = "";
+            string pair = "";
+            string format = "";
+            string storage = "";
+            string saveFile = "";
+            string savePath = "";
 
             TranslationApi api = new TranslationApi(conf);
-            TranslateDocumentRequest request = new TranslateDocumentRequest(userRequest);
+            TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, storage, saveFile, savePath);
             TranslationResponse response = api.RunTranslationTask(request);
             return response;
         }
 
         static TextResponse TranslateText(Configuration conf)
-        {            
-            TextInfo textInfo = new TextInfo();
-
-            textInfo.Pair = "";
-            textInfo.Text = "";
-
-            string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo));
+        {
+            // add text for translation and language pair
+            string pair = "";
+            string text = "";
 
             TranslationApi api = new TranslationApi(conf);
-            TranslateTextRequest request = new TranslateTextRequest(userRequest);
+            TranslateTextRequest request = api.CreateTextRequest(pair, text);
             TextResponse response = api.RunTranslationTextTask(request);
             return response;
         }

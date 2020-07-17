@@ -10,6 +10,10 @@ It is easy to get started with GroupDocs.Translation Cloud, and there is nothing
 - Translation of plain text
 - English-Arabic and English-Portuguese language pairs support 
 
+## Release 20.07
+- English-Polish language pair support
+- Translation API functionality extended, allowing easier creation of translation requests
+
 
 ## Features:
 - Translation of Microsoft Word and Microsoft Excel documents

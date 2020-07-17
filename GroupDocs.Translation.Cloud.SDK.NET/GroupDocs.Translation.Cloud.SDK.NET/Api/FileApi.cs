@@ -109,7 +109,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/file/copy/{srcPath}";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/file/copy/{srcPath}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -160,7 +160,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/file/{path}";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/file/{path}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -209,7 +209,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/file/{path}";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/file/{path}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -258,7 +258,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/file/move/{srcPath}";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/file/move/{srcPath}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -315,7 +315,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/ocr/storage/file/{path}";
+            var resourcePath = this.configuration.GetApiRootUrl() + "/storage/file/{path}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
