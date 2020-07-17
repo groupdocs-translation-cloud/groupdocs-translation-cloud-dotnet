@@ -46,7 +46,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         ExternalAuth = 2,
 
         /// <summary>
-        /// Token for JWT authorization of OCR
+        /// Token for JWT authorization of Translation
         /// </summary>
         JWT = 3,
     }
