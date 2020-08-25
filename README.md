@@ -1,6 +1,8 @@
 # GroupDocs.Translation Cloud
 
-[GroupDocs.Translation Cloud](https://products.groupdocs.cloud/translation) is a simple SDK used to add translation of Microsoft Word documents, Microsoft Excel workbooks and plain text to your app with merely a few lines of code.
+[GroupDocs.Translation Cloud](https://products.groupdocs.cloud/translation) is Cloud API to translate Word and Excel files as well as plain text. 
+
+For convenience of our .NET customers we introduce a simple SDK used to add translation of Microsoft Word documents, Microsoft Excel workbooks and plain text to your app with merely a few lines of code.
 
 In detail, it's a set of SDKs for document and plain text translation in our Cloud. It supports translaton of .doc, .docx, .docm, .xls, .xlsx, .xlsm files. Just pass a specific file or text to the GroupDocs.Translation Cloud API, and it will translate and save translated file in our Cloud or will return translated text.
 
@@ -17,7 +19,7 @@ It is easy to get started with GroupDocs.Translation Cloud, and there is nothing
 
 ## Features:
 - Translation of Microsoft Word and Microsoft Excel documents
-- 9 languages and 16 languages pairs support
+- [10 languages and 18 languages pairs support](https://docs.groupdocs.cloud/translation/supported-languages/)
 - Translation of tables, headers, footers, footnotes / endnotes, image captions in Word documents
 - Translation of cells, charts, tables, pivot tables in Excel documents
 - Translation of plain text
@@ -73,7 +75,7 @@ Make your solution using [SDK](https://github.com/groupdocs-translation-cloud), 
 
 #### 1. Get API keys if you haven't
 
-Make a personal account on [GroupDocs Cloud Dashboard](https://dashboard.groupdocs.cloud/#/) and click _Get Keys_. These keys are useful for all GroupDocs Cloud products. If you have any trouble, look at this [detailed manual](https://wiki.groupdocs.cloud/translationcloud/getting-started/create-new-app-and-get-app-key-and-sid/).
+Make a personal account on [GroupDocs Cloud Dashboard](https://dashboard.groupdocs.cloud/#/) and click _Get Keys_. These keys are useful for all GroupDocs Cloud products. If you have any trouble, look at this [detailed manual](https://docs.groupdocs.cloud/translation/create-new-app-and-get-app-key-and-sid/).
 
 #### 2. Run Demo
   * Checkout the SDK
@@ -87,13 +89,14 @@ _________________________
 
 ||||||||||
 |--------------|----------|-------|-------|-------|---------|---------|----------|-------|
-|[.NET](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet)|Java|PHP|Ruby|Python|Node.js|Android|Objective-C|Perl|
+|[.NET](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet)|[Java](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-java)|PHP|Ruby|[Python](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-python)|Node.js|Android|Objective-C|Perl|
 
 ## Resources
 
 - **Website:** [https://www.groupdocs.cloud](https://www.groupdocs.cloud)
 - **Product Home:** [GroupDocs.Translation Cloud](https://products.groupdocs.cloud/translation)
-- **Documentation:** [GroupDocs.Translation Cloud Documentation](https://wiki.groupdocs.cloud/translationcloud/)
+- **Documentation:** [GroupDocs.Translation Cloud Documentation](https://docs.groupdocs.cloud/translation/)
+- **API Reference:** [GroupDocs.Translation Cloud API Reference](https://apireference.groupdocs.cloud/translation/) 
 - **Forum:** [GroupDocs.Translation Cloud Forum](https://forum.groupdocs.cloud/c/translation)
 - **Blog:** [GroupDocs.Translation Cloud Blog](https://blog.groupdocs.cloud/category/translation/)
 - **Pricing:** [GroupDocs Cloud Pricing](https://purchase.groupdocs.cloud/pricing)
