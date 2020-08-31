@@ -8,14 +8,16 @@ In detail, it's a set of SDKs for document and plain text translation in our Clo
 
 It is easy to get started with GroupDocs.Translation Cloud, and there is nothing to install. Create an account at [GroupDocs Cloud](https://dashboard.aspose.cloud/#/) and get your application information, then you are ready to use [SDKs](https://github.com/groupdocs-translation-cloud)
 
-## Release 20.06:
-- Translation of plain text
-- English-Arabic and English-Portuguese language pairs support 
+## Release 20.8
+- GroupDocs.Translation Cloud SDK for [Java](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-java) and [Python](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-python) have been released
 
-## Release 20.07
+## Release 20.7
 - English-Polish language pair support
 - Translation API functionality extended, allowing easier creation of translation requests
 
+## Release 20.6:
+- Translation of plain text
+- English-Arabic and English-Portuguese language pairs support 
 
 ## Features:
 - Translation of Microsoft Word and Microsoft Excel documents
@@ -33,36 +35,28 @@ Our API is completely independent of your operating system, database system, or 
 
 ```csharp
 public TranslationResponse TranslateDocument(Configuration conf)
-{
-    NET.Model.FileInfo fileInfo = new NET.Model.FileInfo();
-
-    fileInfo.Name = "test.docx";
-    fileInfo.Folder = "";
-    fileInfo.Storage = "First Storage";
-    fileInfo.SaveFile = "translation.docx";
-    fileInfo.SavePath = "";
-    fileInfo.Format = "docx";
-    fileInfo.Pair = "en-fr";
-    
-    tring userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(fileInfo));
+{    
+    string name = "test.docx";
+    string folder = "";
+    string pair = "en-fr";
+    string format = "docx";
+    string storage = "First Storage";
+    string saveFile = "translation.docx";
+    string savePath = "";
     
     TranslationApi api = new TranslationApi(conf);
-    TranslateDocumentRequest request = new TranslateDocumentRequest(userRequest);
+    TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, storage, saveFile, savePath);
     TranslationResponse response = api.RunTranslationTask(request);
     return response;
 }
 
 public TextResponse TranslateText(Configuration conf)
-{
-    TextInfo textInfo = new TextInfo();
-    
-    textInfo.Pair = "en-fr";
-    textInfo.Text = "Welcome to Paris";
-    
-    string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo));
+{    
+    string pair = "en-fr";
+    string text = "Welcome to Paris";    
     
     TranslationApi api = new TranslationApi(conf);
-    TranslateTextRequest request = new TranslateTextRequest(userRequest);
+    TranslateTextRequest request = api.CreateTextRequest(pair, text);
     TextResponse response = api.RunTranslationTextTask(request);
     return response;
 }
