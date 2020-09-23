@@ -3,14 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>GroupDocs.Translation-Cloud</PackageId>
-    <PackageVersion>20.7.0</PackageVersion>
+    <PackageVersion>20.8.0</PackageVersion>
     <Authors>GroupDocs</Authors>
     <Copyright>Aspose 2002-2020. All Rights Reserved.</Copyright>
     <PackageIconUrl>https://www.groupdocs.cloud/templates/groupdocscloud/images/sdk/272x272/groupdocs_translation-for-net.png</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <Owners>Aspose</Owners>
     <PackageProjectUrl>https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet</PackageProjectUrl>
-    <PackageReleaseNotes>https://wiki.groupdocs.cloud/translationcloud/release-notes/release-notes-2020/groupdocs-translation-for-cloud-20-7-release-notes/</PackageReleaseNotes>
+    <PackageReleaseNotes>https://docs.groupdocs.cloud/translation/groupdocs-translation-for-cloud-20-8-release-notes/</PackageReleaseNotes>
     <PackageTags>groupdocs.translation translation cloud documents doc docx xls xlsx word excel text ai c# machine learning </PackageTags>
     <Title>GroupDocs.Translation Cloud SDK for .NET</Title>
     <Description>GroupDocs.Translation Cloud is a simple SDK used to add translation of Microsoft Word documents, Microsoft Excel workbooks and plain text to your app with merely a few lines of code.
