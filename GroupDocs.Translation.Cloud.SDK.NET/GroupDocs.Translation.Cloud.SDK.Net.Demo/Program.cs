@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GroupDocs.Translation.Cloud.SDK.NET;
 using GroupDocs.Translation.Cloud.SDK.NET.Model;
 using GroupDocs.Translation.Cloud.SDK.NET.Model.Requests;
@@ -29,7 +30,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             response = TranslateDocument(conf);
             Console.WriteLine(response.ToString());
 
-            Console.WriteLine("Example #2:\nText translation");
+            /*Console.WriteLine("Example #2:\nText translation");
             textResponse = TranslateText(conf);
             Console.WriteLine(textResponse);
 
@@ -43,7 +44,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
 
             Console.WriteLine("Example #5:\nHealth check");
             hcResponse = HealthCheck(conf);
-            Console.WriteLine(hcResponse);
+            Console.WriteLine(hcResponse);*/
 
         }
 
@@ -57,9 +58,12 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             string storage = "";
             string saveFile = "";
             string savePath = "";
+            bool masters = false;
+            List<int> elements = new List<int>();
+            
 
             TranslationApi api = new TranslationApi(conf);
-            TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, storage, saveFile, savePath);
+            TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, storage, saveFile, savePath, masters, elements);
             TranslationResponse response = api.RunTranslationTask(request);
             return response;
         }
