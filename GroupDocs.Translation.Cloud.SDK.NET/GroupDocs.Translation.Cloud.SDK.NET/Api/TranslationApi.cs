@@ -90,6 +90,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// <param name="storage"></param>
         /// <param name="savefile"></param>
         /// <param name="savepath"></param>
+        /// <param name="masters"></param>
+        /// <param name="elements"></param>
         /// <returns></returns>
         public TranslateDocumentRequest CreateDocumentRequest(string name,
                                                                string folder,
@@ -97,7 +99,9 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
                                                                string format,
                                                                string storage,
                                                                string savefile,
-                                                               string savepath)
+                                                               string savepath,
+                                                               bool masters,
+                                                               List<int> elements)
         {
             Model.FileInfo fileInfo = new Model.FileInfo();
             fileInfo.Folder = folder;
@@ -107,6 +111,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             fileInfo.SaveFile = savefile;
             fileInfo.SavePath = savepath;
             fileInfo.Storage = storage;
+            fileInfo.Masters = masters;
+            fileInfo.Elements = elements;
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(fileInfo));
             TranslateDocumentRequest request = new TranslateDocumentRequest(userRequest);
             return request;
