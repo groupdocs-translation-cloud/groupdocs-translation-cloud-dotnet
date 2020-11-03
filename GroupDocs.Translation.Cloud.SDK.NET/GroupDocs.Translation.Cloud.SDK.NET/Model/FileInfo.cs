@@ -26,6 +26,7 @@
 namespace GroupDocs.Translation.Cloud.SDK.NET.Model
 {
     using System.Text;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     /// <summary>
     /// Represents information about file.
@@ -76,6 +77,18 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public string Pair { get; set; }
 
         /// <summary>
+        /// If master slides should be translated
+        /// </summary>
+        [JsonProperty("masters")]
+        public bool Masters { get; set; }
+
+        ///<summary>
+        /// List of number of slides to translate
+        /// </summary>
+        [JsonProperty("elements")]
+        public List<int> Elements { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +103,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
             sb.Append("  SavePath: ").Append(this.SavePath).Append("\n");
             sb.Append("  SaveFile: ").Append(this.SaveFile).Append("\n");
             sb.Append("  Pair: ").Append(this.Pair).Append("\n");
+            sb.Append("  Masters: ").Append(this.Masters).Append("\n");
+            sb.Append("  Elements: ").Append(this.Elements).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         } 
