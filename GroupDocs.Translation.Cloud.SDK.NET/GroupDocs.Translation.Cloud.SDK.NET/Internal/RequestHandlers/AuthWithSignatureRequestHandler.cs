@@ -49,7 +49,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.RequestHandlers
                 return url;
             }
 
-            url = UrlHelper.AddQueryParameterToUrl(url, "appSid", this.configuration.AppSid);
+            url = UrlHelper.AddQueryParameterToUrl(url, "appSid", this.configuration.ClientId);
             url = this.Sign(url);
 
             return url;
@@ -71,7 +71,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.RequestHandlers
             uriBuilder.Path = uriBuilder.Path.TrimEnd('/');
 
             // Compute the hash.
-            byte[] privateKey = Encoding.UTF8.GetBytes(this.configuration.AppKey);
+            byte[] privateKey = Encoding.UTF8.GetBytes(this.configuration.ClientSecret);
             HMACSHA1 algorithm = new HMACSHA1(privateKey);
 
             byte[] sequence = Encoding.ASCII.GetBytes(uriBuilder.Uri.AbsoluteUri);
