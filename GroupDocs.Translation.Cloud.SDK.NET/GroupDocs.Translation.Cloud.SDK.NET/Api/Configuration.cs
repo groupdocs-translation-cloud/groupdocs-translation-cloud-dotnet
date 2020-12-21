@@ -38,12 +38,12 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// <summary>
         /// Gets or sets the app key.
         /// </summary>
-        public string AppKey { get; set; }
+        public string ClientSecret { get; set; }
 
         /// <summary>
         /// Gets or sets the app sid.
         /// </summary>
-        public string AppSid { get; set; }
+        public string ClientId { get; set; }
 
         /// <summary>
         /// Gets or sets the Jwt token.

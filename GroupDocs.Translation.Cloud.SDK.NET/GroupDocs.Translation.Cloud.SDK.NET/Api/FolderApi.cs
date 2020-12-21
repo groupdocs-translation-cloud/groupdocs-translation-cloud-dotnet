@@ -49,7 +49,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// The app Sid.
         /// </param>
         public FolderApi(string apiKey, string appSid)
-            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
+            : this(new Configuration { ClientSecret = apiKey, ClientId = appSid })
         {
         }
 

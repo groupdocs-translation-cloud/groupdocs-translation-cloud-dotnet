@@ -51,7 +51,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// The app Sid
         /// </param>
         public TranslationApi(string apiKey, string appSid)
-            : this (new Configuration { AppKey = apiKey, AppSid = appSid}) 
+            : this (new Configuration { ClientSecret = apiKey, ClientId = appSid}) 
         {
         }
 
@@ -97,6 +97,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
                                                                string folder,
                                                                string pair,
                                                                string format,
+                                                               string outformat,
                                                                string storage,
                                                                string savefile,
                                                                string savepath,
@@ -106,6 +107,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             Model.FileInfo fileInfo = new Model.FileInfo();
             fileInfo.Folder = folder;
             fileInfo.Format = format;
+            fileInfo.OutFormat = outformat;
             fileInfo.Name = name;
             fileInfo.Pair = pair;
             fileInfo.SaveFile = savefile;
