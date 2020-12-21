@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using GroupDocs.Translation.Cloud.SDK.NET;
 using GroupDocs.Translation.Cloud.SDK.NET.Model;
 using GroupDocs.Translation.Cloud.SDK.NET.Model.Requests;
@@ -10,27 +11,27 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
     {
         static void Main(string[] args)
         {
-            // add your AppKey and AppSid
+            // add your ClientId and ClientSecret
             Configuration conf = new Configuration();
-            conf.AppSid = "";
-            conf.AppKey = "";
+            conf.ClientId = "";
+            conf.ClientSecret = "";
 
             
 
-            if (string.IsNullOrEmpty(conf.AppSid) || string.IsNullOrEmpty(conf.AppKey))
-                throw new Exception("Please, get and set your API keys. https://dashboard.groupdocs.cloud/#/");
+            if (string.IsNullOrEmpty(conf.ClientId) || string.IsNullOrEmpty(conf.ClientSecret))
+                throw new Exception("Please, get and set your ClientId and ClientSecret. https://dashboard.groupdocs.cloud/#/");
 
-            TranslationResponse response = new TranslationResponse();
+
             TranslationResponse hcResponse = new TranslationResponse();
             TextResponse textResponse = new TextResponse();
             NET.Model.FileInfo fileInfo = new NET.Model.FileInfo();
             TextInfo textInfo = new TextInfo();
 
             Console.WriteLine("Example #1:\nDocument translation of file in GroupDocs Storage");
-            response = TranslateDocument(conf);
-            Console.WriteLine(response.ToString());
+            TranslateDocument(conf);
 
-            /*Console.WriteLine("Example #2:\nText translation");
+
+            Console.WriteLine("Example #2:\nText translation");
             textResponse = TranslateText(conf);
             Console.WriteLine(textResponse);
 
@@ -44,35 +45,58 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
 
             Console.WriteLine("Example #5:\nHealth check");
             hcResponse = HealthCheck(conf);
-            Console.WriteLine(hcResponse);*/
+            Console.WriteLine(hcResponse);
 
         }
 
-        static TranslationResponse TranslateDocument(Configuration conf)
+        static void TranslateDocument(Configuration conf)
         {
-            // add necessary file info for translation here
-            string name = "";
+            // local paths to upload and download files
+            string uploadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/test.docx";
+            string downloadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/translated.docx";
+
+            // request parameters for translation
+            string name = "test.docx";
             string folder = "";
-            string pair = "";
-            string format = "";
-            string storage = "";
-            string saveFile = "";
+            string pair = "en-fr";
+            string format = "docx";
+            string outformat = "docx";
+            string storage = "First Storage";
+            string saveFile = "translated.docx";
             string savePath = "";
             bool masters = false;
             List<int> elements = new List<int>();
-            
 
             TranslationApi api = new TranslationApi(conf);
-            TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, storage, saveFile, savePath, masters, elements);
+            FileApi fileApi = new FileApi(conf);
+
+            
+            Stream stream = File.Open(uploadPath, FileMode.Open);
+
+            UploadFileRequest uploadRequest= new UploadFileRequest { File = stream, path = name, storageName = storage };
+            FilesUploadResult uploadResult = fileApi.UploadFile(uploadRequest);
+            Console.WriteLine("Files uploaded: " + uploadResult.Uploaded.Count);
+                        
+            TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, outformat, storage, saveFile, savePath, masters, elements);
             TranslationResponse response = api.RunTranslationTask(request);
-            return response;
+            Console.WriteLine(response.Message);
+
+            DownloadFileRequest downloadRequest = new DownloadFileRequest { storageName = storage, path = saveFile };
+            Stream result = fileApi.DownloadFile(downloadRequest);
+            Console.WriteLine("Translated file downloaded");
+            
+            using (FileStream file = new FileStream(downloadPath, FileMode.Create, FileAccess.Write))
+            {
+                result.CopyTo(file);
+            }
+            Console.WriteLine("Translated file saved");
         }
 
         static TextResponse TranslateText(Configuration conf)
         {
             // add text for translation and language pair
-            string pair = "";
-            string text = "";
+            string pair = "en-fr";
+            string text = "Welcome to Paris";
 
             TranslationApi api = new TranslationApi(conf);
             TranslateTextRequest request = api.CreateTextRequest(pair, text);

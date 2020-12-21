@@ -53,10 +53,16 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public string Storage { get; set; }
 
         /// <summary>
-        /// "docx" if Word document, "xlsx" if Excel workbook
+        /// "docx" if Word document, "xlsx" if Excel workbook, "pptx" if Powerpoint presentation
         /// </summary>
         [JsonProperty("format")]
         public string Format { get; set; }
+
+        /// <summary>
+        /// format of translated document
+        /// </summary>
+        [JsonProperty("outformat")]
+        public string OutFormat { get; set; }
 
         /// <summary>
         /// Path to save translated file
@@ -100,6 +106,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
             sb.Append("  Folder: ").Append(this.Folder).Append("\n");
             sb.Append("  Storage: ").Append(this.Storage).Append("\n");
             sb.Append("  Format: ").Append(this.Format).Append("\n");
+            sb.Append("  OutFormat: ").Append(this.OutFormat).Append("\n");
             sb.Append("  SavePath: ").Append(this.SavePath).Append("\n");
             sb.Append("  SaveFile: ").Append(this.SaveFile).Append("\n");
             sb.Append("  Pair: ").Append(this.Pair).Append("\n");

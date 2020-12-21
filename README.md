@@ -8,6 +8,9 @@ In detail, it's a set of SDKs for document and plain text translation in our Clo
 
 It is easy to get started with GroupDocs.Translation Cloud, and there is nothing to install. Create an account at [GroupDocs Cloud](https://dashboard.groupdocs.cloud/#/) and get your application information, then you are ready to use [SDKs](https://github.com/groupdocs-translation-cloud)
 
+## Release 20.12
+- Conversion of translated files to other formats is added
+
 ## Release 20.10
 - Microsoft PowerPoint presentations translation
 - French-Italian language pair support
@@ -33,6 +36,7 @@ It is easy to get started with GroupDocs.Translation Cloud, and there is nothing
 - Translation of cells, charts, tables, pivot tables in Excel documents
 - Translation of text frames, tables, headers, footers, charts, comments in PowerPoint presentations
 - Translation of plain text
+- Conversion of translated files to other formats like pdf, tiff, xps, etc.
 - API that allows you manage your files and folders in our Cloud
 
 ## How to use the SDK?
@@ -48,6 +52,7 @@ public TranslationResponse TranslateDocument(Configuration conf)
     string folder = "";
     string pair = "en-fr";
     string format = "docx";
+    strting outFormat = "docx";
     string storage = "First Storage";
     string saveFile = "translation.docx";
     string savePath = "";
@@ -55,7 +60,7 @@ public TranslationResponse TranslateDocument(Configuration conf)
     List<int> elements = new List<int>();
     
     TranslationApi api = new TranslationApi(conf);
-    TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, storage, saveFile, savePath, masters, elements);
+    TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, outFormat, storage, saveFile, savePath, masters, elements);
     TranslationResponse response = api.RunTranslationTask(request);
     return response;
 }
@@ -79,12 +84,12 @@ Make your solution using [SDK](https://github.com/groupdocs-translation-cloud), 
 
 #### 1. Get API keys if you haven't
 
-Make a personal account on [GroupDocs Cloud Dashboard](https://dashboard.groupdocs.cloud/#/) and click _Get Keys_. These keys are useful for all GroupDocs Cloud products. If you have any trouble, look at this [detailed manual](https://docs.groupdocs.cloud/translation/create-new-app-and-get-app-key-and-sid/).
+Make a personal account on [GroupDocs Cloud Dashboard](https://dashboard.groupdocs.cloud/#/) and click _Get Keys_. These keys are useful for all GroupDocs Cloud products. If you have any trouble, look at this [detailed manual](https://docs.groupdocs.cloud/total/creating-and-managing-application/).
 
 #### 2. Run Demo
   * Checkout the SDK
   * Open .NET core demo project
-  * Set Your AppSid & AppKey
+  * Set Your ClientId & ClientSecret
   * Run
 
 _________________________
