@@ -13,8 +13,8 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
         {
             // add your ClientId and ClientSecret
             Configuration conf = new Configuration();
-            conf.ClientId = "";
-            conf.ClientSecret = "";
+            conf.ClientId = "translate.cloud";
+            conf.ClientSecret = "5d0da472782620373473703904631795";
 
             
 
@@ -51,21 +51,21 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
 
         static void TranslateDocument(Configuration conf)
         {
-            // local paths to upload and download files
-            string uploadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/test.docx";
-            string downloadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/translated.docx";
-
             // request parameters for translation
             string name = "test.docx";
             string folder = "";
             string pair = "en-fr";
             string format = "docx";
-            string outformat = "docx";
+            string outformat = "pdf";
             string storage = "First Storage";
-            string saveFile = "translated.docx";
+            string saveFile = "translated.pdf";
             string savePath = "";
             bool masters = false;
             List<int> elements = new List<int>();
+
+            // local paths to upload and download files
+            string uploadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/" + name;
+            string downloadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/" + saveFile;
 
             TranslationApi api = new TranslationApi(conf);
             FileApi fileApi = new FileApi(conf);
