@@ -343,5 +343,43 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
                 throw;
             }
         }
+
+        /// <summary>
+        /// Returns structure of request for text translation
+        /// </summary>
+        /// <returns><see cref="Dictionary<string, string[]>"/></returns>
+        public Dictionary<string, string[]> GetLanguagePairs()
+        {
+            var resourcePath = this.configuration.GetApiRootUrl() + "/info/pairs";
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "GET",
+                    null,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (Dictionary<string, string[]>)SerializationHelper.Deserialize(response, typeof(Dictionary<string, string[]>));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }
     }
 }

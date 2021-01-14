@@ -13,8 +13,8 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
         {
             // add your ClientId and ClientSecret
             Configuration conf = new Configuration();
-            conf.ClientId = "translate.cloud";
-            conf.ClientSecret = "5d0da472782620373473703904631795";
+            conf.ClientId = "";
+            conf.ClientSecret = "";
 
             
 
@@ -26,6 +26,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             TextResponse textResponse = new TextResponse();
             NET.Model.FileInfo fileInfo = new NET.Model.FileInfo();
             TextInfo textInfo = new TextInfo();
+            Dictionary<string, string[]> pairs = new Dictionary<string, string[]>();
 
             Console.WriteLine("Example #1:\nDocument translation of file in GroupDocs Storage");
             TranslateDocument(conf);
@@ -35,18 +36,28 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             textResponse = TranslateText(conf);
             Console.WriteLine(textResponse);
 
-            Console.WriteLine("Example #3:\nGet structure of document request");
-            fileInfo = GetDocRequest(conf);
-            Console.WriteLine(fileInfo.ToString());
-
-            Console.WriteLine("Example #4:\nGet structure of text request");
-            textInfo = GetTextRequest(conf);
-            Console.WriteLine(textInfo.ToString());
-
-            Console.WriteLine("Example #5:\nHealth check");
+            Console.WriteLine("Example #3:\nHealth check");
             hcResponse = HealthCheck(conf);
             Console.WriteLine(hcResponse);
 
+            Console.WriteLine("Example #4:\nGet structure of document request");
+            fileInfo = GetDocRequest(conf);
+            Console.WriteLine(fileInfo.ToString());
+
+            Console.WriteLine("Example #5:\nGet structure of text request");
+            textInfo = GetTextRequest(conf);
+            Console.WriteLine(textInfo.ToString());
+
+            Console.WriteLine("Example #6:\nGet language pairs");
+            pairs = GetLanguagePairs(conf);
+            foreach (var key in pairs.Keys)
+            {
+                Console.WriteLine(key + ": ");
+                foreach (var value in pairs[key])
+                {
+                    Console.WriteLine("- " + value);
+                }
+            }
         }
 
         static void TranslateDocument(Configuration conf)
@@ -122,6 +133,13 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
         {
             TranslationApi api = new TranslationApi(conf);
             TranslationResponse response = api.RunHealthCheck();
+            return response;
+        }
+
+        static Dictionary<string, string[]> GetLanguagePairs(Configuration conf)
+        {
+            TranslationApi api = new TranslationApi(conf);
+            Dictionary<string, string[]> response = api.GetLanguagePairs();
             return response;
         }
     }
