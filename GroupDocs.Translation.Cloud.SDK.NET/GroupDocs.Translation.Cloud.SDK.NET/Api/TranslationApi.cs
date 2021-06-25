@@ -94,15 +94,17 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// <param name="elements"></param>
         /// <returns></returns>
         public TranslateDocumentRequest CreateDocumentRequest(string name,
-                                                               string folder,
-                                                               string pair,
-                                                               string format,
-                                                               string outformat,
-                                                               string storage,
-                                                               string savefile,
-                                                               string savepath,
-                                                               bool masters,
-                                                               List<int> elements)
+                                                              string folder,
+                                                              string pair,
+                                                              string format,
+                                                              string outformat,
+                                                              string storage,
+                                                              string savefile,
+                                                              string savepath,
+                                                              bool masters,
+                                                              List<int> elements,
+                                                              string origin = ".NET",
+                                                              bool details = false)
         {
             Model.FileInfo fileInfo = new Model.FileInfo();
             fileInfo.Folder = folder;
@@ -115,10 +117,52 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             fileInfo.Storage = storage;
             fileInfo.Masters = masters;
             fileInfo.Elements = elements;
+            fileInfo.Origin = origin;
+            fileInfo.Details = details;
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(fileInfo));
             TranslateDocumentRequest request = new TranslateDocumentRequest(userRequest);
             return request;
         }
+
+        /// <summary>
+        /// Create request for document translation
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="folder"></param>
+        /// <param name="language"></param>
+        /// <param name="format"></param>
+        /// <param name="storage"></param>
+        /// <param name="savefile"></param>
+        /// <param name="savepath"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        /*public SummarizeDocumentRequest CreateSummarizeDocumentRequest(string name,
+                                                                       string folder,
+                                                                       string language,
+                                                                       string format,
+                                                                       string outformat,
+                                                                       string storage,
+                                                                       string savefile,
+                                                                       string savepath,
+                                                                       int min,
+                                                                       int max)
+        {
+            SummarizeFileInfo fileInfo = new SummarizeFileInfo();
+            fileInfo.Folder = folder;
+            fileInfo.Format = format;
+            fileInfo.OutFormat = outformat;
+            fileInfo.Name = name;
+            fileInfo.Language = language;
+            fileInfo.SaveFile = savefile;
+            fileInfo.SavePath = savepath;
+            fileInfo.Storage = storage;
+            fileInfo.Min = min;
+            fileInfo.Max = max;
+            string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(fileInfo));
+            SummarizeDocumentRequest request = new SummarizeDocumentRequest(userRequest);
+            return request;
+        }*/
 
         /// <summary>
         /// Create request for text translation
@@ -126,11 +170,34 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// <param name="pair"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-        public TranslateTextRequest CreateTextRequest(string pair, string text)
+        /*public SummarizeTextRequest CreateSummarizeTextRequest(string language, string text, int min, int max)
+        {
+            SummarizeTextInfo textInfo = new SummarizeTextInfo();
+            textInfo.Language = language;
+            textInfo.Text = text;
+            textInfo.Min = min;
+            textInfo.Max = max;
+            string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo,
+                                                                                      Formatting.None,
+                                                                                      new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml }));
+            SummarizeTextRequest request = new SummarizeTextRequest(userRequest);
+            return request;
+        }*/
+
+        /// <summary>
+        /// Create request for text translation
+        /// </summary>
+        /// <param name="language"></param>
+        /// <param name="text"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public TranslateTextRequest CreateTextRequest(string pair, string text, bool details = false)
         {
             TextInfo textInfo = new TextInfo();
             textInfo.Pair = pair;
             textInfo.Text = text;
+            textInfo.Details = details;
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo,
                                                                                       Formatting.None,
                                                                                       new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml }));
@@ -183,6 +250,50 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         }
 
         /// <summary>
+        /// Summarize document
+        /// </summary>
+        /// <param name="request">Request.  <see cref="SummarizeDocumentRequest"/> </param>
+        /// <returns><see cref="SummarizationResponse"/></returns>
+        /*public SummarizationResponse RunSummarizationTask(SummarizeDocumentRequest request)
+        {
+            if (request.UserRequest == null)
+            {
+                throw new ApiException(400, "Empty request");
+            }
+
+            var resourcePath = this.configuration.GetApiRootUrl() + "/summarizefile";
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "POST",
+                    request.UserRequest,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (SummarizationResponse)SerializationHelper.Deserialize(response, typeof(SummarizationResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }*/
+
+        /// <summary>
         /// Translate text
         /// </summary>
         /// <param name="request">Request.  <see cref="TranslateTextRequest"/> </param>
@@ -227,6 +338,52 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
                 throw;
             }
         }
+
+        /// <summary>
+        /// Translate text
+        /// </summary>
+        /// <param name="request">Request.  <see cref="SummarizeTextRequest"/> </param>
+        /// <returns><see cref="SummarizationTextResponse"/></returns>
+        /*public SummarizationTextResponse RunSummarizationTextTask(SummarizeTextRequest request)
+        {
+            if (request.UserRequest == null)
+            {
+                throw new ApiException(400, "Empty request");
+            }
+
+            var resourcePath = this.configuration.GetApiRootUrl() + "/summarizetext";
+
+
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "POST",
+                    request.UserRequest,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (SummarizationTextResponse)SerializationHelper.Deserialize(response, typeof(SummarizationTextResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
+        }*/
 
         /// <summary>
         /// Health check of GroupDocs.Translation

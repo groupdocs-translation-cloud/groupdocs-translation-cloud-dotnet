@@ -45,6 +45,11 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public string Text { get; set; }
 
         /// <summary>
+        /// Additional detailed info about request timings, for development purposes only
+        /// </summary>
+        [JsonProperty("details")]
+        public bool Details { get; set; } = false;
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>

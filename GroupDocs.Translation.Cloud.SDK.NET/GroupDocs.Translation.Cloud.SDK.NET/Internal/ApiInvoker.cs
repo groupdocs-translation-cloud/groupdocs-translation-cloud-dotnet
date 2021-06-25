@@ -217,6 +217,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         {
             var client = WebRequest.Create(path);
             client.Method = method;
+            client.Timeout = Timeout.Infinite;
 
             byte[] formData = null;
             if (formParams.Count > 0)

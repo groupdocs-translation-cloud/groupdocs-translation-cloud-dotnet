@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="TextResponse.cs">
+// <copyright company="Aspose" file="SummarizeDocumentRequest.cs">
 //   Copyright (c) 2020 GroupDocs.Translation for Cloud
 // </copyright>
 // <summary>
@@ -23,46 +23,32 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Translation.Cloud.SDK.NET.Model
+/*namespace GroupDocs.Translation.Cloud.SDK.NET.Model.Requests
 {
-    using System.Text;
-    using System.Collections.Generic;
-
-    public class TextResponse
+    /// <summary>
+    /// Request model for GetPostRunTranslationTask operation.
+    /// </summary>  
+    public class SummarizeDocumentRequest
     {
         /// <summary>
-        /// Status of translation task
-        /// </summary>
-        public string Status { get; set; }
-
-        /// <summary>
-        /// Message if translation was successful or text of error
-        /// </summary>
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Trannslated text
-        /// </summary>
-        public string Translation { get; set; }
-
-        /// <summary>
-        /// For analysing purposes only
-        /// </summary>
-        public Dictionary<string, long> Details { get; set; }
-
-        /// <summary>
-        /// Get the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
+        /// Initializes a new instance of the <see cref="SummarizeDocumentRequest"/> class.
+        /// </summary> 
+        public SummarizeDocumentRequest()
         {
-            var sb = new StringBuilder();
-            sb.Append("class TextResponse {\n");
-            sb.Append("  Status: ").Append(this.Status).Append("\n");
-            sb.Append("  Message: ").Append(this.Message).Append("\n");
-            sb.Append("  Translation: ").Append(this.Translation).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SummarizeDocumentRequest"/> class.
+        /// </summary>
+        /// <param name="UserRequest">String containing request to translate document</param>
+        public SummarizeDocumentRequest(string userRequest)
+        {
+            this.UserRequest = userRequest;
+        }
+
+        /// <summary>
+        /// Name of the file to recognize.
+        /// </summary>  
+        public string UserRequest { get; set; }
     }
-}
+}*/

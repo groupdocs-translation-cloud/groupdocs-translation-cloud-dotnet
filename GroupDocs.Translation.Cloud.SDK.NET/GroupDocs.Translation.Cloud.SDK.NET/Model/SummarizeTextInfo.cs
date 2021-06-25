@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="TextResponse.cs">
+// <copyright company="Aspose" file="SummarizeTextInfo.cs">
 //   Copyright (c) 2020 GroupDocs.Translation for Cloud
 // </copyright>
 // <summary>
@@ -23,32 +23,38 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Translation.Cloud.SDK.NET.Model
+/*namespace GroupDocs.Translation.Cloud.SDK.NET.Model
 {
     using System.Text;
-    using System.Collections.Generic;
-
-    public class TextResponse
+    using Newtonsoft.Json;
+    /// <summary>
+    /// Represents information about plain text.
+    /// </summary>
+    public class SummarizeTextInfo
     {
         /// <summary>
-        /// Status of translation task
+        /// Language  to summarize
         /// </summary>
-        public string Status { get; set; }
+        [JsonProperty("language")]
+        public string Language { get; set; }
 
         /// <summary>
-        /// Message if translation was successful or text of error
+        /// Text to summarize
         /// </summary>
-        public string Message { get; set; }
+        [JsonProperty("text")]
+        public string Text { get; set; }
 
         /// <summary>
-        /// Trannslated text
+        /// Min number of sentences
         /// </summary>
-        public string Translation { get; set; }
+        [JsonProperty("min")]
+        public int Min { get; set; }
 
         /// <summary>
-        /// For analysing purposes only
+        /// Max number of sentences
         /// </summary>
-        public Dictionary<string, long> Details { get; set; }
+        [JsonProperty("max")]
+        public int Max { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -57,12 +63,13 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TextResponse {\n");
-            sb.Append("  Status: ").Append(this.Status).Append("\n");
-            sb.Append("  Message: ").Append(this.Message).Append("\n");
-            sb.Append("  Translation: ").Append(this.Translation).Append("\n");
+            sb.Append("class SummarizeTextInfo {\n");
+            sb.Append("  Pair: ").Append(this.Language).Append("\n");
+            sb.Append("  Text: ").Append(this.Text).Append("\n");
+            sb.Append("  Min: ").Append(this.Min).Append("\n");
+            sb.Append("  Max: ").Append(this.Max).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
     }
-}
+}*/
