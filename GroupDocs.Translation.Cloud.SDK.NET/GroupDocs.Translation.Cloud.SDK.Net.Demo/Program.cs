@@ -67,9 +67,9 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             string folder = "";
             string pair = "en-fr";
             string format = "docx";
-            string outformat = "pdf";
+            string outformat = "";
             string storage = "First Storage";
-            string saveFile = "translated.pdf";
+            string saveFile = "translated_d.docx";
             string savePath = "";
             bool masters = false;
             List<int> elements = new List<int>();
@@ -91,6 +91,10 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, outformat, storage, saveFile, savePath, masters, elements);
             TranslationResponse response = api.RunTranslationTask(request);
             Console.WriteLine(response.Message);
+            foreach (var key in response.Details.Keys)
+            {
+                Console.WriteLine(key + ": " + response.Details[key]);
+            }
 
             DownloadFileRequest downloadRequest = new DownloadFileRequest { storageName = storage, path = saveFile };
             Stream result = fileApi.DownloadFile(downloadRequest);

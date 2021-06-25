@@ -1,82 +1,60 @@
-# GroupDocs.Translation Cloud
+![](https://img.shields.io/badge/api-v1.0-lightgrey) ![Nuget](https://img.shields.io/nuget/v/GroupDocs.translation-Cloud) ![Nuget](https://img.shields.io/nuget/dt/GroupDocs.translation-Cloud) [![GitHub license](https://img.shields.io/github/license/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet)](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet/blob/master/LICENSE)
+# .NET SDK for Translating Cloud Documents
 
-[GroupDocs.Translation Cloud](https://products.groupdocs.cloud/translation) is Cloud API to translate Word, Excel and PowerPoint files as well as plain text. 
+[GroupDocs.Translation Cloud](https://products.groupdocs.cloud/translation) is Cloud API to translate Word, Excel, PowerPoint and PDF files as well as plain text.
 
-For convenience of our .NET customers we introduce a simple SDK used to add translation of Microsoft Word documents, Microsoft Excel workbooks, Microsoft PowerPoint presentations and plain text to your app with merely a few lines of code.
+For convenience of our .NET customers we introduce a simple SDK used to add translation of Microsoft Word documents, Microsoft Excel workbooks, Microsoft PowerPoint presentations, Adobe PDF documents and plain text to your app with merely a few lines of code.
 
-In detail, it's a set of SDKs for document and plain text translation in our Cloud. It supports translaton of .doc, .docx, .docm, .xls, .xlsx, .xlsm, .ppt, .pptx, .pptm files. Just pass a specific file or text to the GroupDocs.Translation Cloud API, and it will translate and save translated file in our Cloud or will return translated text.
+In detail, it's a set of SDKs for document and plain text translation in our Cloud. It supports translation of .doc, .docx, .docm, .xls, .xlsx, .xlsm, .ppt, .pptx, .pptm, .pdf files. Just pass a specific file or text to the GroupDocs.Translation Cloud API, and it will translate and save translated file in our Cloud or will return translated text.
 
 It is easy to get started with GroupDocs.Translation Cloud, and there is nothing to install. Create an account at [GroupDocs Cloud](https://dashboard.groupdocs.cloud/#/) and get your application information, then you are ready to use [SDKs](https://github.com/groupdocs-translation-cloud)
 
-## Release 20.12
-- Conversion of translated files to other formats is added
+## Cloud Document Translation Features
 
-## Release 20.10
-- Microsoft PowerPoint presentations translation
-- French-Italian language pair support
-
-## Release 20.9
-- French-German language pair support
-
-## Release 20.8
-- GroupDocs.Translation Cloud SDK for [Java](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-java) and [Python](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-python) have been released
-
-## Release 20.7
-- English-Polish language pair support
-- Translation API functionality extended, allowing easier creation of translation requests
-
-## Release 20.6:
-- Translation of plain text
-- English-Arabic and English-Portuguese language pairs support 
-
-## Features:
-- Translation of Microsoft Word, Microsoft Excel and Microsoft PowerPoint documents
+- Translation of Microsoft Word, Microsoft Excel, Microsoft PowerPoint and Adobe PDF documents
 - [10 languages and 22 languages pairs support](https://docs.groupdocs.cloud/translation/supported-languages/)
-- Translation of tables, headers, footers, footnotes / endnotes, image captions in Word documents
+- Translation of tables, headers, footers, footnotes/endnotes, image captions in Word documents
 - Translation of cells, charts, tables, pivot tables in Excel documents
 - Translation of text frames, tables, headers, footers, charts, comments in PowerPoint presentations
 - Translation of plain text
-- Conversion of translated files to other formats like pdf, tiff, xps, etc.
-- API that allows you manage your files and folders in our Cloud
+- API that allows you to manage your files and folders in our Cloud
+
+## Supported Formats
+
+GroupDocs.Translation Cloud allows to translate Microsoft Word and Excel documents. User should specify format of document to translate putting in the request’s body:
+
+- **extension of word file (docx / docm / doc)** — to translate **Microsoft Word document**
+- **extension of excel file (xlsx / xlsm / xls)** — to translate **Microsoft Excel workbook**
+- **extension of powerpoint file (ppt / pptx / pptm)** — to translate **Microsoft PowerPoint presentation**
+- **extension of PDF file (pdf)** — to translate **Adobe PDF document** 
+
+Additionally, user could obtain translated file in any other format available for conversion. Just specify output format of translated document putting file extension in the request’s body:
+
+- **doc, docx** — docx, rtf, html, odt, txt, md, pdf, tiff, svg, xps
+- **xls, xlsx** — xlsx, xlsb, html, pdf, xps, ods, md, docx, pptx, tiff
+- **ppt, pptx** — pptx, pdf, tiff, html, xps, odp
+- **pdf** — docx, pptx, html, xps, svg
+
+## New Features & Enhancements Release 21.6
+- Adobe PDF documents translation
+
+## New Features & Enhancements Release 20.12
+- Conversion of translated files to other formats is added
+
+## New Features & Enhancements Release 20.10
+- Microsoft PowerPoint presentations translation
+- French-Italian language pair support
+
+## New Features & Enhancements Release 20.9
+- French-German language pair support
+
+## New Features & Enhancements Release 20.8
+- GroupDocs.Translation Java SDK
 
 ## How to use the SDK?
 
 Our API is completely independent of your operating system, database system, or development language. You can use any language and platform that supports HTTP to interact with our API. However, manually writing client code can be difficult, error-prone, and time-consuming. Therefore, we have provided and support [SDKs](https://github.com/groupdocs-translation-cloud) in many development languages to make it easier to integrate with us.
 
-## Example
-
-```csharp
-public TranslationResponse TranslateDocument(Configuration conf)
-{    
-    string name = "test.docx";
-    string folder = "";
-    string pair = "en-fr";
-    string format = "docx";
-    strting outFormat = "docx";
-    string storage = "First Storage";
-    string saveFile = "translation.docx";
-    string savePath = "";
-    bool masters = fasle;
-    List<int> elements = new List<int>();
-    
-    TranslationApi api = new TranslationApi(conf);
-    TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, outFormat, storage, saveFile, savePath, masters, elements);
-    TranslationResponse response = api.RunTranslationTask(request);
-    return response;
-}
-
-public TextResponse TranslateText(Configuration conf)
-{    
-    string pair = "en-fr";
-    string text = "Welcome to Paris";    
-    
-    TranslationApi api = new TranslationApi(conf);
-    TranslateTextRequest request = api.CreateTextRequest(pair, text);
-    TextResponse response = api.RunTranslationTextTask(request);
-    return response;
-}
-```
-_________________________
 
 ## Quickstart
 
@@ -92,12 +70,31 @@ Make a personal account on [GroupDocs Cloud Dashboard](https://dashboard.groupdo
   * Set Your ClientId & ClientSecret
   * Run
 
-_________________________
 
-## GroupDocs.Translation Cloud SDKs
+## Translate plain text
 
-||||||||
-|--------------|----------|-------|-------|-------|---------|---------|
-|[.NET](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet)|[Java](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-java)|PHP|Ruby|[Python](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-python)|Node.js|Android||
+```csharp
+// Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+string MyClientId = "";
+string MyClientSecret = "";
+
+// Create instance of the API
+var configuration = new Configuration(MyClientId, MyClientSecret);
+TranslationApi api = new TranslationApi(configuration);
+
+string pair = "en-fr";
+string text = "Welcome to Paris";
+
+TranslateTextRequest request = api.CreateTextRequest(pair, text);
+TextResponse response = api.RunTranslationTextTask(request);
+```
+
+  ## GroupDocs.Translation Cloud SDKs in Popular Languages
+
+  | .NET | Java | Python |
+  |---|---|---|
+  | [GitHub](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet) | [GitHub](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-java) |[GitHub](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-python) |
+  | [NuGet](https://www.nuget.org/packages/GroupDocs.translation-Cloud/) | [Maven](https://repository.groupdocs.cloud/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-translation-cloud) | [PIP](https://pypi.org/project/groupdocs-translation-cloud/) |
+
 
 [Home](https://www.groupdocs.cloud/) | [Product Page](https://products.groupdocs.cloud/translation/net) | [Docs](https://docs.groupdocs.cloud/translation/) | [Demos](https://products.groupdocs.app/viewer/family) | [API Reference](https://apireference.groupdocs.cloud/translation/) | [Examples](https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet) | [Blog](https://blog.groupdocs.cloud/category/translation/) | [Free Support](https://forum.groupdocs.cloud/c/translation) | [Free Trial](https://purchase.groupdocs.cloud/trial)
