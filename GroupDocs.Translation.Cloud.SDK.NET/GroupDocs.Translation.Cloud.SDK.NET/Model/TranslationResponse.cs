@@ -26,6 +26,7 @@
 namespace GroupDocs.Translation.Cloud.SDK.NET.Model
 {
     using System.Text;
+    using System.Collections.Generic;
 
     public class TranslationResponse
     {
@@ -38,6 +39,11 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         /// Message if translation was successful or text of error
         /// </summary>
         public string Message { get; set; }
+
+        /// <summary>
+        /// For abalysis purposes only
+        /// </summary>
+        public Dictionary<string, long> Details { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
