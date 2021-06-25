@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="FileInfo.cs">
+// <copyright company="Aspose" file="SummarizeFileInfo.cs">
 //   Copyright (c) 2020 GroupDocs.Translation for Cloud
 // </copyright>
 // <summary>
@@ -23,7 +23,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Translation.Cloud.SDK.NET.Model
+/*namespace GroupDocs.Translation.Cloud.SDK.NET.Model
 {
     using System.Text;
     using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
     /// Represents information about file.
     /// </summary>
 
-    public class FileInfo
+    public class SummarizeFileInfo
     {
         /// <summary>
         /// Name of the file
@@ -59,52 +59,40 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public string Format { get; set; }
 
         /// <summary>
-        /// format of translated document
+        /// format of summarized document
         /// </summary>
         [JsonProperty("outformat")]
         public string OutFormat { get; set; }
 
         /// <summary>
-        /// Path to save translated file
+        /// Path to save summarized file
         /// </summary>
         [JsonProperty("savepath")]
         public string SavePath { get; set; }
 
         /// <summary>
-        /// Path to save translated file
+        /// Path to save summarized file
         /// </summary>
         [JsonProperty("savefile")]
         public string SaveFile { get; set; }
 
         /// <summary>
-        /// Language pair to translate
+        /// Language to summarize
         /// </summary>
-        [JsonProperty("pair")]
-        public string Pair { get; set; }
+        [JsonProperty("language")]
+        public string Language { get; set; }
 
         /// <summary>
-        /// For development purposes only
+        /// Min number of sentences
         /// </summary>
-        [JsonProperty("origin")]
-        public string Origin { get; set; } = ".NET";
-
-        /// <summary>
-        /// For development purposes only
-        /// </summary>
-        [JsonProperty("details")]
-        public bool Details { get; set; } = false;
-
-        /// <summary>
-        /// If master slides should be translated
-        /// </summary>
-        [JsonProperty("masters")]
-        public bool Masters { get; set; }
+        [JsonProperty("min")]
+        public int Min { get; set; }
 
         ///<summary>
-        /// List of number of slides to translate
+        /// Max number of sentences
         /// </summary>
-        [JsonProperty("elements")]
-        public List<int> Elements { get; set; }
+        [JsonProperty("max")]
+        public int Max { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -113,7 +101,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FileInfo {\n");
+            sb.Append("class SummarizeFileInfo {\n");
             sb.Append("  Name: ").Append(this.Name).Append("\n");
             sb.Append("  Folder: ").Append(this.Folder).Append("\n");
             sb.Append("  Storage: ").Append(this.Storage).Append("\n");
@@ -121,11 +109,11 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
             sb.Append("  OutFormat: ").Append(this.OutFormat).Append("\n");
             sb.Append("  SavePath: ").Append(this.SavePath).Append("\n");
             sb.Append("  SaveFile: ").Append(this.SaveFile).Append("\n");
-            sb.Append("  Pair: ").Append(this.Pair).Append("\n");
-            sb.Append("  Masters: ").Append(this.Masters).Append("\n");
-            sb.Append("  Elements: ").Append(this.Elements).Append("\n");
+            sb.Append("  Language: ").Append(this.Language).Append("\n");
+            sb.Append("  Min: ").Append(this.Min).Append("\n");
+            sb.Append("  Max: ").Append(this.Max).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
-        } 
+        }
     }
-}
+}*/

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="TextResponse.cs">
+// <copyright company="Aspose" file="SummarizeTextResponse.cs">
 //   Copyright (c) 2020 GroupDocs.Translation for Cloud
 // </copyright>
 // <summary>
@@ -23,15 +23,14 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Translation.Cloud.SDK.NET.Model
+/*namespace GroupDocs.Translation.Cloud.SDK.NET.Model
 {
     using System.Text;
-    using System.Collections.Generic;
 
-    public class TextResponse
+    public class SummarizationTextResponse
     {
         /// <summary>
-        /// Status of translation task
+        /// Status of summarization task
         /// </summary>
         public string Status { get; set; }
 
@@ -43,12 +42,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         /// <summary>
         /// Trannslated text
         /// </summary>
-        public string Translation { get; set; }
-
-        /// <summary>
-        /// For analysing purposes only
-        /// </summary>
-        public Dictionary<string, long> Details { get; set; }
+        public string Summarization { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -60,9 +54,9 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
             sb.Append("class TextResponse {\n");
             sb.Append("  Status: ").Append(this.Status).Append("\n");
             sb.Append("  Message: ").Append(this.Message).Append("\n");
-            sb.Append("  Translation: ").Append(this.Translation).Append("\n");
+            sb.Append("  Translation: ").Append(this.Summarization).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
     }
-}
+}*/

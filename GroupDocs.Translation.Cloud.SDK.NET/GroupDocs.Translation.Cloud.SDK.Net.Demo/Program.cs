@@ -26,6 +26,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             TextResponse textResponse = new TextResponse();
             NET.Model.FileInfo fileInfo = new NET.Model.FileInfo();
             TextInfo textInfo = new TextInfo();
+            Dictionary<string, string[]> pairs = new Dictionary<string, string[]>();
 
             Console.WriteLine("Example #1:\nDocument translation of file in GroupDocs Storage");
             TranslateDocument(conf);
@@ -35,37 +36,47 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             textResponse = TranslateText(conf);
             Console.WriteLine(textResponse);
 
-            Console.WriteLine("Example #3:\nGet structure of document request");
-            fileInfo = GetDocRequest(conf);
-            Console.WriteLine(fileInfo.ToString());
-
-            Console.WriteLine("Example #4:\nGet structure of text request");
-            textInfo = GetTextRequest(conf);
-            Console.WriteLine(textInfo.ToString());
-
-            Console.WriteLine("Example #5:\nHealth check");
+            Console.WriteLine("Example #3:\nHealth check");
             hcResponse = HealthCheck(conf);
             Console.WriteLine(hcResponse);
 
+            Console.WriteLine("Example #4:\nGet structure of document request");
+            fileInfo = GetDocRequest(conf);
+            Console.WriteLine(fileInfo.ToString());
+
+            Console.WriteLine("Example #5:\nGet structure of text request");
+            textInfo = GetTextRequest(conf);
+            Console.WriteLine(textInfo.ToString());
+
+            Console.WriteLine("Example #6:\nGet language pairs");
+            pairs = GetLanguagePairs(conf);
+            foreach (var key in pairs.Keys)
+            {
+                Console.WriteLine(key + ": ");
+                foreach (var value in pairs[key])
+                {
+                    Console.WriteLine("- " + value);
+                }
+            }
         }
 
         static void TranslateDocument(Configuration conf)
         {
-            // local paths to upload and download files
-            string uploadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/test.docx";
-            string downloadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/translated.docx";
-
             // request parameters for translation
             string name = "test.docx";
             string folder = "";
             string pair = "en-fr";
             string format = "docx";
-            string outformat = "docx";
+            string outformat = "";
             string storage = "First Storage";
-            string saveFile = "translated.docx";
+            string saveFile = "translated_d.docx";
             string savePath = "";
             bool masters = false;
             List<int> elements = new List<int>();
+
+            // local paths to upload and download files
+            string uploadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/" + name;
+            string downloadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/" + saveFile;
 
             TranslationApi api = new TranslationApi(conf);
             FileApi fileApi = new FileApi(conf);
@@ -80,6 +91,10 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, outformat, storage, saveFile, savePath, masters, elements);
             TranslationResponse response = api.RunTranslationTask(request);
             Console.WriteLine(response.Message);
+            foreach (var key in response.Details.Keys)
+            {
+                Console.WriteLine(key + ": " + response.Details[key]);
+            }
 
             DownloadFileRequest downloadRequest = new DownloadFileRequest { storageName = storage, path = saveFile };
             Stream result = fileApi.DownloadFile(downloadRequest);
@@ -122,6 +137,13 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
         {
             TranslationApi api = new TranslationApi(conf);
             TranslationResponse response = api.RunHealthCheck();
+            return response;
+        }
+
+        static Dictionary<string, string[]> GetLanguagePairs(Configuration conf)
+        {
+            TranslationApi api = new TranslationApi(conf);
+            Dictionary<string, string[]> response = api.GetLanguagePairs();
             return response;
         }
     }
