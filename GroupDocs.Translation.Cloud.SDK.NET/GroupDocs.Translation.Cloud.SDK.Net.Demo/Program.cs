@@ -69,9 +69,11 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             string format = "docx";
             string outformat = "";
             string storage = "First Storage";
-            string saveFile = "translated_d.docx";
+            string saveFile = "test_fr.docx";
             string savePath = "";
             bool masters = false;
+            string origin = ".NET";
+            bool details = true;
             List<int> elements = new List<int>();
 
             // local paths to upload and download files
@@ -88,7 +90,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             FilesUploadResult uploadResult = fileApi.UploadFile(uploadRequest);
             Console.WriteLine("Files uploaded: " + uploadResult.Uploaded.Count);
                         
-            TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, outformat, storage, saveFile, savePath, masters, elements);
+            TranslateDocumentRequest request = api.CreateDocumentRequest(name, folder, pair, format, outformat, storage, saveFile, savePath, masters, elements, origin, details);
             TranslationResponse response = api.RunTranslationTask(request);
             Console.WriteLine(response.Message);
             foreach (var key in response.Details.Keys)
