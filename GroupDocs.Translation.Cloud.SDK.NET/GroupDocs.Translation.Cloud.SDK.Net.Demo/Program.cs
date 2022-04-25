@@ -113,7 +113,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
         {
             // add text for translation and language pair
             string pair = "en-fr";
-            string text = @"Eitan, Rafeil ""Rafun"" ";
+            string text = "Welcome to Paris";
 
             TranslationApi api = new TranslationApi(conf);
             TranslateTextRequest request = api.CreateTextRequest(pair, text);
