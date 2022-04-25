@@ -67,7 +67,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             string folder = "";
             string pair = "en-fr";
             string format = "docx";
-            string outformat = "";
+            string outformat = "docx";
             string storage = "First Storage";
             string saveFile = "test_fr.docx";
             string savePath = "";
@@ -113,7 +113,7 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
         {
             // add text for translation and language pair
             string pair = "en-fr";
-            string text = "Welcome to Paris";
+            string text = @"Eitan, Rafeil ""Rafun"" ";
 
             TranslationApi api = new TranslationApi(conf);
             TranslateTextRequest request = api.CreateTextRequest(pair, text);
