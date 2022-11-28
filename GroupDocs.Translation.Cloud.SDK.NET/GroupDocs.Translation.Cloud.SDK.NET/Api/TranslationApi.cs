@@ -26,6 +26,7 @@
 namespace GroupDocs.Translation.Cloud.SDK.NET
 {
     using System;
+    using System.IO;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using Newtonsoft.Json;
@@ -81,17 +82,62 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         }
 
         /// <summary>
+        /// Create request to check characters number
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="folder"></param>
+        /// <param name="format"></param>
+        /// <param name="storage"></param>
+        /// <param name="file"></param>
+        /// <param name="elements"></param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        public CheckCharactersNumberRequest CreateCheckRequest(string name,
+                                                               string folder,
+                                                               string format,
+                                                               string storage,
+                                                               Stream file,
+                                                               List<int> elements,
+                                                               string separator = ",")
+        {
+            CheckInfo checkInfo = new CheckInfo();
+            checkInfo.Name = name;
+            checkInfo.Folder = folder;
+            checkInfo.Format = format;
+            checkInfo.Storage = storage;
+            checkInfo.Elements = elements;
+            checkInfo.Separator = separator;
+            byte[] document = new byte[file.Length];
+            for (int copied = 0; copied < file.Length;)
+            {
+                copied += file.Read(document, copied, (int)(file.Length - copied));
+            }
+            checkInfo.File = document;
+            string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(checkInfo));
+            CheckCharactersNumberRequest request = new CheckCharactersNumberRequest(userRequest);
+            return request;
+        }
+        
+        /// <summary>
         /// Create request for document translation
         /// </summary>
         /// <param name="name"></param>
         /// <param name="folder"></param>
         /// <param name="pair"></param>
         /// <param name="format"></param>
+        /// <param name="outformat"></param>
         /// <param name="storage"></param>
         /// <param name="savefile"></param>
         /// <param name="savepath"></param>
         /// <param name="masters"></param>
         /// <param name="elements"></param>
+        /// <param name="isValid"></param>
+        /// <param name="origin"></param>
+        /// <param name="details"></param>
+        /// <param name="optimizePdfFontSize"
+        /// <param name="separator"></param>
+        /// <param name="shortCodeDict"></param>
+        /// <param name="frontMatterDict"></param>
         /// <returns></returns>
         public TranslateDocumentRequest CreateDocumentRequest(string name,
                                                               string folder,
@@ -103,8 +149,13 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
                                                               string savepath,
                                                               bool masters,
                                                               List<int> elements,
+                                                              bool isValid = false,
                                                               string origin = ".NET",
-                                                              bool details = false)
+                                                              bool details = false,
+                                                              bool optimizePdfFontSize = false,
+                                                              string separator = ",",
+                                                              Dictionary<string, List<string>> shortCodeDict = null,
+                                                              Dictionary<int, List<List<string>>> frontMatterDict = null)
         {
             Model.FileInfo fileInfo = new Model.FileInfo();
             fileInfo.Folder = folder;
@@ -119,6 +170,11 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
             fileInfo.Elements = elements;
             fileInfo.Origin = origin;
             fileInfo.Details = details;
+            fileInfo.IsValid = isValid;
+            fileInfo.Separator = separator;
+            fileInfo.ShortCodeDict = shortCodeDict;
+            fileInfo.FrontMatterDict = frontMatterDict;
+            fileInfo.OptimizePdfFontSize = optimizePdfFontSize;
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(fileInfo));
             TranslateDocumentRequest request = new TranslateDocumentRequest(userRequest);
             return request;
@@ -187,22 +243,69 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// <summary>
         /// Create request for text translation
         /// </summary>
-        /// <param name="language"></param>
+        /// <param name="pair"></param>
         /// <param name="text"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
+        /// <param name="textType"></param>
+        /// <param name="details"></param>
+        /// <param name="origin"></param>
         /// <returns></returns>
-        public TranslateTextRequest CreateTextRequest(string pair, string text, bool details = false)
+        public TranslateTextRequest CreateTextRequest(string pair, string text, string textType = "text", bool details = false, string origin = ".NET")
         {
             TextInfo textInfo = new TextInfo();
             textInfo.Pair = pair;
             textInfo.Text = text;
+            textInfo.Type = textType;
+            textInfo.Origin = origin;
             textInfo.Details = details;
             string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(textInfo,
                                                                                       Formatting.None,
                                                                                       new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml }));
             TranslateTextRequest request = new TranslateTextRequest(userRequest);
             return request;
+        }
+
+        /// <summary>
+        /// Check limit of characters number
+        /// </summary>
+        /// <param name="request"><see cref="CheckCharactersNumberRequest"/></param>
+        /// <returns><see cref="CheckResponse"/></returns>
+        public CheckResponse RunCheckTask(CheckCharactersNumberRequest request)
+        {
+            if (request.UserRequest == null)
+            {
+                throw new ApiException(400, "Empty request");
+            }
+
+            var resourcePath = this.configuration.GetApiRootUrl() + "/check";
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "POST",
+                    request.UserRequest,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (CheckResponse)SerializationHelper.Deserialize(response, typeof(CheckResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
         }
 
         /// <summary>

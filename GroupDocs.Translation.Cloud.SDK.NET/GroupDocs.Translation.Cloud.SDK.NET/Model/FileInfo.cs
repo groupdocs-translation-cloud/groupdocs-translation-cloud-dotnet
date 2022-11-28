@@ -95,16 +95,49 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public bool Details { get; set; } = false;
 
         /// <summary>
+        /// If file is already checked for characters limit
+        /// </summary>
+        [JsonProperty("isvalid")]
+        public bool IsValid { get; set; } = false;
+
+        /// <summary>
         /// If master slides should be translated
         /// </summary>
         [JsonProperty("masters")]
-        public bool Masters { get; set; }
+        public bool Masters { get; set; } 
 
         ///<summary>
         /// List of number of slides to translate
         /// </summary>
         [JsonProperty("elements")]
         public List<int> Elements { get; set; }
+
+        /// <summary>
+        /// Separator for CSV files
+        /// </summary>
+        [JsonProperty("separator")]
+        public string Separator { get; set; } = ",";
+
+
+        /// <summary>
+        /// Dictionary of short code elements to translate, key is short code name and value is list of parameters names
+        /// </summary>
+        [JsonProperty("shortcodedict")]
+        public Dictionary<string, List<string>> ShortCodeDict { get; set; } = null;
+
+        /// <summary>
+        /// Dictionary of front matter elements to translate, key is zero based index, value is list of paths
+        /// </summary>
+        [JsonProperty("frontmatterdict")]
+        public Dictionary<int, List<List<string>>> FrontMatterDict { get; set; } = null;
+
+        /// <summary>
+        /// Optimization of font size in PDF files to fit the paragraph rectangle
+        /// </summary>
+        [JsonProperty("optimizepdffontsize")]
+        public bool OptimizePdfFontSize { get; set; } = false;
+
+
 
         /// <summary>
         /// Get the string presentation of the object
@@ -123,7 +156,11 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
             sb.Append("  SaveFile: ").Append(this.SaveFile).Append("\n");
             sb.Append("  Pair: ").Append(this.Pair).Append("\n");
             sb.Append("  Masters: ").Append(this.Masters).Append("\n");
+            sb.Append("  OptimizePdfFontSize: ").Append(this.OptimizePdfFontSize).Append("\n");
             sb.Append("  Elements: ").Append(this.Elements).Append("\n");
+            sb.Append("  Separator: ").Append(this.Separator).Append("\n");
+            sb.Append("  CodeList: ").Append(this.ShortCodeDict).Append("\n");
+            sb.Append("  FrontLists: ").Append(this.FrontMatterDict).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         } 
