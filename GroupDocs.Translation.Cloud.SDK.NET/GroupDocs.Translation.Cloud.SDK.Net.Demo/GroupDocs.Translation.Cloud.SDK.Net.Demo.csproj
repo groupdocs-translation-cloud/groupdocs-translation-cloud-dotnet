@@ -8,4 +8,10 @@
   <ItemGroup>
     <ProjectReference Include="..\GroupDocs.Translation.Cloud.SDK.NET\GroupDocs.Translation.Cloud.SDK.NET.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Aspose.Words" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspose.Words" Version="22.5.0" />
+  </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="TranslationResponse.cs">
+// <copyright company="Aspose" file="CheckInfo.cs">
 //   Copyright (c) 2020 GroupDocs.Translation for Cloud
 // </copyright>
 // <summary>
@@ -27,28 +27,52 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
 {
     using System.Text;
     using System.Collections.Generic;
+    using System.IO;
+    using Newtonsoft.Json;
 
-    public class TranslationResponse
+    public class CheckInfo
     {
         /// <summary>
-        /// Status of translation task
+        /// Name of the file
         /// </summary>
-        public string Status { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Message if translation was successful or text of error
+        /// Path to folder
         /// </summary>
-        public string Message { get; set; }
+        [JsonProperty("folder")]
+        public string Folder { get; set; }
 
         /// <summary>
-        /// For analysis purposes only
+        /// Storage where file is uploaded
         /// </summary>
-        public Dictionary<string, long> Details { get; set; }
+        [JsonProperty("storage")]
+        public string Storage { get; set; }
 
         /// <summary>
-        /// For analysis purposes only
+        /// "docx" if Word document, "xlsx" if Excel workbook, "pptx" if Powerpoint presentation
         /// </summary>
-        public List<string> Errors { get; set; }
+        [JsonProperty("format")]
+        public string Format { get; set; }
+
+        /// <summary>
+        /// byte array of file data
+        /// </summary>
+        [JsonProperty("file")]
+        public byte[] File { get; set; }
+
+        ///<summary>
+        /// List of number of slides / worksheets / pages to check
+        /// </summary>
+        [JsonProperty("elements")]
+        public List<int> Elements { get; set; }
+
+        /// <summary>
+        /// Separator for CSV files
+        /// </summary>
+        [JsonProperty("separator")]
+        public string Separator { get; set; } = ",";
 
         /// <summary>
         /// Get the string presentation of the object
@@ -57,9 +81,13 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TranslationResponse {\n");
-            sb.Append("  Status: ").Append(this.Status).Append("\n");
-            sb.Append("  Message: ").Append(this.Message).Append("\n");
+            sb.Append("class CheckInfo {\n");
+            sb.Append("  Name: ").Append(this.Name).Append("\n");
+            sb.Append("  Folder: ").Append(this.Folder).Append("\n");
+            sb.Append("  Storage: ").Append(this.Storage).Append("\n");
+            sb.Append("  Format: ").Append(this.Format).Append("\n");
+            sb.Append("  Elements: ").Append(this.Elements).Append("\n");
+            sb.Append("  Separator: ").Append(this.Separator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

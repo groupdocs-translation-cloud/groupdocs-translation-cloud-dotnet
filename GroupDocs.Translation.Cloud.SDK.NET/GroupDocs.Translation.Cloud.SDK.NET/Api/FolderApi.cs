@@ -79,6 +79,9 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
                 case AuthType.ExternalAuth:
                     requestHandlers.Add(new ExternalAuthorizationRequestHandler(this.configuration));
                     break;
+                case AuthType.JWT:
+                    requestHandlers.Add(new JwtRequestHandler(this.configuration));
+                    break;
             }
 
             requestHandlers.Add(new DebugLogRequestHandler(this.configuration));

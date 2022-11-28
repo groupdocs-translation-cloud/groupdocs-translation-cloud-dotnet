@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="TranslationResponse.cs">
+// <copyright company="Aspose" file="CheckResponse.cs">
 //   Copyright (c) 2020 GroupDocs.Translation for Cloud
 // </copyright>
 // <summary>
@@ -28,27 +28,22 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
     using System.Text;
     using System.Collections.Generic;
 
-    public class TranslationResponse
+    public class CheckResponse
     {
         /// <summary>
-        /// Status of translation task
+        /// Status of checking the number of characters task
         /// </summary>
         public string Status { get; set; }
 
         /// <summary>
-        /// Message if translation was successful or text of error
+        /// Message if check was successful and file was uploaded or text of error
         /// </summary>
         public string Message { get; set; }
 
         /// <summary>
-        /// For analysis purposes only
+        /// Number of characters in file
         /// </summary>
-        public Dictionary<string, long> Details { get; set; }
-
-        /// <summary>
-        /// For analysis purposes only
-        /// </summary>
-        public List<string> Errors { get; set; }
+        public int Result { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -57,9 +52,10 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TranslationResponse {\n");
+            sb.Append("class CheckResponse {\n");
             sb.Append("  Status: ").Append(this.Status).Append("\n");
             sb.Append("  Message: ").Append(this.Message).Append("\n");
+            sb.Append("  Result: ").Append(this.Result).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -25,6 +25,7 @@
 
 namespace GroupDocs.Translation.Cloud.SDK.NET.Model
 {
+    using System;
     using System.Text;
     using Newtonsoft.Json;
     /// <summary>
@@ -49,6 +50,20 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         /// </summary>
         [JsonProperty("details")]
         public bool Details { get; set; } = false;
+
+        /// <summary>
+        /// for analysis only
+        /// </summary>
+        [JsonProperty("origin")]
+        public string Origin { get; set; }
+
+        /// <summary>
+        /// "text" if plain text (default), "md" if contains markdown syntax
+        /// </summary>
+        [JsonProperty("type")]
+        public string Type { get; set; } = "text";
+
+
         /// <summary>
         /// Get the string presentation of the object
         /// </summary>
@@ -59,6 +74,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
             sb.Append("class TextInfo {\n");
             sb.Append("  Pair: ").Append(this.Pair).Append("\n");
             sb.Append("  Text: ").Append(this.Text).Append("\n");
+            sb.Append("  Type: ").Append(this.Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
