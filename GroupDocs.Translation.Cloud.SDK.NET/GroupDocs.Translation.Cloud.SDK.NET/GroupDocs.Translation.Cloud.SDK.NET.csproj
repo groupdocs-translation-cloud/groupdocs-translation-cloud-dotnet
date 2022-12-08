@@ -19,7 +19,7 @@ In detail, it's a set of SDKs for document and plain text translation in our Clo
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Api\" />
