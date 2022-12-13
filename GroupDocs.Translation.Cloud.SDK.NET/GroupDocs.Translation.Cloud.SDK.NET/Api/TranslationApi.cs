@@ -82,6 +82,24 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         }
 
         /// <summary>
+        /// Create request to get hugo structure
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="folder"></param>
+        /// <param name="storage"></param>
+        /// <returns>"</returns>
+        public GetHugoStructureRequest CreateHugoStructureRequest(string name, string folder, string storage)
+        {
+            HugoInfo hugoInfo = new HugoInfo();
+            hugoInfo.Name = name;
+            hugoInfo.Folder = folder;
+            hugoInfo.Storage = storage;
+            string userRequest = String.Format("'[{0}]'", JsonConvert.SerializeObject(hugoInfo));
+            GetHugoStructureRequest request = new GetHugoStructureRequest(userRequest);
+            return request;
+        }
+
+        /// <summary>
         /// Create request to check characters number
         /// </summary>
         /// <param name="name"></param>
@@ -154,7 +172,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
                                                               bool details = false,
                                                               bool optimizePdfFontSize = false,
                                                               string separator = ",",
-                                                              Dictionary<string, List<string>> shortCodeDict = null,
+                                                              Dictionary<int, List<string>> shortCodeDict = null,
                                                               Dictionary<int, List<List<string>>> frontMatterDict = null)
         {
             Model.FileInfo fileInfo = new Model.FileInfo();
@@ -262,6 +280,50 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
                                                                                       new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeHtml }));
             TranslateTextRequest request = new TranslateTextRequest(userRequest);
             return request;
+        }
+
+        /// <summary>
+        /// Get hugo structure in markdown file
+        /// </summary>
+        /// <param name="request"><see cref="GetHugoStructureRequest"/></param>
+        /// <returns><see cref="HugoResponse"/></returns>
+        public HugoResponse RunHugoStructureTask(GetHugoStructureRequest request)
+        {
+            if (request.UserRequest == null)
+            {
+                throw new ApiException(400, "Empty request");
+            }
+
+            var resourcePath = this.configuration.GetApiRootUrl() + "/hugo";
+            resourcePath = Regex
+                        .Replace(resourcePath, "\\*", string.Empty)
+                        .Replace("&amp;", "&")
+                        .Replace("/?", "?");
+
+            try
+            {
+                var response = this.apiInvoker.InvokeApi(
+                    resourcePath,
+                    "POST",
+                    request.UserRequest,
+                    null,
+                    null);
+                if (response != null)
+                {
+                    return (HugoResponse)SerializationHelper.Deserialize(response, typeof(HugoResponse));
+                }
+
+                return null;
+            }
+            catch (ApiException ex)
+            {
+                if (ex.ErrorCode == 404)
+                {
+                    return null;
+                }
+
+                throw;
+            }
         }
 
         /// <summary>

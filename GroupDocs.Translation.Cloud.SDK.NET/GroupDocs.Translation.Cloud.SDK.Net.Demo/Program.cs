@@ -7,6 +7,9 @@ using GroupDocs.Translation.Cloud.SDK.NET.Model.Requests;
 using Aspose.Words;
 using System.Web;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+
 namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
 {
     class Program
@@ -21,7 +24,6 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             if (string.IsNullOrEmpty(conf.ClientId) || string.IsNullOrEmpty(conf.ClientSecret))
                 throw new Exception("Please, get and set your ClientId and ClientSecret. https://dashboard.groupdocs.cloud/#/");
 
-
             TranslationResponse hcResponse = new TranslationResponse();
             TextResponse textResponse = new TextResponse();
             NET.Model.FileInfo fileInfo = new NET.Model.FileInfo();
@@ -30,7 +32,6 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
 
             Console.WriteLine("Example #1:\nDocument translation of file in GroupDocs Storage");
             TranslateDocument(conf);
-
 
             Console.WriteLine("Example #2:\nText translation");
             textResponse = TranslateText(conf);
@@ -58,23 +59,25 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
                     Console.WriteLine("- " + value);
                 }
             }
+
             Console.WriteLine("Example #7:\n Check number of characters");
             CheckCharacters(conf);
+
+            Console.WriteLine("Exaample #1:\n Getting Hugo file structure");
+            GetHugoStructure(conf);
         }
 
         static void CheckCharacters(Configuration conf)
         {
+            // provide storage that you use
             string name = "test.docx";
             string folder = "";
             string format = "docx";
-            string storage = "First Storage";
+            string storage = "";
             List<int> elements = new List<int>();
-            //elements.Add(0);
 
             string uploadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/" + name;
             Stream stream = File.Open(uploadPath, FileMode.Open);
-            //Document document = new Document(stream);
-            //Console.WriteLine("Number of chars: " + document.BuiltInDocumentProperties.Characters);
             TranslationApi api = new TranslationApi(conf);
 
             CheckCharactersNumberRequest request = api.CreateCheckRequest(name, folder, format, storage, stream, elements);
@@ -82,25 +85,93 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             Console.WriteLine(response);
         }
 
+        static void GetHugoStructure(Configuration conf)
+        {
+            //provide storage name that you use
+            string name = "hugo_test.md";
+            string folder = "";
+            string storage = "";
+
+            string uploadPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "/" + name;
+            FileApi fileApi = new FileApi(conf);
+
+            Stream stream = File.Open(uploadPath, FileMode.Open);
+            UploadFileRequest uploadRequest = new UploadFileRequest { File = stream, path = name, storageName = storage };
+            FilesUploadResult uploadResult = fileApi.UploadFile(uploadRequest);
+            Console.WriteLine("Files uploaded: " + uploadResult.Uploaded.Count);
+            stream.Dispose();
+            TranslationApi api = new TranslationApi(conf);
+            GetHugoStructureRequest request = api.CreateHugoStructureRequest(name, folder, storage);
+            HugoResponse response = api.RunHugoStructureTask(request);
+
+            if (response.FrontMatter != null)
+            {
+
+                foreach(var key in response.FrontMatter.Keys)
+                {
+                    Console.WriteLine($"Front matter {key}");
+                    foreach (var path in response.FrontMatter[key])
+                    {
+                        foreach (var s in path)
+                        {
+                            Console.Write(s + ": ");
+                        }
+                        Console.WriteLine();
+                    }
+                }
+            }
+
+            if (response.ShortCodes != null)
+            {
+                foreach (var key in response.ShortCodes.Keys)
+                {
+                    Console.WriteLine($"Short code {key}");
+                    foreach (var path in response.ShortCodes[key])
+                    {
+                        foreach (var s in path)
+                        {
+                            Console.Write(s + ": ");
+                        }
+                        Console.WriteLine();
+                    }
+                }
+            }
+        }
+
         static void TranslateDocument(Configuration conf)
         {
             // request parameters for translation
-            string name = "test.docx";
-            string uploadName = "test.docx";
+            string name = "test_file.docx";
+            string uploadName = "test_file.docx";
             string folder = "";
             string pair = "en-fr";
             string format = "docx";
             string outformat = "docx";
-            string storage = "First Storage";
-            string saveFile = "test-fr.docx";
+            string storage = "";
+            string saveFile = "test_file_fr.docx";
             string savePath = "";
             bool isValid = false;
             bool masters = false;
             bool optimizePdf = false;
             string origin = ".NET";
             bool details = false;
-            List<List<string>> firstFrontLists = new List<List<string>>();
-            Dictionary<int, List<List<string>>> frontMatterDict = new Dictionary<int, List<List<string>>>();
+
+            Dictionary<int, List<List<string>>> frontMatterDict = new Dictionary<int, List<List<string>>>()
+            {
+                { 0, new List<List<string>>()
+                    {
+                        new List<string>() { "title" },
+                        new List<string>() { "frontmatter", "title" },
+                        new List<string>() { "frontmatter", "description" }
+                    }
+                }
+            };
+
+            Dictionary<int, List<string>> shortCodeDict = new Dictionary<int, List<string>>()
+            {
+                { 0, new List<string>() { "1", "3" } }
+            };
+
             List<int> elements = new List<int>();
 
             // local paths to upload and download files
@@ -117,13 +188,9 @@ namespace GroupDocs.Translation.Cloud.SDK.Net.Demo
             FilesUploadResult uploadResult = fileApi.UploadFile(uploadRequest);
             Console.WriteLine("Files uploaded: " + uploadResult.Uploaded.Count);
                         
-            TranslateDocumentRequest request = api.CreateDocumentRequest(uploadName, folder, pair, format, outformat, storage, saveFile, savePath, masters, elements, isValid, origin, details, optimizePdf, ",", null, frontMatterDict);
+            TranslateDocumentRequest request = api.CreateDocumentRequest(uploadName, folder, pair, format, outformat, storage, saveFile, savePath, masters, elements, isValid, origin, details, optimizePdf, ",", shortCodeDict, frontMatterDict);
             TranslationResponse response = api.RunTranslationTask(request);
             Console.WriteLine(response.Message);
-            foreach (var key in response.Details.Keys)
-            {
-                Console.WriteLine(key + ": " + response.Details[key]);
-            }
 
             DownloadFileRequest downloadRequest = new DownloadFileRequest { storageName = storage, path = saveFile };
             Stream result = fileApi.DownloadFile(downloadRequest);

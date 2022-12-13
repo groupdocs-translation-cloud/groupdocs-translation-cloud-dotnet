@@ -108,7 +108,7 @@ You can put the following information in the requests body to translate a docume
 - **elements** — slide pages to translate (only for presentations, pass empty list to translate whole presentation)
 - **separator** — delimiter for CSV files
 - **optimizepdffontsize** - if true, font size will be selected, that translation will fit paragraph rectangle
-- **shortcodedict** — dictionary of short code syntax in Hugo to translate, where the key is short code name, and value is a list of parameters names that require translation
+- **shortcodedict** — dictionary of short code syntax in Hugo to translate, where the key is zero based short code index, and value is a list of parameters names that require translation
 - **frontmatterdict** — dictionary of front matter syntax in Hugo to translate, where the key is zero based front matter index and value is list of paths to values that require translation, each path is also a list.
 
 To translate plain text the following information should be put in the requests body:

@@ -123,7 +123,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET.Model
         /// Dictionary of short code elements to translate, key is short code name and value is list of parameters names
         /// </summary>
         [JsonProperty("shortcodedict")]
-        public Dictionary<string, List<string>> ShortCodeDict { get; set; } = null;
+        public Dictionary<int, List<string>> ShortCodeDict { get; set; } = null;
 
         /// <summary>
         /// Dictionary of front matter elements to translate, key is zero based index, value is list of paths

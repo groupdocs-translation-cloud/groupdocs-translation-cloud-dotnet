@@ -3,14 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>GroupDocs.Translation-Cloud</PackageId>
-    <PackageVersion>22.11.0</PackageVersion>
+    <PackageVersion>22.12.0</PackageVersion>
     <Authors>GroupDocs</Authors>
     <Copyright>Aspose 2002-2022. All Rights Reserved.</Copyright>
     <PackageIconUrl>https://www.groupdocs.cloud/templates/groupdocscloud/images/sdk/272x272/groupdocs_translation-for-net.png</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <Owners>Aspose</Owners>
     <PackageProjectUrl>https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet</PackageProjectUrl>
-    <PackageReleaseNotes>https://docs.groupdocs.cloud/translation/groupdocs-translation-for-cloud-22-11-release-notes/</PackageReleaseNotes>
+    <PackageReleaseNotes>https://docs.groupdocs.cloud/translation/groupdocs-translation-for-cloud-22-12-release-notes/</PackageReleaseNotes>
     <PackageTags>GroupDocs.Translation GroupDocs Cloud Translation Translate Translator Text Document PDF Office Word DOC DOCX Excel Workbook Spreadsheet XLS XLSX PowerPoint Presentation PPT PPTX Markdown </PackageTags>
     <Title>GroupDocs.Translation Cloud SDK for .NET</Title>
     <Description>GroupDocs.Translation Cloud is a simple SDK used to add translation of Microsoft Word documents, Microsoft Excel  workbooks, Microsoft PowerPoint presentations, Adobe PDF documents, Markdown files, OpeDocument files, text files and plain text to your app with merely a few lines of code.
