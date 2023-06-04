@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Translation.Api", "src\GroupDocs.Translation.Api\GroupDocs.Translation.Api.csproj", "{841B5A68-3CD9-40AD-AA9D-E9CF7269E2CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Translation.Api", "src\GroupDocs.Translation.Api\GroupDocs.Translation.Api.csproj", "{4394980E-9585-4C0C-A6C8-E113C9036BEF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Translation.Api.Test", "src\GroupDocs.Translation.Api.Test\GroupDocs.Translation.Api.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{841B5A68-3CD9-40AD-AA9D-E9CF7269E2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{841B5A68-3CD9-40AD-AA9D-E9CF7269E2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{841B5A68-3CD9-40AD-AA9D-E9CF7269E2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{841B5A68-3CD9-40AD-AA9D-E9CF7269E2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4394980E-9585-4C0C-A6C8-E113C9036BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4394980E-9585-4C0C-A6C8-E113C9036BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4394980E-9585-4C0C-A6C8-E113C9036BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4394980E-9585-4C0C-A6C8-E113C9036BEF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

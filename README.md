@@ -78,26 +78,29 @@ namespace Example
             config.OAuthClientSecret = "YOU_CLIENT_SECRET";
 
             var apiInstance = new TransportApi(config);
+            var format = "Unknown";  // string | Input file format (default to Unknown)
             var outFormat = "outFormat_example";  // string | output file format
             var source = "\"en\"";  // string | Language of original file (default to "en")
             var targets = new List<string>(); // List<string> | List of target languages
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var format = "Unknown";  // string | Input file format (optional)  (default to Unknown)
             var url = "url_example";  // string | Link to file for translation (optional) 
             var masters = false;  // bool? | If translate master slides (optional)  (default to false)
+            var formatting = true;  // bool? | If document's formatting should be preserved, default true (optional)  (default to true)
             var origin = "origin_example";  // string | for analysis only (optional) 
+            var route = "route_example";  // string | endpoints route (optional) 
+            var separator = "separator_example";  // string | Separator in files (optional) 
             var elements = new List<int>(); // List<int> | List of slides to translate (optional) 
             var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
 
             try
             {
-                // Translate document
-                StatusResponse result = apiInstance.DocumentPost(outFormat, source, targets, file, format, url, masters, origin, elements, savingMode);
+                // Translate any supported file
+                StatusResponse result = apiInstance.AllFormatsPost(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, savingMode);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling TransportApi.DocumentPost: " + e.Message );
+                Debug.Print("Exception when calling TransportApi.AllFormatsPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -114,9 +117,21 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*TransportApi* | [**DocumentPost**](docs\TransportApi.md#documentpost) | **POST** /document | Translate document
+*TransportApi* | [**AllFormatsPost**](docs\TransportApi.md#allformatspost) | **POST** /all-formats | Translate any supported file
+*TransportApi* | [**AvailableLanguagesGet**](docs\TransportApi.md#availablelanguagesget) | **GET** /available-languages | Return list of available language pairs
+*TransportApi* | [**CsvPost**](docs\TransportApi.md#csvpost) | **POST** /csv | Translate CSV and TSV files
+*TransportApi* | [**DocumentPost**](docs\TransportApi.md#documentpost) | **POST** /document | Translate Microsoft Word documents, rtf, txt, odt
 *TransportApi* | [**DocumentRequestIdGet**](docs\TransportApi.md#documentrequestidget) | **GET** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful
-*TransportApi* | [**ListOfAvailableLanguagesGet**](docs\TransportApi.md#listofavailablelanguagesget) | **GET** /listOfAvailableLanguages | Return list of available language pairs
+*TransportApi* | [**HcGet**](docs\TransportApi.md#hcget) | **GET** /hc | Health check for all services.
+*TransportApi* | [**HtmlPost**](docs\TransportApi.md#htmlpost) | **POST** /html | Translate HTML files
+*TransportApi* | [**HugoPost**](docs\TransportApi.md#hugopost) | **POST** /hugo | Get hugo syntax structure from markdown file
+*TransportApi* | [**MarkdownPost**](docs\TransportApi.md#markdownpost) | **POST** /markdown | Translate Markdown files
+*TransportApi* | [**OcrFilePost**](docs\TransportApi.md#ocrfilepost) | **POST** /ocr-file | Translate image or scanned pdf and return file
+*TransportApi* | [**OcrTextPost**](docs\TransportApi.md#ocrtextpost) | **POST** /ocr-text | Translate text on image or scanned pdf
+*TransportApi* | [**PdfPost**](docs\TransportApi.md#pdfpost) | **POST** /pdf | Translate pdf files
+*TransportApi* | [**PresentationPost**](docs\TransportApi.md#presentationpost) | **POST** /presentation | Translate Microsoft PowerPoint presentations, odp
+*TransportApi* | [**ResourcesPost**](docs\TransportApi.md#resourcespost) | **POST** /resources | Translate RESX files
+*TransportApi* | [**SpreadsheetsPost**](docs\TransportApi.md#spreadsheetspost) | **POST** /spreadsheets | Translate Microsoft Excel workbooks, ods
 *TransportApi* | [**TextPost**](docs\TransportApi.md#textpost) | **POST** /text | Translate text
 *TransportApi* | [**TextRequestIdGet**](docs\TransportApi.md#textrequestidget) | **GET** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful
 
@@ -124,12 +139,12 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
- - [Model.CloudFileRequest](docs\CloudFileRequest.md)
  - [Model.CloudFileResponse](docs\CloudFileResponse.md)
- - [Model.CloudFileResponseWithDetails](docs\CloudFileResponseWithDetails.md)
+ - [Model.CloudHugoResponse](docs\CloudHugoResponse.md)
  - [Model.CloudTextResponse](docs\CloudTextResponse.md)
- - [Model.LanguagePairData](docs\LanguagePairData.md)
+ - [Model.HealthCheckStatus](docs\HealthCheckStatus.md)
  - [Model.StatusResponse](docs\StatusResponse.md)
+ - [Model.UrlFileInfo](docs\UrlFileInfo.md)
 
 
 <a name="documentation-for-authorization"></a>

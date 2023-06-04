@@ -26,14 +26,15 @@ using OpenAPIDateConverter = GroupDocs.Translation.Api.Client.OpenAPIDateConvert
 namespace GroupDocs.Translation.Api.Model
 {
     /// <summary>
-    /// CloudFileResponse
+    /// CloudHugoResponse
     /// </summary>
-    [DataContract(Name = "CloudFileResponse")]
-    public partial class CloudFileResponse : IEquatable<CloudFileResponse>, IValidatableObject
+    [DataContract(Name = "CloudHugoResponse")]
+    public partial class CloudHugoResponse : IEquatable<CloudHugoResponse>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// \&quot;ok\&quot; if structure parsing was successful, \&quot;error\&quot; if error occured
         /// </summary>
+        /// <value>\&quot;ok\&quot; if structure parsing was successful, \&quot;error\&quot; if error occured</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -407,42 +408,46 @@ namespace GroupDocs.Translation.Api.Model
 
 
         /// <summary>
-        /// Gets or Sets Status
+        /// \&quot;ok\&quot; if structure parsing was successful, \&quot;error\&quot; if error occured
         /// </summary>
+        /// <value>\&quot;ok\&quot; if structure parsing was successful, \&quot;error\&quot; if error occured</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CloudFileResponse" /> class.
+        /// Initializes a new instance of the <see cref="CloudHugoResponse" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="message">message.</param>
-        /// <param name="urls">urls.</param>
-        /// <param name="scores">scores.</param>
-        public CloudFileResponse(StatusEnum? status = default(StatusEnum?), string message = default(string), Dictionary<string, UrlFileInfo> urls = default(Dictionary<string, UrlFileInfo>), Dictionary<string, float?> scores = default(Dictionary<string, float?>))
+        /// <param name="status">\&quot;ok\&quot; if structure parsing was successful, \&quot;error\&quot; if error occured.</param>
+        /// <param name="message">If file was parsed correctly or text of error.</param>
+        /// <param name="frontmatters">Structure of front matter syntax.</param>
+        /// <param name="shortcodes">Structure of short code syntax.</param>
+        public CloudHugoResponse(StatusEnum? status = default(StatusEnum?), string message = default(string), Dictionary<string, List<List<string>>> frontmatters = default(Dictionary<string, List<List<string>>>), Dictionary<string, List<List<string>>> shortcodes = default(Dictionary<string, List<List<string>>>))
         {
             this.Status = status;
             this.Message = message;
-            this.Urls = urls;
-            this.Scores = scores;
+            this.Frontmatters = frontmatters;
+            this.Shortcodes = shortcodes;
         }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// If file was parsed correctly or text of error
         /// </summary>
+        /// <value>If file was parsed correctly or text of error</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets Urls
+        /// Structure of front matter syntax
         /// </summary>
-        [DataMember(Name = "urls", EmitDefaultValue = true)]
-        public Dictionary<string, UrlFileInfo> Urls { get; set; }
+        /// <value>Structure of front matter syntax</value>
+        [DataMember(Name = "frontmatters", EmitDefaultValue = true)]
+        public Dictionary<string, List<List<string>>> Frontmatters { get; set; }
 
         /// <summary>
-        /// Gets or Sets Scores
+        /// Structure of short code syntax
         /// </summary>
-        [DataMember(Name = "scores", EmitDefaultValue = true)]
-        public Dictionary<string, float?> Scores { get; set; }
+        /// <value>Structure of short code syntax</value>
+        [DataMember(Name = "shortcodes", EmitDefaultValue = true)]
+        public Dictionary<string, List<List<string>>> Shortcodes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -451,11 +456,11 @@ namespace GroupDocs.Translation.Api.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CloudFileResponse {\n");
+            sb.Append("class CloudHugoResponse {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  Urls: ").Append(Urls).Append("\n");
-            sb.Append("  Scores: ").Append(Scores).Append("\n");
+            sb.Append("  Frontmatters: ").Append(Frontmatters).Append("\n");
+            sb.Append("  Shortcodes: ").Append(Shortcodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -476,15 +481,15 @@ namespace GroupDocs.Translation.Api.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CloudFileResponse);
+            return this.Equals(input as CloudHugoResponse);
         }
 
         /// <summary>
-        /// Returns true if CloudFileResponse instances are equal
+        /// Returns true if CloudHugoResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of CloudFileResponse to be compared</param>
+        /// <param name="input">Instance of CloudHugoResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CloudFileResponse input)
+        public bool Equals(CloudHugoResponse input)
         {
             if (input == null)
             {
@@ -501,16 +506,16 @@ namespace GroupDocs.Translation.Api.Model
                     this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.Urls == input.Urls ||
-                    this.Urls != null &&
-                    input.Urls != null &&
-                    this.Urls.SequenceEqual(input.Urls)
+                    this.Frontmatters == input.Frontmatters ||
+                    this.Frontmatters != null &&
+                    input.Frontmatters != null &&
+                    this.Frontmatters.SequenceEqual(input.Frontmatters)
                 ) && 
                 (
-                    this.Scores == input.Scores ||
-                    this.Scores != null &&
-                    input.Scores != null &&
-                    this.Scores.SequenceEqual(input.Scores)
+                    this.Shortcodes == input.Shortcodes ||
+                    this.Shortcodes != null &&
+                    input.Shortcodes != null &&
+                    this.Shortcodes.SequenceEqual(input.Shortcodes)
                 );
         }
 
@@ -528,13 +533,13 @@ namespace GroupDocs.Translation.Api.Model
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
-                if (this.Urls != null)
+                if (this.Frontmatters != null)
                 {
-                    hashCode = (hashCode * 59) + this.Urls.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Frontmatters.GetHashCode();
                 }
-                if (this.Scores != null)
+                if (this.Shortcodes != null)
                 {
-                    hashCode = (hashCode * 59) + this.Scores.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Shortcodes.GetHashCode();
                 }
                 return hashCode;
             }

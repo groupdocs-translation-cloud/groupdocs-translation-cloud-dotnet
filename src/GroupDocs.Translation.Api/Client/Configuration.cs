@@ -112,7 +112,7 @@ namespace GroupDocs.Translation.Api.Client
             Proxy = null;
             UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/1.0.0/csharp");
             BasePath = "https://api.groupdocs.cloud/v2.0/translation";
-            OAuthTokenUrl = "https://id-qa.groupdocs.cloud/connect/token";
+            OAuthTokenUrl = "https://id.groupdocs.cloud/connect/token";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
