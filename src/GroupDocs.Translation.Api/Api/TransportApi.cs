@@ -28,25 +28,86 @@ namespace GroupDocs.Translation.Api.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Translate document
+        /// Translate any supported file
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse AllFormatsPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate any supported file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> AllFormatsPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Return list of available language pairs
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>string</returns>
+        string AvailableLanguagesGet(int operationIndex = 0);
+
+        /// <summary>
+        /// Return list of available language pairs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> AvailableLanguagesGetWithHttpInfo(int operationIndex = 0);
+        /// <summary>
+        /// Translate CSV and TSV files
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="outFormat">output file format</param>
         /// <param name="source">Language of original file</param>
         /// <param name="targets">List of target languages</param>
         /// <param name="file">File as byte array</param>
-        /// <param name="format">Input file format (optional, default to Unknown)</param>
+        /// <param name="format">Input file format (optional, default to Csv)</param>
         /// <param name="url">Link to file for translation (optional)</param>
-        /// <param name="masters">If translate master slides (optional, default to false)</param>
         /// <param name="origin">for analysis only (optional)</param>
-        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>StatusResponse</returns>
-        StatusResponse DocumentPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+        StatusResponse CsvPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), string origin = default(string), string separator = default(string), string savingMode = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Translate document
+        /// Translate CSV and TSV files
         /// </summary>
         /// <remarks>
         /// 
@@ -56,15 +117,50 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="source">Language of original file</param>
         /// <param name="targets">List of target languages</param>
         /// <param name="file">File as byte array</param>
-        /// <param name="format">Input file format (optional, default to Unknown)</param>
+        /// <param name="format">Input file format (optional, default to Csv)</param>
         /// <param name="url">Link to file for translation (optional)</param>
-        /// <param name="masters">If translate master slides (optional, default to false)</param>
         /// <param name="origin">for analysis only (optional)</param>
-        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of StatusResponse</returns>
-        ApiResponse<StatusResponse> DocumentPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+        ApiResponse<StatusResponse> CsvPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), string origin = default(string), string separator = default(string), string savingMode = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Translate Microsoft Word documents, rtf, txt, odt
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse DocumentPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate Microsoft Word documents, rtf, txt, odt
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> DocumentPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), string savingMode = default(string), int operationIndex = 0);
         /// <summary>
         /// Return document translation status.  Also return URLs for downloading of translated document if translation was successful
         /// </summary>
@@ -86,23 +182,331 @@ namespace GroupDocs.Translation.Api.Api
         /// <returns>ApiResponse of CloudFileResponse</returns>
         ApiResponse<CloudFileResponse> DocumentRequestIdGetWithHttpInfo(string requestId, int operationIndex = 0);
         /// <summary>
-        /// Return list of available language pairs
+        /// Health check for all services.
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;LanguagePairData&gt;</returns>
-        List<LanguagePairData> ListOfAvailableLanguagesGet(int operationIndex = 0);
+        /// <returns>HealthCheckStatus</returns>
+        HealthCheckStatus HcGet(int operationIndex = 0);
 
         /// <summary>
-        /// Return list of available language pairs
+        /// Health check for all services.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;LanguagePairData&gt;</returns>
-        ApiResponse<List<LanguagePairData>> ListOfAvailableLanguagesGetWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of HealthCheckStatus</returns>
+        ApiResponse<HealthCheckStatus> HcGetWithHttpInfo(int operationIndex = 0);
+        /// <summary>
+        /// Translate HTML files
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse HtmlPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate HTML files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> HtmlPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Get hugo syntax structure from markdown file
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CloudHugoResponse</returns>
+        CloudHugoResponse HugoPost(System.IO.Stream file, string url = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Get hugo syntax structure from markdown file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CloudHugoResponse</returns>
+        ApiResponse<CloudHugoResponse> HugoPostWithHttpInfo(System.IO.Stream file, string url = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Translate Markdown files
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse MarkdownPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate Markdown files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> MarkdownPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Translate image or scanned pdf and return file
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ocrFormat">File format after recognition</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Original file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="pages">List of pages to translate for scanned pdf (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse OcrFilePost(string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate image or scanned pdf and return file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ocrFormat">File format after recognition</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Original file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="pages">List of pages to translate for scanned pdf (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> OcrFilePostWithHttpInfo(string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Translate text on image or scanned pdf
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Originnal file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="isHandwritten">is handwritten text (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse OcrTextPost(string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? isHandwritten = default(bool?), string origin = default(string), string route = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate text on image or scanned pdf
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Originnal file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="isHandwritten">is handwritten text (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> OcrTextPostWithHttpInfo(string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? isHandwritten = default(bool?), string origin = default(string), string route = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Translate pdf files
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="pages">List of pages to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse PdfPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate pdf files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="pages">List of pages to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> PdfPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Translate Microsoft PowerPoint presentations, odp
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="slides">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse PresentationPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> slides = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate Microsoft PowerPoint presentations, odp
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="slides">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> PresentationPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> slides = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Translate RESX files
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse ResourcesPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate RESX files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> ResourcesPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Translate Microsoft Excel workbooks, ods
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="worksheets">List of Worksheets to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        StatusResponse SpreadsheetsPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<int> worksheets = default(List<int>), string savingMode = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Translate Microsoft Excel workbooks, ods
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="worksheets">List of Worksheets to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> SpreadsheetsPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<int> worksheets = default(List<int>), string savingMode = default(string), int operationIndex = 0);
         /// <summary>
         /// Translate text
         /// </summary>
@@ -161,29 +565,79 @@ namespace GroupDocs.Translation.Api.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Translate document
+        /// Translate any supported file
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
         /// <param name="outFormat">output file format</param>
         /// <param name="source">Language of original file</param>
         /// <param name="targets">List of target languages</param>
         /// <param name="file">File as byte array</param>
-        /// <param name="format">Input file format (optional, default to Unknown)</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        System.Threading.Tasks.Task<StatusResponse> DocumentPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StatusResponse> AllFormatsPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Translate document
+        /// Translate any supported file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> AllFormatsPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Return list of available language pairs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> AvailableLanguagesGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Return list of available language pairs
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> AvailableLanguagesGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate CSV and TSV files
         /// </summary>
         /// <remarks>
         /// 
@@ -193,16 +647,77 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="source">Language of original file</param>
         /// <param name="targets">List of target languages</param>
         /// <param name="file">File as byte array</param>
-        /// <param name="format">Input file format (optional, default to Unknown)</param>
+        /// <param name="format">Input file format (optional, default to Csv)</param>
         /// <param name="url">Link to file for translation (optional)</param>
-        /// <param name="masters">If translate master slides (optional, default to false)</param>
         /// <param name="origin">for analysis only (optional)</param>
-        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> CsvPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), string origin = default(string), string separator = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate CSV and TSV files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Input file format (optional, default to Csv)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> DocumentPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> CsvPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), string origin = default(string), string separator = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate Microsoft Word documents, rtf, txt, odt
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> DocumentPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate Microsoft Word documents, rtf, txt, odt
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> DocumentPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Return document translation status.  Also return URLs for downloading of translated document if translation was successful
         /// </summary>
@@ -229,7 +744,7 @@ namespace GroupDocs.Translation.Api.Api
         /// <returns>Task of ApiResponse (CloudFileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CloudFileResponse>> DocumentRequestIdGetWithHttpInfoAsync(string requestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Return list of available language pairs
+        /// Health check for all services.
         /// </summary>
         /// <remarks>
         /// 
@@ -237,11 +752,11 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;LanguagePairData&gt;</returns>
-        System.Threading.Tasks.Task<List<LanguagePairData>> ListOfAvailableLanguagesGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of HealthCheckStatus</returns>
+        System.Threading.Tasks.Task<HealthCheckStatus> HcGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Return list of available language pairs
+        /// Health check for all services.
         /// </summary>
         /// <remarks>
         /// 
@@ -249,8 +764,361 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;LanguagePairData&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LanguagePairData>>> ListOfAvailableLanguagesGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (HealthCheckStatus)</returns>
+        System.Threading.Tasks.Task<ApiResponse<HealthCheckStatus>> HcGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate HTML files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> HtmlPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate HTML files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> HtmlPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get hugo syntax structure from markdown file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CloudHugoResponse</returns>
+        System.Threading.Tasks.Task<CloudHugoResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get hugo syntax structure from markdown file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CloudHugoResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CloudHugoResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate Markdown files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> MarkdownPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate Markdown files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> MarkdownPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate image or scanned pdf and return file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ocrFormat">File format after recognition</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Original file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="pages">List of pages to translate for scanned pdf (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> OcrFilePostAsync(string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate image or scanned pdf and return file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ocrFormat">File format after recognition</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Original file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="pages">List of pages to translate for scanned pdf (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> OcrFilePostWithHttpInfoAsync(string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate text on image or scanned pdf
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Originnal file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="isHandwritten">is handwritten text (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> OcrTextPostAsync(string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? isHandwritten = default(bool?), string origin = default(string), string route = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate text on image or scanned pdf
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Originnal file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="isHandwritten">is handwritten text (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> OcrTextPostWithHttpInfoAsync(string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? isHandwritten = default(bool?), string origin = default(string), string route = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate pdf files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="pages">List of pages to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> PdfPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate pdf files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="pages">List of pages to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> PdfPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate Microsoft PowerPoint presentations, odp
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="slides">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> PresentationPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> slides = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate Microsoft PowerPoint presentations, odp
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="slides">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> PresentationPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> slides = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate RESX files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> ResourcesPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate RESX files
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> ResourcesPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Translate Microsoft Excel workbooks, ods
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="worksheets">List of Worksheets to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> SpreadsheetsPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<int> worksheets = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Translate Microsoft Excel workbooks, ods
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="worksheets">List of Worksheets to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> SpreadsheetsPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<int> worksheets = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Translate text
         /// </summary>
@@ -430,45 +1298,845 @@ namespace GroupDocs.Translation.Api.Api
         }
 
         /// <summary>
-        /// Translate document 
+        /// Translate any supported file 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
         /// <param name="outFormat">output file format</param>
         /// <param name="source">Language of original file</param>
         /// <param name="targets">List of target languages</param>
         /// <param name="file">File as byte array</param>
-        /// <param name="format">Input file format (optional, default to Unknown)</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>StatusResponse</returns>
-        public StatusResponse DocumentPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        public StatusResponse AllFormatsPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0)
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = DocumentPostWithHttpInfo(outFormat, source, targets, file, format, url, masters, origin, elements, savingMode);
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = AllFormatsPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, savingMode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Translate document 
+        /// Translate any supported file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> AllFormatsPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'format' is set
+            if (format == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'format' when calling TransportApi->AllFormatsPost");
+            }
+
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->AllFormatsPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->AllFormatsPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->AllFormatsPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->AllFormatsPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (masters != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Masters", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(masters)); // form parameter
+            }
+            if (formatting != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Formatting", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(formatting)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (route != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Route", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(route)); // form parameter
+            }
+            if (separator != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Separator", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(separator)); // form parameter
+            }
+            if (elements != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Elements", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(elements)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.AllFormatsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/all-formats", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AllFormatsPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate any supported file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> AllFormatsPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await AllFormatsPostWithHttpInfoAsync(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate any supported file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> AllFormatsPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'format' is set
+            if (format == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'format' when calling TransportApi->AllFormatsPost");
+            }
+
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->AllFormatsPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->AllFormatsPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->AllFormatsPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->AllFormatsPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (masters != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Masters", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(masters)); // form parameter
+            }
+            if (formatting != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Formatting", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(formatting)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (route != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Route", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(route)); // form parameter
+            }
+            if (separator != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Separator", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(separator)); // form parameter
+            }
+            if (elements != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Elements", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(elements)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.AllFormatsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/all-formats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AllFormatsPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Return list of available language pairs 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>string</returns>
+        public string AvailableLanguagesGet(int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<string> localVarResponse = AvailableLanguagesGetWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Return list of available language pairs 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of string</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<string> AvailableLanguagesGetWithHttpInfo(int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "TransportApi.AvailableLanguagesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<string>("/available-languages", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AvailableLanguagesGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Return list of available language pairs 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> AvailableLanguagesGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<string> localVarResponse = await AvailableLanguagesGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Return list of available language pairs 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<string>> AvailableLanguagesGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "TransportApi.AvailableLanguagesGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/available-languages", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AvailableLanguagesGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate CSV and TSV files 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="outFormat">output file format</param>
         /// <param name="source">Language of original file</param>
         /// <param name="targets">List of target languages</param>
         /// <param name="file">File as byte array</param>
-        /// <param name="format">Input file format (optional, default to Unknown)</param>
+        /// <param name="format">Input file format (optional, default to Csv)</param>
         /// <param name="url">Link to file for translation (optional)</param>
-        /// <param name="masters">If translate master slides (optional, default to false)</param>
         /// <param name="origin">for analysis only (optional)</param>
-        /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse CsvPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), string origin = default(string), string separator = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = CsvPostWithHttpInfo(outFormat, source, targets, file, format, url, origin, separator, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate CSV and TSV files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Input file format (optional, default to Csv)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of StatusResponse</returns>
-        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> DocumentPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> CsvPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), string origin = default(string), string separator = default(string), string savingMode = default(string), int operationIndex = 0)
         {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->CsvPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->CsvPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->CsvPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->CsvPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (format != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            }
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (separator != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Separator", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(separator)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.CsvPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/csv", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CsvPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate CSV and TSV files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Input file format (optional, default to Csv)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> CsvPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), string origin = default(string), string separator = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await CsvPostWithHttpInfoAsync(outFormat, source, targets, file, format, url, origin, separator, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate CSV and TSV files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Input file format (optional, default to Csv)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="separator">Separator in files (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> CsvPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), string origin = default(string), string separator = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->CsvPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->CsvPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->CsvPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->CsvPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (format != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            }
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (separator != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Separator", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(separator)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.CsvPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/csv", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CsvPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate Microsoft Word documents, rtf, txt, odt 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse DocumentPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = DocumentPostWithHttpInfo(format, outFormat, source, targets, file, url, formatting, origin, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate Microsoft Word documents, rtf, txt, odt 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> DocumentPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'format' is set
+            if (format == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'format' when calling TransportApi->DocumentPost");
+            }
+
             // verify the required parameter 'outFormat' is set
             if (outFormat == null)
             {
@@ -516,10 +2184,7 @@ namespace GroupDocs.Translation.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (format != null)
-            {
-                localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
-            }
+            localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
             localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
             localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
             localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
@@ -528,17 +2193,13 @@ namespace GroupDocs.Translation.Api.Api
             {
                 localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
             }
-            if (masters != null)
+            if (formatting != null)
             {
-                localVarRequestOptions.FormParameters.Add("Masters", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(masters)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Formatting", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(formatting)); // form parameter
             }
             if (origin != null)
             {
                 localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
-            }
-            if (elements != null)
-            {
-                localVarRequestOptions.FormParameters.Add("Elements", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(elements)); // form parameter
             }
             if (savingMode != null)
             {
@@ -580,47 +2241,51 @@ namespace GroupDocs.Translation.Api.Api
         }
 
         /// <summary>
-        /// Translate document 
+        /// Translate Microsoft Word documents, rtf, txt, odt 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
         /// <param name="outFormat">output file format</param>
         /// <param name="source">Language of original file</param>
         /// <param name="targets">List of target languages</param>
         /// <param name="file">File as byte array</param>
-        /// <param name="format">Input file format (optional, default to Unknown)</param>
         /// <param name="url">Link to file for translation (optional)</param>
-        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
         /// <param name="origin">for analysis only (optional)</param>
-        /// <param name="elements">List of slides to translate (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        public async System.Threading.Tasks.Task<StatusResponse> DocumentPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StatusResponse> DocumentPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await DocumentPostWithHttpInfoAsync(outFormat, source, targets, file, format, url, masters, origin, elements, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await DocumentPostWithHttpInfoAsync(format, outFormat, source, targets, file, url, formatting, origin, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Translate document 
+        /// Translate Microsoft Word documents, rtf, txt, odt 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
         /// <param name="outFormat">output file format</param>
         /// <param name="source">Language of original file</param>
         /// <param name="targets">List of target languages</param>
         /// <param name="file">File as byte array</param>
-        /// <param name="format">Input file format (optional, default to Unknown)</param>
         /// <param name="url">Link to file for translation (optional)</param>
-        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
         /// <param name="origin">for analysis only (optional)</param>
-        /// <param name="elements">List of slides to translate (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> DocumentPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> elements = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> DocumentPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'format' is set
+            if (format == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'format' when calling TransportApi->DocumentPost");
+            }
+
             // verify the required parameter 'outFormat' is set
             if (outFormat == null)
             {
@@ -669,10 +2334,7 @@ namespace GroupDocs.Translation.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (format != null)
-            {
-                localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
-            }
+            localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
             localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
             localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
             localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
@@ -681,17 +2343,13 @@ namespace GroupDocs.Translation.Api.Api
             {
                 localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
             }
-            if (masters != null)
+            if (formatting != null)
             {
-                localVarRequestOptions.FormParameters.Add("Masters", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(masters)); // form parameter
+                localVarRequestOptions.FormParameters.Add("Formatting", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(formatting)); // form parameter
             }
             if (origin != null)
             {
                 localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
-            }
-            if (elements != null)
-            {
-                localVarRequestOptions.FormParameters.Add("Elements", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(elements)); // form parameter
             }
             if (savingMode != null)
             {
@@ -910,24 +2568,24 @@ namespace GroupDocs.Translation.Api.Api
         }
 
         /// <summary>
-        /// Return list of available language pairs 
+        /// Health check for all services. 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;LanguagePairData&gt;</returns>
-        public List<LanguagePairData> ListOfAvailableLanguagesGet(int operationIndex = 0)
+        /// <returns>HealthCheckStatus</returns>
+        public HealthCheckStatus HcGet(int operationIndex = 0)
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<List<LanguagePairData>> localVarResponse = ListOfAvailableLanguagesGetWithHttpInfo();
+            GroupDocs.Translation.Api.Client.ApiResponse<HealthCheckStatus> localVarResponse = HcGetWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Return list of available language pairs 
+        /// Health check for all services. 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;LanguagePairData&gt;</returns>
-        public GroupDocs.Translation.Api.Client.ApiResponse<List<LanguagePairData>> ListOfAvailableLanguagesGetWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of HealthCheckStatus</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<HealthCheckStatus> HcGetWithHttpInfo(int operationIndex = 0)
         {
             GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
 
@@ -952,7 +2610,7 @@ namespace GroupDocs.Translation.Api.Api
             }
 
 
-            localVarRequestOptions.Operation = "TransportApi.ListOfAvailableLanguagesGet";
+            localVarRequestOptions.Operation = "TransportApi.HcGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (JWT) required
@@ -973,10 +2631,10 @@ namespace GroupDocs.Translation.Api.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LanguagePairData>>("/listOfAvailableLanguages", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<HealthCheckStatus>("/hc", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListOfAvailableLanguagesGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("HcGet", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -987,26 +2645,26 @@ namespace GroupDocs.Translation.Api.Api
         }
 
         /// <summary>
-        /// Return list of available language pairs 
+        /// Health check for all services. 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;LanguagePairData&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LanguagePairData>> ListOfAvailableLanguagesGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of HealthCheckStatus</returns>
+        public async System.Threading.Tasks.Task<HealthCheckStatus> HcGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<List<LanguagePairData>> localVarResponse = await ListOfAvailableLanguagesGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            GroupDocs.Translation.Api.Client.ApiResponse<HealthCheckStatus> localVarResponse = await HcGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Return list of available language pairs 
+        /// Health check for all services. 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;LanguagePairData&gt;)</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<List<LanguagePairData>>> ListOfAvailableLanguagesGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (HealthCheckStatus)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<HealthCheckStatus>> HcGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
@@ -1032,7 +2690,7 @@ namespace GroupDocs.Translation.Api.Api
             }
 
 
-            localVarRequestOptions.Operation = "TransportApi.ListOfAvailableLanguagesGet";
+            localVarRequestOptions.Operation = "TransportApi.HcGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (JWT) required
@@ -1053,11 +2711,2537 @@ namespace GroupDocs.Translation.Api.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LanguagePairData>>("/listOfAvailableLanguages", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<HealthCheckStatus>("/hc", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListOfAvailableLanguagesGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("HcGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate HTML files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse HtmlPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = HtmlPostWithHttpInfo(outFormat, source, targets, file, url, origin, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate HTML files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> HtmlPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->HtmlPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->HtmlPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->HtmlPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->HtmlPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.HtmlPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/html", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("HtmlPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate HTML files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> HtmlPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await HtmlPostWithHttpInfoAsync(outFormat, source, targets, file, url, origin, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate HTML files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> HtmlPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->HtmlPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->HtmlPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->HtmlPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->HtmlPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.HtmlPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/html", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("HtmlPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get hugo syntax structure from markdown file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CloudHugoResponse</returns>
+        public CloudHugoResponse HugoPost(System.IO.Stream file, string url = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> localVarResponse = HugoPostWithHttpInfo(file, url);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get hugo syntax structure from markdown file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CloudHugoResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> HugoPostWithHttpInfo(System.IO.Stream file, string url = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->HugoPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.HugoPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CloudHugoResponse>("/hugo", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("HugoPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get hugo syntax structure from markdown file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CloudHugoResponse</returns>
+        public async System.Threading.Tasks.Task<CloudHugoResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> localVarResponse = await HugoPostWithHttpInfoAsync(file, url, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get hugo syntax structure from markdown file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CloudHugoResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->HugoPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.HugoPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CloudHugoResponse>("/hugo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("HugoPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate Markdown files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse MarkdownPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = MarkdownPostWithHttpInfo(outFormat, source, targets, file, url, origin, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate Markdown files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> MarkdownPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->MarkdownPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->MarkdownPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->MarkdownPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->MarkdownPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.MarkdownPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/markdown", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MarkdownPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate Markdown files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> MarkdownPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await MarkdownPostWithHttpInfoAsync(outFormat, source, targets, file, url, origin, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate Markdown files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> MarkdownPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->MarkdownPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->MarkdownPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->MarkdownPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->MarkdownPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.MarkdownPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/markdown", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MarkdownPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate image or scanned pdf and return file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ocrFormat">File format after recognition</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Original file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="pages">List of pages to translate for scanned pdf (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse OcrFilePost(string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = OcrFilePostWithHttpInfo(ocrFormat, outFormat, source, targets, file, format, url, rotate, formatting, origin, route, pages, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate image or scanned pdf and return file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ocrFormat">File format after recognition</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Original file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="pages">List of pages to translate for scanned pdf (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> OcrFilePostWithHttpInfo(string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'ocrFormat' is set
+            if (ocrFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'ocrFormat' when calling TransportApi->OcrFilePost");
+            }
+
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->OcrFilePost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->OcrFilePost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->OcrFilePost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->OcrFilePost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (format != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            }
+            localVarRequestOptions.FormParameters.Add("OcrFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(ocrFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (rotate != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Rotate", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(rotate)); // form parameter
+            }
+            if (formatting != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Formatting", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(formatting)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (route != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Route", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(route)); // form parameter
+            }
+            if (pages != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Pages", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(pages)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.OcrFilePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/ocr-file", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("OcrFilePost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate image or scanned pdf and return file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ocrFormat">File format after recognition</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Original file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="pages">List of pages to translate for scanned pdf (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> OcrFilePostAsync(string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await OcrFilePostWithHttpInfoAsync(ocrFormat, outFormat, source, targets, file, format, url, rotate, formatting, origin, route, pages, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate image or scanned pdf and return file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ocrFormat">File format after recognition</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Original file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="pages">List of pages to translate for scanned pdf (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> OcrFilePostWithHttpInfoAsync(string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'ocrFormat' is set
+            if (ocrFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'ocrFormat' when calling TransportApi->OcrFilePost");
+            }
+
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->OcrFilePost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->OcrFilePost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->OcrFilePost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->OcrFilePost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (format != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            }
+            localVarRequestOptions.FormParameters.Add("OcrFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(ocrFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (rotate != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Rotate", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(rotate)); // form parameter
+            }
+            if (formatting != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Formatting", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(formatting)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (route != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Route", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(route)); // form parameter
+            }
+            if (pages != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Pages", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(pages)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.OcrFilePost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/ocr-file", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("OcrFilePost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate text on image or scanned pdf 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Originnal file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="isHandwritten">is handwritten text (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse OcrTextPost(string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? isHandwritten = default(bool?), string origin = default(string), string route = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = OcrTextPostWithHttpInfo(source, targets, file, format, url, rotate, isHandwritten, origin, route);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate text on image or scanned pdf 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Originnal file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="isHandwritten">is handwritten text (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> OcrTextPostWithHttpInfo(string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? isHandwritten = default(bool?), string origin = default(string), string route = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->OcrTextPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->OcrTextPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->OcrTextPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (format != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            }
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (rotate != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Rotate", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(rotate)); // form parameter
+            }
+            if (isHandwritten != null)
+            {
+                localVarRequestOptions.FormParameters.Add("IsHandwritten", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(isHandwritten)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (route != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Route", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(route)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.OcrTextPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/ocr-text", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("OcrTextPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate text on image or scanned pdf 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Originnal file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="isHandwritten">is handwritten text (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> OcrTextPostAsync(string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? isHandwritten = default(bool?), string origin = default(string), string route = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await OcrTextPostWithHttpInfoAsync(source, targets, file, format, url, rotate, isHandwritten, origin, route, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate text on image or scanned pdf 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="format">Originnal file format (optional, default to Unknown)</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="rotate">Left to write angle to rotate scanned image / pdf (optional)</param>
+        /// <param name="isHandwritten">is handwritten text (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="route">endpoints route (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> OcrTextPostWithHttpInfoAsync(string source, List<string> targets, System.IO.Stream file, string format = default(string), string url = default(string), int? rotate = default(int?), bool? isHandwritten = default(bool?), string origin = default(string), string route = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->OcrTextPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->OcrTextPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->OcrTextPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (format != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            }
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (rotate != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Rotate", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(rotate)); // form parameter
+            }
+            if (isHandwritten != null)
+            {
+                localVarRequestOptions.FormParameters.Add("IsHandwritten", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(isHandwritten)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (route != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Route", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(route)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.OcrTextPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/ocr-text", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("OcrTextPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate pdf files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="pages">List of pages to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse PdfPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = PdfPostWithHttpInfo(outFormat, source, targets, file, url, formatting, origin, pages, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate pdf files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="pages">List of pages to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> PdfPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->PdfPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->PdfPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->PdfPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->PdfPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (formatting != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Formatting", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(formatting)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (pages != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Pages", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(pages)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.PdfPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/pdf", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PdfPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate pdf files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="pages">List of pages to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> PdfPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await PdfPostWithHttpInfoAsync(outFormat, source, targets, file, url, formatting, origin, pages, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate pdf files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="formatting">If document&#39;s formatting should be preserved, default true (optional, default to true)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="pages">List of pages to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> PdfPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? formatting = default(bool?), string origin = default(string), List<int> pages = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->PdfPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->PdfPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->PdfPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->PdfPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (formatting != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Formatting", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(formatting)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (pages != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Pages", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(pages)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.PdfPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/pdf", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PdfPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate Microsoft PowerPoint presentations, odp 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="slides">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse PresentationPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> slides = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = PresentationPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, origin, slides, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate Microsoft PowerPoint presentations, odp 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="slides">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> PresentationPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> slides = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'format' is set
+            if (format == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'format' when calling TransportApi->PresentationPost");
+            }
+
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->PresentationPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->PresentationPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->PresentationPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->PresentationPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (masters != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Masters", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(masters)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (slides != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Slides", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(slides)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.PresentationPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/presentation", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PresentationPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate Microsoft PowerPoint presentations, odp 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="slides">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> PresentationPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> slides = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await PresentationPostWithHttpInfoAsync(format, outFormat, source, targets, file, url, masters, origin, slides, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate Microsoft PowerPoint presentations, odp 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="masters">If translate master slides (optional, default to false)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="slides">List of slides to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> PresentationPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), string origin = default(string), List<int> slides = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'format' is set
+            if (format == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'format' when calling TransportApi->PresentationPost");
+            }
+
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->PresentationPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->PresentationPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->PresentationPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->PresentationPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (masters != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Masters", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(masters)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (slides != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Slides", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(slides)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.PresentationPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/presentation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PresentationPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate RESX files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse ResourcesPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = ResourcesPostWithHttpInfo(outFormat, source, targets, file, url, origin, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate RESX files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> ResourcesPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->ResourcesPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->ResourcesPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->ResourcesPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->ResourcesPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.ResourcesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/resources", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResourcesPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate RESX files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> ResourcesPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await ResourcesPostWithHttpInfoAsync(outFormat, source, targets, file, url, origin, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate RESX files 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> ResourcesPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->ResourcesPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->ResourcesPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->ResourcesPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->ResourcesPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.ResourcesPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/resources", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResourcesPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate Microsoft Excel workbooks, ods 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="worksheets">List of Worksheets to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse SpreadsheetsPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<int> worksheets = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = SpreadsheetsPostWithHttpInfo(format, outFormat, source, targets, file, url, origin, worksheets, savingMode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate Microsoft Excel workbooks, ods 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="worksheets">List of Worksheets to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> SpreadsheetsPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<int> worksheets = default(List<int>), string savingMode = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'format' is set
+            if (format == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'format' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (worksheets != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Worksheets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(worksheets)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.SpreadsheetsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/spreadsheets", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SpreadsheetsPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Translate Microsoft Excel workbooks, ods 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="worksheets">List of Worksheets to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> SpreadsheetsPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<int> worksheets = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await SpreadsheetsPostWithHttpInfoAsync(format, outFormat, source, targets, file, url, origin, worksheets, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Translate Microsoft Excel workbooks, ods 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="format">Input file format</param>
+        /// <param name="outFormat">output file format</param>
+        /// <param name="source">Language of original file</param>
+        /// <param name="targets">List of target languages</param>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="worksheets">List of Worksheets to translate (optional)</param>
+        /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> SpreadsheetsPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<int> worksheets = default(List<int>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'format' is set
+            if (format == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'format' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            // verify the required parameter 'outFormat' is set
+            if (outFormat == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'outFormat' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            // verify the required parameter 'source' is set
+            if (source == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'source' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            // verify the required parameter 'targets' is set
+            if (targets == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'targets' when calling TransportApi->SpreadsheetsPost");
+            }
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->SpreadsheetsPost");
+            }
+
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FormParameters.Add("Format", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(format)); // form parameter
+            localVarRequestOptions.FormParameters.Add("OutFormat", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(outFormat)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Source", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(source)); // form parameter
+            localVarRequestOptions.FormParameters.Add("Targets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(targets)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+            if (origin != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
+            }
+            if (worksheets != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Worksheets", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(worksheets)); // form parameter
+            }
+            if (savingMode != null)
+            {
+                localVarRequestOptions.FormParameters.Add("SavingMode", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(savingMode)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.SpreadsheetsPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/spreadsheets", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SpreadsheetsPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

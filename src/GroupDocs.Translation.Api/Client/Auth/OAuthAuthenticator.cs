@@ -9,6 +9,7 @@
 
 
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
@@ -27,6 +28,8 @@ namespace GroupDocs.Translation.Api.Client.Auth
         readonly string _grantType;
         readonly JsonSerializerSettings _serializerSettings;
         readonly IReadableConfiguration _configuration;
+        private static JwtSecurityToken jwtToken;
+        private static string Token;
 
         /// <summary>
         /// Initialize the OAuth2 Authenticator
@@ -71,15 +74,16 @@ namespace GroupDocs.Translation.Api.Client.Auth
         /// <returns>An authentication parameter.</returns>
         protected override async ValueTask<Parameter> GetAuthenticationParameter(string accessToken)
         {
-            var token = string.IsNullOrEmpty(Token) ? await GetToken() : Token;
-            return new HeaderParameter(KnownHeaders.Authorization, token);
+            if (jwtToken?.ValidTo < DateTime.Now.AddSeconds(-10) || jwtToken is null)
+               await GetToken();
+            return new HeaderParameter(KnownHeaders.Authorization, Token);
         }
 
         /// <summary>
         /// Gets the token from the OAuth2 server.
         /// </summary>
         /// <returns>An authentication token.</returns>
-        async Task<string> GetToken()
+        async Task GetToken()
         {
             var client = new RestClient(_tokenUrl)
                 .UseSerializer(() => new CustomJsonCodec(_serializerSettings, _configuration));
@@ -89,7 +93,9 @@ namespace GroupDocs.Translation.Api.Client.Auth
                 .AddParameter("client_id", _clientId)
                 .AddParameter("client_secret", _clientSecret);
             var response = await client.PostAsync<TokenResponse>(request);
-            return $"{response.TokenType} {response.AccessToken}";
+            var handler = new JwtSecurityTokenHandler();
+            jwtToken = handler.ReadJwtToken(response.AccessToken);
+            Token = $"{response.TokenType} {response.AccessToken}";
         }
     }
 }
