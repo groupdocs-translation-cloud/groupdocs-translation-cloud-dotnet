@@ -235,11 +235,10 @@ namespace GroupDocs.Translation.Api.Api
         /// Get hugo syntax structure from markdown file
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File as byte array</param>
-        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="id">id from PostHugo&gt; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CloudHugoResponse</returns>
-        CloudHugoResponse HugoPost(System.IO.Stream file, string url = default(string), int operationIndex = 0);
+        CloudHugoResponse HugoGet(string id = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Get hugo syntax structure from markdown file
@@ -248,11 +247,32 @@ namespace GroupDocs.Translation.Api.Api
         /// 
         /// </remarks>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id from PostHugo&gt; (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CloudHugoResponse</returns>
+        ApiResponse<CloudHugoResponse> HugoGetWithHttpInfo(string id = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Run hugo syntax structure analyzing from markdown file
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of CloudHugoResponse</returns>
-        ApiResponse<CloudHugoResponse> HugoPostWithHttpInfo(System.IO.Stream file, string url = default(string), int operationIndex = 0);
+        /// <returns>StatusResponse</returns>
+        StatusResponse HugoPost(System.IO.Stream file, string url = default(string), int operationIndex = 0);
+
+        /// <summary>
+        /// Run hugo syntax structure analyzing from markdown file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        ApiResponse<StatusResponse> HugoPostWithHttpInfo(System.IO.Stream file, string url = default(string), int operationIndex = 0);
         /// <summary>
         /// Translate Markdown files
         /// </summary>
@@ -810,15 +830,26 @@ namespace GroupDocs.Translation.Api.Api
         /// 
         /// </remarks>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File as byte array</param>
-        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="id">id from PostHugo&gt; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CloudHugoResponse</returns>
-        System.Threading.Tasks.Task<CloudHugoResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CloudHugoResponse> HugoGetAsync(string id = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get hugo syntax structure from markdown file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id from PostHugo&gt; (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CloudHugoResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CloudHugoResponse>> HugoGetWithHttpInfoAsync(string id = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Run hugo syntax structure analyzing from markdown file
         /// </summary>
         /// <remarks>
         /// 
@@ -828,8 +859,22 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CloudHugoResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CloudHugoResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of StatusResponse</returns>
+        System.Threading.Tasks.Task<StatusResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Run hugo syntax structure analyzing from markdown file
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Translate Markdown files
         /// </summary>
@@ -2997,13 +3042,12 @@ namespace GroupDocs.Translation.Api.Api
         /// Get hugo syntax structure from markdown file 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File as byte array</param>
-        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="id">id from PostHugo&gt; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CloudHugoResponse</returns>
-        public CloudHugoResponse HugoPost(System.IO.Stream file, string url = default(string), int operationIndex = 0)
+        public CloudHugoResponse HugoGet(string id = default(string), int operationIndex = 0)
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> localVarResponse = HugoPostWithHttpInfo(file, url);
+            GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> localVarResponse = HugoGetWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -3011,22 +3055,14 @@ namespace GroupDocs.Translation.Api.Api
         /// Get hugo syntax structure from markdown file 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File as byte array</param>
-        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="id">id from PostHugo&gt; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CloudHugoResponse</returns>
-        public GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> HugoPostWithHttpInfo(System.IO.Stream file, string url = default(string), int operationIndex = 0)
+        public GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> HugoGetWithHttpInfo(string id = default(string), int operationIndex = 0)
         {
-            // verify the required parameter 'file' is set
-            if (file == null)
-            {
-                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->HugoPost");
-            }
-
             GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "multipart/form-data"
             };
 
             // to determine the Accept header
@@ -3046,13 +3082,12 @@ namespace GroupDocs.Translation.Api.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.FileParameters.Add("File", file);
-            if (url != null)
+            if (id != null)
             {
-                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+                localVarRequestOptions.QueryParameters.Add(GroupDocs.Translation.Api.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             }
 
-            localVarRequestOptions.Operation = "TransportApi.HugoPost";
+            localVarRequestOptions.Operation = "TransportApi.HugoGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (JWT) required
@@ -3073,10 +3108,10 @@ namespace GroupDocs.Translation.Api.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<CloudHugoResponse>("/hugo", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<CloudHugoResponse>("/hugo", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("HugoPost", localVarResponse);
+                Exception _exception = this.ExceptionFactory("HugoGet", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3090,14 +3125,13 @@ namespace GroupDocs.Translation.Api.Api
         /// Get hugo syntax structure from markdown file 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="file">File as byte array</param>
-        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="id">id from PostHugo&gt; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CloudHugoResponse</returns>
-        public async System.Threading.Tasks.Task<CloudHugoResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CloudHugoResponse> HugoGetAsync(string id = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> localVarResponse = await HugoPostWithHttpInfoAsync(file, url, operationIndex, cancellationToken).ConfigureAwait(false);
+            GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse> localVarResponse = await HugoGetWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3105,12 +3139,193 @@ namespace GroupDocs.Translation.Api.Api
         /// Get hugo syntax structure from markdown file 
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id from PostHugo&gt; (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CloudHugoResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse>> HugoGetWithHttpInfoAsync(string id = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (id != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(GroupDocs.Translation.Api.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.HugoGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CloudHugoResponse>("/hugo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("HugoGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Run hugo syntax structure analyzing from markdown file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>StatusResponse</returns>
+        public StatusResponse HugoPost(System.IO.Stream file, string url = default(string), int operationIndex = 0)
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = HugoPostWithHttpInfo(file, url);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Run hugo syntax structure analyzing from markdown file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of StatusResponse</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> HugoPostWithHttpInfo(System.IO.Stream file, string url = default(string), int operationIndex = 0)
+        {
+            // verify the required parameter 'file' is set
+            if (file == null)
+            {
+                throw new GroupDocs.Translation.Api.Client.ApiException(400, "Missing required parameter 'file' when calling TransportApi->HugoPost");
+            }
+
+            GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = GroupDocs.Translation.Api.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (url != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
+            }
+
+            localVarRequestOptions.Operation = "TransportApi.HugoPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (JWT) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StatusResponse>("/hugo", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("HugoPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Run hugo syntax structure analyzing from markdown file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CloudHugoResponse)</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<CloudHugoResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of StatusResponse</returns>
+        public async System.Threading.Tasks.Task<StatusResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await HugoPostWithHttpInfoAsync(file, url, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Run hugo syntax structure analyzing from markdown file 
+        /// </summary>
+        /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">File as byte array</param>
+        /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (StatusResponse)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'file' is set
             if (file == null)
@@ -3169,7 +3384,7 @@ namespace GroupDocs.Translation.Api.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CloudHugoResponse>("/hugo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StatusResponse>("/hugo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

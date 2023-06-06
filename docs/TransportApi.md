@@ -11,7 +11,8 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 | [**DocumentRequestIdGet**](TransportApi.md#documentrequestidget) | **GET** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful |
 | [**HcGet**](TransportApi.md#hcget) | **GET** /hc | Health check for all services. |
 | [**HtmlPost**](TransportApi.md#htmlpost) | **POST** /html | Translate HTML files |
-| [**HugoPost**](TransportApi.md#hugopost) | **POST** /hugo | Get hugo syntax structure from markdown file |
+| [**HugoGet**](TransportApi.md#hugoget) | **GET** /hugo | Get hugo syntax structure from markdown file |
+| [**HugoPost**](TransportApi.md#hugopost) | **POST** /hugo | Run hugo syntax structure analyzing from markdown file |
 | [**MarkdownPost**](TransportApi.md#markdownpost) | **POST** /markdown | Translate Markdown files |
 | [**OcrFilePost**](TransportApi.md#ocrfilepost) | **POST** /ocr-file | Translate image or scanned pdf and return file |
 | [**OcrTextPost**](TransportApi.md#ocrtextpost) | **POST** /ocr-text | Translate text on image or scanned pdf |
@@ -724,11 +725,103 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="hugopost"></a>
-# **HugoPost**
-> CloudHugoResponse HugoPost (System.IO.Stream file, string url = null)
+<a name="hugoget"></a>
+# **HugoGet**
+> CloudHugoResponse HugoGet (string id = null)
 
 Get hugo syntax structure from markdown file
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Api.Api;
+using GroupDocs.Translation.Api.Client;
+using GroupDocs.Translation.Api.Model;
+
+namespace Example
+{
+    public class HugoGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TransportApi(config);
+            var id = "id_example";  // string | id from PostHugo> (optional) 
+
+            try
+            {
+                // Get hugo syntax structure from markdown file
+                CloudHugoResponse result = apiInstance.HugoGet(id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TransportApi.HugoGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the HugoGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get hugo syntax structure from markdown file
+    ApiResponse<CloudHugoResponse> response = apiInstance.HugoGetWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TransportApi.HugoGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | id from PostHugo&gt; | [optional]  |
+
+### Return type
+
+[**CloudHugoResponse**](CloudHugoResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="hugopost"></a>
+# **HugoPost**
+> StatusResponse HugoPost (System.IO.Stream file, string url = null)
+
+Run hugo syntax structure analyzing from markdown file
 
 ### Example
 ```csharp
@@ -755,8 +848,8 @@ namespace Example
 
             try
             {
-                // Get hugo syntax structure from markdown file
-                CloudHugoResponse result = apiInstance.HugoPost(file, url);
+                // Run hugo syntax structure analyzing from markdown file
+                StatusResponse result = apiInstance.HugoPost(file, url);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -776,8 +869,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get hugo syntax structure from markdown file
-    ApiResponse<CloudHugoResponse> response = apiInstance.HugoPostWithHttpInfo(file, url);
+    // Run hugo syntax structure analyzing from markdown file
+    ApiResponse<StatusResponse> response = apiInstance.HugoPostWithHttpInfo(file, url);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -799,7 +892,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**CloudHugoResponse**](CloudHugoResponse.md)
+[**StatusResponse**](StatusResponse.md)
 
 ### Authorization
 
@@ -814,7 +907,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **202** | Accepted |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
