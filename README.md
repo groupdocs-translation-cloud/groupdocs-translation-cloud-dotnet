@@ -124,7 +124,8 @@ Class | Method | HTTP request | Description
 *TransportApi* | [**DocumentRequestIdGet**](docs\TransportApi.md#documentrequestidget) | **GET** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful
 *TransportApi* | [**HcGet**](docs\TransportApi.md#hcget) | **GET** /hc | Health check for all services.
 *TransportApi* | [**HtmlPost**](docs\TransportApi.md#htmlpost) | **POST** /html | Translate HTML files
-*TransportApi* | [**HugoPost**](docs\TransportApi.md#hugopost) | **POST** /hugo | Get hugo syntax structure from markdown file
+*TransportApi* | [**HugoGet**](docs\TransportApi.md#hugoget) | **GET** /hugo | Get hugo syntax structure from markdown file
+*TransportApi* | [**HugoPost**](docs\TransportApi.md#hugopost) | **POST** /hugo | Run hugo syntax structure analyzing from markdown file
 *TransportApi* | [**MarkdownPost**](docs\TransportApi.md#markdownpost) | **POST** /markdown | Translate Markdown files
 *TransportApi* | [**OcrFilePost**](docs\TransportApi.md#ocrfilepost) | **POST** /ocr-file | Translate image or scanned pdf and return file
 *TransportApi* | [**OcrTextPost**](docs\TransportApi.md#ocrtextpost) | **POST** /ocr-text | Translate text on image or scanned pdf
