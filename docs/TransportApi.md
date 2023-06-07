@@ -141,7 +141,7 @@ catch (ApiException e)
 
 <a name="availablelanguagesget"></a>
 # **AvailableLanguagesGet**
-> string AvailableLanguagesGet ()
+> List&lt;LanguagePairData&gt; AvailableLanguagesGet ()
 
 Return list of available language pairs
 
@@ -169,7 +169,7 @@ namespace Example
             try
             {
                 // Return list of available language pairs
-                string result = apiInstance.AvailableLanguagesGet();
+                List<LanguagePairData> result = apiInstance.AvailableLanguagesGet();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -190,7 +190,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Return list of available language pairs
-    ApiResponse<string> response = apiInstance.AvailableLanguagesGetWithHttpInfo();
+    ApiResponse<List<LanguagePairData>> response = apiInstance.AvailableLanguagesGetWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -207,7 +207,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-**string**
+[**List&lt;LanguagePairData&gt;**](LanguagePairData.md)
 
 ### Authorization
 

@@ -76,8 +76,8 @@ namespace GroupDocs.Translation.Api.Api
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>string</returns>
-        string AvailableLanguagesGet(int operationIndex = 0);
+        /// <returns>List&lt;LanguagePairData&gt;</returns>
+        List<LanguagePairData> AvailableLanguagesGet(int operationIndex = 0);
 
         /// <summary>
         /// Return list of available language pairs
@@ -87,8 +87,8 @@ namespace GroupDocs.Translation.Api.Api
         /// </remarks>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> AvailableLanguagesGetWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;LanguagePairData&gt;</returns>
+        ApiResponse<List<LanguagePairData>> AvailableLanguagesGetWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Translate CSV and TSV files
         /// </summary>
@@ -642,8 +642,8 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> AvailableLanguagesGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;LanguagePairData&gt;</returns>
+        System.Threading.Tasks.Task<List<LanguagePairData>> AvailableLanguagesGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Return list of available language pairs
@@ -654,8 +654,8 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> AvailableLanguagesGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;LanguagePairData&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<LanguagePairData>>> AvailableLanguagesGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Translate CSV and TSV files
         /// </summary>
@@ -1693,10 +1693,10 @@ namespace GroupDocs.Translation.Api.Api
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>string</returns>
-        public string AvailableLanguagesGet(int operationIndex = 0)
+        /// <returns>List&lt;LanguagePairData&gt;</returns>
+        public List<LanguagePairData> AvailableLanguagesGet(int operationIndex = 0)
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<string> localVarResponse = AvailableLanguagesGetWithHttpInfo();
+            GroupDocs.Translation.Api.Client.ApiResponse<List<LanguagePairData>> localVarResponse = AvailableLanguagesGetWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1705,8 +1705,8 @@ namespace GroupDocs.Translation.Api.Api
         /// </summary>
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of string</returns>
-        public GroupDocs.Translation.Api.Client.ApiResponse<string> AvailableLanguagesGetWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;LanguagePairData&gt;</returns>
+        public GroupDocs.Translation.Api.Client.ApiResponse<List<LanguagePairData>> AvailableLanguagesGetWithHttpInfo(int operationIndex = 0)
         {
             GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
 
@@ -1752,7 +1752,7 @@ namespace GroupDocs.Translation.Api.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/available-languages", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<LanguagePairData>>("/available-languages", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AvailableLanguagesGet", localVarResponse);
@@ -1771,10 +1771,10 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> AvailableLanguagesGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;LanguagePairData&gt;</returns>
+        public async System.Threading.Tasks.Task<List<LanguagePairData>> AvailableLanguagesGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<string> localVarResponse = await AvailableLanguagesGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            GroupDocs.Translation.Api.Client.ApiResponse<List<LanguagePairData>> localVarResponse = await AvailableLanguagesGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1784,8 +1784,8 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<string>> AvailableLanguagesGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;LanguagePairData&gt;)</returns>
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<List<LanguagePairData>>> AvailableLanguagesGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             GroupDocs.Translation.Api.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Api.Client.RequestOptions();
@@ -1832,7 +1832,7 @@ namespace GroupDocs.Translation.Api.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/available-languages", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LanguagePairData>>("/available-languages", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
