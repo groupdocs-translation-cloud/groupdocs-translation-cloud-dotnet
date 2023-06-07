@@ -144,6 +144,7 @@ Class | Method | HTTP request | Description
  - [Model.CloudHugoResponse](docs\CloudHugoResponse.md)
  - [Model.CloudTextResponse](docs\CloudTextResponse.md)
  - [Model.HealthCheckStatus](docs\HealthCheckStatus.md)
+ - [Model.LanguagePairData](docs\LanguagePairData.md)
  - [Model.StatusResponse](docs\StatusResponse.md)
  - [Model.UrlFileInfo](docs\UrlFileInfo.md)
 

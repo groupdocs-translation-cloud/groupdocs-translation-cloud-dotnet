@@ -6,6 +6,7 @@ docs/CloudFileResponse.md
 docs/CloudHugoResponse.md
 docs/CloudTextResponse.md
 docs/HealthCheckStatus.md
+docs/LanguagePairData.md
 docs/StatusResponse.md
 docs/TransportApi.md
 docs/UrlFileInfo.md
@@ -37,5 +38,6 @@ src/GroupDocs.Translation.Api/Model/CloudFileResponse.cs
 src/GroupDocs.Translation.Api/Model/CloudHugoResponse.cs
 src/GroupDocs.Translation.Api/Model/CloudTextResponse.cs
 src/GroupDocs.Translation.Api/Model/HealthCheckStatus.cs
+src/GroupDocs.Translation.Api/Model/LanguagePairData.cs
 src/GroupDocs.Translation.Api/Model/StatusResponse.cs
 src/GroupDocs.Translation.Api/Model/UrlFileInfo.cs
