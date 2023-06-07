@@ -29,7 +29,7 @@ namespace GroupDocs.Translation.Api.Client.Auth
         readonly JsonSerializerSettings _serializerSettings;
         readonly IReadableConfiguration _configuration;
         private static JwtSecurityToken jwtToken;
-        private static string Token;
+        private new static string Token;
 
         /// <summary>
         /// Initialize the OAuth2 Authenticator
