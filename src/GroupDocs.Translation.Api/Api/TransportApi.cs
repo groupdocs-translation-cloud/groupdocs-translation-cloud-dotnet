@@ -857,10 +857,15 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="FrontMatterDict">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
+        /// <param name="ShortCodesDict">Dictionary of short code names and parameters names to translate (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        System.Threading.Tasks.Task<StatusResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StatusResponse> HugoPostAsync(System.IO.Stream file, string url = default(string),
+            Dictionary<int,List<List<string>>> FrontMatterDict = null, 
+            Dictionary<int, List<List<string>>> ShortCodesDict = null,
+            int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Run hugo syntax structure analyzing from markdown file
@@ -871,10 +876,15 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="FrontMatterDict">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
+        /// <param name="ShortCodesDict">Dictionary of short code names and parameters names to translate (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), 
+            Dictionary<int,List<List<string>>> FrontMatterDict = null, 
+            Dictionary<int, List<List<string>>> ShortCodesDict = null,
+            int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Translate Markdown files
         /// </summary>
@@ -3307,12 +3317,17 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="FrontMatterDict">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
+        /// <param name="ShortCodesDict">Dictionary of short code names and parameters names to translate (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        public async System.Threading.Tasks.Task<StatusResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StatusResponse> HugoPostAsync(System.IO.Stream file, string url = default(string), 
+            Dictionary<int,List<List<string>>> FrontMatterDict = null, 
+            Dictionary<int, List<List<string>>> ShortCodesDict = null, 
+            int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await HugoPostWithHttpInfoAsync(file, url, operationIndex, cancellationToken).ConfigureAwait(false);
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await HugoPostWithHttpInfoAsync(file, url, FrontMatterDict, ShortCodesDict, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3322,10 +3337,15 @@ namespace GroupDocs.Translation.Api.Api
         /// <exception cref="GroupDocs.Translation.Api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
+        /// <param name="FrontMatterDict">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
+        /// <param name="ShortCodesDict">Dictionary of short code names and parameters names to translate (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> HugoPostWithHttpInfoAsync(System.IO.Stream file, string url = default(string),
+            Dictionary<int,List<List<string>>> FrontMatterDict = null, 
+            Dictionary<int, List<List<string>>> ShortCodesDict = null, 
+            int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'file' is set
             if (file == null)
@@ -3362,7 +3382,16 @@ namespace GroupDocs.Translation.Api.Api
             {
                 localVarRequestOptions.FormParameters.Add("Url", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(url)); // form parameter
             }
-
+            if (FrontMatterDict != null)
+            {
+                localVarRequestOptions.FormParameters.Add("FrontMatterDict",
+                    GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(FrontMatterDict));
+            }
+            if (ShortCodesDict != null)
+            {
+                localVarRequestOptions.FormParameters.Add("ShortCodesDict",
+                    GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(ShortCodesDict));
+            }
             localVarRequestOptions.Operation = "TransportApi.HugoPost";
             localVarRequestOptions.OperationIndex = operationIndex;
 
