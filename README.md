@@ -90,12 +90,13 @@ namespace Example
             var route = "route_example";  // string | endpoints route (optional) 
             var separator = "separator_example";  // string | Separator in files (optional) 
             var elements = new List<int>(); // List<int> | List of slides to translate (optional) 
+            var frontMatterList = new List<List<string>>(); // List<List<string>> | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional) 
             var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
 
             try
             {
                 // Translate any supported file
-                StatusResponse result = apiInstance.AllFormatsPost(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, savingMode);
+                StatusResponse result = apiInstance.AllFormatsPost(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, frontMatterList, savingMode);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
