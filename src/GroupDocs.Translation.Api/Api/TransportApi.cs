@@ -43,11 +43,12 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="route">endpoints route (optional)</param>
         /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>StatusResponse</returns>
-        StatusResponse AllFormatsPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0);
+        StatusResponse AllFormatsPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Translate any supported file
@@ -68,11 +69,12 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="route">endpoints route (optional)</param>
         /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of StatusResponse</returns>
-        ApiResponse<StatusResponse> AllFormatsPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0);
+        ApiResponse<StatusResponse> AllFormatsPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0);
         /// <summary>
         /// Return list of available language pairs
         /// </summary>
@@ -285,11 +287,12 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>StatusResponse</returns>
-        StatusResponse MarkdownPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0);
+        StatusResponse MarkdownPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Translate Markdown files
@@ -304,11 +307,12 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of StatusResponse</returns>
-        ApiResponse<StatusResponse> MarkdownPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0);
+        ApiResponse<StatusResponse> MarkdownPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0);
         /// <summary>
         /// Translate image or scanned pdf and return file
         /// </summary>
@@ -607,12 +611,13 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="route">endpoints route (optional)</param>
         /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        System.Threading.Tasks.Task<StatusResponse> AllFormatsPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StatusResponse> AllFormatsPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Translate any supported file
@@ -633,12 +638,13 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="route">endpoints route (optional)</param>
         /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> AllFormatsPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> AllFormatsPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Return list of available language pairs
         /// </summary>
@@ -894,12 +900,13 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        System.Threading.Tasks.Task<StatusResponse> MarkdownPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StatusResponse> MarkdownPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Translate Markdown files
@@ -914,12 +921,13 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> MarkdownPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StatusResponse>> MarkdownPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Translate image or scanned pdf and return file
         /// </summary>
@@ -1366,13 +1374,14 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="route">endpoints route (optional)</param>
         /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>StatusResponse</returns>
-        public StatusResponse AllFormatsPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0)
+        public StatusResponse AllFormatsPost(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0)
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = AllFormatsPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, frontMatterList, savingMode);
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = AllFormatsPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, shortCodeList, frontMatterList, savingMode);
             return localVarResponse.Data;
         }
 
@@ -1392,11 +1401,12 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="route">endpoints route (optional)</param>
         /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of StatusResponse</returns>
-        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> AllFormatsPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0)
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> AllFormatsPostWithHttpInfo(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'format' is set
             if (format == null)
@@ -1484,6 +1494,10 @@ namespace GroupDocs.Translation.Api.Api
             {
                 localVarRequestOptions.FormParameters.Add("Elements", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(elements)); // form parameter
             }
+            if (shortCodeList != null)
+            {
+                localVarRequestOptions.FormParameters.Add("ShortCodeList", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(shortCodeList)); // form parameter
+            }
             if (frontMatterList != null)
             {
                 localVarRequestOptions.FormParameters.Add("FrontMatterList", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(frontMatterList)); // form parameter
@@ -1543,14 +1557,15 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="route">endpoints route (optional)</param>
         /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        public async System.Threading.Tasks.Task<StatusResponse> AllFormatsPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StatusResponse> AllFormatsPostAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await AllFormatsPostWithHttpInfoAsync(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, frontMatterList, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await AllFormatsPostWithHttpInfoAsync(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, shortCodeList, frontMatterList, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1570,12 +1585,13 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="route">endpoints route (optional)</param>
         /// <param name="separator">Separator in files (optional)</param>
         /// <param name="elements">List of slides to translate (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> AllFormatsPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> AllFormatsPostWithHttpInfoAsync(string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), bool? masters = default(bool?), bool? formatting = default(bool?), string origin = default(string), string route = default(string), string separator = default(string), List<int> elements = default(List<int>), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'format' is set
             if (format == null)
@@ -1663,6 +1679,10 @@ namespace GroupDocs.Translation.Api.Api
             if (elements != null)
             {
                 localVarRequestOptions.FormParameters.Add("Elements", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(elements)); // form parameter
+            }
+            if (shortCodeList != null)
+            {
+                localVarRequestOptions.FormParameters.Add("ShortCodeList", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(shortCodeList)); // form parameter
             }
             if (frontMatterList != null)
             {
@@ -3428,13 +3448,14 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>StatusResponse</returns>
-        public StatusResponse MarkdownPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0)
+        public StatusResponse MarkdownPost(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0)
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = MarkdownPostWithHttpInfo(outFormat, source, targets, file, url, origin, frontMatterList, savingMode);
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = MarkdownPostWithHttpInfo(outFormat, source, targets, file, url, origin, shortCodeList, frontMatterList, savingMode);
             return localVarResponse.Data;
         }
 
@@ -3448,11 +3469,12 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of StatusResponse</returns>
-        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> MarkdownPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0)
+        public GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> MarkdownPostWithHttpInfo(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'outFormat' is set
             if (outFormat == null)
@@ -3513,9 +3535,13 @@ namespace GroupDocs.Translation.Api.Api
             {
                 localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
             }
+            if (shortCodeList != null)
+            {
+                localVarRequestOptions.FormParameters.Add("ShortCodeList", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(shortCodeList)); // form parameter
+            }
             if (frontMatterList != null)
             {
-                localVarRequestOptions.FormParameters.Add("FrontMatterList", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(frontMatterList)); // form parameter
+                localVarRequestOptions.FormParameters.Add("FrontMatterList", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(frontMatterList)); // form parameter
             }
             if (savingMode != null)
             {
@@ -3566,14 +3592,15 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StatusResponse</returns>
-        public async System.Threading.Tasks.Task<StatusResponse> MarkdownPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StatusResponse> MarkdownPostAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await MarkdownPostWithHttpInfoAsync(outFormat, source, targets, file, url, origin, frontMatterList, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
+            GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse> localVarResponse = await MarkdownPostWithHttpInfoAsync(outFormat, source, targets, file, url, origin, shortCodeList, frontMatterList, savingMode, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3587,12 +3614,13 @@ namespace GroupDocs.Translation.Api.Api
         /// <param name="file">File as byte array</param>
         /// <param name="url">Link to file for translation (optional)</param>
         /// <param name="origin">for analysis only (optional)</param>
+        /// <param name="shortCodeList">Dictiory of short code names and parameters names to translate (optional)</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional)</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StatusResponse)</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> MarkdownPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Api.Client.ApiResponse<StatusResponse>> MarkdownPostWithHttpInfoAsync(string outFormat, string source, List<string> targets, System.IO.Stream file, string url = default(string), string origin = default(string), List<List<string>> shortCodeList = default(List<List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string savingMode = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'outFormat' is set
             if (outFormat == null)
@@ -3654,9 +3682,13 @@ namespace GroupDocs.Translation.Api.Api
             {
                 localVarRequestOptions.FormParameters.Add("Origin", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(origin)); // form parameter
             }
+            if (shortCodeList != null)
+            {
+                localVarRequestOptions.FormParameters.Add("ShortCodeList", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(shortCodeList)); // form parameter
+            }
             if (frontMatterList != null)
             {
-                localVarRequestOptions.FormParameters.Add("FrontMatterList", GroupDocs.Translation.Api.Client.ClientUtils.ParameterToString(frontMatterList)); // form parameter
+                localVarRequestOptions.FormParameters.Add("FrontMatterList", GroupDocs.Translation.Api.Client.ClientUtils.Serialize(frontMatterList)); // form parameter
             }
             if (savingMode != null)
             {
