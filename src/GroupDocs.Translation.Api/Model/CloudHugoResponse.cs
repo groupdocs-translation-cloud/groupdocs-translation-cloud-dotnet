@@ -420,7 +420,7 @@ namespace GroupDocs.Translation.Api.Model
         /// <param name="message">If file was parsed correctly or text of error.</param>
         /// <param name="frontmatters">Structure of front matter syntax.</param>
         /// <param name="shortcodes">Structure of short code syntax.</param>
-        public CloudHugoResponse(StatusEnum? status = default(StatusEnum?), string message = default(string), List<List<string>> frontmatters = default(List<List<string>>), Dictionary<string, List<List<string>>> shortcodes = default(Dictionary<string, List<List<string>>>))
+        public CloudHugoResponse(StatusEnum? status = default(StatusEnum?), string message = default(string), List<List<string>> frontmatters = default(List<List<string>>), List<List<string>> shortcodes = default(List<List<string>>))
         {
             this.Status = status;
             this.Message = message;
@@ -447,7 +447,7 @@ namespace GroupDocs.Translation.Api.Model
         /// </summary>
         /// <value>Structure of short code syntax</value>
         [DataMember(Name = "shortcodes", EmitDefaultValue = true)]
-        public Dictionary<string, List<List<string>>> Shortcodes { get; set; }
+        public List<List<string>> Shortcodes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
