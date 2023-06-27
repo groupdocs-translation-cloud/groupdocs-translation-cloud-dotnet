@@ -420,7 +420,7 @@ namespace GroupDocs.Translation.Api.Model
         /// <param name="message">If file was parsed correctly or text of error.</param>
         /// <param name="frontmatters">Structure of front matter syntax.</param>
         /// <param name="shortcodes">Structure of short code syntax.</param>
-        public CloudHugoResponse(StatusEnum? status = default(StatusEnum?), string message = default(string), List<List<string>> frontmatters = default(List<List<string>>), List<List<string>> shortcodes = default(List<List<string>>))
+        public CloudHugoResponse(StatusEnum? status = default(StatusEnum?), string message = default(string), Dictionary<string, List<List<string>>> frontmatters = default(Dictionary<string, List<List<string>>>), Dictionary<string, List<List<string>>> shortcodes = default(Dictionary<string, List<List<string>>>))
         {
             this.Status = status;
             this.Message = message;
@@ -440,14 +440,14 @@ namespace GroupDocs.Translation.Api.Model
         /// </summary>
         /// <value>Structure of front matter syntax</value>
         [DataMember(Name = "frontmatters", EmitDefaultValue = true)]
-        public List<List<string>> Frontmatters { get; set; }
+        public Dictionary<string, List<List<string>>> Frontmatters { get; set; }
 
         /// <summary>
         /// Structure of short code syntax
         /// </summary>
         /// <value>Structure of short code syntax</value>
         [DataMember(Name = "shortcodes", EmitDefaultValue = true)]
-        public List<List<string>> Shortcodes { get; set; }
+        public Dictionary<string, List<List<string>>> Shortcodes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -550,7 +550,7 @@ namespace GroupDocs.Translation.Api.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

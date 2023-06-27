@@ -1,0 +1,1645 @@
+openapi: 3.0.1
+info:
+  title: GroupDocs.Translation.ApiGateway.Web
+  version: "1.0"
+servers:
+- url: https://api.groupdocs.cloud/v2.0/translation/
+security:
+- JWT: []
+paths:
+  /hc:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckStatus'
+          description: Success
+      summary: Health check for all services.
+      tags:
+      - Transport
+  /available-languages:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LanguagePairData'
+                type: array
+          description: Success
+      summary: Return list of available language pairs
+      tags:
+      - Transport
+  /document:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Formatting:
+                style: form
+              Origin:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_document_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: "Translate Microsoft Word documents, rtf, txt, odt"
+      tags:
+      - Transport
+  /spreadsheets:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Origin:
+                style: form
+              Worksheets:
+                style: form
+              Ranges:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_spreadsheets_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: "Translate Microsoft Excel workbooks, ods"
+      tags:
+      - Transport
+  /presentation:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Masters:
+                style: form
+              Origin:
+                style: form
+              Slides:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_presentation_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: "Translate Microsoft PowerPoint presentations, odp"
+      tags:
+      - Transport
+  /pdf:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Formatting:
+                style: form
+              Origin:
+                style: form
+              Pages:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_pdf_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate pdf files
+      tags:
+      - Transport
+  /html:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Origin:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_html_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate HTML files
+      tags:
+      - Transport
+  /markdown:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Origin:
+                style: form
+              ShortCodeDict:
+                style: form
+              FrontMatterDict:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_markdown_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate Markdown files
+      tags:
+      - Transport
+  /csv:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Origin:
+                style: form
+              Separator:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_csv_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate CSV and TSV files
+      tags:
+      - Transport
+  /resources:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Origin:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_html_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate RESX files
+      tags:
+      - Transport
+  /all-formats:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Masters:
+                style: form
+              Formatting:
+                style: form
+              Origin:
+                style: form
+              Route:
+                style: form
+              Separator:
+                style: form
+              Elements:
+                style: form
+              Ranges:
+                style: form
+              ShortCodeDict:
+                style: form
+              FrontMatterDict:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_all_formats_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate any supported file
+      tags:
+      - Transport
+  /hugo:
+    get:
+      parameters:
+      - description: id from PostHugo>
+        explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudHugoResponse'
+          description: Success
+      summary: Get hugo syntax structure from markdown file
+      tags:
+      - Transport
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              File:
+                style: form
+              Url:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_hugo_post_request'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Accepted
+      summary: Run hugo syntax structure analyzing from markdown file
+      tags:
+      - Transport
+  /ocr-text:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Rotate:
+                style: form
+              IsHandwritten:
+                style: form
+              Origin:
+                style: form
+              Route:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_ocr_text_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate text on image or scanned pdf
+      tags:
+      - Transport
+  /ocr-file:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Format:
+                style: form
+              OcrFormat:
+                style: form
+              OutFormat:
+                style: form
+              Source:
+                style: form
+              Targets:
+                style: form
+              File:
+                style: form
+              Url:
+                style: form
+              Rotate:
+                style: form
+              Formatting:
+                style: form
+              Origin:
+                style: form
+              Route:
+                style: form
+              Pages:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_ocr_file_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate image or scanned pdf and return file
+      tags:
+      - Transport
+  /text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            encoding:
+              Source:
+                style: form
+              Targets:
+                style: form
+              Text:
+                style: form
+              Texts:
+                style: form
+              Origin:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_text_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate text
+      tags:
+      - Transport
+  /document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/translation/document response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+          description: Success
+      summary: "Return document translation status.\r\nAlso return URLs for downloading\
+        \ of translated document if translation was successful"
+      tags:
+      - Transport
+  /text/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /v3/translation/text response
+        explode: false
+        in: path
+        name: requestId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+          description: Success
+      summary: "Return text translation status.\r\nAlso return translated text if\
+        \ translation was successful"
+      tags:
+      - Transport
+components:
+  schemas:
+    CloudFileResponse:
+      additionalProperties: false
+      example:
+        urls:
+          key:
+            size: 0
+            url: url
+        scores:
+          key: 6.0274563
+        message: message
+        status: Continue
+      properties:
+        status:
+          enum:
+          - Continue
+          - SwitchingProtocols
+          - Processing
+          - EarlyHints
+          - OK
+          - Created
+          - Accepted
+          - NonAuthoritativeInformation
+          - NoContent
+          - ResetContent
+          - PartialContent
+          - MultiStatus
+          - AlreadyReported
+          - IMUsed
+          - MultipleChoices
+          - MovedPermanently
+          - Found
+          - SeeOther
+          - NotModified
+          - UseProxy
+          - Unused
+          - TemporaryRedirect
+          - PermanentRedirect
+          - BadRequest
+          - Unauthorized
+          - PaymentRequired
+          - Forbidden
+          - NotFound
+          - MethodNotAllowed
+          - NotAcceptable
+          - ProxyAuthenticationRequired
+          - RequestTimeout
+          - Conflict
+          - Gone
+          - LengthRequired
+          - PreconditionFailed
+          - RequestEntityTooLarge
+          - RequestUriTooLong
+          - UnsupportedMediaType
+          - RequestedRangeNotSatisfiable
+          - ExpectationFailed
+          - MisdirectedRequest
+          - UnprocessableEntity
+          - Locked
+          - FailedDependency
+          - UpgradeRequired
+          - PreconditionRequired
+          - TooManyRequests
+          - RequestHeaderFieldsTooLarge
+          - UnavailableForLegalReasons
+          - InternalServerError
+          - NotImplemented
+          - BadGateway
+          - ServiceUnavailable
+          - GatewayTimeout
+          - HttpVersionNotSupported
+          - VariantAlsoNegotiates
+          - InsufficientStorage
+          - LoopDetected
+          - NotExtended
+          - NetworkAuthenticationRequired
+          type: string
+        message:
+          nullable: true
+          type: string
+        urls:
+          additionalProperties:
+            $ref: '#/components/schemas/UrlFileInfo'
+          nullable: true
+          type: object
+        scores:
+          additionalProperties:
+            format: float
+            nullable: true
+            type: number
+          nullable: true
+          type: object
+      type: object
+    CloudHugoResponse:
+      additionalProperties: false
+      example:
+        frontmatters:
+          key:
+          - - frontmatters
+            - frontmatters
+          - - frontmatters
+            - frontmatters
+        shortcodes:
+          key:
+          - - shortcodes
+            - shortcodes
+          - - shortcodes
+            - shortcodes
+        message: message
+        status: Continue
+      properties:
+        status:
+          description: "\"ok\" if structure parsing was successful, \"error\" if error\
+            \ occured"
+          enum:
+          - Continue
+          - SwitchingProtocols
+          - Processing
+          - EarlyHints
+          - OK
+          - Created
+          - Accepted
+          - NonAuthoritativeInformation
+          - NoContent
+          - ResetContent
+          - PartialContent
+          - MultiStatus
+          - AlreadyReported
+          - IMUsed
+          - MultipleChoices
+          - MovedPermanently
+          - Found
+          - SeeOther
+          - NotModified
+          - UseProxy
+          - Unused
+          - TemporaryRedirect
+          - PermanentRedirect
+          - BadRequest
+          - Unauthorized
+          - PaymentRequired
+          - Forbidden
+          - NotFound
+          - MethodNotAllowed
+          - NotAcceptable
+          - ProxyAuthenticationRequired
+          - RequestTimeout
+          - Conflict
+          - Gone
+          - LengthRequired
+          - PreconditionFailed
+          - RequestEntityTooLarge
+          - RequestUriTooLong
+          - UnsupportedMediaType
+          - RequestedRangeNotSatisfiable
+          - ExpectationFailed
+          - MisdirectedRequest
+          - UnprocessableEntity
+          - Locked
+          - FailedDependency
+          - UpgradeRequired
+          - PreconditionRequired
+          - TooManyRequests
+          - RequestHeaderFieldsTooLarge
+          - UnavailableForLegalReasons
+          - InternalServerError
+          - NotImplemented
+          - BadGateway
+          - ServiceUnavailable
+          - GatewayTimeout
+          - HttpVersionNotSupported
+          - VariantAlsoNegotiates
+          - InsufficientStorage
+          - LoopDetected
+          - NotExtended
+          - NetworkAuthenticationRequired
+          type: string
+        message:
+          description: If file was parsed correctly or text of error
+          nullable: true
+          type: string
+        frontmatters:
+          additionalProperties:
+            items:
+              items:
+                type: string
+              type: array
+            nullable: true
+            type: array
+          description: Structure of front matter syntax
+          nullable: true
+          type: object
+        shortcodes:
+          additionalProperties:
+            items:
+              items:
+                type: string
+              type: array
+            nullable: true
+            type: array
+          description: Structure of short code syntax
+          nullable: true
+          type: object
+      type: object
+    CloudTextResponse:
+      additionalProperties: false
+      example:
+        translations:
+          key:
+          - translations
+          - translations
+        message: message
+        status: Continue
+      properties:
+        status:
+          description: "\"ok\" if translation was successful, \"error\" if error occured"
+          enum:
+          - Continue
+          - SwitchingProtocols
+          - Processing
+          - EarlyHints
+          - OK
+          - Created
+          - Accepted
+          - NonAuthoritativeInformation
+          - NoContent
+          - ResetContent
+          - PartialContent
+          - MultiStatus
+          - AlreadyReported
+          - IMUsed
+          - MultipleChoices
+          - MovedPermanently
+          - Found
+          - SeeOther
+          - NotModified
+          - UseProxy
+          - Unused
+          - TemporaryRedirect
+          - PermanentRedirect
+          - BadRequest
+          - Unauthorized
+          - PaymentRequired
+          - Forbidden
+          - NotFound
+          - MethodNotAllowed
+          - NotAcceptable
+          - ProxyAuthenticationRequired
+          - RequestTimeout
+          - Conflict
+          - Gone
+          - LengthRequired
+          - PreconditionFailed
+          - RequestEntityTooLarge
+          - RequestUriTooLong
+          - UnsupportedMediaType
+          - RequestedRangeNotSatisfiable
+          - ExpectationFailed
+          - MisdirectedRequest
+          - UnprocessableEntity
+          - Locked
+          - FailedDependency
+          - UpgradeRequired
+          - PreconditionRequired
+          - TooManyRequests
+          - RequestHeaderFieldsTooLarge
+          - UnavailableForLegalReasons
+          - InternalServerError
+          - NotImplemented
+          - BadGateway
+          - ServiceUnavailable
+          - GatewayTimeout
+          - HttpVersionNotSupported
+          - VariantAlsoNegotiates
+          - InsufficientStorage
+          - LoopDetected
+          - NotExtended
+          - NetworkAuthenticationRequired
+          type: string
+        message:
+          description: If file was translated correctly or text of error
+          nullable: true
+          type: string
+        translations:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          description: Translated texts
+          nullable: true
+          type: object
+      type: object
+    HealthCheckStatus:
+      additionalProperties: false
+      example:
+        cloudStatus: cloudStatus
+        kafkaDeliveryStatus: kafkaDeliveryStatus
+      properties:
+        kafkaDeliveryStatus:
+          nullable: true
+          type: string
+        cloudStatus:
+          nullable: true
+          type: string
+      type: object
+    LanguagePairData:
+      additionalProperties: false
+      example:
+        source: source
+        targets:
+        - targets
+        - targets
+      properties:
+        source:
+          nullable: true
+          type: string
+        targets:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    StatusResponse:
+      additionalProperties: false
+      example:
+        id: id
+        message: message
+        status: Continue
+      properties:
+        status:
+          enum:
+          - Continue
+          - SwitchingProtocols
+          - Processing
+          - EarlyHints
+          - OK
+          - Created
+          - Accepted
+          - NonAuthoritativeInformation
+          - NoContent
+          - ResetContent
+          - PartialContent
+          - MultiStatus
+          - AlreadyReported
+          - IMUsed
+          - MultipleChoices
+          - MovedPermanently
+          - Found
+          - SeeOther
+          - NotModified
+          - UseProxy
+          - Unused
+          - TemporaryRedirect
+          - PermanentRedirect
+          - BadRequest
+          - Unauthorized
+          - PaymentRequired
+          - Forbidden
+          - NotFound
+          - MethodNotAllowed
+          - NotAcceptable
+          - ProxyAuthenticationRequired
+          - RequestTimeout
+          - Conflict
+          - Gone
+          - LengthRequired
+          - PreconditionFailed
+          - RequestEntityTooLarge
+          - RequestUriTooLong
+          - UnsupportedMediaType
+          - RequestedRangeNotSatisfiable
+          - ExpectationFailed
+          - MisdirectedRequest
+          - UnprocessableEntity
+          - Locked
+          - FailedDependency
+          - UpgradeRequired
+          - PreconditionRequired
+          - TooManyRequests
+          - RequestHeaderFieldsTooLarge
+          - UnavailableForLegalReasons
+          - InternalServerError
+          - NotImplemented
+          - BadGateway
+          - ServiceUnavailable
+          - GatewayTimeout
+          - HttpVersionNotSupported
+          - VariantAlsoNegotiates
+          - InsufficientStorage
+          - LoopDetected
+          - NotExtended
+          - NetworkAuthenticationRequired
+          type: string
+        message:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: string
+      type: object
+    StringStringTuple:
+      additionalProperties: false
+      properties:
+        item1:
+          type: string
+        item2:
+          type: string
+      type: object
+    UrlFileInfo:
+      additionalProperties: false
+      example:
+        size: 0
+        url: url
+      properties:
+        url:
+          nullable: true
+          type: string
+        size:
+          format: int64
+          type: integer
+      type: object
+    WorksheetData:
+      additionalProperties: false
+      properties:
+        rows:
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        columns:
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        ranges:
+          items:
+            $ref: '#/components/schemas/StringStringTuple'
+          nullable: true
+          type: array
+      type: object
+    _document_post_request:
+      properties:
+        Format:
+          default: Docx
+          description: Input file format
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Txt
+          - Rtf
+          - Odt
+          example: Unknown
+          type: string
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Formatting:
+          default: true
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        Origin:
+          description: for analysis only
+          type: string
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - Format
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _spreadsheets_post_request:
+      properties:
+        Format:
+          default: Xlsx
+          description: Input file format
+          enum:
+          - Unknown
+          - Xls
+          - Xlsx
+          - Xlsm
+          - Ods
+          example: Unknown
+          type: string
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Origin:
+          description: for analysis only
+          type: string
+        Worksheets:
+          description: List of Worksheets to translate
+          items:
+            format: int32
+            type: integer
+          type: array
+        Ranges:
+          additionalProperties:
+            $ref: '#/components/schemas/WorksheetData'
+          description: Dictionary of ranges in Excel workbooks
+          type: object
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - Format
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _presentation_post_request:
+      properties:
+        Format:
+          default: Pptx
+          description: Input file format
+          enum:
+          - Unknown
+          - Ppt
+          - Pptx
+          - Pptm
+          - Odp
+          example: Unknown
+          type: string
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Masters:
+          default: false
+          description: If translate master slides
+          type: boolean
+        Origin:
+          description: for analysis only
+          type: string
+        Slides:
+          description: List of slides to translate
+          items:
+            format: int32
+            type: integer
+          type: array
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - Format
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _pdf_post_request:
+      properties:
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Formatting:
+          default: true
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        Origin:
+          description: for analysis only
+          type: string
+        Pages:
+          description: List of pages to translate
+          items:
+            format: int32
+            type: integer
+          type: array
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _html_post_request:
+      properties:
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Origin:
+          description: for analysis only
+          type: string
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _markdown_post_request:
+      properties:
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Origin:
+          description: for analysis only
+          type: string
+        ShortCodeDict:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          description: Dictionary of short code names and parameters names to translate
+          type: object
+        FrontMatterDict:
+          additionalProperties:
+            items:
+              items:
+                type: string
+              type: array
+            nullable: true
+            type: array
+          description: Dictionary where key is zero-based front matter index and value
+            is list of lists of front matter paths
+          type: object
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _csv_post_request:
+      properties:
+        Format:
+          default: Csv
+          description: Input file format
+          enum:
+          - Unknown
+          - Csv
+          - Tsv
+          example: Unknown
+          type: string
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Origin:
+          description: for analysis only
+          type: string
+        Separator:
+          description: Separator in files
+          type: string
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _all_formats_post_request:
+      properties:
+        Format:
+          default: Unknown
+          description: Input file format
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Xls
+          - Xlsx
+          - Xlsm
+          - Ppt
+          - Pptx
+          - Pptm
+          - Txt
+          - Pdf
+          - Md
+          - Resx
+          - Html
+          - Rtf
+          - Odt
+          - Ods
+          - Odp
+          - Csv
+          - Tsv
+          example: Unknown
+          type: string
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Masters:
+          default: false
+          description: If translate master slides
+          type: boolean
+        Formatting:
+          default: true
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        Origin:
+          description: for analysis only
+          type: string
+        Route:
+          description: endpoints route
+          type: string
+        Separator:
+          description: Separator in files
+          type: string
+        Elements:
+          description: List of slides to translate
+          items:
+            format: int32
+            type: integer
+          type: array
+        Ranges:
+          additionalProperties:
+            $ref: '#/components/schemas/WorksheetData'
+          description: Dictionary of ranges in Excel workbooks
+          type: object
+        ShortCodeDict:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          description: Dictiory of short code names and parameters names to translate
+          type: object
+        FrontMatterDict:
+          additionalProperties:
+            items:
+              items:
+                type: string
+              type: array
+            nullable: true
+            type: array
+          description: Dictionary where key is zero-based front matter index and value
+            is list of lists of front matter paths
+          type: object
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - Format
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _hugo_post_request:
+      properties:
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+      required:
+      - File
+      type: object
+    _ocr_text_post_request:
+      properties:
+        Format:
+          default: Unknown
+          description: Originnal file format
+          enum:
+          - Unknown
+          - Bmp
+          - Jpg
+          - Png
+          - Svg
+          - Gif
+          - Pdf
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Rotate:
+          description: Left to write angle to rotate scanned image / pdf
+          format: int32
+          type: integer
+        IsHandwritten:
+          description: is handwritten text
+          type: boolean
+        Origin:
+          description: for analysis only
+          type: string
+        Route:
+          description: endpoints route
+          type: string
+      required:
+      - File
+      - Source
+      - Targets
+      type: object
+    _ocr_file_post_request:
+      properties:
+        Format:
+          default: Unknown
+          description: Original file format
+          enum:
+          - Unknown
+          - Bmp
+          - Jpg
+          - Png
+          - Svg
+          - Gif
+          - Pdf
+          type: string
+        OcrFormat:
+          default: Pdf
+          description: File format after recognition
+          enum:
+          - Pdf
+          - Xlsx
+          - Csv
+          type: string
+        OutFormat:
+          description: output file format
+          type: string
+        Source:
+          default: en
+          description: Language of original file
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: binary
+          type: string
+        Url:
+          description: Link to file for translation
+          type: string
+        Rotate:
+          description: Left to write angle to rotate scanned image / pdf
+          format: int32
+          type: integer
+        Formatting:
+          default: true
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        Origin:
+          description: for analysis only
+          type: string
+        Route:
+          description: endpoints route
+          type: string
+        Pages:
+          description: List of pages to translate for scanned pdf
+          items:
+            format: int32
+            type: integer
+          type: array
+        SavingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - File
+      - OcrFormat
+      - OutFormat
+      - Source
+      - Targets
+      type: object
+    _text_post_request:
+      properties:
+        Source:
+          description: Language of original text
+          type: string
+        Targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        Text:
+          description: Text to translate
+          type: string
+        Texts:
+          description: Text array to translate
+          items:
+            type: string
+          type: array
+        Origin:
+          description: For analysis only
+          type: string
+      type: object
+  securitySchemes:
+    JWT:
+      description: Please enter APP SID & KEY
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://id.groupdocs.cloud/connect/token
+      type: oauth2
+

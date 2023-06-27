@@ -26,33 +26,62 @@ using OpenAPIDateConverter = GroupDocs.Translation.Api.Client.OpenAPIDateConvert
 namespace GroupDocs.Translation.Api.Model
 {
     /// <summary>
-    /// LanguagePairData
+    /// TextPostRequest
     /// </summary>
-    [DataContract(Name = "LanguagePairData")]
-    public partial class LanguagePairData : IEquatable<LanguagePairData>, IValidatableObject
+    [DataContract(Name = "_text_post_request")]
+    public partial class TextPostRequest : IEquatable<TextPostRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LanguagePairData" /> class.
+        /// Initializes a new instance of the <see cref="TextPostRequest" /> class.
         /// </summary>
-        /// <param name="source">source.</param>
-        /// <param name="targets">targets.</param>
-        public LanguagePairData(string source = default(string), List<string> targets = default(List<string>))
+        /// <param name="source">Language of original text.</param>
+        /// <param name="targets">List of target languages.</param>
+        /// <param name="text">Text to translate.</param>
+        /// <param name="texts">Text array to translate.</param>
+        /// <param name="origin">For analysis only.</param>
+        public TextPostRequest(string source = default(string), List<string> targets = default(List<string>), string text = default(string), List<string> texts = default(List<string>), string origin = default(string))
         {
             this.Source = source;
             this.Targets = targets;
+            this.Text = text;
+            this.Texts = texts;
+            this.Origin = origin;
         }
 
         /// <summary>
-        /// Gets or Sets Source
+        /// Language of original text
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = true)]
+        /// <value>Language of original text</value>
+        [DataMember(Name = "Source", EmitDefaultValue = false)]
         public string Source { get; set; }
 
         /// <summary>
-        /// Gets or Sets Targets
+        /// List of target languages
         /// </summary>
-        [DataMember(Name = "targets", EmitDefaultValue = true)]
+        /// <value>List of target languages</value>
+        [DataMember(Name = "Targets", EmitDefaultValue = false)]
         public List<string> Targets { get; set; }
+
+        /// <summary>
+        /// Text to translate
+        /// </summary>
+        /// <value>Text to translate</value>
+        [DataMember(Name = "Text", EmitDefaultValue = false)]
+        public string Text { get; set; }
+
+        /// <summary>
+        /// Text array to translate
+        /// </summary>
+        /// <value>Text array to translate</value>
+        [DataMember(Name = "Texts", EmitDefaultValue = false)]
+        public List<string> Texts { get; set; }
+
+        /// <summary>
+        /// For analysis only
+        /// </summary>
+        /// <value>For analysis only</value>
+        [DataMember(Name = "Origin", EmitDefaultValue = false)]
+        public string Origin { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +90,12 @@ namespace GroupDocs.Translation.Api.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LanguagePairData {\n");
+            sb.Append("class TextPostRequest {\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Targets: ").Append(Targets).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  Texts: ").Append(Texts).Append("\n");
+            sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,15 +116,15 @@ namespace GroupDocs.Translation.Api.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LanguagePairData);
+            return this.Equals(input as TextPostRequest);
         }
 
         /// <summary>
-        /// Returns true if LanguagePairData instances are equal
+        /// Returns true if TextPostRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of LanguagePairData to be compared</param>
+        /// <param name="input">Instance of TextPostRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LanguagePairData input)
+        public bool Equals(TextPostRequest input)
         {
             if (input == null)
             {
@@ -109,6 +141,22 @@ namespace GroupDocs.Translation.Api.Model
                     this.Targets != null &&
                     input.Targets != null &&
                     this.Targets.SequenceEqual(input.Targets)
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.Texts == input.Texts ||
+                    this.Texts != null &&
+                    input.Texts != null &&
+                    this.Texts.SequenceEqual(input.Texts)
+                ) && 
+                (
+                    this.Origin == input.Origin ||
+                    (this.Origin != null &&
+                    this.Origin.Equals(input.Origin))
                 );
         }
 
@@ -128,6 +176,18 @@ namespace GroupDocs.Translation.Api.Model
                 if (this.Targets != null)
                 {
                     hashCode = (hashCode * 59) + this.Targets.GetHashCode();
+                }
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.Texts != null)
+                {
+                    hashCode = (hashCode * 59) + this.Texts.GetHashCode();
+                }
+                if (this.Origin != null)
+                {
+                    hashCode = (hashCode * 59) + this.Origin.GetHashCode();
                 }
                 return hashCode;
             }

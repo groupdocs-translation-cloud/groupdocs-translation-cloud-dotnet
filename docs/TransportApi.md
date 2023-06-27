@@ -23,9 +23,9 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 | [**TextPost**](TransportApi.md#textpost) | **POST** /text | Translate text |
 | [**TextRequestIdGet**](TransportApi.md#textrequestidget) | **GET** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful |
 
-<a name="allformatspost"></a>
+<a id="allformatspost"></a>
 # **AllFormatsPost**
-> StatusResponse AllFormatsPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? masters = null, bool? formatting = null, string origin = null, string route = null, string separator = null, List<int> elements = null, List<List<string>> shortCodeList = null, List<List<string>> frontMatterList = null, string savingMode = null)
+> StatusResponse AllFormatsPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? masters = null, bool? formatting = null, string origin = null, string route = null, string separator = null, List<int> elements = null, string savingMode = null)
 
 Translate any supported file
 
@@ -61,14 +61,12 @@ namespace Example
             var route = "route_example";  // string | endpoints route (optional) 
             var separator = "separator_example";  // string | Separator in files (optional) 
             var elements = new List<int>(); // List<int> | List of slides to translate (optional) 
-            var shortCodeList = new List<List<string>>(); // List<List<string>> | Dictiory of short code names and parameters names to translate (optional) 
-            var frontMatterList = new List<List<string>>(); // List<List<string>> | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional) 
             var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
 
             try
             {
                 // Translate any supported file
-                StatusResponse result = apiInstance.AllFormatsPost(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, shortCodeList, frontMatterList, savingMode);
+                StatusResponse result = apiInstance.AllFormatsPost(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, savingMode);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -89,7 +87,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate any supported file
-    ApiResponse<StatusResponse> response = apiInstance.AllFormatsPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, shortCodeList, frontMatterList, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.AllFormatsPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, savingMode);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -118,8 +116,6 @@ catch (ApiException e)
 | **route** | **string** | endpoints route | [optional]  |
 | **separator** | **string** | Separator in files | [optional]  |
 | **elements** | [**List&lt;int&gt;**](int.md) | List of slides to translate | [optional]  |
-| **shortCodeList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictiory of short code names and parameters names to translate | [optional]  |
-| **frontMatterList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional]  |
 | **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
 
 ### Return type
@@ -143,7 +139,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="availablelanguagesget"></a>
+<a id="availablelanguagesget"></a>
 # **AvailableLanguagesGet**
 > List&lt;LanguagePairData&gt; AvailableLanguagesGet ()
 
@@ -230,7 +226,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="csvpost"></a>
+<a id="csvpost"></a>
 # **CsvPost**
 > StatusResponse CsvPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string format = null, string url = null, string origin = null, string separator = null, string savingMode = null)
 
@@ -338,7 +334,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="documentpost"></a>
+<a id="documentpost"></a>
 # **DocumentPost**
 > StatusResponse DocumentPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? formatting = null, string origin = null, string savingMode = null)
 
@@ -446,7 +442,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="documentrequestidget"></a>
+<a id="documentrequestidget"></a>
 # **DocumentRequestIdGet**
 > CloudFileResponse DocumentRequestIdGet (string requestId)
 
@@ -538,7 +534,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="hcget"></a>
+<a id="hcget"></a>
 # **HcGet**
 > HealthCheckStatus HcGet ()
 
@@ -625,7 +621,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="htmlpost"></a>
+<a id="htmlpost"></a>
 # **HtmlPost**
 > StatusResponse HtmlPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, string savingMode = null)
 
@@ -729,7 +725,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="hugoget"></a>
+<a id="hugoget"></a>
 # **HugoGet**
 > CloudHugoResponse HugoGet (string id = null)
 
@@ -821,7 +817,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="hugopost"></a>
+<a id="hugopost"></a>
 # **HugoPost**
 > StatusResponse HugoPost (System.IO.Stream file, string url = null)
 
@@ -915,9 +911,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="markdownpost"></a>
+<a id="markdownpost"></a>
 # **MarkdownPost**
-> StatusResponse MarkdownPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, List<List<string>> shortCodeList = null, List<List<string>> frontMatterList = null, string savingMode = null)
+> StatusResponse MarkdownPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, string savingMode = null)
 
 Translate Markdown files
 
@@ -947,14 +943,12 @@ namespace Example
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
             var url = "url_example";  // string | Link to file for translation (optional) 
             var origin = "origin_example";  // string | for analysis only (optional) 
-            var shortCodeList = new List<List<string>>(); // List<List<string>> | Dictiory of short code names and parameters names to translate (optional) 
-            var frontMatterList = new List<List<string>>(); // List<List<string>> | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional) 
             var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
 
             try
             {
                 // Translate Markdown files
-                StatusResponse result = apiInstance.MarkdownPost(outFormat, source, targets, file, url, origin, shortCodeList, frontMatterList, savingMode);
+                StatusResponse result = apiInstance.MarkdownPost(outFormat, source, targets, file, url, origin, savingMode);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -975,7 +969,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate Markdown files
-    ApiResponse<StatusResponse> response = apiInstance.MarkdownPostWithHttpInfo(outFormat, source, targets, file, url, origin, shortCodeList, frontMatterList, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.MarkdownPostWithHttpInfo(outFormat, source, targets, file, url, origin, savingMode);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -998,8 +992,6 @@ catch (ApiException e)
 | **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
 | **url** | **string** | Link to file for translation | [optional]  |
 | **origin** | **string** | for analysis only | [optional]  |
-| **shortCodeList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictiory of short code names and parameters names to translate | [optional]  |
-| **frontMatterList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional]  |
 | **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
 
 ### Return type
@@ -1023,7 +1015,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ocrfilepost"></a>
+<a id="ocrfilepost"></a>
 # **OcrFilePost**
 > StatusResponse OcrFilePost (string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = null, string url = null, int? rotate = null, bool? formatting = null, string origin = null, string route = null, List<int> pages = null, string savingMode = null)
 
@@ -1139,7 +1131,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ocrtextpost"></a>
+<a id="ocrtextpost"></a>
 # **OcrTextPost**
 > StatusResponse OcrTextPost (string source, List<string> targets, System.IO.Stream file, string format = null, string url = null, int? rotate = null, bool? isHandwritten = null, string origin = null, string route = null)
 
@@ -1247,7 +1239,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="pdfpost"></a>
+<a id="pdfpost"></a>
 # **PdfPost**
 > StatusResponse PdfPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? formatting = null, string origin = null, List<int> pages = null, string savingMode = null)
 
@@ -1355,7 +1347,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="presentationpost"></a>
+<a id="presentationpost"></a>
 # **PresentationPost**
 > StatusResponse PresentationPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? masters = null, string origin = null, List<int> slides = null, string savingMode = null)
 
@@ -1465,7 +1457,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="resourcespost"></a>
+<a id="resourcespost"></a>
 # **ResourcesPost**
 > StatusResponse ResourcesPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, string savingMode = null)
 
@@ -1569,7 +1561,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="spreadsheetspost"></a>
+<a id="spreadsheetspost"></a>
 # **SpreadsheetsPost**
 > StatusResponse SpreadsheetsPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, List<int> worksheets = null, string savingMode = null)
 
@@ -1677,9 +1669,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="textpost"></a>
+<a id="textpost"></a>
 # **TextPost**
-> StatusResponse TextPost (string source = null, List<string> targets = null, string text = null, List<string> texts = null, string origin = null)
+> StatusResponse TextPost (TextPostRequest textPostRequest = null)
 
 Translate text
 
@@ -1703,16 +1695,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var source = "source_example";  // string | Language of original text (optional) 
-            var targets = new List<string>(); // List<string> | List of target languages (optional) 
-            var text = "text_example";  // string | Text to translate (optional) 
-            var texts = new List<string>(); // List<string> | Text array to translate (optional) 
-            var origin = "origin_example";  // string | For analysis only (optional) 
+            var textPostRequest = new TextPostRequest(); // TextPostRequest |  (optional) 
 
             try
             {
                 // Translate text
-                StatusResponse result = apiInstance.TextPost(source, targets, text, texts, origin);
+                StatusResponse result = apiInstance.TextPost(textPostRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1733,7 +1721,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate text
-    ApiResponse<StatusResponse> response = apiInstance.TextPostWithHttpInfo(source, targets, text, texts, origin);
+    ApiResponse<StatusResponse> response = apiInstance.TextPostWithHttpInfo(textPostRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1750,11 +1738,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **source** | **string** | Language of original text | [optional]  |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages | [optional]  |
-| **text** | **string** | Text to translate | [optional]  |
-| **texts** | [**List&lt;string&gt;**](string.md) | Text array to translate | [optional]  |
-| **origin** | **string** | For analysis only | [optional]  |
+| **textPostRequest** | [**TextPostRequest**](TextPostRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -1766,7 +1750,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -1777,7 +1761,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="textrequestidget"></a>
+<a id="textrequestidget"></a>
 # **TextRequestIdGet**
 > CloudTextResponse TextRequestIdGet (string requestId)
 
