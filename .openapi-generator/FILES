@@ -9,12 +9,12 @@ docs/CloudTextResponse.md
 docs/HealthCheckStatus.md
 docs/LanguagePairData.md
 docs/StatusResponse.md
-docs/TextPostRequest.md
+docs/TextRequest.md
 docs/TransportApi.md
 docs/UrlFileInfo.md
 git_push.sh
 src/GroupDocs.Translation.Api.Test/GroupDocs.Translation.Api.Test.csproj
-src/GroupDocs.Translation.Api.Test/Model/TextPostRequestTests.cs
+src/GroupDocs.Translation.Api.Test/Model/TextRequestTests.cs
 src/GroupDocs.Translation.Api/Api/TransportApi.cs
 src/GroupDocs.Translation.Api/Client/ApiClient.cs
 src/GroupDocs.Translation.Api/Client/ApiException.cs
@@ -43,5 +43,5 @@ src/GroupDocs.Translation.Api/Model/CloudTextResponse.cs
 src/GroupDocs.Translation.Api/Model/HealthCheckStatus.cs
 src/GroupDocs.Translation.Api/Model/LanguagePairData.cs
 src/GroupDocs.Translation.Api/Model/StatusResponse.cs
-src/GroupDocs.Translation.Api/Model/TextPostRequest.cs
+src/GroupDocs.Translation.Api/Model/TextRequest.cs
 src/GroupDocs.Translation.Api/Model/UrlFileInfo.cs

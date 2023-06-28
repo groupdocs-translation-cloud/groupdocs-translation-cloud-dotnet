@@ -231,9 +231,9 @@ paths:
                 style: form
               Origin:
                 style: form
-              ShortCodeDict:
+              ShortCodeList:
                 style: form
-              FrontMatterDict:
+              FrontMatterList:
                 style: form
               SavingMode:
                 style: form
@@ -349,9 +349,9 @@ paths:
                 style: form
               Ranges:
                 style: form
-              ShortCodeDict:
+              ShortCodeList:
                 style: form
-              FrontMatterDict:
+              FrontMatterList:
                 style: form
               SavingMode:
                 style: form
@@ -494,19 +494,10 @@ paths:
       requestBody:
         content:
           application/json:
-            encoding:
-              Source:
-                style: form
-              Targets:
-                style: form
-              Text:
-                style: form
-              Texts:
-                style: form
-              Origin:
-                style: form
             schema:
-              $ref: '#/components/schemas/_text_post_request'
+              $ref: '#/components/schemas/TextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
       responses:
         "200":
           content:
@@ -659,17 +650,15 @@ components:
       additionalProperties: false
       example:
         frontmatters:
-          key:
-          - - frontmatters
-            - frontmatters
-          - - frontmatters
-            - frontmatters
+        - - frontmatters
+          - frontmatters
+        - - frontmatters
+          - frontmatters
         shortcodes:
-          key:
-          - - shortcodes
-            - shortcodes
-          - - shortcodes
-            - shortcodes
+        - - shortcodes
+          - shortcodes
+        - - shortcodes
+          - shortcodes
         message: message
         status: Continue
       properties:
@@ -744,27 +733,21 @@ components:
           nullable: true
           type: string
         frontmatters:
-          additionalProperties:
-            items:
-              items:
-                type: string
-              type: array
-            nullable: true
-            type: array
           description: Structure of front matter syntax
-          nullable: true
-          type: object
-        shortcodes:
-          additionalProperties:
+          items:
             items:
-              items:
-                type: string
-              type: array
-            nullable: true
+              type: string
             type: array
-          description: Structure of short code syntax
           nullable: true
-          type: object
+          type: array
+        shortcodes:
+          description: Structure of short code syntax
+          items:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: array
       type: object
     CloudTextResponse:
       additionalProperties: false
@@ -969,6 +952,39 @@ components:
         item1:
           type: string
         item2:
+          type: string
+      type: object
+    TextRequest:
+      additionalProperties: false
+      example:
+        texts:
+        - texts
+        - texts
+        origin: origin
+        source: source
+        targets:
+        - targets
+        - targets
+      properties:
+        source:
+          description: Language of original text
+          nullable: true
+          type: string
+        targets:
+          description: List of target languages
+          items:
+            type: string
+          nullable: true
+          type: array
+        texts:
+          description: Text array to translate
+          items:
+            type: string
+          nullable: true
+          type: array
+        origin:
+          description: For analysis only
+          nullable: true
           type: string
       type: object
     UrlFileInfo:
@@ -1287,25 +1303,21 @@ components:
         Origin:
           description: for analysis only
           type: string
-        ShortCodeDict:
-          additionalProperties:
+        ShortCodeList:
+          description: Dictiory of short code names and parameters names to translate
+          items:
             items:
               type: string
-            nullable: true
             type: array
-          description: Dictionary of short code names and parameters names to translate
-          type: object
-        FrontMatterDict:
-          additionalProperties:
-            items:
-              items:
-                type: string
-              type: array
-            nullable: true
-            type: array
+          type: array
+        FrontMatterList:
           description: Dictionary where key is zero-based front matter index and value
             is list of lists of front matter paths
-          type: object
+          items:
+            items:
+              type: string
+            type: array
+          type: array
         SavingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1444,25 +1456,21 @@ components:
             $ref: '#/components/schemas/WorksheetData'
           description: Dictionary of ranges in Excel workbooks
           type: object
-        ShortCodeDict:
-          additionalProperties:
+        ShortCodeList:
+          description: Dictiory of short code names and parameters names to translate
+          items:
             items:
               type: string
-            nullable: true
             type: array
-          description: Dictiory of short code names and parameters names to translate
-          type: object
-        FrontMatterDict:
-          additionalProperties:
-            items:
-              items:
-                type: string
-              type: array
-            nullable: true
-            type: array
+          type: array
+        FrontMatterList:
           description: Dictionary where key is zero-based front matter index and value
             is list of lists of front matter paths
-          type: object
+          items:
+            items:
+              type: string
+            type: array
+          type: array
         SavingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1611,28 +1619,6 @@ components:
       - OutFormat
       - Source
       - Targets
-      type: object
-    _text_post_request:
-      properties:
-        Source:
-          description: Language of original text
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        Text:
-          description: Text to translate
-          type: string
-        Texts:
-          description: Text array to translate
-          items:
-            type: string
-          type: array
-        Origin:
-          description: For analysis only
-          type: string
       type: object
   securitySchemes:
     JWT:

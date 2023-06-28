@@ -25,7 +25,7 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 
 <a id="allformatspost"></a>
 # **AllFormatsPost**
-> StatusResponse AllFormatsPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? masters = null, bool? formatting = null, string origin = null, string route = null, string separator = null, List<int> elements = null, string savingMode = null)
+> StatusResponse AllFormatsPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? masters = null, bool? formatting = null, string origin = null, string route = null, string separator = null, List<int> elements = null, List<List<string>> shortCodeList = null, List<List<string>> frontMatterList = null, string savingMode = null)
 
 Translate any supported file
 
@@ -61,12 +61,14 @@ namespace Example
             var route = "route_example";  // string | endpoints route (optional) 
             var separator = "separator_example";  // string | Separator in files (optional) 
             var elements = new List<int>(); // List<int> | List of slides to translate (optional) 
+            var shortCodeList = new List<List<string>>(); // List<List<string>> | Dictiory of short code names and parameters names to translate (optional) 
+            var frontMatterList = new List<List<string>>(); // List<List<string>> | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional) 
             var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
 
             try
             {
                 // Translate any supported file
-                StatusResponse result = apiInstance.AllFormatsPost(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, savingMode);
+                StatusResponse result = apiInstance.AllFormatsPost(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, shortCodeList, frontMatterList, savingMode);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -87,7 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate any supported file
-    ApiResponse<StatusResponse> response = apiInstance.AllFormatsPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.AllFormatsPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, shortCodeList, frontMatterList, savingMode);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -116,6 +118,8 @@ catch (ApiException e)
 | **route** | **string** | endpoints route | [optional]  |
 | **separator** | **string** | Separator in files | [optional]  |
 | **elements** | [**List&lt;int&gt;**](int.md) | List of slides to translate | [optional]  |
+| **shortCodeList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictiory of short code names and parameters names to translate | [optional]  |
+| **frontMatterList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional]  |
 | **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
 
 ### Return type
@@ -913,7 +917,7 @@ catch (ApiException e)
 
 <a id="markdownpost"></a>
 # **MarkdownPost**
-> StatusResponse MarkdownPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, string savingMode = null)
+> StatusResponse MarkdownPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, List<List<string>> shortCodeList = null, List<List<string>> frontMatterList = null, string savingMode = null)
 
 Translate Markdown files
 
@@ -943,12 +947,14 @@ namespace Example
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
             var url = "url_example";  // string | Link to file for translation (optional) 
             var origin = "origin_example";  // string | for analysis only (optional) 
+            var shortCodeList = new List<List<string>>(); // List<List<string>> | Dictiory of short code names and parameters names to translate (optional) 
+            var frontMatterList = new List<List<string>>(); // List<List<string>> | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional) 
             var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
 
             try
             {
                 // Translate Markdown files
-                StatusResponse result = apiInstance.MarkdownPost(outFormat, source, targets, file, url, origin, savingMode);
+                StatusResponse result = apiInstance.MarkdownPost(outFormat, source, targets, file, url, origin, shortCodeList, frontMatterList, savingMode);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -969,7 +975,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate Markdown files
-    ApiResponse<StatusResponse> response = apiInstance.MarkdownPostWithHttpInfo(outFormat, source, targets, file, url, origin, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.MarkdownPostWithHttpInfo(outFormat, source, targets, file, url, origin, shortCodeList, frontMatterList, savingMode);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -992,6 +998,8 @@ catch (ApiException e)
 | **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
 | **url** | **string** | Link to file for translation | [optional]  |
 | **origin** | **string** | for analysis only | [optional]  |
+| **shortCodeList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictiory of short code names and parameters names to translate | [optional]  |
+| **frontMatterList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional]  |
 | **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
 
 ### Return type
@@ -1671,7 +1679,7 @@ catch (ApiException e)
 
 <a id="textpost"></a>
 # **TextPost**
-> StatusResponse TextPost (TextPostRequest textPostRequest = null)
+> StatusResponse TextPost (TextRequest textRequest = null)
 
 Translate text
 
@@ -1695,12 +1703,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var textPostRequest = new TextPostRequest(); // TextPostRequest |  (optional) 
+            var textRequest = new TextRequest(); // TextRequest | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
                 // Translate text
-                StatusResponse result = apiInstance.TextPost(textPostRequest);
+                StatusResponse result = apiInstance.TextPost(textRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1721,7 +1729,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate text
-    ApiResponse<StatusResponse> response = apiInstance.TextPostWithHttpInfo(textPostRequest);
+    ApiResponse<StatusResponse> response = apiInstance.TextPostWithHttpInfo(textRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1738,7 +1746,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **textPostRequest** | [**TextPostRequest**](TextPostRequest.md) |  | [optional]  |
+| **textRequest** | [**TextRequest**](TextRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
