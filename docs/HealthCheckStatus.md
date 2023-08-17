@@ -1,4 +1,4 @@
-# GroupDocs.Translation.Api.Model.HealthCheckStatus
+# GroupDocs.Translation.Cloud.Sdk.Model.HealthCheckStatus
 
 ## Properties
 

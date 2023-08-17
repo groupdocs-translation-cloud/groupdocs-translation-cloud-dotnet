@@ -1,11 +1,10 @@
-# GroupDocs.Translation.Api.Api.TransportApi
+# GroupDocs.Translation.Cloud.Sdk.Api.TransportApi
 
 All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AllFormatsPost**](TransportApi.md#allformatspost) | **POST** /all-formats | Translate any supported file |
-| [**AvailableLanguagesGet**](TransportApi.md#availablelanguagesget) | **GET** /available-languages | Return list of available language pairs |
+| [**AutoPost**](TransportApi.md#autopost) | **POST** /auto | Translate any supported file |
 | [**CsvPost**](TransportApi.md#csvpost) | **POST** /csv | Translate CSV and TSV files |
 | [**DocumentPost**](TransportApi.md#documentpost) | **POST** /document | Translate Microsoft Word documents, rtf, txt, odt |
 | [**DocumentRequestIdGet**](TransportApi.md#documentrequestidget) | **GET** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful |
@@ -13,19 +12,20 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 | [**HtmlPost**](TransportApi.md#htmlpost) | **POST** /html | Translate HTML files |
 | [**HugoGet**](TransportApi.md#hugoget) | **GET** /hugo | Get hugo syntax structure from markdown file |
 | [**HugoPost**](TransportApi.md#hugopost) | **POST** /hugo | Run hugo syntax structure analyzing from markdown file |
+| [**ImageToFilePost**](TransportApi.md#imagetofilepost) | **POST** /image-to-file | Translate image or scanned pdf and return file |
+| [**ImageToTextPost**](TransportApi.md#imagetotextpost) | **POST** /image-to-text | Translate text on image or scanned pdf |
+| [**LanguagesGet**](TransportApi.md#languagesget) | **GET** /languages | Return list of available language pairs |
 | [**MarkdownPost**](TransportApi.md#markdownpost) | **POST** /markdown | Translate Markdown files |
-| [**OcrFilePost**](TransportApi.md#ocrfilepost) | **POST** /ocr-file | Translate image or scanned pdf and return file |
-| [**OcrTextPost**](TransportApi.md#ocrtextpost) | **POST** /ocr-text | Translate text on image or scanned pdf |
 | [**PdfPost**](TransportApi.md#pdfpost) | **POST** /pdf | Translate pdf files |
 | [**PresentationPost**](TransportApi.md#presentationpost) | **POST** /presentation | Translate Microsoft PowerPoint presentations, odp |
-| [**ResourcesPost**](TransportApi.md#resourcespost) | **POST** /resources | Translate RESX files |
+| [**ResxPost**](TransportApi.md#resxpost) | **POST** /resx | Translate RESX files |
 | [**SpreadsheetsPost**](TransportApi.md#spreadsheetspost) | **POST** /spreadsheets | Translate Microsoft Excel workbooks, ods |
 | [**TextPost**](TransportApi.md#textpost) | **POST** /text | Translate text |
 | [**TextRequestIdGet**](TransportApi.md#textrequestidget) | **GET** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful |
 
-<a id="allformatspost"></a>
-# **AllFormatsPost**
-> StatusResponse AllFormatsPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? masters = null, bool? formatting = null, string origin = null, string route = null, string separator = null, List<int> elements = null, List<List<string>> shortCodeList = null, List<List<string>> frontMatterList = null, string savingMode = null)
+<a id="autopost"></a>
+# **AutoPost**
+> StatusResponse AutoPost (AutoPostRequest autoPostRequest = null)
 
 Translate any supported file
 
@@ -33,13 +33,13 @@ Translate any supported file
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
-    public class AllFormatsPostExample
+    public class AutoPostExample
     {
         public static void Main()
         {
@@ -49,31 +49,17 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var format = "Unknown";  // string | Input file format (default to Unknown)
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var masters = false;  // bool? | If translate master slides (optional)  (default to false)
-            var formatting = true;  // bool? | If document's formatting should be preserved, default true (optional)  (default to true)
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var route = "route_example";  // string | endpoints route (optional) 
-            var separator = "separator_example";  // string | Separator in files (optional) 
-            var elements = new List<int>(); // List<int> | List of slides to translate (optional) 
-            var shortCodeList = new List<List<string>>(); // List<List<string>> | Dictiory of short code names and parameters names to translate (optional) 
-            var frontMatterList = new List<List<string>>(); // List<List<string>> | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var autoPostRequest = new AutoPostRequest(); // AutoPostRequest |  (optional) 
 
             try
             {
                 // Translate any supported file
-                StatusResponse result = apiInstance.AllFormatsPost(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, shortCodeList, frontMatterList, savingMode);
+                StatusResponse result = apiInstance.AutoPost(autoPostRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TransportApi.AllFormatsPost: " + e.Message);
+                Debug.Print("Exception when calling TransportApi.AutoPost: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -82,21 +68,21 @@ namespace Example
 }
 ```
 
-#### Using the AllFormatsPostWithHttpInfo variant
+#### Using the AutoPostWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Translate any supported file
-    ApiResponse<StatusResponse> response = apiInstance.AllFormatsPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, formatting, origin, route, separator, elements, shortCodeList, frontMatterList, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.AutoPostWithHttpInfo(autoPostRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TransportApi.AllFormatsPostWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TransportApi.AutoPostWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -106,21 +92,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **format** | **string** | Input file format | [default to Unknown] |
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **masters** | **bool?** | If translate master slides | [optional] [default to false] |
-| **formatting** | **bool?** | If document&#39;s formatting should be preserved, default true | [optional] [default to true] |
-| **origin** | **string** | for analysis only | [optional]  |
-| **route** | **string** | endpoints route | [optional]  |
-| **separator** | **string** | Separator in files | [optional]  |
-| **elements** | [**List&lt;int&gt;**](int.md) | List of slides to translate | [optional]  |
-| **shortCodeList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictiory of short code names and parameters names to translate | [optional]  |
-| **frontMatterList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
+| **autoPostRequest** | [**AutoPostRequest**](AutoPostRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -132,94 +104,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="availablelanguagesget"></a>
-# **AvailableLanguagesGet**
-> List&lt;LanguagePairData&gt; AvailableLanguagesGet ()
-
-Return list of available language pairs
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
-
-namespace Example
-{
-    public class AvailableLanguagesGetExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
-            // Configure OAuth2 access token for authorization: JWT
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new TransportApi(config);
-
-            try
-            {
-                // Return list of available language pairs
-                List<LanguagePairData> result = apiInstance.AvailableLanguagesGet();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling TransportApi.AvailableLanguagesGet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the AvailableLanguagesGetWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Return list of available language pairs
-    ApiResponse<List<LanguagePairData>> response = apiInstance.AvailableLanguagesGetWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling TransportApi.AvailableLanguagesGetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**List&lt;LanguagePairData&gt;**](LanguagePairData.md)
-
-### Authorization
-
-[JWT](../README.md#JWT)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -232,7 +117,7 @@ This endpoint does not need any parameter.
 
 <a id="csvpost"></a>
 # **CsvPost**
-> StatusResponse CsvPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string format = null, string url = null, string origin = null, string separator = null, string savingMode = null)
+> StatusResponse CsvPost (CsvFileRequest csvFileRequest = null)
 
 Translate CSV and TSV files
 
@@ -240,9 +125,9 @@ Translate CSV and TSV files
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -256,20 +141,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var format = "Unknown";  // string | Input file format (optional)  (default to Csv)
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var separator = "separator_example";  // string | Separator in files (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var csvFileRequest = new CsvFileRequest(); // CsvFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
                 // Translate CSV and TSV files
-                StatusResponse result = apiInstance.CsvPost(outFormat, source, targets, file, format, url, origin, separator, savingMode);
+                StatusResponse result = apiInstance.CsvPost(csvFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -290,7 +167,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate CSV and TSV files
-    ApiResponse<StatusResponse> response = apiInstance.CsvPostWithHttpInfo(outFormat, source, targets, file, format, url, origin, separator, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.CsvPostWithHttpInfo(csvFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -307,15 +184,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **format** | **string** | Input file format | [optional] [default to Csv] |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **origin** | **string** | for analysis only | [optional]  |
-| **separator** | **string** | Separator in files | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
+| **csvFileRequest** | [**CsvFileRequest**](CsvFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -327,7 +196,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -340,7 +209,7 @@ catch (ApiException e)
 
 <a id="documentpost"></a>
 # **DocumentPost**
-> StatusResponse DocumentPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? formatting = null, string origin = null, string savingMode = null)
+> StatusResponse DocumentPost (TextDocumentFileRequest textDocumentFileRequest = null)
 
 Translate Microsoft Word documents, rtf, txt, odt
 
@@ -348,9 +217,9 @@ Translate Microsoft Word documents, rtf, txt, odt
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -364,20 +233,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var format = "Unknown";  // string | Input file format (default to Docx)
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var formatting = true;  // bool? | If document's formatting should be preserved, default true (optional)  (default to true)
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var textDocumentFileRequest = new TextDocumentFileRequest(); // TextDocumentFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
                 // Translate Microsoft Word documents, rtf, txt, odt
-                StatusResponse result = apiInstance.DocumentPost(format, outFormat, source, targets, file, url, formatting, origin, savingMode);
+                StatusResponse result = apiInstance.DocumentPost(textDocumentFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -398,7 +259,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate Microsoft Word documents, rtf, txt, odt
-    ApiResponse<StatusResponse> response = apiInstance.DocumentPostWithHttpInfo(format, outFormat, source, targets, file, url, formatting, origin, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.DocumentPostWithHttpInfo(textDocumentFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -415,15 +276,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **format** | **string** | Input file format | [default to Docx] |
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **formatting** | **bool?** | If document&#39;s formatting should be preserved, default true | [optional] [default to true] |
-| **origin** | **string** | for analysis only | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
+| **textDocumentFileRequest** | [**TextDocumentFileRequest**](TextDocumentFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -435,7 +288,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -456,9 +309,9 @@ Return document translation status.  Also return URLs for downloading of transla
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -548,9 +401,9 @@ Health check for all services.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -627,7 +480,7 @@ This endpoint does not need any parameter.
 
 <a id="htmlpost"></a>
 # **HtmlPost**
-> StatusResponse HtmlPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, string savingMode = null)
+> StatusResponse HtmlPost (string sourceLanguage = null, List<string> targetLanguages = null, byte[] file = null, string originalFileName = null, string url = null, string origin = null, string savingMode = null, string outputFormat = null)
 
 Translate HTML files
 
@@ -635,9 +488,9 @@ Translate HTML files
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -651,18 +504,19 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var origin = "origin_example";  // string | for analysis only (optional) 
+            var sourceLanguage = "\"en\"";  // string | Language of original file (optional)  (default to "en")
+            var targetLanguages = new List<string>(); // List<string> | List of target languages (optional) 
+            var file = System.Text.Encoding.ASCII.GetBytes("BYTE_ARRAY_DATA_HERE");  // byte[] | File as byte array (optional) 
+            var originalFileName = "originalFileName_example";  // string | Type in the file name. If null will be as request ID. (optional) 
+            var url = "url_example";  // string | Link to file for translation. Ignore, if \\\"file\\\" property not null (optional) 
+            var origin = "origin_example";  // string | Url or name of application using this SDK. Not required. (optional) 
             var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var outputFormat = "outputFormat_example";  // string | output file format (optional) 
 
             try
             {
                 // Translate HTML files
-                StatusResponse result = apiInstance.HtmlPost(outFormat, source, targets, file, url, origin, savingMode);
+                StatusResponse result = apiInstance.HtmlPost(sourceLanguage, targetLanguages, file, originalFileName, url, origin, savingMode, outputFormat);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -683,7 +537,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate HTML files
-    ApiResponse<StatusResponse> response = apiInstance.HtmlPostWithHttpInfo(outFormat, source, targets, file, url, origin, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.HtmlPostWithHttpInfo(sourceLanguage, targetLanguages, file, originalFileName, url, origin, savingMode, outputFormat);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -700,13 +554,14 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **origin** | **string** | for analysis only | [optional]  |
+| **sourceLanguage** | **string** | Language of original file | [optional] [default to &quot;en&quot;] |
+| **targetLanguages** | [**List&lt;string&gt;**](string.md) | List of target languages | [optional]  |
+| **file** | **byte[]** | File as byte array | [optional]  |
+| **originalFileName** | **string** | Type in the file name. If null will be as request ID. | [optional]  |
+| **url** | **string** | Link to file for translation. Ignore, if \\\&quot;file\\\&quot; property not null | [optional]  |
+| **origin** | **string** | Url or name of application using this SDK. Not required. | [optional]  |
 | **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
+| **outputFormat** | **string** | output file format | [optional]  |
 
 ### Return type
 
@@ -739,9 +594,9 @@ Get hugo syntax structure from markdown file
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -831,9 +686,9 @@ Run hugo syntax structure analyzing from markdown file
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -915,9 +770,296 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="imagetofilepost"></a>
+# **ImageToFilePost**
+> StatusResponse ImageToFilePost (OcrFileRequest ocrFileRequest = null)
+
+Translate image or scanned pdf and return file
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class ImageToFilePostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TransportApi(config);
+            var ocrFileRequest = new OcrFileRequest(); // OcrFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Translate image or scanned pdf and return file
+                StatusResponse result = apiInstance.ImageToFilePost(ocrFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TransportApi.ImageToFilePost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ImageToFilePostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Translate image or scanned pdf and return file
+    ApiResponse<StatusResponse> response = apiInstance.ImageToFilePostWithHttpInfo(ocrFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TransportApi.ImageToFilePostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ocrFileRequest** | [**OcrFileRequest**](OcrFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="imagetotextpost"></a>
+# **ImageToTextPost**
+> StatusResponse ImageToTextPost (string source, List<string> targets, string format = null, string url = null, int? rotate = null, bool? isHandwritten = null, string origin = null, string route = null, System.IO.Stream file = null)
+
+Translate text on image or scanned pdf
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class ImageToTextPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TransportApi(config);
+            var source = "\"en\"";  // string | Language of original file (default to "en")
+            var targets = new List<string>(); // List<string> | List of target languages
+            var format = "Unknown";  // string | Originnal file format (optional)  (default to Unknown)
+            var url = "url_example";  // string | Link to file for translation (optional) 
+            var rotate = 56;  // int? | Left to write angle to rotate scanned image / pdf (optional) 
+            var isHandwritten = true;  // bool? | is handwritten text (optional) 
+            var origin = "origin_example";  // string | for analysis only (optional) 
+            var route = "route_example";  // string | endpoints route (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+
+            try
+            {
+                // Translate text on image or scanned pdf
+                StatusResponse result = apiInstance.ImageToTextPost(source, targets, format, url, rotate, isHandwritten, origin, route, file);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TransportApi.ImageToTextPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ImageToTextPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Translate text on image or scanned pdf
+    ApiResponse<StatusResponse> response = apiInstance.ImageToTextPostWithHttpInfo(source, targets, format, url, rotate, isHandwritten, origin, route, file);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TransportApi.ImageToTextPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
+| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
+| **format** | **string** | Originnal file format | [optional] [default to Unknown] |
+| **url** | **string** | Link to file for translation | [optional]  |
+| **rotate** | **int?** | Left to write angle to rotate scanned image / pdf | [optional]  |
+| **isHandwritten** | **bool?** | is handwritten text | [optional]  |
+| **origin** | **string** | for analysis only | [optional]  |
+| **route** | **string** | endpoints route | [optional]  |
+| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="languagesget"></a>
+# **LanguagesGet**
+> List&lt;LanguagePairData&gt; LanguagesGet ()
+
+Return list of available language pairs
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class LanguagesGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TransportApi(config);
+
+            try
+            {
+                // Return list of available language pairs
+                List<LanguagePairData> result = apiInstance.LanguagesGet();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TransportApi.LanguagesGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the LanguagesGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Return list of available language pairs
+    ApiResponse<List<LanguagePairData>> response = apiInstance.LanguagesGetWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TransportApi.LanguagesGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;LanguagePairData&gt;**](LanguagePairData.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="markdownpost"></a>
 # **MarkdownPost**
-> StatusResponse MarkdownPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, List<List<string>> shortCodeList = null, List<List<string>> frontMatterList = null, string savingMode = null)
+> StatusResponse MarkdownPost (string sourceLanguage, List<string> targetLanguages, string outputFormat, byte[] file = null, string originalFileName = null, string url = null, string origin = null, string savingMode = null, List<List<string>> frontMatterList = null)
 
 Translate Markdown files
 
@@ -925,9 +1067,9 @@ Translate Markdown files
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -941,20 +1083,20 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var shortCodeList = new List<List<string>>(); // List<List<string>> | Dictiory of short code names and parameters names to translate (optional) 
-            var frontMatterList = new List<List<string>>(); // List<List<string>> | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths (optional) 
+            var sourceLanguage = "\"en\"";  // string | Language of original file (default to "en")
+            var targetLanguages = new List<string>(); // List<string> | List of target languages
+            var outputFormat = "outputFormat_example";  // string | output file format
+            var file = System.Text.Encoding.ASCII.GetBytes("BYTE_ARRAY_DATA_HERE");  // byte[] | File as byte array (optional) 
+            var originalFileName = "originalFileName_example";  // string | Type in the file name. If null will be as request ID. (optional) 
+            var url = "url_example";  // string | Link to file for translation. Ignore, if \\\"file\\\" property not null (optional) 
+            var origin = "origin_example";  // string | Url or name of application using this SDK. Not required. (optional) 
             var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var frontMatterList = new List<List<string>>(); // List<List<string>> | List of lists of frontmatter paths (optional) 
 
             try
             {
                 // Translate Markdown files
-                StatusResponse result = apiInstance.MarkdownPost(outFormat, source, targets, file, url, origin, shortCodeList, frontMatterList, savingMode);
+                StatusResponse result = apiInstance.MarkdownPost(sourceLanguage, targetLanguages, outputFormat, file, originalFileName, url, origin, savingMode, frontMatterList);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -975,7 +1117,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate Markdown files
-    ApiResponse<StatusResponse> response = apiInstance.MarkdownPostWithHttpInfo(outFormat, source, targets, file, url, origin, shortCodeList, frontMatterList, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.MarkdownPostWithHttpInfo(sourceLanguage, targetLanguages, outputFormat, file, originalFileName, url, origin, savingMode, frontMatterList);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -992,239 +1134,15 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **origin** | **string** | for analysis only | [optional]  |
-| **shortCodeList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictiory of short code names and parameters names to translate | [optional]  |
-| **frontMatterList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional]  |
+| **sourceLanguage** | **string** | Language of original file | [default to &quot;en&quot;] |
+| **targetLanguages** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
+| **outputFormat** | **string** | output file format |  |
+| **file** | **byte[]** | File as byte array | [optional]  |
+| **originalFileName** | **string** | Type in the file name. If null will be as request ID. | [optional]  |
+| **url** | **string** | Link to file for translation. Ignore, if \\\&quot;file\\\&quot; property not null | [optional]  |
+| **origin** | **string** | Url or name of application using this SDK. Not required. | [optional]  |
 | **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
-
-### Return type
-
-[**StatusResponse**](StatusResponse.md)
-
-### Authorization
-
-[JWT](../README.md#JWT)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="ocrfilepost"></a>
-# **OcrFilePost**
-> StatusResponse OcrFilePost (string ocrFormat, string outFormat, string source, List<string> targets, System.IO.Stream file, string format = null, string url = null, int? rotate = null, bool? formatting = null, string origin = null, string route = null, List<int> pages = null, string savingMode = null)
-
-Translate image or scanned pdf and return file
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
-
-namespace Example
-{
-    public class OcrFilePostExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
-            // Configure OAuth2 access token for authorization: JWT
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new TransportApi(config);
-            var ocrFormat = "Pdf";  // string | File format after recognition (default to Pdf)
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var format = "Unknown";  // string | Original file format (optional)  (default to Unknown)
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var rotate = 56;  // int? | Left to write angle to rotate scanned image / pdf (optional) 
-            var formatting = true;  // bool? | If document's formatting should be preserved, default true (optional)  (default to true)
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var route = "route_example";  // string | endpoints route (optional) 
-            var pages = new List<int>(); // List<int> | List of pages to translate for scanned pdf (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
-
-            try
-            {
-                // Translate image or scanned pdf and return file
-                StatusResponse result = apiInstance.OcrFilePost(ocrFormat, outFormat, source, targets, file, format, url, rotate, formatting, origin, route, pages, savingMode);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling TransportApi.OcrFilePost: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the OcrFilePostWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Translate image or scanned pdf and return file
-    ApiResponse<StatusResponse> response = apiInstance.OcrFilePostWithHttpInfo(ocrFormat, outFormat, source, targets, file, format, url, rotate, formatting, origin, route, pages, savingMode);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling TransportApi.OcrFilePostWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ocrFormat** | **string** | File format after recognition | [default to Pdf] |
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **format** | **string** | Original file format | [optional] [default to Unknown] |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **rotate** | **int?** | Left to write angle to rotate scanned image / pdf | [optional]  |
-| **formatting** | **bool?** | If document&#39;s formatting should be preserved, default true | [optional] [default to true] |
-| **origin** | **string** | for analysis only | [optional]  |
-| **route** | **string** | endpoints route | [optional]  |
-| **pages** | [**List&lt;int&gt;**](int.md) | List of pages to translate for scanned pdf | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
-
-### Return type
-
-[**StatusResponse**](StatusResponse.md)
-
-### Authorization
-
-[JWT](../README.md#JWT)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="ocrtextpost"></a>
-# **OcrTextPost**
-> StatusResponse OcrTextPost (string source, List<string> targets, System.IO.Stream file, string format = null, string url = null, int? rotate = null, bool? isHandwritten = null, string origin = null, string route = null)
-
-Translate text on image or scanned pdf
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
-
-namespace Example
-{
-    public class OcrTextPostExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
-            // Configure OAuth2 access token for authorization: JWT
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new TransportApi(config);
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var format = "Unknown";  // string | Originnal file format (optional)  (default to Unknown)
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var rotate = 56;  // int? | Left to write angle to rotate scanned image / pdf (optional) 
-            var isHandwritten = true;  // bool? | is handwritten text (optional) 
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var route = "route_example";  // string | endpoints route (optional) 
-
-            try
-            {
-                // Translate text on image or scanned pdf
-                StatusResponse result = apiInstance.OcrTextPost(source, targets, file, format, url, rotate, isHandwritten, origin, route);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling TransportApi.OcrTextPost: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the OcrTextPostWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Translate text on image or scanned pdf
-    ApiResponse<StatusResponse> response = apiInstance.OcrTextPostWithHttpInfo(source, targets, file, format, url, rotate, isHandwritten, origin, route);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling TransportApi.OcrTextPostWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **format** | **string** | Originnal file format | [optional] [default to Unknown] |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **rotate** | **int?** | Left to write angle to rotate scanned image / pdf | [optional]  |
-| **isHandwritten** | **bool?** | is handwritten text | [optional]  |
-| **origin** | **string** | for analysis only | [optional]  |
-| **route** | **string** | endpoints route | [optional]  |
+| **frontMatterList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | List of lists of frontmatter paths | [optional]  |
 
 ### Return type
 
@@ -1249,7 +1167,7 @@ catch (ApiException e)
 
 <a id="pdfpost"></a>
 # **PdfPost**
-> StatusResponse PdfPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? formatting = null, string origin = null, List<int> pages = null, string savingMode = null)
+> StatusResponse PdfPost (PdfFileRequest pdfFileRequest = null)
 
 Translate pdf files
 
@@ -1257,9 +1175,9 @@ Translate pdf files
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -1273,20 +1191,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var formatting = true;  // bool? | If document's formatting should be preserved, default true (optional)  (default to true)
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var pages = new List<int>(); // List<int> | List of pages to translate (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var pdfFileRequest = new PdfFileRequest(); // PdfFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
                 // Translate pdf files
-                StatusResponse result = apiInstance.PdfPost(outFormat, source, targets, file, url, formatting, origin, pages, savingMode);
+                StatusResponse result = apiInstance.PdfPost(pdfFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1307,7 +1217,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate pdf files
-    ApiResponse<StatusResponse> response = apiInstance.PdfPostWithHttpInfo(outFormat, source, targets, file, url, formatting, origin, pages, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.PdfPostWithHttpInfo(pdfFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1324,15 +1234,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **formatting** | **bool?** | If document&#39;s formatting should be preserved, default true | [optional] [default to true] |
-| **origin** | **string** | for analysis only | [optional]  |
-| **pages** | [**List&lt;int&gt;**](int.md) | List of pages to translate | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
+| **pdfFileRequest** | [**PdfFileRequest**](PdfFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1344,7 +1246,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -1357,7 +1259,7 @@ catch (ApiException e)
 
 <a id="presentationpost"></a>
 # **PresentationPost**
-> StatusResponse PresentationPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, bool? masters = null, string origin = null, List<int> slides = null, string savingMode = null)
+> StatusResponse PresentationPost (PresentationFileRequest presentationFileRequest = null)
 
 Translate Microsoft PowerPoint presentations, odp
 
@@ -1365,9 +1267,9 @@ Translate Microsoft PowerPoint presentations, odp
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -1381,21 +1283,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var format = "Unknown";  // string | Input file format (default to Pptx)
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var masters = false;  // bool? | If translate master slides (optional)  (default to false)
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var slides = new List<int>(); // List<int> | List of slides to translate (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var presentationFileRequest = new PresentationFileRequest(); // PresentationFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
                 // Translate Microsoft PowerPoint presentations, odp
-                StatusResponse result = apiInstance.PresentationPost(format, outFormat, source, targets, file, url, masters, origin, slides, savingMode);
+                StatusResponse result = apiInstance.PresentationPost(presentationFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1416,7 +1309,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate Microsoft PowerPoint presentations, odp
-    ApiResponse<StatusResponse> response = apiInstance.PresentationPostWithHttpInfo(format, outFormat, source, targets, file, url, masters, origin, slides, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.PresentationPostWithHttpInfo(presentationFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1433,16 +1326,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **format** | **string** | Input file format | [default to Pptx] |
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **masters** | **bool?** | If translate master slides | [optional] [default to false] |
-| **origin** | **string** | for analysis only | [optional]  |
-| **slides** | [**List&lt;int&gt;**](int.md) | List of slides to translate | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
+| **presentationFileRequest** | [**PresentationFileRequest**](PresentationFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1454,7 +1338,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -1465,9 +1349,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="resourcespost"></a>
-# **ResourcesPost**
-> StatusResponse ResourcesPost (string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, string savingMode = null)
+<a id="resxpost"></a>
+# **ResxPost**
+> StatusResponse ResxPost (ResxFileRequest resxFileRequest = null)
 
 Translate RESX files
 
@@ -1475,13 +1359,13 @@ Translate RESX files
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
-    public class ResourcesPostExample
+    public class ResxPostExample
     {
         public static void Main()
         {
@@ -1491,23 +1375,17 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var resxFileRequest = new ResxFileRequest(); // ResxFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
                 // Translate RESX files
-                StatusResponse result = apiInstance.ResourcesPost(outFormat, source, targets, file, url, origin, savingMode);
+                StatusResponse result = apiInstance.ResxPost(resxFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TransportApi.ResourcesPost: " + e.Message);
+                Debug.Print("Exception when calling TransportApi.ResxPost: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1516,21 +1394,21 @@ namespace Example
 }
 ```
 
-#### Using the ResourcesPostWithHttpInfo variant
+#### Using the ResxPostWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Translate RESX files
-    ApiResponse<StatusResponse> response = apiInstance.ResourcesPostWithHttpInfo(outFormat, source, targets, file, url, origin, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.ResxPostWithHttpInfo(resxFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TransportApi.ResourcesPostWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TransportApi.ResxPostWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1540,13 +1418,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **origin** | **string** | for analysis only | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
+| **resxFileRequest** | [**ResxFileRequest**](ResxFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1558,7 +1430,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -1571,7 +1443,7 @@ catch (ApiException e)
 
 <a id="spreadsheetspost"></a>
 # **SpreadsheetsPost**
-> StatusResponse SpreadsheetsPost (string format, string outFormat, string source, List<string> targets, System.IO.Stream file, string url = null, string origin = null, List<int> worksheets = null, string savingMode = null)
+> StatusResponse SpreadsheetsPost (SpreadsheetFileRequest spreadsheetFileRequest = null)
 
 Translate Microsoft Excel workbooks, ods
 
@@ -1579,9 +1451,9 @@ Translate Microsoft Excel workbooks, ods
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -1595,20 +1467,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var format = "Unknown";  // string | Input file format (default to Xlsx)
-            var outFormat = "outFormat_example";  // string | output file format
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var worksheets = new List<int>(); // List<int> | List of Worksheets to translate (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
+            var spreadsheetFileRequest = new SpreadsheetFileRequest(); // SpreadsheetFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
                 // Translate Microsoft Excel workbooks, ods
-                StatusResponse result = apiInstance.SpreadsheetsPost(format, outFormat, source, targets, file, url, origin, worksheets, savingMode);
+                StatusResponse result = apiInstance.SpreadsheetsPost(spreadsheetFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1629,7 +1493,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Translate Microsoft Excel workbooks, ods
-    ApiResponse<StatusResponse> response = apiInstance.SpreadsheetsPostWithHttpInfo(format, outFormat, source, targets, file, url, origin, worksheets, savingMode);
+    ApiResponse<StatusResponse> response = apiInstance.SpreadsheetsPostWithHttpInfo(spreadsheetFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1646,15 +1510,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **format** | **string** | Input file format | [default to Xlsx] |
-| **outFormat** | **string** | output file format |  |
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **origin** | **string** | for analysis only | [optional]  |
-| **worksheets** | [**List&lt;int&gt;**](int.md) | List of Worksheets to translate | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
+| **spreadsheetFileRequest** | [**SpreadsheetFileRequest**](SpreadsheetFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1666,7 +1522,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -1687,9 +1543,9 @@ Translate text
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -1779,9 +1635,9 @@ Return text translation status.  Also return translated text if translation was 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using GroupDocs.Translation.Api.Api;
-using GroupDocs.Translation.Api.Client;
-using GroupDocs.Translation.Api.Model;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
 
 namespace Example
 {

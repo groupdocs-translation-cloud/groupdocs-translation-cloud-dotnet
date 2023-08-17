@@ -1,4 +1,4 @@
-# GroupDocs.Translation.Api.Model.UrlFileInfo
+# GroupDocs.Translation.Cloud.Sdk.Model.UrlFileInfo
 
 ## Properties
 

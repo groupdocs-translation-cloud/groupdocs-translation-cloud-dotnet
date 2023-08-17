@@ -1,10 +1,10 @@
-# GroupDocs.Translation.Api.Model.StatusResponse
+# GroupDocs.Translation.Cloud.Sdk.Model.StatusResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** |  | [optional] 
+**Status** | **HttpStatusCode** |  | [optional] 
 **Message** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] 
 
