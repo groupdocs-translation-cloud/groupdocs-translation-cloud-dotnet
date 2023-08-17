@@ -1,10 +1,10 @@
-# GroupDocs.Translation.Api.Model.CloudFileResponse
+# GroupDocs.Translation.Cloud.Sdk.Model.CloudFileResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** |  | [optional] 
+**Status** | **HttpStatusCode** |  | [optional] 
 **Message** | **string** |  | [optional] 
 **Urls** | [**Dictionary&lt;string, UrlFileInfo&gt;**](UrlFileInfo.md) |  | [optional] 
 **Scores** | **Dictionary&lt;string, float?&gt;** |  | [optional] 

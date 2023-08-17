@@ -7,96 +7,15 @@ servers:
 security:
 - JWT: []
 paths:
-  /hc:
-    get:
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HealthCheckStatus'
-          description: Success
-      summary: Health check for all services.
-      tags:
-      - Transport
-  /available-languages:
-    get:
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/LanguagePairData'
-                type: array
-          description: Success
-      summary: Return list of available language pairs
-      tags:
-      - Transport
-  /document:
-    post:
-      requestBody:
-        content:
-          multipart/form-data:
-            encoding:
-              Format:
-                style: form
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Formatting:
-                style: form
-              Origin:
-                style: form
-              SavingMode:
-                style: form
-            schema:
-              $ref: '#/components/schemas/_document_post_request'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StatusResponse'
-          description: Success
-      summary: "Translate Microsoft Word documents, rtf, txt, odt"
-      tags:
-      - Transport
   /spreadsheets:
     post:
       requestBody:
         content:
-          multipart/form-data:
-            encoding:
-              Format:
-                style: form
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Origin:
-                style: form
-              Worksheets:
-                style: form
-              Ranges:
-                style: form
-              SavingMode:
-                style: form
+          application/json:
             schema:
-              $ref: '#/components/schemas/_spreadsheets_post_request'
+              $ref: '#/components/schemas/SpreadsheetFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
       responses:
         "200":
           content:
@@ -107,34 +26,15 @@ paths:
       summary: "Translate Microsoft Excel workbooks, ods"
       tags:
       - Transport
-  /presentation:
+  /csv:
     post:
       requestBody:
         content:
-          multipart/form-data:
-            encoding:
-              Format:
-                style: form
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Masters:
-                style: form
-              Origin:
-                style: form
-              Slides:
-                style: form
-              SavingMode:
-                style: form
+          application/json:
             schema:
-              $ref: '#/components/schemas/_presentation_post_request'
+              $ref: '#/components/schemas/CsvFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
       responses:
         "200":
           content:
@@ -142,43 +42,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
-      summary: "Translate Microsoft PowerPoint presentations, odp"
-      tags:
-      - Transport
-  /pdf:
-    post:
-      requestBody:
-        content:
-          multipart/form-data:
-            encoding:
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Formatting:
-                style: form
-              Origin:
-                style: form
-              Pages:
-                style: form
-              SavingMode:
-                style: form
-            schema:
-              $ref: '#/components/schemas/_pdf_post_request'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StatusResponse'
-          description: Success
-      summary: Translate pdf files
+      summary: Translate CSV and TSV files
       tags:
       - Transport
   /html:
@@ -186,23 +50,10 @@ paths:
       requestBody:
         content:
           multipart/form-data:
-            encoding:
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Origin:
-                style: form
-              SavingMode:
-                style: form
             schema:
-              $ref: '#/components/schemas/_html_post_request'
+              $ref: '#/components/schemas/HtmlFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
       responses:
         "200":
           content:
@@ -218,27 +69,10 @@ paths:
       requestBody:
         content:
           multipart/form-data:
-            encoding:
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Origin:
-                style: form
-              ShortCodeList:
-                style: form
-              FrontMatterList:
-                style: form
-              SavingMode:
-                style: form
             schema:
-              $ref: '#/components/schemas/_markdown_post_request'
+              $ref: '#/components/schemas/MarkdownFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
       responses:
         "200":
           content:
@@ -247,124 +81,6 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: Translate Markdown files
-      tags:
-      - Transport
-  /csv:
-    post:
-      requestBody:
-        content:
-          multipart/form-data:
-            encoding:
-              Format:
-                style: form
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Origin:
-                style: form
-              Separator:
-                style: form
-              SavingMode:
-                style: form
-            schema:
-              $ref: '#/components/schemas/_csv_post_request'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StatusResponse'
-          description: Success
-      summary: Translate CSV and TSV files
-      tags:
-      - Transport
-  /resources:
-    post:
-      requestBody:
-        content:
-          multipart/form-data:
-            encoding:
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Origin:
-                style: form
-              SavingMode:
-                style: form
-            schema:
-              $ref: '#/components/schemas/_html_post_request'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StatusResponse'
-          description: Success
-      summary: Translate RESX files
-      tags:
-      - Transport
-  /all-formats:
-    post:
-      requestBody:
-        content:
-          multipart/form-data:
-            encoding:
-              Format:
-                style: form
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Masters:
-                style: form
-              Formatting:
-                style: form
-              Origin:
-                style: form
-              Route:
-                style: form
-              Separator:
-                style: form
-              Elements:
-                style: form
-              Ranges:
-                style: form
-              ShortCodeList:
-                style: form
-              FrontMatterList:
-                style: form
-              SavingMode:
-                style: form
-            schema:
-              $ref: '#/components/schemas/_all_formats_post_request'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StatusResponse'
-          description: Success
-      summary: Translate any supported file
       tags:
       - Transport
   /hugo:
@@ -409,32 +125,113 @@ paths:
       summary: Run hugo syntax structure analyzing from markdown file
       tags:
       - Transport
-  /ocr-text:
+  /image-to-file:
     post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OcrFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate image or scanned pdf and return file
+      tags:
+      - Transport
+  /image-to-text:
+    post:
+      parameters:
+      - description: Originnal file format
+        explode: true
+        in: query
+        name: Format
+        required: false
+        schema:
+          default: Unknown
+          enum:
+          - Unknown
+          - Bmp
+          - Jpg
+          - Png
+          - Svg
+          - Gif
+          - Pdf
+          type: string
+        style: form
+      - description: Language of original file
+        explode: true
+        in: query
+        name: Source
+        required: true
+        schema:
+          default: en
+          type: string
+        style: form
+      - description: List of target languages
+        explode: true
+        in: query
+        name: Targets
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Link to file for translation
+        explode: true
+        in: query
+        name: Url
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Left to write angle to rotate scanned image / pdf
+        explode: true
+        in: query
+        name: Rotate
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: is handwritten text
+        explode: true
+        in: query
+        name: IsHandwritten
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: for analysis only
+        explode: true
+        in: query
+        name: Origin
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: endpoints route
+        explode: true
+        in: query
+        name: Route
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         content:
           multipart/form-data:
             encoding:
-              Format:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Rotate:
-                style: form
-              IsHandwritten:
-                style: form
-              Origin:
-                style: form
-              Route:
+              file:
                 style: form
             schema:
-              $ref: '#/components/schemas/_ocr_text_post_request'
+              $ref: '#/components/schemas/_image_to_text_post_request'
       responses:
         "200":
           content:
@@ -445,40 +242,15 @@ paths:
       summary: Translate text on image or scanned pdf
       tags:
       - Transport
-  /ocr-file:
+  /pdf:
     post:
       requestBody:
         content:
-          multipart/form-data:
-            encoding:
-              Format:
-                style: form
-              OcrFormat:
-                style: form
-              OutFormat:
-                style: form
-              Source:
-                style: form
-              Targets:
-                style: form
-              File:
-                style: form
-              Url:
-                style: form
-              Rotate:
-                style: form
-              Formatting:
-                style: form
-              Origin:
-                style: form
-              Route:
-                style: form
-              Pages:
-                style: form
-              SavingMode:
-                style: form
+          application/json:
             schema:
-              $ref: '#/components/schemas/_ocr_file_post_request'
+              $ref: '#/components/schemas/PdfFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
       responses:
         "200":
           content:
@@ -486,7 +258,123 @@ paths:
               schema:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
-      summary: Translate image or scanned pdf and return file
+      summary: Translate pdf files
+      tags:
+      - Transport
+  /resx:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResxFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate RESX files
+      tags:
+      - Transport
+  /presentation:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PresentationFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: "Translate Microsoft PowerPoint presentations, odp"
+      tags:
+      - Transport
+  /hc:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheckStatus'
+          description: Success
+      summary: Health check for all services.
+      tags:
+      - Transport
+  /languages:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LanguagePairData'
+                type: array
+          description: Success
+      summary: Return list of available language pairs
+      tags:
+      - Transport
+  /auto:
+    post:
+      requestBody:
+        content:
+          application/json:
+            encoding:
+              Format:
+                style: form
+              OutputFormat:
+                style: form
+              Masters:
+                style: form
+              Formatting:
+                style: form
+              Route:
+                style: form
+              Separator:
+                style: form
+              Elements:
+                style: form
+              Ranges:
+                style: form
+              ShortCodeList:
+                style: form
+              FrontMatterList:
+                style: form
+              SourceLanguage:
+                style: form
+              TargetLanguages:
+                style: form
+              File:
+                style: form
+              OriginalFileName:
+                style: form
+              Url:
+                style: form
+              Origin:
+                style: form
+              SavingMode:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_auto_post_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate any supported file
       tags:
       - Transport
   /text:
@@ -552,6 +440,25 @@ paths:
         \ translation was successful"
       tags:
       - Transport
+  /document:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextDocumentFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: "Translate Microsoft Word documents, rtf, txt, odt"
+      tags:
+      - Transport
 components:
   schemas:
     CloudFileResponse:
@@ -564,72 +471,10 @@ components:
         scores:
           key: 6.0274563
         message: message
-        status: Continue
+        status: null
       properties:
         status:
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           nullable: true
           type: string
@@ -660,74 +505,10 @@ components:
         - - shortcodes
           - shortcodes
         message: message
-        status: Continue
+        status: null
       properties:
         status:
-          description: "\"ok\" if structure parsing was successful, \"error\" if error\
-            \ occured"
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: If file was parsed correctly or text of error
           nullable: true
@@ -757,73 +538,10 @@ components:
           - translations
           - translations
         message: message
-        status: Continue
+        status: null
       properties:
         status:
-          description: "\"ok\" if translation was successful, \"error\" if error occured"
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           description: If file was translated correctly or text of error
           nullable: true
@@ -838,6 +556,80 @@ components:
           nullable: true
           type: object
       type: object
+    CsvFileRequest:
+      additionalProperties: false
+      description: "Request for comma / tab separated files like csv, tsv"
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        origin: origin
+        savingMode: Files
+        format: Unknown
+        outFormat: outFormat
+        separator: separator
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        format:
+          default: Csv
+          description: Input file format
+          enum:
+          - Unknown
+          - Csv
+          - Tsv
+          example: Unknown
+          type: string
+        outFormat:
+          description: output file format
+          minLength: 1
+          type: string
+        separator:
+          description: Separator in files
+          nullable: true
+          type: string
+      required:
+      - outFormat
+      - sourceLanguage
+      - targetLanguages
+      type: object
     HealthCheckStatus:
       additionalProperties: false
       example:
@@ -851,6 +643,118 @@ components:
           nullable: true
           type: string
       type: object
+    HtmlFileRequest:
+      additionalProperties: false
+      description: Request for HTML files
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        outputFormat:
+          description: output file format
+          minLength: 1
+          type: string
+      required:
+      - File
+      - Source
+      - Targets
+      type: object
+    HttpStatusCode:
+      enum:
+      - 100
+      - 101
+      - 102
+      - 103
+      - 200
+      - 201
+      - 202
+      - 203
+      - 204
+      - 205
+      - 206
+      - 207
+      - 208
+      - 226
+      - 300
+      - 301
+      - 302
+      - 303
+      - 304
+      - 305
+      - 306
+      - 307
+      - 308
+      - 400
+      - 401
+      - 402
+      - 403
+      - 404
+      - 405
+      - 406
+      - 407
+      - 408
+      - 409
+      - 410
+      - 411
+      - 412
+      - 413
+      - 414
+      - 415
+      - 416
+      - 417
+      - 421
+      - 422
+      - 423
+      - 424
+      - 426
+      - 428
+      - 429
+      - 431
+      - 451
+      - 500
+      - 501
+      - 502
+      - 503
+      - 504
+      - 505
+      - 506
+      - 507
+      - 508
+      - 510
+      - 511
+      type: number
     LanguagePairData:
       additionalProperties: false
       example:
@@ -868,77 +772,514 @@ components:
           nullable: true
           type: array
       type: object
+    MarkdownFileRequest:
+      additionalProperties: false
+      description: Request for markdown files or markdown files with Hugo syntax
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        outputFormat:
+          description: output file format
+          minLength: 1
+          type: string
+        shortCodeList:
+          additionalProperties:
+            items:
+              items:
+                type: string
+              type: array
+            nullable: true
+            type: array
+          description: Dictionary of short code names and parameters names to translate
+          nullable: true
+          type: object
+        frontMatterList:
+          description: List of lists of frontmatter paths
+          items:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: array
+      required:
+      - outputFormat
+      - sourceLanguage
+      - targetLanguages
+      type: object
+    OcrFileRequest:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        origin: origin
+        format: Unknown
+        url: url
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        ocrformat: Pdf
+        route: route
+        pages:
+        - 6
+        - 6
+        savingMode: Files
+        rotationAngle: 0
+        outputFormat: outputFormat
+        sourceLanguage: en
+        formatting: true
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        format:
+          default: Unknown
+          description: Original file format
+          enum:
+          - Unknown
+          - Bmp
+          - Jpg
+          - Png
+          - Svg
+          - Gif
+          - Pdf
+          type: string
+        ocrformat:
+          default: Pdf
+          description: File format after recognition
+          enum:
+          - Pdf
+          - Xlsx
+          - Csv
+          type: string
+        outputFormat:
+          description: output file format
+          minLength: 1
+          type: string
+        rotationAngle:
+          description: Left to write angle to rotate scanned image / pdf
+          format: int32
+          type: integer
+        formatting:
+          default: true
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        route:
+          description: endpoints route
+          nullable: true
+          type: string
+        pages:
+          description: List of pages to translate for scanned pdf
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+      required:
+      - ocrformat
+      - outputFormat
+      - sourceLanguage
+      - targetLanguages
+      type: object
+    PdfFileRequest:
+      additionalProperties: false
+      description: Request for PDF files
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        pages:
+        - 0
+        - 0
+        origin: origin
+        savingMode: Files
+        preserveFormatting: true
+        outputFormat: outputFormat
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        outputFormat:
+          description: output file format
+          minLength: 1
+          type: string
+        preserveFormatting:
+          default: true
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        pages:
+          description: List of pages to translate
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+      required:
+      - outputFormat
+      - sourceLanguage
+      - targetLanguages
+      type: object
+    PresentationFileRequest:
+      additionalProperties: false
+      description: "Request for presentation files like ppt, pptx, pptm, odp"
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        slides:
+        - 0
+        - 0
+        file: file
+        origin: origin
+        savingMode: Files
+        format: Unknown
+        masters: false
+        outputFormat: outputFormat
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        format:
+          default: Pptx
+          description: Input file format
+          enum:
+          - Unknown
+          - Ppt
+          - Pptx
+          - Pptm
+          - Odp
+          example: Unknown
+          type: string
+        outputFormat:
+          description: Output file format
+          minLength: 1
+          type: string
+        masters:
+          default: false
+          description: If translate master slides
+          type: boolean
+        slides:
+          description: List of slides to translate
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+      required:
+      - File
+      - Source
+      - Targets
+      type: object
+    ResxFileRequest:
+      additionalProperties: false
+      description: Request for resources files like resx
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        origin: origin
+        savingMode: Files
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
+      - sourceLanguage
+      - targetLanguages
+      type: object
+    SpreadsheetFileRequest:
+      additionalProperties: false
+      description: "Request for spreadsheet files, like xls, xlsx, xlsm, ods"
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        worksheets:
+        - 0
+        - 0
+        ranges:
+          key:
+            ranges:
+            - item2: item2
+              item1: item1
+            - item2: item2
+              item1: item1
+            columns:
+            - 1
+            - 1
+            rows:
+            - 6
+            - 6
+        origin: origin
+        savingMode: Files
+        format: Unknown
+        outputFormat: Xls
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        format:
+          default: Xlsx
+          description: Input file format
+          enum:
+          - Unknown
+          - Xls
+          - Xlsx
+          - Xlsm
+          - Ods
+          example: Unknown
+          type: string
+        outputFormat:
+          description: output file format
+          enum:
+          - Xls
+          - Xlsx
+          - Xlsm
+          - Xlsb
+          - Html
+          - Pdf
+          - Xps
+          - Ods
+          - Md
+          - Docx
+          - Pptx
+          - Tiff
+          type: string
+        worksheets:
+          description: List of Worksheets to translate by sequence number
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        ranges:
+          additionalProperties:
+            $ref: '#/components/schemas/WorksheetData'
+          description: Dictionary of ranges in Excel workbooks
+          nullable: true
+          type: object
+      required:
+      - format
+      - outputFormat
+      - sourceLanguage
+      - targetLanguages
+      type: object
     StatusResponse:
       additionalProperties: false
       example:
         id: id
         message: message
-        status: Continue
+        status: null
       properties:
         status:
-          enum:
-          - Continue
-          - SwitchingProtocols
-          - Processing
-          - EarlyHints
-          - OK
-          - Created
-          - Accepted
-          - NonAuthoritativeInformation
-          - NoContent
-          - ResetContent
-          - PartialContent
-          - MultiStatus
-          - AlreadyReported
-          - IMUsed
-          - MultipleChoices
-          - MovedPermanently
-          - Found
-          - SeeOther
-          - NotModified
-          - UseProxy
-          - Unused
-          - TemporaryRedirect
-          - PermanentRedirect
-          - BadRequest
-          - Unauthorized
-          - PaymentRequired
-          - Forbidden
-          - NotFound
-          - MethodNotAllowed
-          - NotAcceptable
-          - ProxyAuthenticationRequired
-          - RequestTimeout
-          - Conflict
-          - Gone
-          - LengthRequired
-          - PreconditionFailed
-          - RequestEntityTooLarge
-          - RequestUriTooLong
-          - UnsupportedMediaType
-          - RequestedRangeNotSatisfiable
-          - ExpectationFailed
-          - MisdirectedRequest
-          - UnprocessableEntity
-          - Locked
-          - FailedDependency
-          - UpgradeRequired
-          - PreconditionRequired
-          - TooManyRequests
-          - RequestHeaderFieldsTooLarge
-          - UnavailableForLegalReasons
-          - InternalServerError
-          - NotImplemented
-          - BadGateway
-          - ServiceUnavailable
-          - GatewayTimeout
-          - HttpVersionNotSupported
-          - VariantAlsoNegotiates
-          - InsufficientStorage
-          - LoopDetected
-          - NotExtended
-          - NetworkAuthenticationRequired
-          type: string
+          $ref: '#/components/schemas/HttpStatusCode'
         message:
           nullable: true
           type: string
@@ -948,29 +1289,113 @@ components:
       type: object
     StringStringTuple:
       additionalProperties: false
+      example:
+        item2: item2
+        item1: item1
       properties:
         item1:
           type: string
         item2:
           type: string
       type: object
+    TextDocumentFileRequest:
+      additionalProperties: false
+      description: "Request for files with textual content (doc, docx, docm, rtf,\
+        \ odt, txt"
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        savingMode: Files
+        origin: origin
+        format: Unknown
+        preserveFormatting: true
+        outputFormat: outputFormat
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        format:
+          default: Docx
+          description: Input file format
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Txt
+          - Rtf
+          - Odt
+          example: Unknown
+          type: string
+        outputFormat:
+          description: output file format
+          minLength: 1
+          type: string
+        preserveFormatting:
+          default: true
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        origin:
+          description: for analysis only
+          nullable: true
+          type: string
+      required:
+      - format
+      - outputFormat
+      - sourceLanguage
+      - targetLanguages
+      type: object
     TextRequest:
       additionalProperties: false
       example:
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
         texts:
         - texts
         - texts
         origin: origin
-        source: source
-        targets:
-        - targets
-        - targets
+        containsMarkdown: true
+        sourceLanguage: sourceLanguage
       properties:
-        source:
+        sourceLanguage:
           description: Language of original text
           nullable: true
           type: string
-        targets:
+        targetLanguages:
           description: List of target languages
           items:
             type: string
@@ -986,6 +1411,9 @@ components:
           description: For analysis only
           nullable: true
           type: string
+        containsMarkdown:
+          description: Set to true if you want to handle markdown in text
+          type: boolean
       type: object
     UrlFileInfo:
       additionalProperties: false
@@ -1002,6 +1430,18 @@ components:
       type: object
     WorksheetData:
       additionalProperties: false
+      example:
+        ranges:
+        - item2: item2
+          item1: item1
+        - item2: item2
+          item1: item1
+        columns:
+        - 1
+        - 1
+        rows:
+        - 6
+        - 6
       properties:
         rows:
           items:
@@ -1021,33 +1461,8 @@ components:
           nullable: true
           type: array
       type: object
-    _document_post_request:
+    _hugo_post_request:
       properties:
-        Format:
-          default: Docx
-          description: Input file format
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Txt
-          - Rtf
-          - Odt
-          example: Unknown
-          type: string
-        OutFormat:
-          description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
         File:
           description: File as byte array
           format: binary
@@ -1055,332 +1470,16 @@ components:
         Url:
           description: Link to file for translation
           type: string
-        Formatting:
-          default: true
-          description: "If document's formatting should be preserved, default true"
-          type: boolean
-        Origin:
-          description: for analysis only
-          type: string
-        SavingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
       required:
       - File
-      - Format
-      - OutFormat
-      - Source
-      - Targets
       type: object
-    _spreadsheets_post_request:
+    _image_to_text_post_request:
       properties:
-        Format:
-          default: Xlsx
-          description: Input file format
-          enum:
-          - Unknown
-          - Xls
-          - Xlsx
-          - Xlsm
-          - Ods
-          example: Unknown
-          type: string
-        OutFormat:
-          description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
+        file:
           format: binary
           type: string
-        Url:
-          description: Link to file for translation
-          type: string
-        Origin:
-          description: for analysis only
-          type: string
-        Worksheets:
-          description: List of Worksheets to translate
-          items:
-            format: int32
-            type: integer
-          type: array
-        Ranges:
-          additionalProperties:
-            $ref: '#/components/schemas/WorksheetData'
-          description: Dictionary of ranges in Excel workbooks
-          type: object
-        SavingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - File
-      - Format
-      - OutFormat
-      - Source
-      - Targets
       type: object
-    _presentation_post_request:
-      properties:
-        Format:
-          default: Pptx
-          description: Input file format
-          enum:
-          - Unknown
-          - Ppt
-          - Pptx
-          - Pptm
-          - Odp
-          example: Unknown
-          type: string
-        OutFormat:
-          description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
-          type: string
-        Masters:
-          default: false
-          description: If translate master slides
-          type: boolean
-        Origin:
-          description: for analysis only
-          type: string
-        Slides:
-          description: List of slides to translate
-          items:
-            format: int32
-            type: integer
-          type: array
-        SavingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - File
-      - Format
-      - OutFormat
-      - Source
-      - Targets
-      type: object
-    _pdf_post_request:
-      properties:
-        OutFormat:
-          description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
-          type: string
-        Formatting:
-          default: true
-          description: "If document's formatting should be preserved, default true"
-          type: boolean
-        Origin:
-          description: for analysis only
-          type: string
-        Pages:
-          description: List of pages to translate
-          items:
-            format: int32
-            type: integer
-          type: array
-        SavingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - File
-      - OutFormat
-      - Source
-      - Targets
-      type: object
-    _html_post_request:
-      properties:
-        OutFormat:
-          description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
-          type: string
-        Origin:
-          description: for analysis only
-          type: string
-        SavingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - File
-      - OutFormat
-      - Source
-      - Targets
-      type: object
-    _markdown_post_request:
-      properties:
-        OutFormat:
-          description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
-          type: string
-        Origin:
-          description: for analysis only
-          type: string
-        ShortCodeList:
-          description: Dictiory of short code names and parameters names to translate
-          items:
-            items:
-              type: string
-            type: array
-          type: array
-        FrontMatterList:
-          description: Dictionary where key is zero-based front matter index and value
-            is list of lists of front matter paths
-          items:
-            items:
-              type: string
-            type: array
-          type: array
-        SavingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - File
-      - OutFormat
-      - Source
-      - Targets
-      type: object
-    _csv_post_request:
-      properties:
-        Format:
-          default: Csv
-          description: Input file format
-          enum:
-          - Unknown
-          - Csv
-          - Tsv
-          example: Unknown
-          type: string
-        OutFormat:
-          description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
-          type: string
-        Origin:
-          description: for analysis only
-          type: string
-        Separator:
-          description: Separator in files
-          type: string
-        SavingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - File
-      - OutFormat
-      - Source
-      - Targets
-      type: object
-    _all_formats_post_request:
+    _auto_post_request:
       properties:
         Format:
           default: Unknown
@@ -1409,24 +1508,8 @@ components:
           - Tsv
           example: Unknown
           type: string
-        OutFormat:
+        OutputFormat:
           description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
           type: string
         Masters:
           default: false
@@ -1436,11 +1519,8 @@ components:
           default: true
           description: "If document's formatting should be preserved, default true"
           type: boolean
-        Origin:
-          description: for analysis only
-          type: string
         Route:
-          description: endpoints route
+          description: Endpoint route
           type: string
         Separator:
           description: Separator in files
@@ -1457,12 +1537,15 @@ components:
           description: Dictionary of ranges in Excel workbooks
           type: object
         ShortCodeList:
-          description: Dictiory of short code names and parameters names to translate
-          items:
+          additionalProperties:
             items:
-              type: string
+              items:
+                type: string
+              type: array
+            nullable: true
             type: array
-          type: array
+          description: Dictionary of short code names and parameters names to translate
+          type: object
         FrontMatterList:
           description: Dictionary where key is zero-based front matter index and value
             is list of lists of front matter paths
@@ -1471,6 +1554,29 @@ components:
               type: string
             type: array
           type: array
+        SourceLanguage:
+          default: en
+          description: Language of original file
+          type: string
+        TargetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        File:
+          description: File as byte array
+          format: byte
+          type: string
+        OriginalFileName:
+          description: Type in the file name. If null will be as request ID.
+          type: string
+        Url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          type: string
+        Origin:
+          description: Url or name of application using this SDK. Not required.
+          type: string
         SavingMode:
           description: "Toggle file saving mode for storage.\r\nIs Files by default."
           enum:
@@ -1479,146 +1585,10 @@ components:
           - Both
           type: string
       required:
-      - File
       - Format
-      - OutFormat
-      - Source
-      - Targets
-      type: object
-    _hugo_post_request:
-      properties:
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
-          type: string
-      required:
-      - File
-      type: object
-    _ocr_text_post_request:
-      properties:
-        Format:
-          default: Unknown
-          description: Originnal file format
-          enum:
-          - Unknown
-          - Bmp
-          - Jpg
-          - Png
-          - Svg
-          - Gif
-          - Pdf
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
-          type: string
-        Rotate:
-          description: Left to write angle to rotate scanned image / pdf
-          format: int32
-          type: integer
-        IsHandwritten:
-          description: is handwritten text
-          type: boolean
-        Origin:
-          description: for analysis only
-          type: string
-        Route:
-          description: endpoints route
-          type: string
-      required:
-      - File
-      - Source
-      - Targets
-      type: object
-    _ocr_file_post_request:
-      properties:
-        Format:
-          default: Unknown
-          description: Original file format
-          enum:
-          - Unknown
-          - Bmp
-          - Jpg
-          - Png
-          - Svg
-          - Gif
-          - Pdf
-          type: string
-        OcrFormat:
-          default: Pdf
-          description: File format after recognition
-          enum:
-          - Pdf
-          - Xlsx
-          - Csv
-          type: string
-        OutFormat:
-          description: output file format
-          type: string
-        Source:
-          default: en
-          description: Language of original file
-          type: string
-        Targets:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        File:
-          description: File as byte array
-          format: binary
-          type: string
-        Url:
-          description: Link to file for translation
-          type: string
-        Rotate:
-          description: Left to write angle to rotate scanned image / pdf
-          format: int32
-          type: integer
-        Formatting:
-          default: true
-          description: "If document's formatting should be preserved, default true"
-          type: boolean
-        Origin:
-          description: for analysis only
-          type: string
-        Route:
-          description: endpoints route
-          type: string
-        Pages:
-          description: List of pages to translate for scanned pdf
-          items:
-            format: int32
-            type: integer
-          type: array
-        SavingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - File
-      - OcrFormat
-      - OutFormat
-      - Source
-      - Targets
+      - OutputFormat
+      - SourceLanguage
+      - TargetLanguages
       type: object
   securitySchemes:
     JWT:

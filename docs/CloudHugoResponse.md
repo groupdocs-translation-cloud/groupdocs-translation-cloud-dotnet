@@ -1,10 +1,10 @@
-# GroupDocs.Translation.Api.Model.CloudHugoResponse
+# GroupDocs.Translation.Cloud.Sdk.Model.CloudHugoResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | \&quot;ok\&quot; if structure parsing was successful, \&quot;error\&quot; if error occured | [optional] 
+**Status** | **HttpStatusCode** |  | [optional] 
 **Message** | **string** | If file was parsed correctly or text of error | [optional] 
 **Frontmatters** | **List&lt;List&lt;string&gt;&gt;** | Structure of front matter syntax | [optional] 
 **Shortcodes** | **List&lt;List&lt;string&gt;&gt;** | Structure of short code syntax | [optional] 

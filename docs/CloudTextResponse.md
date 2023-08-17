@@ -1,10 +1,10 @@
-# GroupDocs.Translation.Api.Model.CloudTextResponse
+# GroupDocs.Translation.Cloud.Sdk.Model.CloudTextResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | \&quot;ok\&quot; if translation was successful, \&quot;error\&quot; if error occured | [optional] 
+**Status** | **HttpStatusCode** |  | [optional] 
 **Message** | **string** | If file was translated correctly or text of error | [optional] 
 **Translations** | **Dictionary&lt;string, List&lt;string&gt;&gt;** | Translated texts | [optional] 
 

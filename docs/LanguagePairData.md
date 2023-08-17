@@ -1,4 +1,4 @@
-# GroupDocs.Translation.Api.Model.LanguagePairData
+# GroupDocs.Translation.Cloud.Sdk.Model.LanguagePairData
 
 ## Properties
 
