@@ -27,33 +27,43 @@ using OpenAPIDateConverter = GroupDocs.Translation.Cloud.Sdk.Client.OpenAPIDateC
 namespace GroupDocs.Translation.Cloud.Sdk.Model
 {
     /// <summary>
-    /// HealthCheckStatus
+    /// HugoPostRequest
     /// </summary>
-    [DataContract(Name = "HealthCheckStatus")]
-    public partial class HealthCheckStatus : IEquatable<HealthCheckStatus>, IValidatableObject
+    [DataContract(Name = "_hugo_post_request")]
+    public partial class HugoPostRequest : IEquatable<HugoPostRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HealthCheckStatus" /> class.
+        /// Initializes a new instance of the <see cref="HugoPostRequest" /> class.
         /// </summary>
-        /// <param name="kafkaDeliveryStatus">kafkaDeliveryStatus.</param>
-        /// <param name="cloudStatus">cloudStatus.</param>
-        public HealthCheckStatus(string kafkaDeliveryStatus = default(string), string cloudStatus = default(string))
+        [JsonConstructorAttribute]
+        protected HugoPostRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HugoPostRequest" /> class.
+        /// </summary>
+        /// <param name="file">file (required).</param>
+        /// <param name="url">url.</param>
+        public HugoPostRequest(System.IO.Stream file = default(System.IO.Stream), string url = default(string))
         {
-            this.KafkaDeliveryStatus = kafkaDeliveryStatus;
-            this.CloudStatus = cloudStatus;
+            // to ensure "file" is required (not null)
+            if (file == null)
+            {
+                throw new ArgumentNullException("file is a required property for HugoPostRequest and cannot be null");
+            }
+            this.File = file;
+            this.Url = url;
         }
 
         /// <summary>
-        /// Gets or Sets KafkaDeliveryStatus
+        /// Gets or Sets File
         /// </summary>
-        [DataMember(Name = "kafkaDeliveryStatus", EmitDefaultValue = true)]
-        public string KafkaDeliveryStatus { get; set; }
+        [DataMember(Name = "File", IsRequired = true, EmitDefaultValue = true)]
+        public System.IO.Stream File { get; set; }
 
         /// <summary>
-        /// Gets or Sets CloudStatus
+        /// Gets or Sets Url
         /// </summary>
-        [DataMember(Name = "cloudStatus", EmitDefaultValue = true)]
-        public string CloudStatus { get; set; }
+        [DataMember(Name = "Url", EmitDefaultValue = false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +72,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class HealthCheckStatus {\n");
-            sb.Append("  KafkaDeliveryStatus: ").Append(KafkaDeliveryStatus).Append("\n");
-            sb.Append("  CloudStatus: ").Append(CloudStatus).Append("\n");
+            sb.Append("class HugoPostRequest {\n");
+            sb.Append("  File: ").Append(File).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +95,15 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HealthCheckStatus);
+            return this.Equals(input as HugoPostRequest);
         }
 
         /// <summary>
-        /// Returns true if HealthCheckStatus instances are equal
+        /// Returns true if HugoPostRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of HealthCheckStatus to be compared</param>
+        /// <param name="input">Instance of HugoPostRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HealthCheckStatus input)
+        public bool Equals(HugoPostRequest input)
         {
             if (input == null)
             {
@@ -101,14 +111,14 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             }
             return 
                 (
-                    this.KafkaDeliveryStatus == input.KafkaDeliveryStatus ||
-                    (this.KafkaDeliveryStatus != null &&
-                    this.KafkaDeliveryStatus.Equals(input.KafkaDeliveryStatus))
+                    this.File == input.File ||
+                    (this.File != null &&
+                    this.File.Equals(input.File))
                 ) && 
                 (
-                    this.CloudStatus == input.CloudStatus ||
-                    (this.CloudStatus != null &&
-                    this.CloudStatus.Equals(input.CloudStatus))
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -121,13 +131,13 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.KafkaDeliveryStatus != null)
+                if (this.File != null)
                 {
-                    hashCode = (hashCode * 59) + this.KafkaDeliveryStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.File.GetHashCode();
                 }
-                if (this.CloudStatus != null)
+                if (this.Url != null)
                 {
-                    hashCode = (hashCode * 59) + this.CloudStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
                 }
                 return hashCode;
             }

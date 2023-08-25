@@ -1,20 +1,19 @@
-# GroupDocs.Translation.Cloud.Sdk.Model.PresentationFileRequest
+# GroupDocs.Translation.Cloud.Sdk.Model.MarkdownFileRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceLanguage** | **string** |  | [optional] [default to "en"]
-**TargetLanguages** | **List&lt;string&gt;** |  | [optional] 
+**SourceLanguage** | **string** |  | [default to "en"]
+**TargetLanguages** | **List&lt;string&gt;** |  | 
 **File** | **byte[]** |  | [optional] 
 **OriginalFileName** | **string** |  | [optional] 
 **Url** | **string** |  | [optional] 
 **Origin** | **string** |  | [optional] 
 **SavingMode** | **string** |  | [optional] 
-**Format** | **string** |  | [optional] [default to FormatEnum.Pptx]
-**OutputFormat** | **string** |  | [optional] 
-**Masters** | **bool** |  | [optional] [default to false]
-**Slides** | **List&lt;int&gt;** |  | [optional] 
+**OutputFormat** | **string** |  | 
+**ShortCodeList** | **Dictionary&lt;string, List&lt;List&lt;string&gt;&gt;&gt;** |  | [optional] 
+**FrontMatterList** | **List&lt;List&lt;string&gt;&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

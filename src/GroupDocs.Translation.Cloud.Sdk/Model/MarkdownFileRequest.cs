@@ -27,10 +27,10 @@ using OpenAPIDateConverter = GroupDocs.Translation.Cloud.Sdk.Client.OpenAPIDateC
 namespace GroupDocs.Translation.Cloud.Sdk.Model
 {
     /// <summary>
-    /// PdfFileRequest
+    /// MarkdownFileRequest
     /// </summary>
-    [DataContract(Name = "PdfFileRequest")]
-    public partial class PdfFileRequest : IEquatable<PdfFileRequest>, IValidatableObject
+    [DataContract(Name = "MarkdownFileRequest")]
+    public partial class MarkdownFileRequest : IEquatable<MarkdownFileRequest>, IValidatableObject
     {
         /// <summary>
         /// Defines SavingMode
@@ -65,12 +65,12 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         [DataMember(Name = "savingMode", EmitDefaultValue = false)]
         public SavingModeEnum? SavingMode { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PdfFileRequest" /> class.
+        /// Initializes a new instance of the <see cref="MarkdownFileRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PdfFileRequest() { }
+        protected MarkdownFileRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PdfFileRequest" /> class.
+        /// Initializes a new instance of the <see cref="MarkdownFileRequest" /> class.
         /// </summary>
         /// <param name="sourceLanguage">sourceLanguage (required) (default to &quot;en&quot;).</param>
         /// <param name="targetLanguages">targetLanguages (required).</param>
@@ -80,26 +80,26 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <param name="origin">origin.</param>
         /// <param name="savingMode">savingMode.</param>
         /// <param name="outputFormat">outputFormat (required).</param>
-        /// <param name="preserveFormatting">preserveFormatting (default to true).</param>
-        /// <param name="pages">pages.</param>
-        public PdfFileRequest(string sourceLanguage = @"en", List<string> targetLanguages = default(List<string>), byte[] file = default(byte[]), string originalFileName = default(string), string url = default(string), string origin = default(string), SavingModeEnum? savingMode = default(SavingModeEnum?), string outputFormat = default(string), bool preserveFormatting = true, List<int> pages = default(List<int>))
+        /// <param name="shortCodeList">shortCodeList.</param>
+        /// <param name="frontMatterList">frontMatterList.</param>
+        public MarkdownFileRequest(string sourceLanguage = @"en", List<string> targetLanguages = default(List<string>), byte[] file = default(byte[]), string originalFileName = default(string), string url = default(string), string origin = default(string), SavingModeEnum? savingMode = default(SavingModeEnum?), string outputFormat = default(string), Dictionary<string, List<List<string>>> shortCodeList = default(Dictionary<string, List<List<string>>>), List<List<string>> frontMatterList = default(List<List<string>>))
         {
             // to ensure "sourceLanguage" is required (not null)
             if (sourceLanguage == null)
             {
-                throw new ArgumentNullException("sourceLanguage is a required property for PdfFileRequest and cannot be null");
+                throw new ArgumentNullException("sourceLanguage is a required property for MarkdownFileRequest and cannot be null");
             }
             this.SourceLanguage = sourceLanguage;
             // to ensure "targetLanguages" is required (not null)
             if (targetLanguages == null)
             {
-                throw new ArgumentNullException("targetLanguages is a required property for PdfFileRequest and cannot be null");
+                throw new ArgumentNullException("targetLanguages is a required property for MarkdownFileRequest and cannot be null");
             }
             this.TargetLanguages = targetLanguages;
             // to ensure "outputFormat" is required (not null)
             if (outputFormat == null)
             {
-                throw new ArgumentNullException("outputFormat is a required property for PdfFileRequest and cannot be null");
+                throw new ArgumentNullException("outputFormat is a required property for MarkdownFileRequest and cannot be null");
             }
             this.OutputFormat = outputFormat;
             this.File = file;
@@ -107,8 +107,8 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             this.Url = url;
             this.Origin = origin;
             this.SavingMode = savingMode;
-            this.PreserveFormatting = preserveFormatting;
-            this.Pages = pages;
+            this.ShortCodeList = shortCodeList;
+            this.FrontMatterList = frontMatterList;
         }
 
         /// <summary>
@@ -154,16 +154,16 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         public string OutputFormat { get; set; }
 
         /// <summary>
-        /// Gets or Sets PreserveFormatting
+        /// Gets or Sets ShortCodeList
         /// </summary>
-        [DataMember(Name = "preserveFormatting", EmitDefaultValue = true)]
-        public bool PreserveFormatting { get; set; }
+        [DataMember(Name = "shortCodeList", EmitDefaultValue = true)]
+        public Dictionary<string, List<List<string>>> ShortCodeList { get; set; }
 
         /// <summary>
-        /// Gets or Sets Pages
+        /// Gets or Sets FrontMatterList
         /// </summary>
-        [DataMember(Name = "pages", EmitDefaultValue = true)]
-        public List<int> Pages { get; set; }
+        [DataMember(Name = "frontMatterList", EmitDefaultValue = true)]
+        public List<List<string>> FrontMatterList { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -172,7 +172,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PdfFileRequest {\n");
+            sb.Append("class MarkdownFileRequest {\n");
             sb.Append("  SourceLanguage: ").Append(SourceLanguage).Append("\n");
             sb.Append("  TargetLanguages: ").Append(TargetLanguages).Append("\n");
             sb.Append("  File: ").Append(File).Append("\n");
@@ -181,8 +181,8 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("  SavingMode: ").Append(SavingMode).Append("\n");
             sb.Append("  OutputFormat: ").Append(OutputFormat).Append("\n");
-            sb.Append("  PreserveFormatting: ").Append(PreserveFormatting).Append("\n");
-            sb.Append("  Pages: ").Append(Pages).Append("\n");
+            sb.Append("  ShortCodeList: ").Append(ShortCodeList).Append("\n");
+            sb.Append("  FrontMatterList: ").Append(FrontMatterList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,15 +203,15 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PdfFileRequest);
+            return this.Equals(input as MarkdownFileRequest);
         }
 
         /// <summary>
-        /// Returns true if PdfFileRequest instances are equal
+        /// Returns true if MarkdownFileRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of PdfFileRequest to be compared</param>
+        /// <param name="input">Instance of MarkdownFileRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PdfFileRequest input)
+        public bool Equals(MarkdownFileRequest input)
         {
             if (input == null)
             {
@@ -259,14 +259,16 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
                     this.OutputFormat.Equals(input.OutputFormat))
                 ) && 
                 (
-                    this.PreserveFormatting == input.PreserveFormatting ||
-                    this.PreserveFormatting.Equals(input.PreserveFormatting)
+                    this.ShortCodeList == input.ShortCodeList ||
+                    this.ShortCodeList != null &&
+                    input.ShortCodeList != null &&
+                    this.ShortCodeList.SequenceEqual(input.ShortCodeList)
                 ) && 
                 (
-                    this.Pages == input.Pages ||
-                    this.Pages != null &&
-                    input.Pages != null &&
-                    this.Pages.SequenceEqual(input.Pages)
+                    this.FrontMatterList == input.FrontMatterList ||
+                    this.FrontMatterList != null &&
+                    input.FrontMatterList != null &&
+                    this.FrontMatterList.SequenceEqual(input.FrontMatterList)
                 );
         }
 
@@ -308,10 +310,13 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.OutputFormat.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PreserveFormatting.GetHashCode();
-                if (this.Pages != null)
+                if (this.ShortCodeList != null)
                 {
-                    hashCode = (hashCode * 59) + this.Pages.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ShortCodeList.GetHashCode();
+                }
+                if (this.FrontMatterList != null)
+                {
+                    hashCode = (hashCode * 59) + this.FrontMatterList.GetHashCode();
                 }
                 return hashCode;
             }
