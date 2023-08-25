@@ -4,30 +4,30 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AutoPost**](TransportApi.md#autopost) | **POST** /auto | Translate any supported file |
-| [**CsvPost**](TransportApi.md#csvpost) | **POST** /csv | Translate CSV and TSV files |
-| [**DocumentPost**](TransportApi.md#documentpost) | **POST** /document | Translate Microsoft Word documents, rtf, txt, odt |
-| [**DocumentRequestIdGet**](TransportApi.md#documentrequestidget) | **GET** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful |
-| [**HcGet**](TransportApi.md#hcget) | **GET** /hc | Health check for all services. |
-| [**HtmlPost**](TransportApi.md#htmlpost) | **POST** /html | Translate HTML files |
-| [**HugoGet**](TransportApi.md#hugoget) | **GET** /hugo | Get hugo syntax structure from markdown file |
-| [**HugoPost**](TransportApi.md#hugopost) | **POST** /hugo | Run hugo syntax structure analyzing from markdown file |
-| [**ImageToFilePost**](TransportApi.md#imagetofilepost) | **POST** /image-to-file | Translate image or scanned pdf and return file |
-| [**ImageToTextPost**](TransportApi.md#imagetotextpost) | **POST** /image-to-text | Translate text on image or scanned pdf |
-| [**LanguagesGet**](TransportApi.md#languagesget) | **GET** /languages | Return list of available language pairs |
-| [**MarkdownPost**](TransportApi.md#markdownpost) | **POST** /markdown | Translate Markdown files |
-| [**PdfPost**](TransportApi.md#pdfpost) | **POST** /pdf | Translate pdf files |
-| [**PresentationPost**](TransportApi.md#presentationpost) | **POST** /presentation | Translate Microsoft PowerPoint presentations, odp |
-| [**ResxPost**](TransportApi.md#resxpost) | **POST** /resx | Translate RESX files |
-| [**SpreadsheetsPost**](TransportApi.md#spreadsheetspost) | **POST** /spreadsheets | Translate Microsoft Excel workbooks, ods |
-| [**TextPost**](TransportApi.md#textpost) | **POST** /text | Translate text |
-| [**TextRequestIdGet**](TransportApi.md#textrequestidget) | **GET** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful |
+| [**AutoPost**](TransportApi.md#autopost) | **POST** /auto |  |
+| [**CsvPost**](TransportApi.md#csvpost) | **POST** /csv |  |
+| [**DocumentPost**](TransportApi.md#documentpost) | **POST** /document |  |
+| [**DocumentRequestIdGet**](TransportApi.md#documentrequestidget) | **GET** /document/{requestId} |  |
+| [**HcGet**](TransportApi.md#hcget) | **GET** /hc |  |
+| [**HtmlPost**](TransportApi.md#htmlpost) | **POST** /html |  |
+| [**HugoGet**](TransportApi.md#hugoget) | **GET** /hugo |  |
+| [**HugoPost**](TransportApi.md#hugopost) | **POST** /hugo |  |
+| [**ImageToFilePost**](TransportApi.md#imagetofilepost) | **POST** /image-to-file |  |
+| [**ImageToTextPost**](TransportApi.md#imagetotextpost) | **POST** /image-to-text |  |
+| [**LanguagesGet**](TransportApi.md#languagesget) | **GET** /languages |  |
+| [**MarkdownPost**](TransportApi.md#markdownpost) | **POST** /markdown |  |
+| [**PdfPost**](TransportApi.md#pdfpost) | **POST** /pdf |  |
+| [**PresentationPost**](TransportApi.md#presentationpost) | **POST** /presentation |  |
+| [**ResxPost**](TransportApi.md#resxpost) | **POST** /resx |  |
+| [**SpreadsheetsPost**](TransportApi.md#spreadsheetspost) | **POST** /spreadsheets |  |
+| [**TextPost**](TransportApi.md#textpost) | **POST** /text |  |
+| [**TextRequestIdGet**](TransportApi.md#textrequestidget) | **GET** /text/{requestId} |  |
 
 <a id="autopost"></a>
 # **AutoPost**
 > StatusResponse AutoPost (AutoPostRequest autoPostRequest = null)
 
-Translate any supported file
+
 
 ### Example
 ```csharp
@@ -53,7 +53,6 @@ namespace Example
 
             try
             {
-                // Translate any supported file
                 StatusResponse result = apiInstance.AutoPost(autoPostRequest);
                 Debug.WriteLine(result);
             }
@@ -74,7 +73,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate any supported file
     ApiResponse<StatusResponse> response = apiInstance.AutoPostWithHttpInfo(autoPostRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -119,7 +117,7 @@ catch (ApiException e)
 # **CsvPost**
 > StatusResponse CsvPost (CsvFileRequest csvFileRequest = null)
 
-Translate CSV and TSV files
+
 
 ### Example
 ```csharp
@@ -141,11 +139,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var csvFileRequest = new CsvFileRequest(); // CsvFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var csvFileRequest = new CsvFileRequest(); // CsvFileRequest |  (optional) 
 
             try
             {
-                // Translate CSV and TSV files
                 StatusResponse result = apiInstance.CsvPost(csvFileRequest);
                 Debug.WriteLine(result);
             }
@@ -166,7 +163,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate CSV and TSV files
     ApiResponse<StatusResponse> response = apiInstance.CsvPostWithHttpInfo(csvFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -184,7 +180,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **csvFileRequest** | [**CsvFileRequest**](CsvFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **csvFileRequest** | [**CsvFileRequest**](CsvFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -211,7 +207,7 @@ catch (ApiException e)
 # **DocumentPost**
 > StatusResponse DocumentPost (TextDocumentFileRequest textDocumentFileRequest = null)
 
-Translate Microsoft Word documents, rtf, txt, odt
+
 
 ### Example
 ```csharp
@@ -233,11 +229,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var textDocumentFileRequest = new TextDocumentFileRequest(); // TextDocumentFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var textDocumentFileRequest = new TextDocumentFileRequest(); // TextDocumentFileRequest |  (optional) 
 
             try
             {
-                // Translate Microsoft Word documents, rtf, txt, odt
                 StatusResponse result = apiInstance.DocumentPost(textDocumentFileRequest);
                 Debug.WriteLine(result);
             }
@@ -258,7 +253,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate Microsoft Word documents, rtf, txt, odt
     ApiResponse<StatusResponse> response = apiInstance.DocumentPostWithHttpInfo(textDocumentFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -276,7 +270,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **textDocumentFileRequest** | [**TextDocumentFileRequest**](TextDocumentFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **textDocumentFileRequest** | [**TextDocumentFileRequest**](TextDocumentFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -303,7 +297,7 @@ catch (ApiException e)
 # **DocumentRequestIdGet**
 > CloudFileResponse DocumentRequestIdGet (string requestId)
 
-Return document translation status.  Also return URLs for downloading of translated document if translation was successful
+
 
 ### Example
 ```csharp
@@ -325,11 +319,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var requestId = "requestId_example";  // string | GUID which got from /v3/translation/document response
+            var requestId = "requestId_example";  // string | 
 
             try
             {
-                // Return document translation status.  Also return URLs for downloading of translated document if translation was successful
                 CloudFileResponse result = apiInstance.DocumentRequestIdGet(requestId);
                 Debug.WriteLine(result);
             }
@@ -350,7 +343,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Return document translation status.  Also return URLs for downloading of translated document if translation was successful
     ApiResponse<CloudFileResponse> response = apiInstance.DocumentRequestIdGetWithHttpInfo(requestId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -368,7 +360,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestId** | **string** | GUID which got from /v3/translation/document response |  |
+| **requestId** | **string** |  |  |
 
 ### Return type
 
@@ -395,7 +387,7 @@ catch (ApiException e)
 # **HcGet**
 > HealthCheckStatus HcGet ()
 
-Health check for all services.
+
 
 ### Example
 ```csharp
@@ -420,7 +412,6 @@ namespace Example
 
             try
             {
-                // Health check for all services.
                 HealthCheckStatus result = apiInstance.HcGet();
                 Debug.WriteLine(result);
             }
@@ -441,7 +432,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Health check for all services.
     ApiResponse<HealthCheckStatus> response = apiInstance.HcGetWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -482,7 +472,7 @@ This endpoint does not need any parameter.
 # **HtmlPost**
 > StatusResponse HtmlPost (string sourceLanguage = null, List<string> targetLanguages = null, byte[] file = null, string originalFileName = null, string url = null, string origin = null, string savingMode = null, string outputFormat = null)
 
-Translate HTML files
+
 
 ### Example
 ```csharp
@@ -504,18 +494,17 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var sourceLanguage = "\"en\"";  // string | Language of original file (optional)  (default to "en")
-            var targetLanguages = new List<string>(); // List<string> | List of target languages (optional) 
-            var file = System.Text.Encoding.ASCII.GetBytes("BYTE_ARRAY_DATA_HERE");  // byte[] | File as byte array (optional) 
-            var originalFileName = "originalFileName_example";  // string | Type in the file name. If null will be as request ID. (optional) 
-            var url = "url_example";  // string | Link to file for translation. Ignore, if \\\"file\\\" property not null (optional) 
-            var origin = "origin_example";  // string | Url or name of application using this SDK. Not required. (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
-            var outputFormat = "outputFormat_example";  // string | output file format (optional) 
+            var sourceLanguage = "\"en\"";  // string |  (optional)  (default to "en")
+            var targetLanguages = new List<string>(); // List<string> |  (optional) 
+            var file = System.Text.Encoding.ASCII.GetBytes("BYTE_ARRAY_DATA_HERE");  // byte[] |  (optional) 
+            var originalFileName = "originalFileName_example";  // string |  (optional) 
+            var url = "url_example";  // string |  (optional) 
+            var origin = "origin_example";  // string |  (optional) 
+            var savingMode = "Files";  // string |  (optional) 
+            var outputFormat = "outputFormat_example";  // string |  (optional) 
 
             try
             {
-                // Translate HTML files
                 StatusResponse result = apiInstance.HtmlPost(sourceLanguage, targetLanguages, file, originalFileName, url, origin, savingMode, outputFormat);
                 Debug.WriteLine(result);
             }
@@ -536,7 +525,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate HTML files
     ApiResponse<StatusResponse> response = apiInstance.HtmlPostWithHttpInfo(sourceLanguage, targetLanguages, file, originalFileName, url, origin, savingMode, outputFormat);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -554,14 +542,14 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **sourceLanguage** | **string** | Language of original file | [optional] [default to &quot;en&quot;] |
-| **targetLanguages** | [**List&lt;string&gt;**](string.md) | List of target languages | [optional]  |
-| **file** | **byte[]** | File as byte array | [optional]  |
-| **originalFileName** | **string** | Type in the file name. If null will be as request ID. | [optional]  |
-| **url** | **string** | Link to file for translation. Ignore, if \\\&quot;file\\\&quot; property not null | [optional]  |
-| **origin** | **string** | Url or name of application using this SDK. Not required. | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
-| **outputFormat** | **string** | output file format | [optional]  |
+| **sourceLanguage** | **string** |  | [optional] [default to &quot;en&quot;] |
+| **targetLanguages** | [**List&lt;string&gt;**](string.md) |  | [optional]  |
+| **file** | **byte[]** |  | [optional]  |
+| **originalFileName** | **string** |  | [optional]  |
+| **url** | **string** |  | [optional]  |
+| **origin** | **string** |  | [optional]  |
+| **savingMode** | **string** |  | [optional]  |
+| **outputFormat** | **string** |  | [optional]  |
 
 ### Return type
 
@@ -588,7 +576,7 @@ catch (ApiException e)
 # **HugoGet**
 > CloudHugoResponse HugoGet (string id = null)
 
-Get hugo syntax structure from markdown file
+
 
 ### Example
 ```csharp
@@ -610,11 +598,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var id = "id_example";  // string | id from PostHugo> (optional) 
+            var id = "id_example";  // string |  (optional) 
 
             try
             {
-                // Get hugo syntax structure from markdown file
                 CloudHugoResponse result = apiInstance.HugoGet(id);
                 Debug.WriteLine(result);
             }
@@ -635,7 +622,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get hugo syntax structure from markdown file
     ApiResponse<CloudHugoResponse> response = apiInstance.HugoGetWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -653,7 +639,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** | id from PostHugo&gt; | [optional]  |
+| **id** | **string** |  | [optional]  |
 
 ### Return type
 
@@ -680,7 +666,7 @@ catch (ApiException e)
 # **HugoPost**
 > StatusResponse HugoPost (System.IO.Stream file, string url = null)
 
-Run hugo syntax structure analyzing from markdown file
+
 
 ### Example
 ```csharp
@@ -702,12 +688,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | File as byte array
-            var url = "url_example";  // string | Link to file for translation (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
+            var url = "url_example";  // string |  (optional) 
 
             try
             {
-                // Run hugo syntax structure analyzing from markdown file
                 StatusResponse result = apiInstance.HugoPost(file, url);
                 Debug.WriteLine(result);
             }
@@ -728,7 +713,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Run hugo syntax structure analyzing from markdown file
     ApiResponse<StatusResponse> response = apiInstance.HugoPostWithHttpInfo(file, url);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -746,8 +730,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **file** | **System.IO.Stream****System.IO.Stream** | File as byte array |  |
-| **url** | **string** | Link to file for translation | [optional]  |
+| **file** | **System.IO.Stream****System.IO.Stream** |  |  |
+| **url** | **string** |  | [optional]  |
 
 ### Return type
 
@@ -774,7 +758,7 @@ catch (ApiException e)
 # **ImageToFilePost**
 > StatusResponse ImageToFilePost (OcrFileRequest ocrFileRequest = null)
 
-Translate image or scanned pdf and return file
+
 
 ### Example
 ```csharp
@@ -796,11 +780,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var ocrFileRequest = new OcrFileRequest(); // OcrFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var ocrFileRequest = new OcrFileRequest(); // OcrFileRequest |  (optional) 
 
             try
             {
-                // Translate image or scanned pdf and return file
                 StatusResponse result = apiInstance.ImageToFilePost(ocrFileRequest);
                 Debug.WriteLine(result);
             }
@@ -821,7 +804,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate image or scanned pdf and return file
     ApiResponse<StatusResponse> response = apiInstance.ImageToFilePostWithHttpInfo(ocrFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -839,7 +821,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **ocrFileRequest** | [**OcrFileRequest**](OcrFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **ocrFileRequest** | [**OcrFileRequest**](OcrFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -866,7 +848,7 @@ catch (ApiException e)
 # **ImageToTextPost**
 > StatusResponse ImageToTextPost (string source, List<string> targets, string format = null, string url = null, int? rotate = null, bool? isHandwritten = null, string origin = null, string route = null, System.IO.Stream file = null)
 
-Translate text on image or scanned pdf
+
 
 ### Example
 ```csharp
@@ -888,19 +870,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var source = "\"en\"";  // string | Language of original file (default to "en")
-            var targets = new List<string>(); // List<string> | List of target languages
-            var format = "Unknown";  // string | Originnal file format (optional)  (default to Unknown)
-            var url = "url_example";  // string | Link to file for translation (optional) 
-            var rotate = 56;  // int? | Left to write angle to rotate scanned image / pdf (optional) 
-            var isHandwritten = true;  // bool? | is handwritten text (optional) 
-            var origin = "origin_example";  // string | for analysis only (optional) 
-            var route = "route_example";  // string | endpoints route (optional) 
+            var source = "\"en\"";  // string |  (default to "en")
+            var targets = new List<string>(); // List<string> | 
+            var format = "Unknown";  // string |  (optional)  (default to Unknown)
+            var url = "url_example";  // string |  (optional) 
+            var rotate = 56;  // int? |  (optional) 
+            var isHandwritten = true;  // bool? |  (optional) 
+            var origin = "origin_example";  // string |  (optional) 
+            var route = "route_example";  // string |  (optional) 
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {
-                // Translate text on image or scanned pdf
                 StatusResponse result = apiInstance.ImageToTextPost(source, targets, format, url, rotate, isHandwritten, origin, route, file);
                 Debug.WriteLine(result);
             }
@@ -921,7 +902,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate text on image or scanned pdf
     ApiResponse<StatusResponse> response = apiInstance.ImageToTextPostWithHttpInfo(source, targets, format, url, rotate, isHandwritten, origin, route, file);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -939,14 +919,14 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **source** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **format** | **string** | Originnal file format | [optional] [default to Unknown] |
-| **url** | **string** | Link to file for translation | [optional]  |
-| **rotate** | **int?** | Left to write angle to rotate scanned image / pdf | [optional]  |
-| **isHandwritten** | **bool?** | is handwritten text | [optional]  |
-| **origin** | **string** | for analysis only | [optional]  |
-| **route** | **string** | endpoints route | [optional]  |
+| **source** | **string** |  | [default to &quot;en&quot;] |
+| **targets** | [**List&lt;string&gt;**](string.md) |  |  |
+| **format** | **string** |  | [optional] [default to Unknown] |
+| **url** | **string** |  | [optional]  |
+| **rotate** | **int?** |  | [optional]  |
+| **isHandwritten** | **bool?** |  | [optional]  |
+| **origin** | **string** |  | [optional]  |
+| **route** | **string** |  | [optional]  |
 | **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
 
 ### Return type
@@ -974,7 +954,7 @@ catch (ApiException e)
 # **LanguagesGet**
 > List&lt;LanguagePairData&gt; LanguagesGet ()
 
-Return list of available language pairs
+
 
 ### Example
 ```csharp
@@ -999,7 +979,6 @@ namespace Example
 
             try
             {
-                // Return list of available language pairs
                 List<LanguagePairData> result = apiInstance.LanguagesGet();
                 Debug.WriteLine(result);
             }
@@ -1020,7 +999,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Return list of available language pairs
     ApiResponse<List<LanguagePairData>> response = apiInstance.LanguagesGetWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1059,9 +1037,9 @@ This endpoint does not need any parameter.
 
 <a id="markdownpost"></a>
 # **MarkdownPost**
-> StatusResponse MarkdownPost (string sourceLanguage, List<string> targetLanguages, string outputFormat, byte[] file = null, string originalFileName = null, string url = null, string origin = null, string savingMode = null, List<List<string>> frontMatterList = null)
+> StatusResponse MarkdownPost (MarkdownFileRequest markdownFileRequest = null)
 
-Translate Markdown files
+
 
 ### Example
 ```csharp
@@ -1083,20 +1061,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var sourceLanguage = "\"en\"";  // string | Language of original file (default to "en")
-            var targetLanguages = new List<string>(); // List<string> | List of target languages
-            var outputFormat = "outputFormat_example";  // string | output file format
-            var file = System.Text.Encoding.ASCII.GetBytes("BYTE_ARRAY_DATA_HERE");  // byte[] | File as byte array (optional) 
-            var originalFileName = "originalFileName_example";  // string | Type in the file name. If null will be as request ID. (optional) 
-            var url = "url_example";  // string | Link to file for translation. Ignore, if \\\"file\\\" property not null (optional) 
-            var origin = "origin_example";  // string | Url or name of application using this SDK. Not required. (optional) 
-            var savingMode = "Files";  // string | Toggle file saving mode for storage.  Is Files by default. (optional) 
-            var frontMatterList = new List<List<string>>(); // List<List<string>> | List of lists of frontmatter paths (optional) 
+            var markdownFileRequest = new MarkdownFileRequest(); // MarkdownFileRequest |  (optional) 
 
             try
             {
-                // Translate Markdown files
-                StatusResponse result = apiInstance.MarkdownPost(sourceLanguage, targetLanguages, outputFormat, file, originalFileName, url, origin, savingMode, frontMatterList);
+                StatusResponse result = apiInstance.MarkdownPost(markdownFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1116,8 +1085,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate Markdown files
-    ApiResponse<StatusResponse> response = apiInstance.MarkdownPostWithHttpInfo(sourceLanguage, targetLanguages, outputFormat, file, originalFileName, url, origin, savingMode, frontMatterList);
+    ApiResponse<StatusResponse> response = apiInstance.MarkdownPostWithHttpInfo(markdownFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1134,15 +1102,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **sourceLanguage** | **string** | Language of original file | [default to &quot;en&quot;] |
-| **targetLanguages** | [**List&lt;string&gt;**](string.md) | List of target languages |  |
-| **outputFormat** | **string** | output file format |  |
-| **file** | **byte[]** | File as byte array | [optional]  |
-| **originalFileName** | **string** | Type in the file name. If null will be as request ID. | [optional]  |
-| **url** | **string** | Link to file for translation. Ignore, if \\\&quot;file\\\&quot; property not null | [optional]  |
-| **origin** | **string** | Url or name of application using this SDK. Not required. | [optional]  |
-| **savingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional]  |
-| **frontMatterList** | [**List&lt;List&lt;string&gt;&gt;**](List&lt;string&gt;.md) | List of lists of frontmatter paths | [optional]  |
+| **markdownFileRequest** | [**MarkdownFileRequest**](MarkdownFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -1154,7 +1114,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -1169,7 +1129,7 @@ catch (ApiException e)
 # **PdfPost**
 > StatusResponse PdfPost (PdfFileRequest pdfFileRequest = null)
 
-Translate pdf files
+
 
 ### Example
 ```csharp
@@ -1191,11 +1151,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var pdfFileRequest = new PdfFileRequest(); // PdfFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var pdfFileRequest = new PdfFileRequest(); // PdfFileRequest |  (optional) 
 
             try
             {
-                // Translate pdf files
                 StatusResponse result = apiInstance.PdfPost(pdfFileRequest);
                 Debug.WriteLine(result);
             }
@@ -1216,7 +1175,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate pdf files
     ApiResponse<StatusResponse> response = apiInstance.PdfPostWithHttpInfo(pdfFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1234,7 +1192,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **pdfFileRequest** | [**PdfFileRequest**](PdfFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **pdfFileRequest** | [**PdfFileRequest**](PdfFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -1261,7 +1219,7 @@ catch (ApiException e)
 # **PresentationPost**
 > StatusResponse PresentationPost (PresentationFileRequest presentationFileRequest = null)
 
-Translate Microsoft PowerPoint presentations, odp
+
 
 ### Example
 ```csharp
@@ -1283,11 +1241,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var presentationFileRequest = new PresentationFileRequest(); // PresentationFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var presentationFileRequest = new PresentationFileRequest(); // PresentationFileRequest |  (optional) 
 
             try
             {
-                // Translate Microsoft PowerPoint presentations, odp
                 StatusResponse result = apiInstance.PresentationPost(presentationFileRequest);
                 Debug.WriteLine(result);
             }
@@ -1308,7 +1265,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate Microsoft PowerPoint presentations, odp
     ApiResponse<StatusResponse> response = apiInstance.PresentationPostWithHttpInfo(presentationFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1326,7 +1282,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **presentationFileRequest** | [**PresentationFileRequest**](PresentationFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **presentationFileRequest** | [**PresentationFileRequest**](PresentationFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -1353,7 +1309,7 @@ catch (ApiException e)
 # **ResxPost**
 > StatusResponse ResxPost (ResxFileRequest resxFileRequest = null)
 
-Translate RESX files
+
 
 ### Example
 ```csharp
@@ -1375,11 +1331,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var resxFileRequest = new ResxFileRequest(); // ResxFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var resxFileRequest = new ResxFileRequest(); // ResxFileRequest |  (optional) 
 
             try
             {
-                // Translate RESX files
                 StatusResponse result = apiInstance.ResxPost(resxFileRequest);
                 Debug.WriteLine(result);
             }
@@ -1400,7 +1355,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate RESX files
     ApiResponse<StatusResponse> response = apiInstance.ResxPostWithHttpInfo(resxFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1418,7 +1372,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **resxFileRequest** | [**ResxFileRequest**](ResxFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **resxFileRequest** | [**ResxFileRequest**](ResxFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -1445,7 +1399,7 @@ catch (ApiException e)
 # **SpreadsheetsPost**
 > StatusResponse SpreadsheetsPost (SpreadsheetFileRequest spreadsheetFileRequest = null)
 
-Translate Microsoft Excel workbooks, ods
+
 
 ### Example
 ```csharp
@@ -1467,11 +1421,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var spreadsheetFileRequest = new SpreadsheetFileRequest(); // SpreadsheetFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var spreadsheetFileRequest = new SpreadsheetFileRequest(); // SpreadsheetFileRequest |  (optional) 
 
             try
             {
-                // Translate Microsoft Excel workbooks, ods
                 StatusResponse result = apiInstance.SpreadsheetsPost(spreadsheetFileRequest);
                 Debug.WriteLine(result);
             }
@@ -1492,7 +1445,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate Microsoft Excel workbooks, ods
     ApiResponse<StatusResponse> response = apiInstance.SpreadsheetsPostWithHttpInfo(spreadsheetFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1510,7 +1462,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **spreadsheetFileRequest** | [**SpreadsheetFileRequest**](SpreadsheetFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **spreadsheetFileRequest** | [**SpreadsheetFileRequest**](SpreadsheetFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -1537,7 +1489,7 @@ catch (ApiException e)
 # **TextPost**
 > StatusResponse TextPost (TextRequest textRequest = null)
 
-Translate text
+
 
 ### Example
 ```csharp
@@ -1559,11 +1511,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var textRequest = new TextRequest(); // TextRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var textRequest = new TextRequest(); // TextRequest |  (optional) 
 
             try
             {
-                // Translate text
                 StatusResponse result = apiInstance.TextPost(textRequest);
                 Debug.WriteLine(result);
             }
@@ -1584,7 +1535,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate text
     ApiResponse<StatusResponse> response = apiInstance.TextPostWithHttpInfo(textRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1602,7 +1552,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **textRequest** | [**TextRequest**](TextRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **textRequest** | [**TextRequest**](TextRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -1629,7 +1579,7 @@ catch (ApiException e)
 # **TextRequestIdGet**
 > CloudTextResponse TextRequestIdGet (string requestId)
 
-Return text translation status.  Also return translated text if translation was successful
+
 
 ### Example
 ```csharp
@@ -1651,11 +1601,10 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var requestId = "requestId_example";  // string | GUID which got from /v3/translation/text response
+            var requestId = "requestId_example";  // string | 
 
             try
             {
-                // Return text translation status.  Also return translated text if translation was successful
                 CloudTextResponse result = apiInstance.TextRequestIdGet(requestId);
                 Debug.WriteLine(result);
             }
@@ -1676,7 +1625,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Return text translation status.  Also return translated text if translation was successful
     ApiResponse<CloudTextResponse> response = apiInstance.TextRequestIdGetWithHttpInfo(requestId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1694,7 +1642,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestId** | **string** | GUID which got from /v3/translation/text response |  |
+| **requestId** | **string** |  |  |
 
 ### Return type
 

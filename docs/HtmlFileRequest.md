@@ -1,4 +1,4 @@
-# GroupDocs.Translation.Cloud.Sdk.Model.PresentationFileRequest
+# GroupDocs.Translation.Cloud.Sdk.Model.HtmlFileRequest
 
 ## Properties
 
@@ -11,10 +11,7 @@ Name | Type | Description | Notes
 **Url** | **string** |  | [optional] 
 **Origin** | **string** |  | [optional] 
 **SavingMode** | **string** |  | [optional] 
-**Format** | **string** |  | [optional] [default to FormatEnum.Pptx]
 **OutputFormat** | **string** |  | [optional] 
-**Masters** | **bool** |  | [optional] [default to false]
-**Slides** | **List&lt;int&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

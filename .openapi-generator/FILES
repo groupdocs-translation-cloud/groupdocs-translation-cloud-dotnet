@@ -9,8 +9,12 @@ docs/CloudHugoResponse.md
 docs/CloudTextResponse.md
 docs/CsvFileRequest.md
 docs/HealthCheckStatus.md
+docs/HtmlFileRequest.md
 docs/HttpStatusCode.md
+docs/HugoPostRequest.md
+docs/ImageToTextPostRequest.md
 docs/LanguagePairData.md
+docs/MarkdownFileRequest.md
 docs/OcrFileRequest.md
 docs/PdfFileRequest.md
 docs/PresentationFileRequest.md
@@ -53,8 +57,12 @@ src/GroupDocs.Translation.Cloud.Sdk/Model/CloudHugoResponse.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/CloudTextResponse.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/CsvFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/HealthCheckStatus.cs
+src/GroupDocs.Translation.Cloud.Sdk/Model/HtmlFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/HttpStatusCode.cs
+src/GroupDocs.Translation.Cloud.Sdk/Model/HugoPostRequest.cs
+src/GroupDocs.Translation.Cloud.Sdk/Model/ImageToTextPostRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/LanguagePairData.cs
+src/GroupDocs.Translation.Cloud.Sdk/Model/MarkdownFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/OcrFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/PdfFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/PresentationFileRequest.cs

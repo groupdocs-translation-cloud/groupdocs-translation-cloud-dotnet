@@ -1,12 +1,10 @@
-# GroupDocs.Translation.Cloud.Sdk.Model.CloudTextResponse
+# GroupDocs.Translation.Cloud.Sdk.Model.ImageToTextPostRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **HttpStatusCode** |  | [optional] 
-**Message** | **string** |  | [optional] 
-**Translations** | **Dictionary&lt;string, List&lt;string&gt;&gt;** |  | [optional] 
+**File** | **System.IO.Stream** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

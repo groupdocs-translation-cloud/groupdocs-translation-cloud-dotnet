@@ -16,4 +16,10 @@
   <ItemGroup>
     <ProjectReference Include="..\GroupDocs.Translation.Cloud.Sdk\GroupDocs.Translation.Cloud.Sdk.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestData\TestMd.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

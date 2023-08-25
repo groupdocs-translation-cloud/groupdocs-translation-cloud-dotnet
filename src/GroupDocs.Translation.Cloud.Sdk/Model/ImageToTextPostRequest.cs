@@ -27,33 +27,25 @@ using OpenAPIDateConverter = GroupDocs.Translation.Cloud.Sdk.Client.OpenAPIDateC
 namespace GroupDocs.Translation.Cloud.Sdk.Model
 {
     /// <summary>
-    /// HealthCheckStatus
+    /// ImageToTextPostRequest
     /// </summary>
-    [DataContract(Name = "HealthCheckStatus")]
-    public partial class HealthCheckStatus : IEquatable<HealthCheckStatus>, IValidatableObject
+    [DataContract(Name = "_image_to_text_post_request")]
+    public partial class ImageToTextPostRequest : IEquatable<ImageToTextPostRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HealthCheckStatus" /> class.
+        /// Initializes a new instance of the <see cref="ImageToTextPostRequest" /> class.
         /// </summary>
-        /// <param name="kafkaDeliveryStatus">kafkaDeliveryStatus.</param>
-        /// <param name="cloudStatus">cloudStatus.</param>
-        public HealthCheckStatus(string kafkaDeliveryStatus = default(string), string cloudStatus = default(string))
+        /// <param name="file">file.</param>
+        public ImageToTextPostRequest(System.IO.Stream file = default(System.IO.Stream))
         {
-            this.KafkaDeliveryStatus = kafkaDeliveryStatus;
-            this.CloudStatus = cloudStatus;
+            this.File = file;
         }
 
         /// <summary>
-        /// Gets or Sets KafkaDeliveryStatus
+        /// Gets or Sets File
         /// </summary>
-        [DataMember(Name = "kafkaDeliveryStatus", EmitDefaultValue = true)]
-        public string KafkaDeliveryStatus { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CloudStatus
-        /// </summary>
-        [DataMember(Name = "cloudStatus", EmitDefaultValue = true)]
-        public string CloudStatus { get; set; }
+        [DataMember(Name = "file", EmitDefaultValue = false)]
+        public System.IO.Stream File { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +54,8 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class HealthCheckStatus {\n");
-            sb.Append("  KafkaDeliveryStatus: ").Append(KafkaDeliveryStatus).Append("\n");
-            sb.Append("  CloudStatus: ").Append(CloudStatus).Append("\n");
+            sb.Append("class ImageToTextPostRequest {\n");
+            sb.Append("  File: ").Append(File).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +76,15 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HealthCheckStatus);
+            return this.Equals(input as ImageToTextPostRequest);
         }
 
         /// <summary>
-        /// Returns true if HealthCheckStatus instances are equal
+        /// Returns true if ImageToTextPostRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of HealthCheckStatus to be compared</param>
+        /// <param name="input">Instance of ImageToTextPostRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HealthCheckStatus input)
+        public bool Equals(ImageToTextPostRequest input)
         {
             if (input == null)
             {
@@ -101,14 +92,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             }
             return 
                 (
-                    this.KafkaDeliveryStatus == input.KafkaDeliveryStatus ||
-                    (this.KafkaDeliveryStatus != null &&
-                    this.KafkaDeliveryStatus.Equals(input.KafkaDeliveryStatus))
-                ) && 
-                (
-                    this.CloudStatus == input.CloudStatus ||
-                    (this.CloudStatus != null &&
-                    this.CloudStatus.Equals(input.CloudStatus))
+                    this.File == input.File ||
+                    (this.File != null &&
+                    this.File.Equals(input.File))
                 );
         }
 
@@ -121,13 +107,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.KafkaDeliveryStatus != null)
+                if (this.File != null)
                 {
-                    hashCode = (hashCode * 59) + this.KafkaDeliveryStatus.GetHashCode();
-                }
-                if (this.CloudStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.CloudStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.File.GetHashCode();
                 }
                 return hashCode;
             }
