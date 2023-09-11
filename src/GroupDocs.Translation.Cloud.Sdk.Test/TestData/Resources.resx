@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TranslationTotalAppTitle" xml:space="preserve">
+    <value>Translate and convert any document</value>
+  </data>
+  <data name="TranslationTotalAppTitleLang" xml:space="preserve">
+    <value>Translate from {0} to {1}</value>
+  </data>
+  <data name="TranslationTotalAppTitleDoc" xml:space="preserve">
+    <value>Free Online Word Translation - Online Translation Software for {0} files</value>
+  </data>
+  <data name="TranslationTotalAppTitleXls" xml:space="preserve">
+    <value>Free Online Excel Translation - Online Translation Software for {0} files</value>
+  </data>
+  <data name="TranslationTotalAppTitlePpt" xml:space="preserve">
+    <value>Free Online PowerPoint Translation - Online Translation Software for {0} files</value>
+  </data>
+  <data name="TranslationTotalAppTitleTxt" xml:space="preserve">
+    <value>Free Online Text Files Translation - Online Translation Software for {0} files</value>
+  </data>
+  <data name="TranslationTotalAppTitleResx" xml:space="preserve">
+    <value>Free Online Resources Translation - Online Translation Software for {0} files</value>
+  </data>
+  <data name="TranslationTotaltAppTitleHtml" xml:space="preserve">
+    <value>Free Online HTML Translation - Online Translation Software for {0} files</value>
+  </data>
+  <data name="TranslationTotalAppTitleHugo" xml:space="preserve">
+    <value>Free Online Hugo Translation - Online Translation Software for {0} files</value>
+  </data>
+  <data name="TranslationTotalAppTitleOpenOffice" xml:space="preserve">
+    <value>Free Online {0} Translation - Online Translation Software for {0} files</value>
+  </data>
+  <data name="TranslationTextAppTitle" xml:space="preserve">
+    <value>Online text translator</value>
+  </data>
+  <data name="TranslationPdfAppTitle" xml:space="preserve">
+    <value>Translate and convert PDF documents</value>
+  </data>
+  <data name="TranslationPdfAppTitleLang" xml:space="preserve">
+    <value>Translate from {0} to {1}</value>
+  </data>
+  <data name="TranslationPptAppTitle" xml:space="preserve">
+    <value>Translate and convert PowerPoint presentations</value>
+  </data>
+  <data name="TranslationPptAppTitleLang" xml:space="preserve">
+    <value>Translate from {0} to {1}</value>
+  </data>
+  <data name="TranslationWordAppTitle" xml:space="preserve">
+    <value>Translate and convert Word documents</value>
+  </data>
+  <data name="TranslationWordAppTitleLang" xml:space="preserve">
+    <value>Translate  from {0} to {1}</value>
+  </data>
+  <data name="TranslationExcelAppTitle" xml:space="preserve">
+    <value>Translate and convert Excel workbooks</value>
+  </data>
+  <data name="TranslationExcelAppTitleLang" xml:space="preserve">
+    <value>Translate from {0} to {1}</value>
+  </data>
+  <data name="TranslationOpenOfficeAppTitle" xml:space="preserve">
+    <value>Translate OpenOffice document</value>
+  </data>
+  <data name="TranslationOpenOfficeAppTitleLang" xml:space="preserve">
+    <value>Translate  from {0} to {1}</value>
+  </data>
+  <data name="TranslationMarkdownAppTitle" xml:space="preserve">
+    <value>Translate and convert Markdown files</value>
+  </data>
+  <data name="TranslationMarkdownAppTitleLang" xml:space="preserve">
+    <value>Translate from {0} to {1}</value>
+  </data>
+  <data name="TranslationHtmlAppTitle" xml:space="preserve">
+    <value>Translate and convert HTML pages</value>
+  </data>
+  <data name="TranslationHtmlAppTitleLang" xml:space="preserve">
+    <value>Translate from {0} to {1}</value>
+  </data>
+  <data name="TranslationHugoAppTitle" xml:space="preserve">
+    <value>Translate Markdown files with Hugo syntax</value>
+  </data>
+  <data name="TranslationHugoAppTitleLang" xml:space="preserve">
+    <value>{0}-{1} Hugo Translation - Free Online Translation Software</value>
+  </data>
+  <data name="TranslationResourcesAppTitle" xml:space="preserve">
+    <value>Localize application resources</value>
+  </data>
+  <data name="TranslationResourcesAppTitleLang" xml:space="preserve">
+    <value>Translate from {0} to {1}</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of text, Word, Excel and PowerPoint files</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShortDoc" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translating Word (doc, docx, docm) documents</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShortXls" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of Excel (xls, xlsx, xlsm) workbooks</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShortPpt" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of PowerPoint (ppt, pptx, pptm) presentations</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShortOpenOffice" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of {0} files</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShortHtml" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of {0} files</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShortHugo" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of {0} files</value>
+  </data>
+  <data name="TranslationTotalMetaDescriptionShortDocument" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of Microsoft Office (Word, Excel, PowerPoint) files</value>
+  </data>
+  <data name="TranslationPdfMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of PDF documents</value>
+  </data>
+  <data name="TranslationPdfMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationPptMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of PowerPoint presentations</value>
+  </data>
+  <data name="TranslationPptMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationWordMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of Word documents</value>
+  </data>
+  <data name="TranslationWordMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationExcelMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of Excel workbooks</value>
+  </data>
+  <data name="TranslationExcelMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationOpenOfficeMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of Open Office files</value>
+  </data>
+  <data name="TranslationOpenOfficeMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationTextMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translating plain text from English to German, from Chinese to English, from French to Italian or choose another language pair among 78</value>
+  </data>
+  <data name="TranslationMarkdownMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of Markdown documents</value>
+  </data>
+  <data name="TranslationMarkdownMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationHtmlMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of HTML pages</value>
+  </data>
+  <data name="TranslationHtmlMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationHugoMetaDescriptionShort" xml:space="preserve">
+    <value>Quickly translate Markdown files with Hugo shortcodes and front matter syntax online</value>
+  </data>
+  <data name="TranslationHugoMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate Markdown files with Hugo shortcodes and front matter syntax online</value>
+  </data>
+  <data name="TranslationResourcesMetaDescriptionShort" xml:space="preserve">
+    <value>GroupDocs Translation is a free online translation service that allows translation of RESX resources</value>
+  </data>
+  <data name="TranslationResourcesMetaDescriptionShortLang" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents from {0} to {1} online and save the translation in any format.</value>
+  </data>
+  <data name="TranslationTotalMetaDescription" xml:space="preserve">
+    <value>Quickly translate PDF, Microsoft Office, OpenOffice, Markdown, text, and other documents online and save the translation in any format.</value>
+  </data>
+</root>

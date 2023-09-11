@@ -23,6 +23,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+
 namespace GroupDocs.Translation.Cloud.SDK.NET
 {
     using System.Collections.Generic;
@@ -34,6 +36,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
     /// <summary>
     /// GroupDocs.Translation for Cloud API.
     /// </summary>
+    [Obsolete]
     public class FileApi
     {
         private readonly ApiInvoker apiInvoker;
@@ -63,6 +66,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Initializes a new instance of the <see cref="FileApi"/> class.
         /// </summary>    
         /// <param name="configuration">Configuration settings</param>
+        [Obsolete]
         public FileApi(Configuration configuration)
         {
             this.configuration = configuration;
@@ -93,7 +97,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Copy file 
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFileRequest" /></param> 
-        /// <returns><see cref=""/></returns>            
+        /// <returns><see cref=""/></returns>
+        [Obsolete] 
         public void CopyFile(CopyFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -150,7 +155,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Delete file 
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFileRequest" /></param> 
-        /// <returns><see cref=""/></returns>            
+        /// <returns><see cref=""/></returns>
+        [Obsolete] 
         public void DeleteFile(DeleteFileRequest request)
         {
             // verify the required parameter 'path' is set
@@ -199,7 +205,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Download file 
         /// </summary>
         /// <param name="request">Request. <see cref="DownloadFileRequest" /></param> 
-        /// <returns><see cref="System.IO.Stream"/></returns>            
+        /// <returns><see cref="System.IO.Stream"/></returns>
+        [Obsolete] 
         public System.IO.Stream DownloadFile(DownloadFileRequest request)
         {
             // verify the required parameter 'path' is set
@@ -242,7 +249,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Move file 
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFileRequest" /></param> 
-        /// <returns><see cref=""/></returns>            
+        /// <returns><see cref=""/></returns>
+        [Obsolete]
         public void MoveFile(MoveFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -299,7 +307,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Upload file 
         /// </summary>
         /// <param name="request">Request. <see cref="UploadFileRequest" /></param> 
-        /// <returns><see cref="FilesUploadResult"/></returns>            
+        /// <returns><see cref="FilesUploadResult"/></returns>
+        [Obsolete] 
         public FilesUploadResult UploadFile(UploadFileRequest request)
         {
             // verify the required parameter 'path' is set

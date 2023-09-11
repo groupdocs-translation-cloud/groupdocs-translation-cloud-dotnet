@@ -23,6 +23,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+
 namespace GroupDocs.Translation.Cloud.SDK.NET
 {
     using System.Collections.Generic;
@@ -34,6 +36,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
     /// <summary>
     /// GroupDocs.Translation for Cloud API.
     /// </summary>
+    [Obsolete]
     public class StorageApi
     {
         private readonly ApiInvoker apiInvoker;
@@ -93,7 +96,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Get disc usage 
         /// </summary>
         /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param> 
-        /// <returns><see cref="DiscUsage"/></returns>            
+        /// <returns><see cref="DiscUsage"/></returns>
+        [Obsolete]
         public DiscUsage GetDiscUsage(GetDiscUsageRequest request)
         {
             // create path and map variables
@@ -134,7 +138,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Get file versions 
         /// </summary>
         /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param> 
-        /// <returns><see cref="FileVersions"/></returns>            
+        /// <returns><see cref="FileVersions"/></returns>
+        [Obsolete]
         public FileVersions GetFileVersions(GetFileVersionsRequest request)
         {
             // verify the required parameter 'path' is set
@@ -182,7 +187,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Check if file or folder exists 
         /// </summary>
         /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param> 
-        /// <returns><see cref="ObjectExist"/></returns>            
+        /// <returns><see cref="ObjectExist"/></returns>
+        [Obsolete]
         public ObjectExist ObjectExists(ObjectExistsRequest request)
         {
             // verify the required parameter 'path' is set
@@ -231,7 +237,8 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Check if storage exists 
         /// </summary>
         /// <param name="request">Request. <see cref="StorageExistsRequest" /></param> 
-        /// <returns><see cref="StorageExist"/></returns>            
+        /// <returns><see cref="StorageExist"/></returns>
+        [Obsolete] 
         public StorageExist StorageExists(StorageExistsRequest request)
         {
             // verify the required parameter 'storageName' is set
