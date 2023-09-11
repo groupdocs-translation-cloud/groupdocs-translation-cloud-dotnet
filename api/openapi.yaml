@@ -8,7 +8,7 @@ info:
     url: https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt
   termsOfService: https://about.groupdocs.cloud/legal/tos/
   title: GroupDocs.Translation SDK
-  version: 23.8.2
+  version: 23.9.2
 servers:
 - description: GroupDocs.Translation server
   url: https://api.groupdocs.cloud/v2.0/translation/
@@ -30,7 +30,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /csv:
     post:
       requestBody:
@@ -46,12 +46,12 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /html:
     post:
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               $ref: '#/components/schemas/HtmlFileRequest'
       responses:
@@ -62,7 +62,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /markdown:
     post:
       requestBody:
@@ -78,7 +78,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /hugo:
     get:
       parameters:
@@ -97,18 +97,13 @@ paths:
                 $ref: '#/components/schemas/CloudHugoResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
     post:
       requestBody:
         content:
-          multipart/form-data:
-            encoding:
-              File:
-                style: form
-              Url:
-                style: form
+          application/json:
             schema:
-              $ref: '#/components/schemas/_hugo_post_request'
+              $ref: '#/components/schemas/HugoRequest'
       responses:
         "202":
           content:
@@ -117,7 +112,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Accepted
       tags:
-      - Transport
+      - Translation
   /image-to-file:
     post:
       requestBody:
@@ -133,87 +128,14 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /image-to-text:
     post:
-      parameters:
-      - explode: true
-        in: query
-        name: Format
-        required: false
-        schema:
-          default: Unknown
-          enum:
-          - Unknown
-          - Bmp
-          - Jpg
-          - Png
-          - Svg
-          - Gif
-          - Pdf
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: Source
-        required: true
-        schema:
-          default: en
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: Targets
-        required: true
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: Url
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: Rotate
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: IsHandwritten
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: Origin
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: Route
-        required: false
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
-          multipart/form-data:
-            encoding:
-              file:
-                style: form
+          application/json:
             schema:
-              $ref: '#/components/schemas/_image_to_text_post_request'
+              $ref: '#/components/schemas/OcrTextRequest'
       responses:
         "200":
           content:
@@ -222,7 +144,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /pdf:
     post:
       requestBody:
@@ -238,7 +160,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /resx:
     post:
       requestBody:
@@ -254,7 +176,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /presentation:
     post:
       requestBody:
@@ -270,7 +192,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /hc:
     get:
       responses:
@@ -281,7 +203,7 @@ paths:
                 $ref: '#/components/schemas/HealthCheckStatus'
           description: Success
       tags:
-      - Transport
+      - Translation
   /languages:
     get:
       responses:
@@ -294,7 +216,7 @@ paths:
                 type: array
           description: Success
       tags:
-      - Transport
+      - Translation
   /auto:
     post:
       requestBody:
@@ -345,7 +267,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /text:
     post:
       requestBody:
@@ -361,7 +283,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /document/{requestId}:
     get:
       parameters:
@@ -380,7 +302,7 @@ paths:
                 $ref: '#/components/schemas/CloudFileResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /text/{requestId}:
     get:
       parameters:
@@ -399,7 +321,7 @@ paths:
                 $ref: '#/components/schemas/CloudTextResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
   /document:
     post:
       requestBody:
@@ -415,7 +337,7 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       tags:
-      - Transport
+      - Translation
 components:
   schemas:
     CloudFileResponse:
@@ -457,10 +379,11 @@ components:
         - - frontmatters
           - frontmatters
         shortcodes:
-        - - shortcodes
-          - shortcodes
-        - - shortcodes
-          - shortcodes
+          key:
+          - - shortcodes
+            - shortcodes
+          - - shortcodes
+            - shortcodes
         message: message
         status: null
       properties:
@@ -477,12 +400,15 @@ components:
           nullable: true
           type: array
         shortcodes:
-          items:
+          additionalProperties:
             items:
-              type: string
+              items:
+                type: string
+              type: array
+            nullable: true
             type: array
           nullable: true
-          type: array
+          type: object
       type: object
     CloudTextResponse:
       additionalProperties: false
@@ -584,6 +510,17 @@ components:
       type: object
     HtmlFileRequest:
       additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        origin: origin
+        savingMode: Files
+        outputFormat: outputFormat
+        sourceLanguage: en
+        url: url
       properties:
         sourceLanguage:
           default: en
@@ -622,68 +559,82 @@ components:
       type: object
     HttpStatusCode:
       enum:
-      - 100
-      - 101
-      - 102
-      - 103
-      - 200
-      - 201
-      - 202
-      - 203
-      - 204
-      - 205
-      - 206
-      - 207
-      - 208
-      - 226
-      - 300
-      - 301
-      - 302
-      - 303
-      - 304
-      - 305
-      - 306
-      - 307
-      - 308
-      - 400
-      - 401
-      - 402
-      - 403
-      - 404
-      - 405
-      - 406
-      - 407
-      - 408
-      - 409
-      - 410
-      - 411
-      - 412
-      - 413
-      - 414
-      - 415
-      - 416
-      - 417
-      - 421
-      - 422
-      - 423
-      - 424
-      - 426
-      - 428
-      - 429
-      - 431
-      - 451
-      - 500
-      - 501
-      - 502
-      - 503
-      - 504
-      - 505
-      - 506
-      - 507
-      - 508
-      - 510
-      - 511
-      type: number
+      - Continue
+      - SwitchingProtocols
+      - Processing
+      - EarlyHints
+      - OK
+      - Created
+      - Accepted
+      - NonAuthoritativeInformation
+      - NoContent
+      - ResetContent
+      - PartialContent
+      - MultiStatus
+      - AlreadyReported
+      - IMUsed
+      - MultipleChoices
+      - MovedPermanently
+      - Found
+      - SeeOther
+      - NotModified
+      - UseProxy
+      - Unused
+      - TemporaryRedirect
+      - PermanentRedirect
+      - BadRequest
+      - Unauthorized
+      - PaymentRequired
+      - Forbidden
+      - NotFound
+      - MethodNotAllowed
+      - NotAcceptable
+      - ProxyAuthenticationRequired
+      - RequestTimeout
+      - Conflict
+      - Gone
+      - LengthRequired
+      - PreconditionFailed
+      - RequestEntityTooLarge
+      - RequestUriTooLong
+      - UnsupportedMediaType
+      - RequestedRangeNotSatisfiable
+      - ExpectationFailed
+      - MisdirectedRequest
+      - UnprocessableEntity
+      - Locked
+      - FailedDependency
+      - UpgradeRequired
+      - PreconditionRequired
+      - TooManyRequests
+      - RequestHeaderFieldsTooLarge
+      - UnavailableForLegalReasons
+      - InternalServerError
+      - NotImplemented
+      - BadGateway
+      - ServiceUnavailable
+      - GatewayTimeout
+      - HttpVersionNotSupported
+      - VariantAlsoNegotiates
+      - InsufficientStorage
+      - LoopDetected
+      - NotExtended
+      - NetworkAuthenticationRequired
+      type: string
+    HugoRequest:
+      additionalProperties: false
+      example:
+        file: file
+        url: url
+      properties:
+        file:
+          format: byte
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+      type: object
     LanguagePairData:
       additionalProperties: false
       example:
@@ -868,6 +819,63 @@ components:
       - outputFormat
       - sourceLanguage
       - targetLanguages
+      type: object
+    OcrTextRequest:
+      additionalProperties: false
+      example:
+        rotate: 0
+        file: file
+        route: route
+        origin: origin
+        format: Unknown
+        source: en
+        targets:
+        - targets
+        - targets
+        url: url
+        ishandwritten: true
+      properties:
+        format:
+          default: Unknown
+          enum:
+          - Unknown
+          - Bmp
+          - Jpg
+          - Png
+          - Svg
+          - Gif
+          - Pdf
+          type: string
+        source:
+          default: en
+          minLength: 1
+          type: string
+        targets:
+          items:
+            type: string
+          type: array
+        file:
+          format: byte
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        rotate:
+          format: int32
+          type: integer
+        ishandwritten:
+          type: boolean
+        origin:
+          nullable: true
+          type: string
+        route:
+          nullable: true
+          type: string
+      required:
+      - File
+      - Source
+      - Targets
       type: object
     PdfFileRequest:
       additionalProperties: false
@@ -1316,22 +1324,6 @@ components:
             $ref: '#/components/schemas/StringStringTuple'
           nullable: true
           type: array
-      type: object
-    _hugo_post_request:
-      properties:
-        File:
-          format: binary
-          type: string
-        Url:
-          type: string
-      required:
-      - File
-      type: object
-    _image_to_text_post_request:
-      properties:
-        file:
-          format: binary
-          type: string
       type: object
     _auto_post_request:
       properties:

@@ -36,6 +36,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
     /// <summary>
     /// GroupDocs.Translation for Cloud API
     /// </summary>
+    [Obsolete]
     public class TranslationApi
     {
         private readonly ApiInvoker apiInvoker;
@@ -63,6 +64,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// <summary>
         /// initializes a new instance of the <see cref="TranslationApi"/> class
         /// </summary>
+        [Obsolete]
         public TranslationApi(Configuration configuration)
         {
             this.configuration = configuration;
@@ -93,6 +95,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// <param name="masters"></param>
         /// <param name="elements"></param>
         /// <returns></returns>
+        [Obsolete]
         public TranslateDocumentRequest CreateDocumentRequest(string name,
                                                               string folder,
                                                               string pair,
@@ -192,6 +195,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
+        [Obsolete]
         public TranslateTextRequest CreateTextRequest(string pair, string text, bool details = false)
         {
             TextInfo textInfo = new TextInfo();
@@ -210,6 +214,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// </summary>
         /// <param name="request">Request.  <see cref="TranslateDocumentRequest"/> </param>
         /// <returns><see cref="TranslationResponse"/></returns>
+        [Obsolete]
         public TranslationResponse RunTranslationTask(TranslateDocumentRequest request)
         {
             if (request.UserRequest == null)
@@ -298,6 +303,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// </summary>
         /// <param name="request">Request.  <see cref="TranslateTextRequest"/> </param>
         /// <returns><see cref="TextResponse"/></returns>
+        [Obsolete]
         public TextResponse RunTranslationTextTask(TranslateTextRequest request)
         {
             if (request.UserRequest == null)
@@ -389,6 +395,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Health check of GroupDocs.Translation
         /// </summary>
         /// <returns><see cref="TranslationResponse"/></returns>
+        [Obsolete]
         public TranslationResponse RunHealthCheck()
         {
             var resourcePath = this.configuration.GetApiRootUrl() + "/hc";
@@ -428,6 +435,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Returns structure of request for document translation
         /// </summary>
         /// <returns><see cref="FileInfo"/></returns>
+        [Obsolete]
         public Model.FileInfo GetDocumentRequestStructure()
         {
             var resourcePath = this.configuration.GetApiRootUrl() + "/info/document";
@@ -467,6 +475,7 @@ namespace GroupDocs.Translation.Cloud.SDK.NET
         /// Returns structure of request for text translation
         /// </summary>
         /// <returns><see cref="TextInfo"/></returns>
+        [Obsolete]
         public TextInfo GetTextRequestStructure()
         {
             var resourcePath = this.configuration.GetApiRootUrl() + "/info/text";

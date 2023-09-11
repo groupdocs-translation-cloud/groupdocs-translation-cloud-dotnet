@@ -470,7 +470,7 @@ This endpoint does not need any parameter.
 
 <a id="htmlpost"></a>
 # **HtmlPost**
-> StatusResponse HtmlPost (string sourceLanguage = null, List<string> targetLanguages = null, byte[] file = null, string originalFileName = null, string url = null, string origin = null, string savingMode = null, string outputFormat = null)
+> StatusResponse HtmlPost (HtmlFileRequest htmlFileRequest = null)
 
 
 
@@ -494,18 +494,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var sourceLanguage = "\"en\"";  // string |  (optional)  (default to "en")
-            var targetLanguages = new List<string>(); // List<string> |  (optional) 
-            var file = System.Text.Encoding.ASCII.GetBytes("BYTE_ARRAY_DATA_HERE");  // byte[] |  (optional) 
-            var originalFileName = "originalFileName_example";  // string |  (optional) 
-            var url = "url_example";  // string |  (optional) 
-            var origin = "origin_example";  // string |  (optional) 
-            var savingMode = "Files";  // string |  (optional) 
-            var outputFormat = "outputFormat_example";  // string |  (optional) 
+            var htmlFileRequest = new HtmlFileRequest(); // HtmlFileRequest |  (optional) 
 
             try
             {
-                StatusResponse result = apiInstance.HtmlPost(sourceLanguage, targetLanguages, file, originalFileName, url, origin, savingMode, outputFormat);
+                StatusResponse result = apiInstance.HtmlPost(htmlFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -525,7 +518,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<StatusResponse> response = apiInstance.HtmlPostWithHttpInfo(sourceLanguage, targetLanguages, file, originalFileName, url, origin, savingMode, outputFormat);
+    ApiResponse<StatusResponse> response = apiInstance.HtmlPostWithHttpInfo(htmlFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -542,14 +535,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **sourceLanguage** | **string** |  | [optional] [default to &quot;en&quot;] |
-| **targetLanguages** | [**List&lt;string&gt;**](string.md) |  | [optional]  |
-| **file** | **byte[]** |  | [optional]  |
-| **originalFileName** | **string** |  | [optional]  |
-| **url** | **string** |  | [optional]  |
-| **origin** | **string** |  | [optional]  |
-| **savingMode** | **string** |  | [optional]  |
-| **outputFormat** | **string** |  | [optional]  |
+| **htmlFileRequest** | [**HtmlFileRequest**](HtmlFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -561,7 +547,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -664,7 +650,7 @@ catch (ApiException e)
 
 <a id="hugopost"></a>
 # **HugoPost**
-> StatusResponse HugoPost (System.IO.Stream file, string url = null)
+> StatusResponse HugoPost (HugoRequest hugoRequest = null)
 
 
 
@@ -688,12 +674,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
-            var url = "url_example";  // string |  (optional) 
+            var hugoRequest = new HugoRequest(); // HugoRequest |  (optional) 
 
             try
             {
-                StatusResponse result = apiInstance.HugoPost(file, url);
+                StatusResponse result = apiInstance.HugoPost(hugoRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -713,7 +698,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<StatusResponse> response = apiInstance.HugoPostWithHttpInfo(file, url);
+    ApiResponse<StatusResponse> response = apiInstance.HugoPostWithHttpInfo(hugoRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -730,8 +715,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **file** | **System.IO.Stream****System.IO.Stream** |  |  |
-| **url** | **string** |  | [optional]  |
+| **hugoRequest** | [**HugoRequest**](HugoRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -743,7 +727,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -846,7 +830,7 @@ catch (ApiException e)
 
 <a id="imagetotextpost"></a>
 # **ImageToTextPost**
-> StatusResponse ImageToTextPost (string source, List<string> targets, string format = null, string url = null, int? rotate = null, bool? isHandwritten = null, string origin = null, string route = null, System.IO.Stream file = null)
+> StatusResponse ImageToTextPost (OcrTextRequest ocrTextRequest = null)
 
 
 
@@ -870,19 +854,11 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TransportApi(config);
-            var source = "\"en\"";  // string |  (default to "en")
-            var targets = new List<string>(); // List<string> | 
-            var format = "Unknown";  // string |  (optional)  (default to Unknown)
-            var url = "url_example";  // string |  (optional) 
-            var rotate = 56;  // int? |  (optional) 
-            var isHandwritten = true;  // bool? |  (optional) 
-            var origin = "origin_example";  // string |  (optional) 
-            var route = "route_example";  // string |  (optional) 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var ocrTextRequest = new OcrTextRequest(); // OcrTextRequest |  (optional) 
 
             try
             {
-                StatusResponse result = apiInstance.ImageToTextPost(source, targets, format, url, rotate, isHandwritten, origin, route, file);
+                StatusResponse result = apiInstance.ImageToTextPost(ocrTextRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -902,7 +878,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<StatusResponse> response = apiInstance.ImageToTextPostWithHttpInfo(source, targets, format, url, rotate, isHandwritten, origin, route, file);
+    ApiResponse<StatusResponse> response = apiInstance.ImageToTextPostWithHttpInfo(ocrTextRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -919,15 +895,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **source** | **string** |  | [default to &quot;en&quot;] |
-| **targets** | [**List&lt;string&gt;**](string.md) |  |  |
-| **format** | **string** |  | [optional] [default to Unknown] |
-| **url** | **string** |  | [optional]  |
-| **rotate** | **int?** |  | [optional]  |
-| **isHandwritten** | **bool?** |  | [optional]  |
-| **origin** | **string** |  | [optional]  |
-| **route** | **string** |  | [optional]  |
-| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
+| **ocrTextRequest** | [**OcrTextRequest**](OcrTextRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -939,7 +907,7 @@ catch (ApiException e)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
