@@ -60,6 +60,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 OAuthFlow = OAuthFlow.APPLICATION,
                 OAuthClientId = "translate.cloud",
                 OAuthClientSecret = "5d0da472782620373473703904631795",
+                //OAuthClientSecret = "translate.cloud",
                 BasePath = "http://localhost:5005"
             };
             instance = new TranslationApi(conf);
@@ -86,10 +87,17 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         [Fact]
         public void AutoPostTest()
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //AutoPostRequest autoPostRequest = null;
-            //var response = instance.AutoPost(autoPostRequest);
-            //Assert.IsType<StatusResponse>(response);
+            FileRequest autoPostRequest = new FileRequest()
+            {
+                SourceLanguage = "en",
+                TargetLanguages = targets,
+                Format = FileRequest.FormatEnum.Docx,
+                OutputFormat = "docx",
+                File = GetFile(@"TestData/TestWord.docx", out string fileName),
+                OriginalFileName = fileName
+            };
+            var response = instance.AutoPost(autoPostRequest);
+            Assert.IsType<StatusResponse>(response);
         }
 
         /// <summary>
@@ -101,7 +109,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             CsvFileRequest csvFileRequest = new CsvFileRequest(
                 "en",
                 targets,
-                outFormat:"csv"
+                outputFormat:"csv"
                 )
             {
                 File = GetFile(@"TestData/TestCsv.csv", out string fileName),
@@ -109,7 +117,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 Origin = "TestApi",
                 Format = CsvFileRequest.FormatEnum.Csv,
                 SavingMode = CsvFileRequest.SavingModeEnum.Files,
-                Separator = ","
+                Separator = ",",
             };
             var response = instance.CsvPost(csvFileRequest);
             Assert.IsType<StatusResponse>(response);
@@ -128,7 +136,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 outputFormat: "docx"
                 )
             {
-                File = GetFile(@"TestData/translation_test.docx", out string fileName),
+                File = GetFile(@"TestData/TestWord.docx", out string fileName),
                 Format = TextDocumentFileRequest.FormatEnum.Docx,
                 Origin = "ApiTest",
                 OriginalFileName = fileName,
@@ -181,9 +189,10 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         {
             var htmlRequest = new HtmlFileRequest(
                 "en",
-                new List<string>() { "es" })
+                new List<string>() { "es" },
+                outputFormat: "html")
             {
-                File = GetFile("TestData/TestHtmlByAnton.html", out string fileName),
+                File = GetFile("TestData/TestHtml.html", out string fileName),
                 OriginalFileName = fileName,
                 SavingMode = HtmlFileRequest.SavingModeEnum.Files,
                 Origin = "TestApi"
@@ -242,10 +251,21 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         [Fact]
         public void ImageToFilePostTest()
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //OcrFileRequest ocrFileRequest = null;
-            //var response = instance.ImageToFilePost(ocrFileRequest);
-            //Assert.IsType<StatusResponse>(response);
+            ImageToFileRequest ocrFileRequest = new ImageToFileRequest(
+                "en",
+                targets,
+                outputFormat: "pdf")
+            {
+                File = GetFile(@"TestData/image-based-pdf-sample.pdf", out string fileName),
+                OriginalFileName = fileName,
+                Format = ImageToFileRequest.FormatEnum.Pdf,
+                Formatting = true,
+                Ocrformat = ImageToFileRequest.OcrformatEnum.Pdf,
+                Origin = "TestApi"
+            };
+            var response = instance.ImageToFilePost(ocrFileRequest);
+            Assert.IsType<StatusResponse>(response);
+            Assert.True(TextRequestIdGet(response.Id, Attempts));
         }
 
         /// <summary>
@@ -254,10 +274,10 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         [Fact]
         public void ImageToTextPostTest()
         {
-            var request = new OcrTextRequest(
-                OcrTextRequest.FormatEnum.Jpg,
-                "en",
-                targets)
+            var request = new ImageToTextRequest(
+                ImageToTextRequest.FormatEnum.Jpg,
+                "es",
+                new List<string>(){"en"})
             {
                 File = GetFile(@"TestData/test-ocr-text.jpg", out string fileName),
                 Origin = "TestApi"
@@ -283,14 +303,24 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         [Fact]
         public void MarkdownPostTest()
         {
+            var shortcodes = new Dictionary<string, List<string>>();
+            shortcodes.Add("0", new List<string>()
+            {
+                "title", "3"
+            });
+            var front = new List<List<string>>();
+            front.Add(new List<string>(){"title"});
+            front.Add(new List<string>(){"description"});
+            front.Add(new List<string>(){"submenu", "middle", "text"});
             var request = new MarkdownFileRequest(
                 "en", 
                 new List<string>() { "es" }, 
-                GetFile(@"TestData/TestMd.md", out string fileName),
+                GetFile(@"TestData/_index.en.md", out string fileName),
                 fileName, 
                 savingMode: MarkdownFileRequest.SavingModeEnum.Files, 
                 origin: "test",
-                outputFormat: "md");
+                outputFormat: "md",
+                frontMatterList: front);
             var status = instance.MarkdownPost(request);
             Assert.IsType<StatusResponse>(status);
             Assert.True(DocumentRequestIdGet(status.Id, Attempts));
@@ -307,11 +337,12 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 new List<string>() { "es" },
                 outputFormat: "pdf")
             {
-                File = GetFile(@"TestData/sample_explain.pdf", out string fileName),
+                File = GetFile(@"TestData/TestPdf.pdf", out string fileName),
                 OriginalFileName = fileName,
                 Origin = "TestApi",
                 PreserveFormatting = true,
-                SavingMode = PdfFileRequest.SavingModeEnum.Files
+                SavingMode = PdfFileRequest.SavingModeEnum.Files,
+                Pages = new List<int>() {1}
             };
             var response = instance.PdfPost(pdfFileRequest);
             Assert.IsType<StatusResponse>(response);
@@ -334,7 +365,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 OriginalFileName = fileName,
                 Origin = "TestApi",
                 Format = PresentationFileRequest.FormatEnum.Pptx,
-                SavingMode = PresentationFileRequest.SavingModeEnum.Files
+                SavingMode = PresentationFileRequest.SavingModeEnum.Files,
+                Masters = false,
+                Slides = new List<int>(){1, 2}
             };
             var response = instance.PresentationPost(presentationFileRequest);
             Assert.IsType<StatusResponse>(response);
@@ -374,11 +407,12 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 outputFormat: SpreadsheetFileRequest.OutputFormatEnum.Xlsx)
             {
                 Origin = "TestApi",
-                File = GetFile(@"TestData/translation_test.xlsx", out string fileName),
+                File = GetFile(@"TestData/TestExcel.xlsx", out string fileName),
                 OriginalFileName = fileName,
-                SavingMode = SpreadsheetFileRequest.SavingModeEnum.Files
+                SavingMode = SpreadsheetFileRequest.SavingModeEnum.Files,
+                Worksheets = new List<int>(){2}
             };
-            var response = instance.SpreadsheetsPost(spreadsheetFileRequest);
+            var response = instance.SpreadsheetPost(spreadsheetFileRequest);
             Assert.IsType<StatusResponse>(response);
             Assert.True(DocumentRequestIdGet(response.Id, Attempts));
         }

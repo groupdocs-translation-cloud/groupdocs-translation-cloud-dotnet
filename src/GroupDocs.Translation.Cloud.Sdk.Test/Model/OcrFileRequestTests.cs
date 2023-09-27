@@ -15,7 +15,6 @@ using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 using GroupDocs.Translation.Cloud.Sdk.Model;
-using GroupDocs.Translation.Cloud.Sdk.Client;
 using System.Reflection;
 using Newtonsoft.Json;
 
