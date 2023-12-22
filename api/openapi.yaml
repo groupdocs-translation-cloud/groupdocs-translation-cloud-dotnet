@@ -9,13 +9,37 @@ info:
     url: https://about.aspose.com/legal/eula/
   termsOfService: https://about.groupdocs.cloud/legal/tos/
   title: GroupDocs.Translation SDK
-  version: 23.9.4
+  version: 23.12.0
 servers:
 - description: GroupDocs.Translation server
   url: https://api.groupdocs.cloud/v2.0/translation/
 security:
 - JWT: []
 paths:
+  /swagger/spec:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: IsYaml
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: SerialaizeAsV2
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Swagger
   /hugo:
     get:
       parameters:
@@ -79,10 +103,51 @@ paths:
       summary: Return list of available language pairs
       tags:
       - Translation
-  /document/{requestId}:
+  /document/trial:
     get:
       parameters:
       - description: GUID which got from /v3/translation/document response
+        explode: true
+        in: query
+        name: requestId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+          description: Success
+      summary: "Return document translation status for trial request.\r\nAlso return\
+        \ URLs for downloading of translated document if translation was successful"
+      tags:
+      - Translation
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextDocumentFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: "Trial translate Microsoft Word documents, rtf, txt, odt without conversation.\
+        \ Translate only first page or 1000 symbols."
+      tags:
+      - Translation
+  /document/{requestId}:
+    get:
+      parameters:
+      - description: GUID which got from /translation/document response
         explode: false
         in: path
         name: requestId
@@ -97,8 +162,72 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudFileResponse'
           description: Success
+        "102":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+          description: Information
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+          description: Accepted
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponse'
+          description: No Content
+        "206":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudFileResponseWithAdditionalInfo'
+          description: Success
       summary: "Return document translation status.\r\nAlso return URLs for downloading\
         \ of translated document if translation was successful"
+      tags:
+      - Translation
+  /text/trial:
+    get:
+      parameters:
+      - description: GUID which got from /v3/translation/text response
+        explode: true
+        in: query
+        name: requestId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+          description: Success
+      summary: "Return text translation status for trial requests.\r\nAlso return\
+        \ translated text if translation was successful"
+      tags:
+      - Translation
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Trial translate text. Translate only 1000 symbols.
       tags:
       - Translation
   /text/{requestId}:
@@ -119,10 +248,84 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudTextResponse'
           description: Success
+        "102":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloudTextResponse'
+          description: Information
       summary: "Return text translation status.\r\nAlso return translated text if\
         \ translation was successful"
       tags:
       - Translation
+  /file/upload:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Unknown
+          - Doc
+          - Docx
+          - Docm
+          - Xls
+          - Xlsx
+          - Xlsm
+          - Ppt
+          - Pptx
+          - Pptm
+          - Txt
+          - Pdf
+          - Md
+          - Resx
+          - Html
+          - Rtf
+          - Odt
+          - Ods
+          - Odp
+          - Csv
+          - Tsv
+          - Srt
+          type: string
+        style: form
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              file:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_file_upload_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Success
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Bad Request
+      tags:
+      - File
   /spreadsheet:
     post:
       requestBody:
@@ -282,7 +485,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ResxFileRequest'
+              $ref: '#/components/schemas/SrtFileRequest'
         description: "String in body of request, containing JSON with parameters for\
           \ translation."
       responses:
@@ -292,7 +495,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
-      summary: Translate RESX files
+      summary: Translate Resx files
       tags:
       - Translation
   /presentation:
@@ -312,6 +515,25 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: "Translate Microsoft PowerPoint presentations, odp"
+      tags:
+      - Translation
+  /srt:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SrtFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate Srt files
       tags:
       - Translation
   /auto:
@@ -352,25 +574,6 @@ paths:
       summary: Translate text
       tags:
       - Translation
-  /text/trial:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TextRequest'
-        description: "String in body of request, containing JSON with parameters for\
-          \ translation."
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StatusResponse'
-          description: Success
-      summary: Trial translate text. Translate only 1000 symbols.
-      tags:
-      - Translation
   /document:
     post:
       requestBody:
@@ -390,28 +593,102 @@ paths:
       summary: "Translate Microsoft Word documents, rtf, txt, odt"
       tags:
       - Translation
-  /document/trial:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TextDocumentFileRequest'
-        description: "String in body of request, containing JSON with parameters for\
-          \ translation."
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StatusResponse'
-          description: Success
-      summary: "Trial translate Microsoft Word documents, rtf, txt, odt without conversation.\
-        \ Translate only first page or 1000 symbols."
-      tags:
-      - Translation
 components:
   schemas:
+    CloudFileRequest:
+      additionalProperties: false
+      properties:
+        format:
+          description: "\"doc(x|m)\" if Word document, \"xls(x|m)\" if Excel workbook"
+          nullable: true
+          type: string
+        outFormat:
+          description: output file format
+          nullable: true
+          type: string
+        requestId:
+          description: id of request
+          nullable: true
+          type: string
+        ids:
+          description: Language pairs to translate
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        url:
+          description: Link to file for translation
+          nullable: true
+          type: string
+        size:
+          description: File size
+          format: int64
+          type: integer
+        masters:
+          description: If translate master slides
+          type: boolean
+        formatting:
+          description: "If document's formatting should be preserved, default true"
+          type: boolean
+        origin:
+          description: for analysis only
+          nullable: true
+          type: string
+        elements:
+          description: List of slides to translate
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        ranges:
+          additionalProperties:
+            $ref: '#/components/schemas/WorksheetData'
+          description: Dictionary of ranges in Excel workbooks
+          nullable: true
+          type: object
+        shortCodeDict:
+          additionalProperties:
+            items:
+              type: string
+            nullable: true
+            type: array
+          description: Dictiory of short code names and parameters names to translate
+          nullable: true
+          type: object
+        frontMatterList:
+          description: Dictionary where key is zero-based front matter index and value
+            is list of lists of front matter paths
+          items:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: array
+        originalName:
+          description: Original name of file
+          nullable: true
+          type: string
+        separator:
+          description: Separator in files
+          nullable: true
+          type: string
+        savingMode:
+          description: Toggle files saving mode
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        details:
+          additionalProperties:
+            nullable: true
+            type: string
+          description: Details of the requests. Using for e2e tracking
+          nullable: true
+          type: object
+      type: object
     CloudFileResponse:
       additionalProperties: false
       example:
@@ -439,6 +716,35 @@ components:
             format: float
             nullable: true
             type: number
+          nullable: true
+          type: object
+      type: object
+    CloudFileResponseWithAdditionalInfo:
+      additionalProperties: false
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusCode'
+        message:
+          nullable: true
+          type: string
+        urls:
+          additionalProperties:
+            $ref: '#/components/schemas/UrlFileInfo'
+          nullable: true
+          type: object
+        scores:
+          additionalProperties:
+            format: float
+            nullable: true
+            type: number
+          nullable: true
+          type: object
+        request:
+          $ref: '#/components/schemas/CloudFileRequest'
+        details:
+          additionalProperties:
+            nullable: true
+            type: string
           nullable: true
           type: object
       type: object
@@ -689,6 +995,7 @@ components:
           - Odp
           - Csv
           - Tsv
+          - Srt
           example: Unknown
           type: string
         outputFormat:
@@ -1336,59 +1643,6 @@ components:
       - Source
       - Targets
       type: object
-    ResxFileRequest:
-      additionalProperties: false
-      description: Request for resources files like resx
-      example:
-        originalFileName: originalFileName
-        targetLanguages:
-        - targetLanguages
-        - targetLanguages
-        file: file
-        origin: origin
-        savingMode: Files
-        sourceLanguage: en
-        url: url
-      properties:
-        sourceLanguage:
-          default: en
-          description: Language of original file
-          minLength: 1
-          type: string
-        targetLanguages:
-          description: List of target languages
-          items:
-            type: string
-          type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
-        originalFileName:
-          description: Type in the file name. If null will be as request ID.
-          nullable: true
-          type: string
-        url:
-          description: "Link to file for translation. Ignore, if \"file\" property\
-            \ not null"
-          nullable: true
-          type: string
-        origin:
-          description: Url or name of application using this SDK. Not required.
-          nullable: true
-          type: string
-        savingMode:
-          description: "Toggle file saving mode for storage.\r\nIs Files by default."
-          enum:
-          - Files
-          - Archive
-          - Both
-          type: string
-      required:
-      - sourceLanguage
-      - targetLanguages
-      type: object
     SpreadsheetFileRequest:
       additionalProperties: false
       description: "Request for spreadsheet files, like xls, xlsx, xlsm, ods"
@@ -1500,6 +1754,58 @@ components:
       required:
       - format
       - outputFormat
+      - sourceLanguage
+      - targetLanguages
+      type: object
+    SrtFileRequest:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        origin: origin
+        savingMode: Files
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+      required:
       - sourceLanguage
       - targetLanguages
       type: object
@@ -1703,6 +2009,12 @@ components:
             $ref: '#/components/schemas/StringStringTuple'
           nullable: true
           type: array
+      type: object
+    _file_upload_post_request:
+      properties:
+        file:
+          format: binary
+          type: string
       type: object
   securitySchemes:
     JWT:

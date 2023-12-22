@@ -5,18 +5,18 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>GroupDocs.Translation.Cloud.Sdk</AssemblyName>
-    <PackageId>GroupDocs.Translation-Cloud</PackageId>
+    <PackageId>GroupDocs.Translation.Cloud.Sdk</PackageId>
     <OutputType>Library</OutputType>
     <Authors>GroupDocs</Authors>
     <Company>Aspose</Company>
     <AssemblyTitle>.NET SDK for Translating Cloud Documents</AssemblyTitle>
     <Title>.NET SDK for Translating Cloud Documents</Title>
     <Description>GroupDocs.Translation Cloud is a simple SDK used to add translation of Microsoft Word documents, Microsoft Excel  workbooks, Microsoft PowerPoint presentations, Adobe PDF documents, Markdown files, OpeDocument files, ResX files, SRT files, text files and plain text to your app with merely a few lines of code.
-In detail, it's a set of SDKs for document and plain text translation in our Cloud. It supports translaton of .doc, .docx, .docm, .xls, .xlsx, .xlsm, .ppt, .pptx, .pptm, .pdf, .md, .odt, .ods, .odp, .csv, .tsv, .rtf, .txt, .resx, .srt files. Just pass a specific file or text to the GroupDocs.Translation Cloud API, and it will translate to one or several languages and save translated files in our Cloud or will return translated texts.
+In detail, it&#39;s a set of SDKs for document and plain text translation in our Cloud. It supports translaton of .doc, .docx, .docm, .xls, .xlsx, .xlsm, .ppt, .pptx, .pptm, .pdf, .md, .odt, .ods, .odp, .csv, .tsv, .rtf, .txt, .resx, .srt files. Just pass a specific file or text to the GroupDocs.Translation Cloud API, and it will translate to one or several languages and save translated files in our Cloud or will return translated texts.
 </Description>
     <Copyright>© Aspose Pty Ltd 2001-2023. All Rights Reserved.</Copyright>
     <RootNamespace>GroupDocs.Translation.Cloud.Sdk</RootNamespace>
-    <Version>23.9.4</Version>
+    <Version>23.12.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\GroupDocs.Translation.Cloud.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -28,7 +28,6 @@ In detail, it's a set of SDKs for document and plain text translation in our Clo
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageIcon>groupdocs_translation-for-net.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -49,11 +48,5 @@ In detail, it's a set of SDKs for document and plain text translation in our Clo
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="groupdocs_translation-for-net.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
   </ItemGroup>
 </Project>

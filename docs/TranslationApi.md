@@ -8,6 +8,7 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 | [**CsvPost**](TranslationApi.md#csvpost) | **POST** /csv | Translate CSV and TSV files |
 | [**DocumentPost**](TranslationApi.md#documentpost) | **POST** /document | Translate Microsoft Word documents, rtf, txt, odt |
 | [**DocumentRequestIdGet**](TranslationApi.md#documentrequestidget) | **GET** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful |
+| [**DocumentTrialGet**](TranslationApi.md#documenttrialget) | **GET** /document/trial | Return document translation status for trial request.  Also return URLs for downloading of translated document if translation was successful |
 | [**DocumentTrialPost**](TranslationApi.md#documenttrialpost) | **POST** /document/trial | Trial translate Microsoft Word documents, rtf, txt, odt without conversation. Translate only first page or 1000 symbols. |
 | [**HcGet**](TranslationApi.md#hcget) | **GET** /hc | Health check for all services. |
 | [**HtmlPost**](TranslationApi.md#htmlpost) | **POST** /html | Translate HTML files |
@@ -20,10 +21,12 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 | [**PdfPost**](TranslationApi.md#pdfpost) | **POST** /pdf | Translate pdf files |
 | [**PdfTrialPost**](TranslationApi.md#pdftrialpost) | **POST** /pdf/trial | Trial pdf translation. Translate only first page without conversion to another format. |
 | [**PresentationPost**](TranslationApi.md#presentationpost) | **POST** /presentation | Translate Microsoft PowerPoint presentations, odp |
-| [**ResxPost**](TranslationApi.md#resxpost) | **POST** /resx | Translate RESX files |
+| [**ResxPost**](TranslationApi.md#resxpost) | **POST** /resx | Translate Resx files |
 | [**SpreadsheetPost**](TranslationApi.md#spreadsheetpost) | **POST** /spreadsheet | Translate Microsoft Excel workbooks, ods |
+| [**SrtPost**](TranslationApi.md#srtpost) | **POST** /srt | Translate Srt files |
 | [**TextPost**](TranslationApi.md#textpost) | **POST** /text | Translate text |
 | [**TextRequestIdGet**](TranslationApi.md#textrequestidget) | **GET** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful |
+| [**TextTrialGet**](TranslationApi.md#texttrialget) | **GET** /text/trial | Return text translation status for trial requests.  Also return translated text if translation was successful |
 | [**TextTrialPost**](TranslationApi.md#texttrialpost) | **POST** /text/trial | Trial translate text. Translate only 1000 symbols. |
 
 <a id="autopost"></a>
@@ -328,7 +331,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var requestId = "requestId_example";  // string | GUID which got from /v3/translation/document response
+            var requestId = "requestId_example";  // string | GUID which got from /translation/document response
 
             try
             {
@@ -371,7 +374,103 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestId** | **string** | GUID which got from /v3/translation/document response |  |
+| **requestId** | **string** | GUID which got from /translation/document response |  |
+
+### Return type
+
+[**CloudFileResponse**](CloudFileResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **102** | Information |  -  |
+| **202** | Accepted |  -  |
+| **204** | No Content |  -  |
+| **206** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="documenttrialget"></a>
+# **DocumentTrialGet**
+> CloudFileResponse DocumentTrialGet (string requestId = null)
+
+Return document translation status for trial request.  Also return URLs for downloading of translated document if translation was successful
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class DocumentTrialGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var requestId = "requestId_example";  // string | GUID which got from /v3/translation/document response (optional) 
+
+            try
+            {
+                // Return document translation status for trial request.  Also return URLs for downloading of translated document if translation was successful
+                CloudFileResponse result = apiInstance.DocumentTrialGet(requestId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.DocumentTrialGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DocumentTrialGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Return document translation status for trial request.  Also return URLs for downloading of translated document if translation was successful
+    ApiResponse<CloudFileResponse> response = apiInstance.DocumentTrialGetWithHttpInfo(requestId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.DocumentTrialGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestId** | **string** | GUID which got from /v3/translation/document response | [optional]  |
 
 ### Return type
 
@@ -1490,9 +1589,9 @@ catch (ApiException e)
 
 <a id="resxpost"></a>
 # **ResxPost**
-> StatusResponse ResxPost (ResxFileRequest resxFileRequest = null)
+> StatusResponse ResxPost (SrtFileRequest srtFileRequest = null)
 
-Translate RESX files
+Translate Resx files
 
 ### Example
 ```csharp
@@ -1514,12 +1613,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var resxFileRequest = new ResxFileRequest(); // ResxFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var srtFileRequest = new SrtFileRequest(); // SrtFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
-                // Translate RESX files
-                StatusResponse result = apiInstance.ResxPost(resxFileRequest);
+                // Translate Resx files
+                StatusResponse result = apiInstance.ResxPost(srtFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1539,8 +1638,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Translate RESX files
-    ApiResponse<StatusResponse> response = apiInstance.ResxPostWithHttpInfo(resxFileRequest);
+    // Translate Resx files
+    ApiResponse<StatusResponse> response = apiInstance.ResxPostWithHttpInfo(srtFileRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1557,7 +1656,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **resxFileRequest** | [**ResxFileRequest**](ResxFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **srtFileRequest** | [**SrtFileRequest**](SrtFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1650,6 +1749,98 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **spreadsheetFileRequest** | [**SpreadsheetFileRequest**](SpreadsheetFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="srtpost"></a>
+# **SrtPost**
+> StatusResponse SrtPost (SrtFileRequest srtFileRequest = null)
+
+Translate Srt files
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SrtPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var srtFileRequest = new SrtFileRequest(); // SrtFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Translate Srt files
+                StatusResponse result = apiInstance.SrtPost(srtFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.SrtPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SrtPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Translate Srt files
+    ApiResponse<StatusResponse> response = apiInstance.SrtPostWithHttpInfo(srtFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.SrtPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **srtFileRequest** | [**SrtFileRequest**](SrtFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1834,6 +2025,99 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **requestId** | **string** | GUID which got from /v3/translation/text response |  |
+
+### Return type
+
+[**CloudTextResponse**](CloudTextResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **102** | Information |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="texttrialget"></a>
+# **TextTrialGet**
+> CloudTextResponse TextTrialGet (string requestId = null)
+
+Return text translation status for trial requests.  Also return translated text if translation was successful
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class TextTrialGetExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var requestId = "requestId_example";  // string | GUID which got from /v3/translation/text response (optional) 
+
+            try
+            {
+                // Return text translation status for trial requests.  Also return translated text if translation was successful
+                CloudTextResponse result = apiInstance.TextTrialGet(requestId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.TextTrialGet: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TextTrialGetWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Return text translation status for trial requests.  Also return translated text if translation was successful
+    ApiResponse<CloudTextResponse> response = apiInstance.TextTrialGetWithHttpInfo(requestId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.TextTrialGetWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestId** | **string** | GUID which got from /v3/translation/text response | [optional]  |
 
 ### Return type
 
