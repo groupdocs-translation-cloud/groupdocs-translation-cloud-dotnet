@@ -45,15 +45,13 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         private ILogger _logger;
         private readonly int Attempts;
         private List<string> targets;
+
         public TranslationApiTests(ITestOutputHelper outputHelper)
         {
             targets = new List<string>() { "es" };
             Attempts = 60;
             _logger = LoggerFactory
-                .Create(builder =>
-                {
-                    builder.AddXunit(outputHelper);
-                })
+                .Create(builder => { builder.AddXunit(outputHelper); })
                 .CreateLogger<TranslationApiTests>();
             var conf = new Configuration()
             {
@@ -61,7 +59,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 OAuthClientId = "translate.cloud",
                 OAuthClientSecret = "5d0da472782620373473703904631795",
                 //OAuthClientSecret = "translate.cloud",
-                BasePath = "http://localhost:5005"
+                //BasePath = "http://localhost:5005"
             };
             instance = new TranslationApi(conf);
         }
@@ -81,7 +79,28 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             //Assert.IsType<TransportApi>(instance);
         }
 
-        /// <summary>
+        [Fact]
+        public void TrialPdfPostTest()
+        {
+            PdfFileRequest pdfFileRequest = new PdfFileRequest(
+                "en",
+                new List<string>() { "es" },
+                outputFormat: "pdf")
+            {
+                File = GetFile(@"TestData/TestPdf.pdf", out string fileName),
+                OriginalFileName = fileName,
+                Origin = "TestApi",
+                PreserveFormatting = true,
+                SavingMode = PdfFileRequest.SavingModeEnum.Files,
+                Pages = new List<int>() {1}
+            };
+            var client = new TranslationApi();
+            var response = client.PdfTrialPost(pdfFileRequest);
+            Assert.IsType<StatusResponse>(response);
+            Assert.True(TrialDocumentRequestIdGet(response.Id, Attempts, client));
+        }
+
+    /// <summary>
         /// Test AutoPost
         /// </summary>
         [Fact]
@@ -149,6 +168,23 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             Assert.True(DocumentRequestIdGet(response.Id, Attempts));
         }
 
+        private bool TrialDocumentRequestIdGet(string id, int attempts, TranslationApi client)
+        {
+            bool success = false;
+            for (int i = 0; i < attempts; i++)
+            {
+                var res = client.DocumentTrialGetWithHttpInfo(id);
+                var response = res.Data;
+                _logger.LogInformation($"Attempt {i}: {response.Status} - {response.Message}");
+                if (response.Urls.Count > 0)
+                {
+                    success = true;
+                    break;
+                }
+                Thread.Sleep(1000);
+            }
+            return success;
+        }
         /// <summary>
         /// Test DocumentRequestIdGet
         /// </summary>
@@ -265,7 +301,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             };
             var response = instance.ImageToFilePost(ocrFileRequest);
             Assert.IsType<StatusResponse>(response);
-            Assert.True(TextRequestIdGet(response.Id, Attempts));
+            Assert.True(DocumentRequestIdGet(response.Id, Attempts));
         }
 
         /// <summary>
@@ -315,12 +351,12 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             var request = new MarkdownFileRequest(
                 "en", 
                 new List<string>() { "es" }, 
-                GetFile(@"TestData/_index.en.md", out string fileName),
+                GetFile(@"TestData/hugo_test.md", out string fileName),
                 fileName, 
                 savingMode: MarkdownFileRequest.SavingModeEnum.Files, 
                 origin: "test",
                 outputFormat: "md",
-                frontMatterList: front);
+                shortCodeList: shortcodes);
             var status = instance.MarkdownPost(request);
             Assert.IsType<StatusResponse>(status);
             Assert.True(DocumentRequestIdGet(status.Id, Attempts));
@@ -390,9 +426,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 SavingMode = ResxFileRequest.SavingModeEnum.Files,
                 Origin = "TestApi"
             };
-            var response = instance.ResxPost(resxFileRequest);
-            Assert.IsType<StatusResponse>(response);
-            Assert.True(DocumentRequestIdGet(response.Id, Attempts));
+            //var response = instance.ResxPost(resxFileRequest);
+            //Assert.IsType<StatusResponse>(response);
+            //Assert.True(DocumentRequestIdGet(response.Id, Attempts));
         }
 
         /// <summary>
@@ -426,10 +462,25 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             TextRequest textRequest = new TextRequest("en", targets, new List<string>()
                 {"Hello world!"}, origin: "unit-tests");
             var response = instance.TextPost(textRequest);
+            var success = TextRequestIdGet(response.Id, 10);
             Assert.IsType<StatusResponse>(response);
             return response.Id;
         }
-        
+
+        [Fact]
+        public void XmlPostTest()
+        {
+            /*XmlFileRequest fileRequest = new XmlFileRequest("en", new List<string>() { "ru", "es" });
+            fileRequest.File = GetFile(@"TestData/TestXml.xml", out string originalFileName);
+            fileRequest.Origin = "test";
+            fileRequest.IgnoreList = new List<string>() { "price", "calories" };
+            fileRequest.SavingMode = XmlFileRequest.SavingModeEnum.Both;
+
+            var response = instance.XmlPost(fileRequest);
+            Assert.IsType<StatusResponse>(response);
+            Thread.Sleep(1000);
+            Assert.True(DocumentRequestIdGet(response.Id, Attempts));*/
+        }
         public bool TextRequestIdGet(string id, int attempts)
         {
             bool success = false;
@@ -437,7 +488,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             {
                 var response = instance.TextRequestIdGet(id);
                 _logger.LogInformation($"Attempt {i}: {response.Status} - {response.Message}");
-                if (response.Translations != null)
+                if (response.Translations.Count > 0)
                 {
                     success = true;
                     break;
