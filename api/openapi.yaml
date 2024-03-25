@@ -9,7 +9,7 @@ info:
     url: https://about.aspose.com/legal/eula/
   termsOfService: https://about.groupdocs.cloud/legal/tos/
   title: GroupDocs.Translation SDK
-  version: 23.12.0
+  version: 24.3.0
 servers:
 - description: GroupDocs.Translation server
   url: https://api.groupdocs.cloud/v2.0/translation/
@@ -174,12 +174,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudFileResponse'
           description: Accepted
-        "204":
+        "404":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CloudFileResponse'
-          description: No Content
+          description: Not Found
         "206":
           content:
             application/json:
@@ -248,12 +248,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudTextResponse'
           description: Success
-        "102":
+        "202":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CloudTextResponse'
-          description: Information
+          description: Accepted
       summary: "Return text translation status.\r\nAlso return translated text if\
         \ translation was successful"
       tags:
@@ -674,6 +674,9 @@ components:
           description: Separator in files
           nullable: true
           type: string
+        isPaid:
+          description: Set true if paid user
+          type: boolean
         savingMode:
           description: Toggle files saving mode
           enum:

@@ -396,7 +396,7 @@ catch (ApiException e)
 | **200** | Success |  -  |
 | **102** | Information |  -  |
 | **202** | Accepted |  -  |
-| **204** | No Content |  -  |
+| **404** | Not Found |  -  |
 | **206** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2044,7 +2044,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **102** | Information |  -  |
+| **202** | Accepted |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
