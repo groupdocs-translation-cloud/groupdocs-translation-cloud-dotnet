@@ -42,6 +42,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
     public class TranslationApiTests : IDisposable
     {
         private TranslationApi instance;
+        private IFileApiAsync fileApi;
         private ILogger _logger;
         private readonly int Attempts;
         private List<string> targets;
@@ -56,12 +57,14 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             var conf = new Configuration()
             {
                 OAuthFlow = OAuthFlow.APPLICATION,
-                OAuthClientId = "translate.cloud",
-                OAuthClientSecret = "5d0da472782620373473703904631795",
+                OAuthClientId = "translate.app",
+                OAuthClientSecret = "translate.app",
+                OAuthTokenUrl = "https://id-qa.groupdocs.cloud/connect/token",
                 //OAuthClientSecret = "translate.cloud",
-                //BasePath = "http://localhost:5005"
+                BasePath = "http://translation-api.qa.groupdocs.cloud/"
             };
             instance = new TranslationApi(conf);
+            fileApi = new FileApi(conf);
         }
 
         public void Dispose()
@@ -103,16 +106,19 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
     /// <summary>
         /// Test AutoPost
         /// </summary>
-        [Fact]
-        public void AutoPostTest()
+        [Theory]
+        [InlineData("TestData/TestWord.docx", FileRequest.FormatEnum.Docx, "docx")]
+        public async void AutoPostTest(string path, FileRequest.FormatEnum format, string outputFormat)
         {
+            var url = await fileApi.FileUploadPostAsync(format.ToString().ToLowerInvariant(), GetFile(path));
+            var languages = await instance.LanguagesGetAsync();
+            var fileName = GetFileName(path);
             FileRequest autoPostRequest = new FileRequest()
             {
                 SourceLanguage = "en",
                 TargetLanguages = targets,
-                Format = FileRequest.FormatEnum.Docx,
-                OutputFormat = "docx",
-                File = GetFile(@"TestData/TestWord.docx", out string fileName),
+                Format = format,
+                OutputFormat = outputFormat,
                 OriginalFileName = fileName
             };
             var response = instance.AutoPost(autoPostRequest);
@@ -155,13 +161,13 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 outputFormat: "docx"
                 )
             {
-                File = GetFile(@"TestData/TestWord.docx", out string fileName),
                 Format = TextDocumentFileRequest.FormatEnum.Docx,
                 Origin = "ApiTest",
-                OriginalFileName = fileName,
                 PreserveFormatting = true,
                 SavingMode = TextDocumentFileRequest.SavingModeEnum.Files
             };
+            var url = fileApi.FileUploadPostAsync("docx", GetFile(@"TestData/TestWord.docx")).Result;
+            textDocumentFileRequest.Url = url;
             var response = instance.DocumentPost(textDocumentFileRequest);
             CloudFileResponse cloudFileResponse;
             Assert.IsType<StatusResponse>(response);
@@ -506,6 +512,17 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             var bytes = new byte[file.Length];
             file.Read(bytes, 0, bytes.Length);
             return bytes;
+        }
+
+        private Stream GetFile(string path)
+        {
+            return File.OpenRead(path);
+        }
+
+        private string GetFileName(string path)
+        {
+            var fileInfo = new FileInfo(path);
+            return fileInfo.Name;
         }
     }
 }

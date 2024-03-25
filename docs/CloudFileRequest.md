@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **FrontMatterList** | **List&lt;List&lt;string&gt;&gt;** | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional] 
 **OriginalName** | **string** | Original name of file | [optional] 
 **Separator** | **string** | Separator in files | [optional] 
+**IsPaid** | **bool** | Set true if paid user | [optional] 
 **SavingMode** | **string** | Toggle files saving mode | [optional] 
 **Details** | **Dictionary&lt;string, string&gt;** | Details of the requests. Using for e2e tracking | [optional] 
 
