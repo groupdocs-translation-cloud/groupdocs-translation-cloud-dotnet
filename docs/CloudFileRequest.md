@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **Ranges** | [**Dictionary&lt;string, WorksheetData&gt;**](WorksheetData.md) | Dictionary of ranges in Excel workbooks | [optional] 
 **ShortCodeDict** | **Dictionary&lt;string, List&lt;string&gt;&gt;** | Dictiory of short code names and parameters names to translate | [optional] 
 **FrontMatterList** | **List&lt;List&lt;string&gt;&gt;** | Dictionary where key is zero-based front matter index and value is list of lists of front matter paths | [optional] 
-**OriginalName** | **string** | Original name of file | [optional] 
+**OriginalFileName** | **string** | Original name of file | [optional] 
 **Separator** | **string** | Separator in files | [optional] 
 **IsPaid** | **bool** | Set true if paid user | [optional] 
 **SavingMode** | **string** | Toggle files saving mode | [optional] 

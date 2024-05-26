@@ -27,25 +27,41 @@ using OpenAPIDateConverter = GroupDocs.Translation.Cloud.Sdk.Client.OpenAPIDateC
 namespace GroupDocs.Translation.Cloud.Sdk.Model
 {
     /// <summary>
-    /// HealthCheckStatus
+    /// HealthCheckEntity
     /// </summary>
-    [DataContract(Name = "HealthCheckStatus")]
-    public partial class HealthCheckStatus : IEquatable<HealthCheckStatus>, IValidatableObject
+    [DataContract(Name = "HealthCheckEntity")]
+    public partial class HealthCheckEntity : IEquatable<HealthCheckEntity>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HealthCheckStatus" /> class.
+        /// Initializes a new instance of the <see cref="HealthCheckEntity" /> class.
         /// </summary>
-        /// <param name="items">items.</param>
-        public HealthCheckStatus(List<HealthCheckEntity> items = default(List<HealthCheckEntity>))
+        /// <param name="name">name.</param>
+        /// <param name="isHealthy">isHealthy.</param>
+        /// <param name="message">message.</param>
+        public HealthCheckEntity(string name = default(string), bool isHealthy = default(bool), string message = default(string))
         {
-            this.Items = items;
+            this.Name = name;
+            this.IsHealthy = isHealthy;
+            this.Message = message;
         }
 
         /// <summary>
-        /// Gets or Sets Items
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "items", EmitDefaultValue = true)]
-        public List<HealthCheckEntity> Items { get; set; }
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsHealthy
+        /// </summary>
+        [DataMember(Name = "isHealthy", EmitDefaultValue = true)]
+        public bool IsHealthy { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Message
+        /// </summary>
+        [DataMember(Name = "message", EmitDefaultValue = true)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,8 +70,10 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class HealthCheckStatus {\n");
-            sb.Append("  Items: ").Append(Items).Append("\n");
+            sb.Append("class HealthCheckEntity {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  IsHealthy: ").Append(IsHealthy).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +94,15 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HealthCheckStatus);
+            return this.Equals(input as HealthCheckEntity);
         }
 
         /// <summary>
-        /// Returns true if HealthCheckStatus instances are equal
+        /// Returns true if HealthCheckEntity instances are equal
         /// </summary>
-        /// <param name="input">Instance of HealthCheckStatus to be compared</param>
+        /// <param name="input">Instance of HealthCheckEntity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HealthCheckStatus input)
+        public bool Equals(HealthCheckEntity input)
         {
             if (input == null)
             {
@@ -92,10 +110,18 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             }
             return 
                 (
-                    this.Items == input.Items ||
-                    this.Items != null &&
-                    input.Items != null &&
-                    this.Items.SequenceEqual(input.Items)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.IsHealthy == input.IsHealthy ||
+                    this.IsHealthy.Equals(input.IsHealthy)
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 );
         }
 
@@ -108,9 +134,14 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Items != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.Items.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsHealthy.GetHashCode();
+                if (this.Message != null)
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
                 return hashCode;
             }
