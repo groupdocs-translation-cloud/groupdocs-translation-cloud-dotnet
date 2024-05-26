@@ -14,13 +14,13 @@
     <Description>GroupDocs.Translation Cloud is a simple SDK used to add translation of Microsoft Word documents, Microsoft Excel  workbooks, Microsoft PowerPoint presentations, Adobe PDF documents, Markdown files, OpeDocument files, ResX files, SRT files, text files and plain text to your app with merely a few lines of code.
 In detail, it&#39;s a set of SDKs for document and plain text translation in our Cloud. It supports translaton of .doc, .docx, .docm, .xls, .xlsx, .xlsm, .ppt, .pptx, .pptm, .pdf, .md, .odt, .ods, .odp, .csv, .tsv, .rtf, .txt, .resx, .srt files. Just pass a specific file or text to the GroupDocs.Translation Cloud API, and it will translate to one or several languages and save translated files in our Cloud or will return translated texts.
 </Description>
-    <Copyright>© Aspose Pty Ltd 2001-2023. All Rights Reserved.</Copyright>
+    <Copyright>© Aspose Pty Ltd 2001-2024. All Rights Reserved.</Copyright>
     <RootNamespace>GroupDocs.Translation.Cloud.Sdk</RootNamespace>
-    <Version>24.3.0</Version>
+    <Version>24.5.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\GroupDocs.Translation.Cloud.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>See https://docs.groupdocs.cloud/translation/groupdocs-translation-for-cloud-23-08-release-notes/</PackageReleaseNotes>
+    <PackageReleaseNotes>See https://releases.groupdocs.cloud/translation/release-notes/latest/</PackageReleaseNotes>
     <PackageTags>GroupDocs.Translation GroupDocs Cloud Translation Translate Translator Text Document PDF Office Word DOC DOCX Excel Workbook Spreadsheet XLS XLSX PowerPoint Presentation PPT PPTX  Markdown</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://products.groupdocs.cloud/translation/</PackageProjectUrl>
