@@ -11,6 +11,7 @@ docs/CloudTextResponse.md
 docs/CsvFileRequest.md
 docs/FileApi.md
 docs/FileRequest.md
+docs/HealthCheckEntity.md
 docs/HealthCheckStatus.md
 docs/HtmlFileRequest.md
 docs/HttpStatusCode.md
@@ -33,6 +34,7 @@ docs/UrlFileInfo.md
 docs/WorksheetData.md
 git_push.sh
 src/GroupDocs.Translation.Cloud.Sdk.Test/GroupDocs.Translation.Cloud.Sdk.Test.csproj
+src/GroupDocs.Translation.Cloud.Sdk.Test/Model/HealthCheckEntityTests.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/FileApi.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/SwaggerApi.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/TranslationApi.cs
@@ -64,6 +66,7 @@ src/GroupDocs.Translation.Cloud.Sdk/Model/CloudHugoResponse.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/CloudTextResponse.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/CsvFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/FileRequest.cs
+src/GroupDocs.Translation.Cloud.Sdk/Model/HealthCheckEntity.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/HealthCheckStatus.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/HtmlFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/HttpStatusCode.cs

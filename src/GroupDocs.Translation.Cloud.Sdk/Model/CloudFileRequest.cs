@@ -82,12 +82,12 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <param name="ranges">Dictionary of ranges in Excel workbooks.</param>
         /// <param name="shortCodeDict">Dictiory of short code names and parameters names to translate.</param>
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths.</param>
-        /// <param name="originalName">Original name of file.</param>
+        /// <param name="originalFileName">Original name of file.</param>
         /// <param name="separator">Separator in files.</param>
         /// <param name="isPaid">Set true if paid user.</param>
         /// <param name="savingMode">Toggle files saving mode.</param>
         /// <param name="details">Details of the requests. Using for e2e tracking.</param>
-        public CloudFileRequest(string format = default(string), string outFormat = default(string), string requestId = default(string), List<int> ids = default(List<int>), string url = default(string), long size = default(long), bool masters = default(bool), bool formatting = default(bool), string origin = default(string), List<int> elements = default(List<int>), Dictionary<string, WorksheetData> ranges = default(Dictionary<string, WorksheetData>), Dictionary<string, List<string>> shortCodeDict = default(Dictionary<string, List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string originalName = default(string), string separator = default(string), bool isPaid = default(bool), SavingModeEnum? savingMode = default(SavingModeEnum?), Dictionary<string, string> details = default(Dictionary<string, string>))
+        public CloudFileRequest(string format = default(string), string outFormat = default(string), string requestId = default(string), List<int> ids = default(List<int>), string url = default(string), long size = default(long), bool masters = default(bool), bool formatting = default(bool), string origin = default(string), List<int> elements = default(List<int>), Dictionary<string, WorksheetData> ranges = default(Dictionary<string, WorksheetData>), Dictionary<string, List<string>> shortCodeDict = default(Dictionary<string, List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), string originalFileName = default(string), string separator = default(string), bool isPaid = default(bool), SavingModeEnum? savingMode = default(SavingModeEnum?), Dictionary<string, string> details = default(Dictionary<string, string>))
         {
             this.Format = format;
             this.OutFormat = outFormat;
@@ -102,7 +102,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             this.Ranges = ranges;
             this.ShortCodeDict = shortCodeDict;
             this.FrontMatterList = frontMatterList;
-            this.OriginalName = originalName;
+            this.OriginalFileName = originalFileName;
             this.Separator = separator;
             this.IsPaid = isPaid;
             this.SavingMode = savingMode;
@@ -204,8 +204,8 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// Original name of file
         /// </summary>
         /// <value>Original name of file</value>
-        [DataMember(Name = "originalName", EmitDefaultValue = true)]
-        public string OriginalName { get; set; }
+        [DataMember(Name = "originalFileName", EmitDefaultValue = true)]
+        public string OriginalFileName { get; set; }
 
         /// <summary>
         /// Separator in files
@@ -249,7 +249,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             sb.Append("  Ranges: ").Append(Ranges).Append("\n");
             sb.Append("  ShortCodeDict: ").Append(ShortCodeDict).Append("\n");
             sb.Append("  FrontMatterList: ").Append(FrontMatterList).Append("\n");
-            sb.Append("  OriginalName: ").Append(OriginalName).Append("\n");
+            sb.Append("  OriginalFileName: ").Append(OriginalFileName).Append("\n");
             sb.Append("  Separator: ").Append(Separator).Append("\n");
             sb.Append("  IsPaid: ").Append(IsPaid).Append("\n");
             sb.Append("  SavingMode: ").Append(SavingMode).Append("\n");
@@ -357,9 +357,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
                     this.FrontMatterList.SequenceEqual(input.FrontMatterList)
                 ) && 
                 (
-                    this.OriginalName == input.OriginalName ||
-                    (this.OriginalName != null &&
-                    this.OriginalName.Equals(input.OriginalName))
+                    this.OriginalFileName == input.OriginalFileName ||
+                    (this.OriginalFileName != null &&
+                    this.OriginalFileName.Equals(input.OriginalFileName))
                 ) && 
                 (
                     this.Separator == input.Separator ||
@@ -434,9 +434,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.FrontMatterList.GetHashCode();
                 }
-                if (this.OriginalName != null)
+                if (this.OriginalFileName != null)
                 {
-                    hashCode = (hashCode * 59) + this.OriginalName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalFileName.GetHashCode();
                 }
                 if (this.Separator != null)
                 {
