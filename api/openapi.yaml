@@ -666,7 +666,7 @@ components:
             type: array
           nullable: true
           type: array
-        originalName:
+        originalFileName:
           description: Original name of file
           nullable: true
           type: string
@@ -1058,18 +1058,38 @@ components:
       - Source
       - Targets
       type: object
+    HealthCheckEntity:
+      additionalProperties: false
+      example:
+        name: name
+        message: message
+        isHealthy: true
+      properties:
+        name:
+          nullable: true
+          type: string
+        isHealthy:
+          type: boolean
+        message:
+          nullable: true
+          type: string
+      type: object
     HealthCheckStatus:
       additionalProperties: false
       example:
-        cloudStatus: cloudStatus
-        kafkaDeliveryStatus: kafkaDeliveryStatus
+        items:
+        - name: name
+          message: message
+          isHealthy: true
+        - name: name
+          message: message
+          isHealthy: true
       properties:
-        kafkaDeliveryStatus:
+        items:
+          items:
+            $ref: '#/components/schemas/HealthCheckEntity'
           nullable: true
-          type: string
-        cloudStatus:
-          nullable: true
-          type: string
+          type: array
       type: object
     HtmlFileRequest:
       additionalProperties: false
