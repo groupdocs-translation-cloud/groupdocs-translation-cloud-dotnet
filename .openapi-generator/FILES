@@ -34,7 +34,6 @@ docs/UrlFileInfo.md
 docs/WorksheetData.md
 git_push.sh
 src/GroupDocs.Translation.Cloud.Sdk.Test/GroupDocs.Translation.Cloud.Sdk.Test.csproj
-src/GroupDocs.Translation.Cloud.Sdk.Test/Model/HealthCheckEntityTests.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/FileApi.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/SwaggerApi.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/TranslationApi.cs
