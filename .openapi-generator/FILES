@@ -20,6 +20,8 @@ docs/ImageToFileRequest.md
 docs/ImageToTextRequest.md
 docs/LanguagePairData.md
 docs/MarkdownFileRequest.md
+docs/MediaToFileRequest.md
+docs/MediaToTextRequest.md
 docs/PdfFileRequest.md
 docs/PresentationFileRequest.md
 docs/SpreadsheetFileRequest.md
@@ -32,9 +34,9 @@ docs/TextRequest.md
 docs/TranslationApi.md
 docs/UrlFileInfo.md
 docs/WorksheetData.md
+docs/XmlFileRequest.md
 git_push.sh
 src/GroupDocs.Translation.Cloud.Sdk.Test/GroupDocs.Translation.Cloud.Sdk.Test.csproj
-src/GroupDocs.Translation.Cloud.Sdk.Test/Model/HealthCheckEntityTests.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/FileApi.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/SwaggerApi.cs
 src/GroupDocs.Translation.Cloud.Sdk/Api/TranslationApi.cs
@@ -75,6 +77,8 @@ src/GroupDocs.Translation.Cloud.Sdk/Model/ImageToFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/ImageToTextRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/LanguagePairData.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/MarkdownFileRequest.cs
+src/GroupDocs.Translation.Cloud.Sdk/Model/MediaToFileRequest.cs
+src/GroupDocs.Translation.Cloud.Sdk/Model/MediaToTextRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/PdfFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/PresentationFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/SpreadsheetFileRequest.cs
@@ -85,3 +89,4 @@ src/GroupDocs.Translation.Cloud.Sdk/Model/TextDocumentFileRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/TextRequest.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/UrlFileInfo.cs
 src/GroupDocs.Translation.Cloud.Sdk/Model/WorksheetData.cs
+src/GroupDocs.Translation.Cloud.Sdk/Model/XmlFileRequest.cs

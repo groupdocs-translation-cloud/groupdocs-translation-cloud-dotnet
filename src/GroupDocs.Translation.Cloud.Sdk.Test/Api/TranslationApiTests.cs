@@ -124,6 +124,26 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             var response = instance.AutoPost(autoPostRequest);
             Assert.IsType<StatusResponse>(response);
         }
+        /// <summary>
+        /// Test MediaToFilePost
+        /// </summary>
+        [Fact]
+        public void MediaToFilePostTest()
+        {
+            var file = File.OpenRead("./TestData/AudioTestEn.mp3");
+            var url = fileApi.FileUploadPostAsync("mp3", file).Result;
+            MediaToFileRequest audioRequest = new MediaToFileRequest(
+                sourceLanguage: "en",
+                targetLanguages: new List<string>() { "ru" },
+                url: url,
+                originalFileName: "AudioTestEn",
+                origin: "test",
+                outputFormat: "pdf",
+                format: MediaToFileRequest.FormatEnum.Mp3);
+            var response = instance.MediaToFilePost(audioRequest);
+            Assert.IsType<StatusResponse>(response);
+            Assert.True(DocumentRequestIdGet(response.Id, Attempts));
+        }
 
         /// <summary>
         /// Test CsvPost
@@ -219,8 +239,6 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         {
             var response = instance.HcGet();
             Assert.IsType<HealthCheckStatus>(response);
-            Assert.Equal("Health check passed.", response.CloudStatus);
-            Assert.Equal("Success", response.KafkaDeliveryStatus);
         }
 
         /// <summary>

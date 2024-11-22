@@ -9,7 +9,7 @@ info:
     url: https://about.aspose.com/legal/eula/
   termsOfService: https://about.groupdocs.cloud/legal/tos/
   title: GroupDocs.Translation SDK
-  version: 24.3.0
+  version: 24.11.0
 servers:
 - description: GroupDocs.Translation server
   url: https://api.groupdocs.cloud/v2.0/translation/
@@ -266,29 +266,6 @@ paths:
         name: format
         required: false
         schema:
-          enum:
-          - Unknown
-          - Doc
-          - Docx
-          - Docm
-          - Xls
-          - Xlsx
-          - Xlsm
-          - Ppt
-          - Pptx
-          - Pptm
-          - Txt
-          - Pdf
-          - Md
-          - Resx
-          - Html
-          - Rtf
-          - Odt
-          - Ods
-          - Odp
-          - Csv
-          - Tsv
-          - Srt
           type: string
         style: form
       requestBody:
@@ -400,6 +377,44 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
           description: Success
       summary: Translate Markdown files
+      tags:
+      - Translation
+  /media-to-file:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaToFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate audio or video and return file as a result
+      tags:
+      - Translation
+  /media-to-text:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaToTextRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate audio or video and return text as a result
       tags:
       - Translation
   /image-to-file:
@@ -593,10 +608,72 @@ paths:
       summary: "Translate Microsoft Word documents, rtf, txt, odt"
       tags:
       - Translation
+  /xml:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/XmlFileRequest'
+        description: "String in body of request, containing JSON with parameters for\
+          \ translation."
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+          description: Success
+      summary: Translate XML files
+      tags:
+      - Translation
 components:
   schemas:
     CloudFileRequest:
       additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        shortCodeDict:
+          key:
+          - shortCodeDict
+          - shortCodeDict
+        ranges:
+          key:
+            ranges:
+            - item2: item2
+              item1: item1
+            - item2: item2
+              item1: item1
+            columns:
+            - 7
+            - 7
+            rows:
+            - 2
+            - 2
+        origin: origin
+        format: format
+        outFormat: outFormat
+        masters: true
+        separator: separator
+        url: url
+        isPaid: true
+        frontMatterList:
+        - - frontMatterList
+          - frontMatterList
+        - - frontMatterList
+          - frontMatterList
+        size: 5
+        requestId: requestId
+        elements:
+        - 5
+        - 5
+        savingMode: Files
+        ids:
+        - 1
+        - 1
+        details:
+          key: details
+        formatting: true
       properties:
         format:
           description: "\"doc(x|m)\" if Word document, \"xls(x|m)\" if Excel workbook"
@@ -697,12 +774,12 @@ components:
       example:
         urls:
           key:
-            size: 0
+            size: 6
             url: url
         scores:
-          key: 6.0274563
+          key: 1.4658129
         message: message
-        status: null
+        status: 0.8008281904610115
       properties:
         status:
           $ref: '#/components/schemas/HttpStatusCode'
@@ -724,6 +801,60 @@ components:
       type: object
     CloudFileResponseWithAdditionalInfo:
       additionalProperties: false
+      example:
+        request:
+          originalFileName: originalFileName
+          shortCodeDict:
+            key:
+            - shortCodeDict
+            - shortCodeDict
+          ranges:
+            key:
+              ranges:
+              - item2: item2
+                item1: item1
+              - item2: item2
+                item1: item1
+              columns:
+              - 7
+              - 7
+              rows:
+              - 2
+              - 2
+          origin: origin
+          format: format
+          outFormat: outFormat
+          masters: true
+          separator: separator
+          url: url
+          isPaid: true
+          frontMatterList:
+          - - frontMatterList
+            - frontMatterList
+          - - frontMatterList
+            - frontMatterList
+          size: 5
+          requestId: requestId
+          elements:
+          - 5
+          - 5
+          savingMode: Files
+          ids:
+          - 1
+          - 1
+          details:
+            key: details
+          formatting: true
+        urls:
+          key:
+            size: 6
+            url: url
+        scores:
+          key: 6.0274563
+        details:
+          key: details
+        message: message
+        status: 0.8008281904610115
       properties:
         status:
           $ref: '#/components/schemas/HttpStatusCode'
@@ -766,7 +897,7 @@ components:
           - - shortcodes
             - shortcodes
         message: message
-        status: null
+        status: 0.8008281904610115
       properties:
         status:
           $ref: '#/components/schemas/HttpStatusCode'
@@ -802,7 +933,7 @@ components:
           - translations
           - translations
         message: message
-        status: null
+        status: 0.8008281904610115
       properties:
         status:
           $ref: '#/components/schemas/HttpStatusCode'
@@ -906,13 +1037,17 @@ components:
             - item2: item2
               item1: item1
             columns:
-            - 1
-            - 1
+            - 7
+            - 7
             rows:
-            - 6
-            - 6
+            - 2
+            - 2
         origin: origin
+        isWhiteList: true
         format: Unknown
+        ignoreList:
+        - ignoreList
+        - ignoreList
         masters: false
         separator: separator
         shortcodedict:
@@ -999,6 +1134,21 @@ components:
           - Csv
           - Tsv
           - Srt
+          - Pdfx
+          - Mp3
+          - Wav
+          - Flac
+          - M4a
+          - Aac
+          - Wma
+          - Flv
+          - Mkv
+          - Webm
+          - Avi
+          - Mov
+          - Wmv
+          - Rm
+          - Mpg
           example: Unknown
           type: string
         outputFormat:
@@ -1053,6 +1203,18 @@ components:
             type: array
           nullable: true
           type: array
+        ignoreList:
+          description: "List of elements for Xml, Json and Yaml formats. Determines\
+            \ which items should be blacklisted or whitelisted for processing depending\
+            \ on GroupDocs.Translation.ApiGateway.DTO.FileRequest.IsWhiteList."
+          items:
+            type: string
+          nullable: true
+          type: array
+        isWhiteList:
+          description: Determines to which list the items in GroupDocs.Translation.ApiGateway.DTO.FileRequest.IgnoreList
+            should be allocated. The default is the black list.
+          type: boolean
       required:
       - File
       - Source
@@ -1504,6 +1666,211 @@ components:
       - sourceLanguage
       - targetLanguages
       type: object
+    MediaToFileRequest:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        route: route
+        origin: origin
+        savingMode: Files
+        format: Unknown
+        fragments:
+        - fragments
+        - fragments
+        interval: 0
+        outputFormat: outputFormat
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        format:
+          default: Mp3
+          description: Input file format
+          enum:
+          - Unknown
+          - Mp3
+          - Wav
+          - Flac
+          - M4a
+          - Aac
+          - Wma
+          - Flv
+          - Mkv
+          - Webm
+          - Avi
+          - Mov
+          - Wmv
+          - Rm
+          - Mpg
+          example: Unknown
+          type: string
+        outputFormat:
+          description: output file format
+          minLength: 1
+          type: string
+        fragments:
+          description: Time fragments that require translation
+          items:
+            type: string
+          nullable: true
+          type: array
+        interval:
+          description: Define intervals of timestampts in the resulting file
+          format: int32
+          type: integer
+        route:
+          description: endpoints route
+          nullable: true
+          type: string
+      required:
+      - format
+      - outputFormat
+      - sourceLanguage
+      - targetLanguages
+      type: object
+    MediaToTextRequest:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        route: route
+        origin: origin
+        savingMode: Files
+        format: Unknown
+        fragments:
+        - fragments
+        - fragments
+        source: en
+        targets:
+        - targets
+        - targets
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        source:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targets:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        format:
+          default: Mp3
+          description: Input file format
+          enum:
+          - Unknown
+          - Mp3
+          - Wav
+          - Flac
+          - M4a
+          - Aac
+          - Wma
+          - Flv
+          - Mkv
+          - Webm
+          - Avi
+          - Mov
+          - Wmv
+          - Rm
+          - Mpg
+          example: Unknown
+          type: string
+        fragments:
+          description: Time fragments that require translation
+          items:
+            type: string
+          nullable: true
+          type: array
+        route:
+          description: endpoints route
+          nullable: true
+          type: string
+      required:
+      - format
+      - source
+      - sourceLanguage
+      - targetLanguages
+      - targets
+      type: object
     PdfFileRequest:
       additionalProperties: false
       description: Request for PDF files
@@ -1686,11 +2053,11 @@ components:
             - item2: item2
               item1: item1
             columns:
-            - 1
-            - 1
+            - 7
+            - 7
             rows:
-            - 6
-            - 6
+            - 2
+            - 2
         origin: origin
         savingMode: Files
         format: Unknown
@@ -1837,7 +2204,7 @@ components:
       example:
         id: id
         message: message
-        status: null
+        status: 0.8008281904610115
       properties:
         status:
           $ref: '#/components/schemas/HttpStatusCode'
@@ -1990,7 +2357,7 @@ components:
     UrlFileInfo:
       additionalProperties: false
       example:
-        size: 0
+        size: 6
         url: url
       properties:
         url:
@@ -2009,11 +2376,11 @@ components:
         - item2: item2
           item1: item1
         columns:
-        - 1
-        - 1
+        - 7
+        - 7
         rows:
-        - 6
-        - 6
+        - 2
+        - 2
       properties:
         rows:
           items:
@@ -2032,6 +2399,74 @@ components:
             $ref: '#/components/schemas/StringStringTuple'
           nullable: true
           type: array
+      type: object
+    XmlFileRequest:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        targetLanguages:
+        - targetLanguages
+        - targetLanguages
+        file: file
+        origin: origin
+        savingMode: Files
+        isWhiteList: true
+        ignoreList:
+        - ignoreList
+        - ignoreList
+        sourceLanguage: en
+        url: url
+      properties:
+        sourceLanguage:
+          default: en
+          description: Language of original file
+          minLength: 1
+          type: string
+        targetLanguages:
+          description: List of target languages
+          items:
+            type: string
+          type: array
+        file:
+          description: File as byte array
+          format: byte
+          nullable: true
+          type: string
+        originalFileName:
+          description: Type in the file name. If null will be as request ID.
+          nullable: true
+          type: string
+        url:
+          description: "Link to file for translation. Ignore, if \"file\" property\
+            \ not null"
+          nullable: true
+          type: string
+        origin:
+          description: Url or name of application using this SDK. Not required.
+          nullable: true
+          type: string
+        savingMode:
+          description: "Toggle file saving mode for storage.\r\nIs Files by default."
+          enum:
+          - Files
+          - Archive
+          - Both
+          type: string
+        ignoreList:
+          description: "List of elements for Xml, Json and Yaml formats. Determines\
+            \ which items should be blacklisted or whitelisted for processing depending\
+            \ on GroupDocs.Translation.ApiGateway.DTO.XmlFileRequest.IsWhiteList."
+          items:
+            type: string
+          nullable: true
+          type: array
+        isWhiteList:
+          description: Determines to which list the items in GroupDocs.Translation.ApiGateway.DTO.XmlFileRequest.IgnoreList
+            should be allocated. The default is the black list.
+          type: boolean
+      required:
+      - sourceLanguage
+      - targetLanguages
       type: object
     _file_upload_post_request:
       properties:

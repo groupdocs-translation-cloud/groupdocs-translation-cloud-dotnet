@@ -8,7 +8,7 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 
 <a id="fileuploadpost"></a>
 # **FileUploadPost**
-> string FileUploadPost (string format = null, System.IO.Stream file = null)
+> string FileUploadPost (string? format = null, System.IO.Stream? file = null)
 
 
 
@@ -32,8 +32,8 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FileApi(config);
-            var format = "Unknown";  // string |  (optional) 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var format = "format_example";  // string? |  (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream? |  (optional) 
 
             try
             {
@@ -74,8 +74,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **format** | **string** |  | [optional]  |
-| **file** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
+| **format** | **string?** |  | [optional]  |
+| **file** | **System.IO.Stream?****System.IO.Stream?** |  | [optional]  |
 
 ### Return type
 

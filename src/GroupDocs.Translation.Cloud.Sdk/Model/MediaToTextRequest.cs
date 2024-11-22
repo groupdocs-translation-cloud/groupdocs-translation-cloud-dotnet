@@ -27,10 +27,10 @@ using OpenAPIDateConverter = GroupDocs.Translation.Cloud.Sdk.Client.OpenAPIDateC
 namespace GroupDocs.Translation.Cloud.Sdk.Model
 {
     /// <summary>
-    /// Request for comma / tab separated files like csv, tsv
+    /// MediaToTextRequest
     /// </summary>
-    [DataContract(Name = "CsvFileRequest")]
-    public partial class CsvFileRequest : IValidatableObject
+    [DataContract(Name = "MediaToTextRequest")]
+    public partial class MediaToTextRequest : IValidatableObject
     {
         /// <summary>
         /// Toggle file saving mode for storage.  Is Files by default.
@@ -79,16 +79,88 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             Unknown,
 
             /// <summary>
-            /// Enum Csv for value: Csv
+            /// Enum Mp3 for value: Mp3
             /// </summary>
-            [EnumMember(Value = "Csv")]
-            Csv,
+            [EnumMember(Value = "Mp3")]
+            Mp3,
 
             /// <summary>
-            /// Enum Tsv for value: Tsv
+            /// Enum Wav for value: Wav
             /// </summary>
-            [EnumMember(Value = "Tsv")]
-            Tsv
+            [EnumMember(Value = "Wav")]
+            Wav,
+
+            /// <summary>
+            /// Enum Flac for value: Flac
+            /// </summary>
+            [EnumMember(Value = "Flac")]
+            Flac,
+
+            /// <summary>
+            /// Enum M4a for value: M4a
+            /// </summary>
+            [EnumMember(Value = "M4a")]
+            M4a,
+
+            /// <summary>
+            /// Enum Aac for value: Aac
+            /// </summary>
+            [EnumMember(Value = "Aac")]
+            Aac,
+
+            /// <summary>
+            /// Enum Wma for value: Wma
+            /// </summary>
+            [EnumMember(Value = "Wma")]
+            Wma,
+
+            /// <summary>
+            /// Enum Flv for value: Flv
+            /// </summary>
+            [EnumMember(Value = "Flv")]
+            Flv,
+
+            /// <summary>
+            /// Enum Mkv for value: Mkv
+            /// </summary>
+            [EnumMember(Value = "Mkv")]
+            Mkv,
+
+            /// <summary>
+            /// Enum Webm for value: Webm
+            /// </summary>
+            [EnumMember(Value = "Webm")]
+            Webm,
+
+            /// <summary>
+            /// Enum Avi for value: Avi
+            /// </summary>
+            [EnumMember(Value = "Avi")]
+            Avi,
+
+            /// <summary>
+            /// Enum Mov for value: Mov
+            /// </summary>
+            [EnumMember(Value = "Mov")]
+            Mov,
+
+            /// <summary>
+            /// Enum Wmv for value: Wmv
+            /// </summary>
+            [EnumMember(Value = "Wmv")]
+            Wmv,
+
+            /// <summary>
+            /// Enum Rm for value: Rm
+            /// </summary>
+            [EnumMember(Value = "Rm")]
+            Rm,
+
+            /// <summary>
+            /// Enum Mpg for value: Mpg
+            /// </summary>
+            [EnumMember(Value = "Mpg")]
+            Mpg
         }
 
 
@@ -97,15 +169,15 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// </summary>
         /// <value>Input file format</value>
         /// <example>Unknown</example>
-        [DataMember(Name = "format", EmitDefaultValue = false)]
-        public FormatEnum? Format { get; set; }
+        [DataMember(Name = "format", IsRequired = true, EmitDefaultValue = true)]
+        public FormatEnum Format { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvFileRequest" /> class.
+        /// Initializes a new instance of the <see cref="MediaToTextRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CsvFileRequest() { }
+        protected MediaToTextRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CsvFileRequest" /> class.
+        /// Initializes a new instance of the <see cref="MediaToTextRequest" /> class.
         /// </summary>
         /// <param name="sourceLanguage">Language of original file (required) (default to &quot;en&quot;).</param>
         /// <param name="targetLanguages">List of target languages (required).</param>
@@ -114,36 +186,45 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <param name="url">Link to file for translation. Ignore, if \&quot;file\&quot; property not null.</param>
         /// <param name="origin">Url or name of application using this SDK. Not required..</param>
         /// <param name="savingMode">Toggle file saving mode for storage.  Is Files by default..</param>
-        /// <param name="format">Input file format (default to FormatEnum.Csv).</param>
-        /// <param name="outputFormat">output file format (required).</param>
-        /// <param name="separator">Separator in files.</param>
-        public CsvFileRequest(string sourceLanguage = @"en", List<string> targetLanguages = default(List<string>), byte[] file = default(byte[]), string originalFileName = default(string), string url = default(string), string origin = default(string), SavingModeEnum? savingMode = default(SavingModeEnum?), FormatEnum? format = FormatEnum.Csv, string outputFormat = default(string), string separator = default(string))
+        /// <param name="source">Language of original file (required) (default to &quot;en&quot;).</param>
+        /// <param name="targets">List of target languages (required).</param>
+        /// <param name="format">Input file format (required) (default to FormatEnum.Mp3).</param>
+        /// <param name="fragments">Time fragments that require translation.</param>
+        /// <param name="route">endpoints route.</param>
+        public MediaToTextRequest(string sourceLanguage = @"en", List<string> targetLanguages = default(List<string>), byte[] file = default(byte[]), string originalFileName = default(string), string url = default(string), string origin = default(string), SavingModeEnum? savingMode = default(SavingModeEnum?), string source = @"en", List<string> targets = default(List<string>), FormatEnum format = FormatEnum.Mp3, List<string> fragments = default(List<string>), string route = default(string))
         {
             // to ensure "sourceLanguage" is required (not null)
             if (sourceLanguage == null)
             {
-                throw new ArgumentNullException("sourceLanguage is a required property for CsvFileRequest and cannot be null");
+                throw new ArgumentNullException("sourceLanguage is a required property for MediaToTextRequest and cannot be null");
             }
             this.SourceLanguage = sourceLanguage;
             // to ensure "targetLanguages" is required (not null)
             if (targetLanguages == null)
             {
-                throw new ArgumentNullException("targetLanguages is a required property for CsvFileRequest and cannot be null");
+                throw new ArgumentNullException("targetLanguages is a required property for MediaToTextRequest and cannot be null");
             }
             this.TargetLanguages = targetLanguages;
-            // to ensure "outputFormat" is required (not null)
-            if (outputFormat == null)
+            // to ensure "source" is required (not null)
+            if (source == null)
             {
-                throw new ArgumentNullException("outputFormat is a required property for CsvFileRequest and cannot be null");
+                throw new ArgumentNullException("source is a required property for MediaToTextRequest and cannot be null");
             }
-            this.OutputFormat = outputFormat;
+            this.Source = source;
+            // to ensure "targets" is required (not null)
+            if (targets == null)
+            {
+                throw new ArgumentNullException("targets is a required property for MediaToTextRequest and cannot be null");
+            }
+            this.Targets = targets;
+            this.Format = format;
             this.File = file;
             this.OriginalFileName = originalFileName;
             this.Url = url;
             this.Origin = origin;
             this.SavingMode = savingMode;
-            this.Format = format;
-            this.Separator = separator;
+            this.Fragments = fragments;
+            this.Route = route;
         }
 
         /// <summary>
@@ -189,18 +270,32 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         public string Origin { get; set; }
 
         /// <summary>
-        /// output file format
+        /// Language of original file
         /// </summary>
-        /// <value>output file format</value>
-        [DataMember(Name = "outputFormat", IsRequired = true, EmitDefaultValue = true)]
-        public string OutputFormat { get; set; }
+        /// <value>Language of original file</value>
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
+        public string Source { get; set; }
 
         /// <summary>
-        /// Separator in files
+        /// List of target languages
         /// </summary>
-        /// <value>Separator in files</value>
-        [DataMember(Name = "separator", EmitDefaultValue = true)]
-        public string Separator { get; set; }
+        /// <value>List of target languages</value>
+        [DataMember(Name = "targets", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Targets { get; set; }
+
+        /// <summary>
+        /// Time fragments that require translation
+        /// </summary>
+        /// <value>Time fragments that require translation</value>
+        [DataMember(Name = "fragments", EmitDefaultValue = true)]
+        public List<string> Fragments { get; set; }
+
+        /// <summary>
+        /// endpoints route
+        /// </summary>
+        /// <value>endpoints route</value>
+        [DataMember(Name = "route", EmitDefaultValue = true)]
+        public string Route { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -209,7 +304,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CsvFileRequest {\n");
+            sb.Append("class MediaToTextRequest {\n");
             sb.Append("  SourceLanguage: ").Append(SourceLanguage).Append("\n");
             sb.Append("  TargetLanguages: ").Append(TargetLanguages).Append("\n");
             sb.Append("  File: ").Append(File).Append("\n");
@@ -217,9 +312,11 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("  SavingMode: ").Append(SavingMode).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  Targets: ").Append(Targets).Append("\n");
             sb.Append("  Format: ").Append(Format).Append("\n");
-            sb.Append("  OutputFormat: ").Append(OutputFormat).Append("\n");
-            sb.Append("  Separator: ").Append(Separator).Append("\n");
+            sb.Append("  Fragments: ").Append(Fragments).Append("\n");
+            sb.Append("  Route: ").Append(Route).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -246,10 +343,10 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
                 yield return new ValidationResult("Invalid value for SourceLanguage, length must be greater than 1.", new [] { "SourceLanguage" });
             }
 
-            // OutputFormat (string) minLength
-            if (this.OutputFormat != null && this.OutputFormat.Length < 1)
+            // Source (string) minLength
+            if (this.Source != null && this.Source.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for OutputFormat, length must be greater than 1.", new [] { "OutputFormat" });
+                yield return new ValidationResult("Invalid value for Source, length must be greater than 1.", new [] { "Source" });
             }
 
             yield break;

@@ -18,6 +18,8 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 | [**ImageToTextPost**](TranslationApi.md#imagetotextpost) | **POST** /image-to-text | Translate text on image or scanned pdf |
 | [**LanguagesGet**](TranslationApi.md#languagesget) | **GET** /languages | Return list of available language pairs |
 | [**MarkdownPost**](TranslationApi.md#markdownpost) | **POST** /markdown | Translate Markdown files |
+| [**MediaToFilePost**](TranslationApi.md#mediatofilepost) | **POST** /media-to-file | Translate audio or video and return file as a result |
+| [**MediaToTextPost**](TranslationApi.md#mediatotextpost) | **POST** /media-to-text | Translate audio or video and return text as a result |
 | [**PdfPost**](TranslationApi.md#pdfpost) | **POST** /pdf | Translate pdf files |
 | [**PdfTrialPost**](TranslationApi.md#pdftrialpost) | **POST** /pdf/trial | Trial pdf translation. Translate only first page without conversion to another format. |
 | [**PresentationPost**](TranslationApi.md#presentationpost) | **POST** /presentation | Translate Microsoft PowerPoint presentations, odp |
@@ -28,10 +30,11 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 | [**TextRequestIdGet**](TranslationApi.md#textrequestidget) | **GET** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful |
 | [**TextTrialGet**](TranslationApi.md#texttrialget) | **GET** /text/trial | Return text translation status for trial requests.  Also return translated text if translation was successful |
 | [**TextTrialPost**](TranslationApi.md#texttrialpost) | **POST** /text/trial | Trial translate text. Translate only 1000 symbols. |
+| [**XmlPost**](TranslationApi.md#xmlpost) | **POST** /xml | Translate XML files |
 
 <a id="autopost"></a>
 # **AutoPost**
-> StatusResponse AutoPost (FileRequest fileRequest = null)
+> StatusResponse AutoPost (FileRequest? fileRequest = null)
 
 Translate any supported file
 
@@ -55,7 +58,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var fileRequest = new FileRequest(); // FileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var fileRequest = new FileRequest?(); // FileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -98,7 +101,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileRequest** | [**FileRequest**](FileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **fileRequest** | [**FileRequest?**](FileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -123,7 +126,7 @@ catch (ApiException e)
 
 <a id="csvpost"></a>
 # **CsvPost**
-> StatusResponse CsvPost (CsvFileRequest csvFileRequest = null)
+> StatusResponse CsvPost (CsvFileRequest? csvFileRequest = null)
 
 Translate CSV and TSV files
 
@@ -147,7 +150,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var csvFileRequest = new CsvFileRequest(); // CsvFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var csvFileRequest = new CsvFileRequest?(); // CsvFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -190,7 +193,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **csvFileRequest** | [**CsvFileRequest**](CsvFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **csvFileRequest** | [**CsvFileRequest?**](CsvFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -215,7 +218,7 @@ catch (ApiException e)
 
 <a id="documentpost"></a>
 # **DocumentPost**
-> StatusResponse DocumentPost (TextDocumentFileRequest textDocumentFileRequest = null)
+> StatusResponse DocumentPost (TextDocumentFileRequest? textDocumentFileRequest = null)
 
 Translate Microsoft Word documents, rtf, txt, odt
 
@@ -239,7 +242,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var textDocumentFileRequest = new TextDocumentFileRequest(); // TextDocumentFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var textDocumentFileRequest = new TextDocumentFileRequest?(); // TextDocumentFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -282,7 +285,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **textDocumentFileRequest** | [**TextDocumentFileRequest**](TextDocumentFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **textDocumentFileRequest** | [**TextDocumentFileRequest?**](TextDocumentFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -403,7 +406,7 @@ catch (ApiException e)
 
 <a id="documenttrialget"></a>
 # **DocumentTrialGet**
-> CloudFileResponse DocumentTrialGet (string requestId = null)
+> CloudFileResponse DocumentTrialGet (string? requestId = null)
 
 Return document translation status for trial request.  Also return URLs for downloading of translated document if translation was successful
 
@@ -427,7 +430,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var requestId = "requestId_example";  // string | GUID which got from /v3/translation/document response (optional) 
+            var requestId = "requestId_example";  // string? | GUID which got from /v3/translation/document response (optional) 
 
             try
             {
@@ -470,7 +473,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestId** | **string** | GUID which got from /v3/translation/document response | [optional]  |
+| **requestId** | **string?** | GUID which got from /v3/translation/document response | [optional]  |
 
 ### Return type
 
@@ -495,7 +498,7 @@ catch (ApiException e)
 
 <a id="documenttrialpost"></a>
 # **DocumentTrialPost**
-> StatusResponse DocumentTrialPost (TextDocumentFileRequest textDocumentFileRequest = null)
+> StatusResponse DocumentTrialPost (TextDocumentFileRequest? textDocumentFileRequest = null)
 
 Trial translate Microsoft Word documents, rtf, txt, odt without conversation. Translate only first page or 1000 symbols.
 
@@ -519,7 +522,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var textDocumentFileRequest = new TextDocumentFileRequest(); // TextDocumentFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var textDocumentFileRequest = new TextDocumentFileRequest?(); // TextDocumentFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -562,7 +565,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **textDocumentFileRequest** | [**TextDocumentFileRequest**](TextDocumentFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **textDocumentFileRequest** | [**TextDocumentFileRequest?**](TextDocumentFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -674,7 +677,7 @@ This endpoint does not need any parameter.
 
 <a id="htmlpost"></a>
 # **HtmlPost**
-> StatusResponse HtmlPost (HtmlFileRequest htmlFileRequest = null)
+> StatusResponse HtmlPost (HtmlFileRequest? htmlFileRequest = null)
 
 Translate HTML files
 
@@ -698,7 +701,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var htmlFileRequest = new HtmlFileRequest(); // HtmlFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var htmlFileRequest = new HtmlFileRequest?(); // HtmlFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -741,7 +744,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **htmlFileRequest** | [**HtmlFileRequest**](HtmlFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **htmlFileRequest** | [**HtmlFileRequest?**](HtmlFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -766,7 +769,7 @@ catch (ApiException e)
 
 <a id="hugoget"></a>
 # **HugoGet**
-> CloudHugoResponse HugoGet (string id = null)
+> CloudHugoResponse HugoGet (string? id = null)
 
 Get hugo syntax structure from markdown file
 
@@ -790,7 +793,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var id = "id_example";  // string | id from PostHugo> (optional) 
+            var id = "id_example";  // string? | id from PostHugo> (optional) 
 
             try
             {
@@ -833,7 +836,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** | id from PostHugo&gt; | [optional]  |
+| **id** | **string?** | id from PostHugo&gt; | [optional]  |
 
 ### Return type
 
@@ -858,7 +861,7 @@ catch (ApiException e)
 
 <a id="hugopost"></a>
 # **HugoPost**
-> StatusResponse HugoPost (HugoRequest hugoRequest = null)
+> StatusResponse HugoPost (HugoRequest? hugoRequest = null)
 
 Run hugo syntax structure analyzing from markdown file
 
@@ -882,7 +885,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var hugoRequest = new HugoRequest(); // HugoRequest |  (optional) 
+            var hugoRequest = new HugoRequest?(); // HugoRequest? |  (optional) 
 
             try
             {
@@ -925,7 +928,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **hugoRequest** | [**HugoRequest**](HugoRequest.md) |  | [optional]  |
+| **hugoRequest** | [**HugoRequest?**](HugoRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -950,7 +953,7 @@ catch (ApiException e)
 
 <a id="imagetofilepost"></a>
 # **ImageToFilePost**
-> StatusResponse ImageToFilePost (ImageToFileRequest imageToFileRequest = null)
+> StatusResponse ImageToFilePost (ImageToFileRequest? imageToFileRequest = null)
 
 Translate image or scanned pdf and return file
 
@@ -974,7 +977,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var imageToFileRequest = new ImageToFileRequest(); // ImageToFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var imageToFileRequest = new ImageToFileRequest?(); // ImageToFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1017,7 +1020,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **imageToFileRequest** | [**ImageToFileRequest**](ImageToFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **imageToFileRequest** | [**ImageToFileRequest?**](ImageToFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1042,7 +1045,7 @@ catch (ApiException e)
 
 <a id="imagetotextpost"></a>
 # **ImageToTextPost**
-> StatusResponse ImageToTextPost (ImageToTextRequest imageToTextRequest = null)
+> StatusResponse ImageToTextPost (ImageToTextRequest? imageToTextRequest = null)
 
 Translate text on image or scanned pdf
 
@@ -1066,7 +1069,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var imageToTextRequest = new ImageToTextRequest(); // ImageToTextRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var imageToTextRequest = new ImageToTextRequest?(); // ImageToTextRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1109,7 +1112,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **imageToTextRequest** | [**ImageToTextRequest**](ImageToTextRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **imageToTextRequest** | [**ImageToTextRequest?**](ImageToTextRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1221,7 +1224,7 @@ This endpoint does not need any parameter.
 
 <a id="markdownpost"></a>
 # **MarkdownPost**
-> StatusResponse MarkdownPost (MarkdownFileRequest markdownFileRequest = null)
+> StatusResponse MarkdownPost (MarkdownFileRequest? markdownFileRequest = null)
 
 Translate Markdown files
 
@@ -1245,7 +1248,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var markdownFileRequest = new MarkdownFileRequest(); // MarkdownFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var markdownFileRequest = new MarkdownFileRequest?(); // MarkdownFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1288,7 +1291,191 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **markdownFileRequest** | [**MarkdownFileRequest**](MarkdownFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **markdownFileRequest** | [**MarkdownFileRequest?**](MarkdownFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="mediatofilepost"></a>
+# **MediaToFilePost**
+> StatusResponse MediaToFilePost (MediaToFileRequest? mediaToFileRequest = null)
+
+Translate audio or video and return file as a result
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class MediaToFilePostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var mediaToFileRequest = new MediaToFileRequest?(); // MediaToFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Translate audio or video and return file as a result
+                StatusResponse result = apiInstance.MediaToFilePost(mediaToFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.MediaToFilePost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the MediaToFilePostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Translate audio or video and return file as a result
+    ApiResponse<StatusResponse> response = apiInstance.MediaToFilePostWithHttpInfo(mediaToFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.MediaToFilePostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **mediaToFileRequest** | [**MediaToFileRequest?**](MediaToFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="mediatotextpost"></a>
+# **MediaToTextPost**
+> StatusResponse MediaToTextPost (MediaToTextRequest? mediaToTextRequest = null)
+
+Translate audio or video and return text as a result
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class MediaToTextPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var mediaToTextRequest = new MediaToTextRequest?(); // MediaToTextRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Translate audio or video and return text as a result
+                StatusResponse result = apiInstance.MediaToTextPost(mediaToTextRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.MediaToTextPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the MediaToTextPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Translate audio or video and return text as a result
+    ApiResponse<StatusResponse> response = apiInstance.MediaToTextPostWithHttpInfo(mediaToTextRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.MediaToTextPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **mediaToTextRequest** | [**MediaToTextRequest?**](MediaToTextRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1313,7 +1500,7 @@ catch (ApiException e)
 
 <a id="pdfpost"></a>
 # **PdfPost**
-> StatusResponse PdfPost (PdfFileRequest pdfFileRequest = null)
+> StatusResponse PdfPost (PdfFileRequest? pdfFileRequest = null)
 
 Translate pdf files
 
@@ -1337,7 +1524,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var pdfFileRequest = new PdfFileRequest(); // PdfFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var pdfFileRequest = new PdfFileRequest?(); // PdfFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1380,7 +1567,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **pdfFileRequest** | [**PdfFileRequest**](PdfFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **pdfFileRequest** | [**PdfFileRequest?**](PdfFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1405,7 +1592,7 @@ catch (ApiException e)
 
 <a id="pdftrialpost"></a>
 # **PdfTrialPost**
-> StatusResponse PdfTrialPost (PdfFileRequest pdfFileRequest = null)
+> StatusResponse PdfTrialPost (PdfFileRequest? pdfFileRequest = null)
 
 Trial pdf translation. Translate only first page without conversion to another format.
 
@@ -1429,7 +1616,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var pdfFileRequest = new PdfFileRequest(); // PdfFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var pdfFileRequest = new PdfFileRequest?(); // PdfFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1472,7 +1659,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **pdfFileRequest** | [**PdfFileRequest**](PdfFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **pdfFileRequest** | [**PdfFileRequest?**](PdfFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1497,7 +1684,7 @@ catch (ApiException e)
 
 <a id="presentationpost"></a>
 # **PresentationPost**
-> StatusResponse PresentationPost (PresentationFileRequest presentationFileRequest = null)
+> StatusResponse PresentationPost (PresentationFileRequest? presentationFileRequest = null)
 
 Translate Microsoft PowerPoint presentations, odp
 
@@ -1521,7 +1708,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var presentationFileRequest = new PresentationFileRequest(); // PresentationFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var presentationFileRequest = new PresentationFileRequest?(); // PresentationFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1564,7 +1751,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **presentationFileRequest** | [**PresentationFileRequest**](PresentationFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **presentationFileRequest** | [**PresentationFileRequest?**](PresentationFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1589,7 +1776,7 @@ catch (ApiException e)
 
 <a id="resxpost"></a>
 # **ResxPost**
-> StatusResponse ResxPost (SrtFileRequest srtFileRequest = null)
+> StatusResponse ResxPost (SrtFileRequest? srtFileRequest = null)
 
 Translate Resx files
 
@@ -1613,7 +1800,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var srtFileRequest = new SrtFileRequest(); // SrtFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var srtFileRequest = new SrtFileRequest?(); // SrtFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1656,7 +1843,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **srtFileRequest** | [**SrtFileRequest**](SrtFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **srtFileRequest** | [**SrtFileRequest?**](SrtFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1681,7 +1868,7 @@ catch (ApiException e)
 
 <a id="spreadsheetpost"></a>
 # **SpreadsheetPost**
-> StatusResponse SpreadsheetPost (SpreadsheetFileRequest spreadsheetFileRequest = null)
+> StatusResponse SpreadsheetPost (SpreadsheetFileRequest? spreadsheetFileRequest = null)
 
 Translate Microsoft Excel workbooks, ods
 
@@ -1705,7 +1892,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var spreadsheetFileRequest = new SpreadsheetFileRequest(); // SpreadsheetFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var spreadsheetFileRequest = new SpreadsheetFileRequest?(); // SpreadsheetFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1748,7 +1935,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **spreadsheetFileRequest** | [**SpreadsheetFileRequest**](SpreadsheetFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **spreadsheetFileRequest** | [**SpreadsheetFileRequest?**](SpreadsheetFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1773,7 +1960,7 @@ catch (ApiException e)
 
 <a id="srtpost"></a>
 # **SrtPost**
-> StatusResponse SrtPost (SrtFileRequest srtFileRequest = null)
+> StatusResponse SrtPost (SrtFileRequest? srtFileRequest = null)
 
 Translate Srt files
 
@@ -1797,7 +1984,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var srtFileRequest = new SrtFileRequest(); // SrtFileRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var srtFileRequest = new SrtFileRequest?(); // SrtFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1840,7 +2027,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **srtFileRequest** | [**SrtFileRequest**](SrtFileRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **srtFileRequest** | [**SrtFileRequest?**](SrtFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -1865,7 +2052,7 @@ catch (ApiException e)
 
 <a id="textpost"></a>
 # **TextPost**
-> StatusResponse TextPost (TextRequest textRequest = null)
+> StatusResponse TextPost (TextRequest? textRequest = null)
 
 Translate text
 
@@ -1889,7 +2076,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var textRequest = new TextRequest(); // TextRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var textRequest = new TextRequest?(); // TextRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -1932,7 +2119,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **textRequest** | [**TextRequest**](TextRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **textRequest** | [**TextRequest?**](TextRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 
@@ -2050,7 +2237,7 @@ catch (ApiException e)
 
 <a id="texttrialget"></a>
 # **TextTrialGet**
-> CloudTextResponse TextTrialGet (string requestId = null)
+> CloudTextResponse TextTrialGet (string? requestId = null)
 
 Return text translation status for trial requests.  Also return translated text if translation was successful
 
@@ -2074,7 +2261,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var requestId = "requestId_example";  // string | GUID which got from /v3/translation/text response (optional) 
+            var requestId = "requestId_example";  // string? | GUID which got from /v3/translation/text response (optional) 
 
             try
             {
@@ -2117,7 +2304,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **requestId** | **string** | GUID which got from /v3/translation/text response | [optional]  |
+| **requestId** | **string?** | GUID which got from /v3/translation/text response | [optional]  |
 
 ### Return type
 
@@ -2142,7 +2329,7 @@ catch (ApiException e)
 
 <a id="texttrialpost"></a>
 # **TextTrialPost**
-> StatusResponse TextTrialPost (TextRequest textRequest = null)
+> StatusResponse TextTrialPost (TextRequest? textRequest = null)
 
 Trial translate text. Translate only 1000 symbols.
 
@@ -2166,7 +2353,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TranslationApi(config);
-            var textRequest = new TextRequest(); // TextRequest | String in body of request, containing JSON with parameters for translation. (optional) 
+            var textRequest = new TextRequest?(); // TextRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
 
             try
             {
@@ -2209,7 +2396,99 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **textRequest** | [**TextRequest**](TextRequest.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+| **textRequest** | [**TextRequest?**](TextRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="xmlpost"></a>
+# **XmlPost**
+> StatusResponse XmlPost (XmlFileRequest? xmlFileRequest = null)
+
+Translate XML files
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class XmlPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var xmlFileRequest = new XmlFileRequest?(); // XmlFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Translate XML files
+                StatusResponse result = apiInstance.XmlPost(xmlFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.XmlPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the XmlPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Translate XML files
+    ApiResponse<StatusResponse> response = apiInstance.XmlPostWithHttpInfo(xmlFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.XmlPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **xmlFileRequest** | [**XmlFileRequest?**](XmlFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
 
 ### Return type
 

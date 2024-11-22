@@ -1,8 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Translation.Cloud.Sdk", "src\GroupDocs.Translation.Cloud.Sdk\GroupDocs.Translation.Cloud.Sdk.csproj", "{62A63623-1BFD-4BB6-BB40-7A9559A607B2}"
+# Visual Studio 2012
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Translation.Cloud.Sdk", "src\GroupDocs.Translation.Cloud.Sdk\GroupDocs.Translation.Cloud.Sdk.csproj", "{AA5711CF-219F-4EC9-BF22-D275822A4337}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupDocs.Translation.Cloud.Sdk.Test", "src\GroupDocs.Translation.Cloud.Sdk.Test\GroupDocs.Translation.Cloud.Sdk.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{62A63623-1BFD-4BB6-BB40-7A9559A607B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62A63623-1BFD-4BB6-BB40-7A9559A607B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62A63623-1BFD-4BB6-BB40-7A9559A607B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62A63623-1BFD-4BB6-BB40-7A9559A607B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5711CF-219F-4EC9-BF22-D275822A4337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5711CF-219F-4EC9-BF22-D275822A4337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5711CF-219F-4EC9-BF22-D275822A4337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5711CF-219F-4EC9-BF22-D275822A4337}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
