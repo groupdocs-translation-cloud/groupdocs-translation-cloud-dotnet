@@ -42,10 +42,6 @@ In detail, it&#39;s a set of SDKs for document and plain text translation in our
 
   <ItemGroup>
     <None Remove="System.Web" />
-    <None Include="..\..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web" />
