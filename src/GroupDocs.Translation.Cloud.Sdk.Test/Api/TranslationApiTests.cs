@@ -90,7 +90,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 new List<string>() { "es" },
                 outputFormat: "pdf")
             {
-                File = GetFile(@"TestData/TestPdf.pdf", out string fileName),
+                Url = GetUrl(@"TestData/TestPdf.pdf", "pdf", out string fileName),
                 OriginalFileName = fileName,
                 Origin = "TestApi",
                 PreserveFormatting = true,
@@ -151,13 +151,14 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         [Fact]
         public void CsvPostTest()
         {
+            var url = fileApi.FileUploadPostAsync("csv", GetFile(@"TestData/TestCsv.csv")).Result;
             CsvFileRequest csvFileRequest = new CsvFileRequest(
                 "en",
                 targets,
                 outputFormat:"csv"
                 )
             {
-                File = GetFile(@"TestData/TestCsv.csv", out string fileName),
+                Url = GetUrl(@"TestData/TestCsv.csv", "csv",  out string fileName),
                 OriginalFileName = fileName,
                 Origin = "TestApi",
                 Format = CsvFileRequest.FormatEnum.Csv,
@@ -252,7 +253,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 new List<string>() { "es" },
                 outputFormat: "html")
             {
-                File = GetFile("TestData/TestHtml.html", out string fileName),
+                Url = GetUrl("TestData/TestHtml.html", "html", out string fileName),
                 OriginalFileName = fileName,
                 SavingMode = HtmlFileRequest.SavingModeEnum.Files,
                 Origin = "TestApi"
@@ -293,10 +294,10 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         [Fact]
         public string HugoPostTest()
         {
-            var file = GetFile("TestData/hugo_test.md", out _);
+            var url = GetUrl("TestData/hugo_test.md", "md",out _);
             var request = new HugoRequest()
             {
-                File = file
+                Url = url
             };
             var response = instance.HugoPost(request);
             var code = response.Status.ToSystemHttpStatusCode();
@@ -316,7 +317,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 targets,
                 outputFormat: "pdf")
             {
-                File = GetFile(@"TestData/image-based-pdf-sample.pdf", out string fileName),
+                Url = GetUrl(@"TestData/image-based-pdf-sample.pdf", "pdf", out string fileName),
                 OriginalFileName = fileName,
                 Format = ImageToFileRequest.FormatEnum.Pdf,
                 Formatting = true,
@@ -339,7 +340,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 "es",
                 new List<string>(){"en"})
             {
-                File = GetFile(@"TestData/test-ocr-text.jpg", out string fileName),
+                Url = GetUrl(@"TestData/test-ocr-text.jpg", "jpg", out string fileName),
                 Origin = "TestApi"
             };
             var response = instance.ImageToTextPost(request);
@@ -375,8 +376,8 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             var request = new MarkdownFileRequest(
                 "en", 
                 new List<string>() { "es" }, 
-                GetFile(@"TestData/hugo_test.md", out string fileName),
-                fileName, 
+                url: GetUrl(@"TestData/hugo_test.md", "md", out string fileName),
+                originalFileName: fileName, 
                 savingMode: MarkdownFileRequest.SavingModeEnum.Files, 
                 origin: "test",
                 outputFormat: "md",
@@ -397,7 +398,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 new List<string>() { "es" },
                 outputFormat: "pdf")
             {
-                File = GetFile(@"TestData/TestPdf.pdf", out string fileName),
+                Url = GetUrl(@"TestData/TestPdf.pdf", "pdf", out string fileName),
                 OriginalFileName = fileName,
                 Origin = "TestApi",
                 PreserveFormatting = true,
@@ -421,7 +422,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 outputFormat: "pptx"
                 )
             {
-                File = GetFile(@"TestData/SmallTest.pptx", out string fileName),
+                Url = GetUrl(@"TestData/SmallTest.pptx", "pptx", out string fileName),
                 OriginalFileName = fileName,
                 Origin = "TestApi",
                 Format = PresentationFileRequest.FormatEnum.Pptx,
@@ -445,7 +446,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 new List<string>() {"lv"}
                 )
             {
-                File = GetFile(@"TestData/Resources.resx", out string originalFileName),
+                Url = GetUrl(@"TestData/Resources.resx", "resx", out string originalFileName),
                 OriginalFileName = originalFileName,
                 SavingMode = ResxFileRequest.SavingModeEnum.Files,
                 Origin = "TestApi"
@@ -467,7 +468,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 outputFormat: SpreadsheetFileRequest.OutputFormatEnum.Xlsx)
             {
                 Origin = "TestApi",
-                File = GetFile(@"TestData/TestExcel.xlsx", out string fileName),
+                Url = GetUrl(@"TestData/TestExcel.xlsx", "xlsx", out string fileName),
                 OriginalFileName = fileName,
                 SavingMode = SpreadsheetFileRequest.SavingModeEnum.Files,
                 Worksheets = new List<int>(){2}
@@ -521,17 +522,14 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             }
             return success;
         }
-
-        private byte[] GetFile(string path, out string originalFileName)
+        private string GetUrl(string path, string format, out string originalFileName)
         {
             var fileInfo = new FileInfo(path);
             originalFileName = fileInfo.Name;
             using var file = fileInfo.OpenRead();
-            var bytes = new byte[file.Length];
-            file.Read(bytes, 0, bytes.Length);
-            return bytes;
+            var url = fileApi.FileUploadPostAsync(format, file).Result;
+            return url;
         }
-
         private Stream GetFile(string path)
         {
             return File.OpenRead(path);

@@ -16,7 +16,7 @@ In detail, it&#39;s a set of SDKs for document and plain text translation in our
 </Description>
     <Copyright>© Aspose Pty Ltd 2001-2023. All Rights Reserved.</Copyright>
     <RootNamespace>GroupDocs.Translation.Cloud.Sdk</RootNamespace>
-    <Version>24.11.0</Version>
+    <Version>24.11.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\GroupDocs.Translation.Cloud.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

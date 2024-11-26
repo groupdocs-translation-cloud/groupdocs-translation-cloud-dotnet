@@ -959,7 +959,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         origin: origin
         savingMode: Files
         format: Unknown
@@ -978,11 +977,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1063,7 +1057,6 @@ components:
           - frontMatterList
         - - frontMatterList
           - frontMatterList
-        file: file
         route: route
         savingMode: Files
         elements:
@@ -1083,11 +1076,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1216,7 +1204,6 @@ components:
             should be allocated. The default is the black list.
           type: boolean
       required:
-      - File
       - Source
       - Targets
       type: object
@@ -1261,7 +1248,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         origin: origin
         savingMode: Files
         outputFormat: outputFormat
@@ -1278,11 +1264,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1402,7 +1383,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         ocrformat: Pdf
         route: route
         pages:
@@ -1424,11 +1404,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1594,7 +1569,6 @@ components:
           - frontMatterList
         - - frontMatterList
           - frontMatterList
-        file: file
         shortCodeList:
           key:
           - shortCodeList
@@ -1615,11 +1589,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1673,7 +1642,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         route: route
         origin: origin
         savingMode: Files
@@ -1696,11 +1664,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1773,7 +1736,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         route: route
         origin: origin
         savingMode: Files
@@ -1798,11 +1760,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1879,7 +1836,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         pages:
         - 0
         - 0
@@ -1900,11 +1856,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -1957,7 +1908,6 @@ components:
         slides:
         - 0
         - 0
-        file: file
         origin: origin
         savingMode: Files
         format: Unknown
@@ -1976,11 +1926,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -2041,7 +1986,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         worksheets:
         - 0
         - 0
@@ -2075,11 +2019,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -2154,7 +2093,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         origin: origin
         savingMode: Files
         sourceLanguage: en
@@ -2170,11 +2108,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -2235,7 +2168,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         pages:
         - 0
         - 0
@@ -2257,11 +2189,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true
@@ -2407,7 +2334,6 @@ components:
         targetLanguages:
         - targetLanguages
         - targetLanguages
-        file: file
         origin: origin
         savingMode: Files
         isWhiteList: true
@@ -2427,11 +2353,6 @@ components:
           items:
             type: string
           type: array
-        file:
-          description: File as byte array
-          format: byte
-          nullable: true
-          type: string
         originalFileName:
           description: Type in the file name. If null will be as request ID.
           nullable: true

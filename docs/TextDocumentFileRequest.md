@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SourceLanguage** | **string** | Language of original file | [default to "en"]
 **TargetLanguages** | **List&lt;string&gt;** | List of target languages | 
-**File** | **byte[]** | File as byte array | [optional] 
 **OriginalFileName** | **string** | Type in the file name. If null will be as request ID. | [optional] 
 **Url** | **string** | Link to file for translation. Ignore, if \&quot;file\&quot; property not null | [optional] 
 **SavingMode** | **string** | Toggle file saving mode for storage.  Is Files by default. | [optional] 

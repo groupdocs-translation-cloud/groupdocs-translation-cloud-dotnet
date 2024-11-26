@@ -308,7 +308,6 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// </summary>
         /// <param name="sourceLanguage">Language of original file (default to &quot;en&quot;).</param>
         /// <param name="targetLanguages">List of target languages.</param>
-        /// <param name="file">File as byte array.</param>
         /// <param name="originalFileName">Type in the file name. If null will be as request ID..</param>
         /// <param name="url">Link to file for translation. Ignore, if \&quot;file\&quot; property not null.</param>
         /// <param name="origin">Url or name of application using this SDK. Not required..</param>
@@ -325,12 +324,11 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <param name="frontMatterList">Dictionary where key is zero-based front matter index and value is list of lists of front matter paths.</param>
         /// <param name="ignoreList">List of elements for Xml, Json and Yaml formats. Determines which items should be blacklisted or whitelisted for processing depending on GroupDocs.Translation.ApiGateway.DTO.FileRequest.IsWhiteList..</param>
         /// <param name="isWhiteList">Determines to which list the items in GroupDocs.Translation.ApiGateway.DTO.FileRequest.IgnoreList should be allocated. The default is the black list..</param>
-        public FileRequest(string sourceLanguage = @"en", List<string> targetLanguages = default(List<string>), byte[] file = default(byte[]), string originalFileName = default(string), string url = default(string), string origin = default(string), SavingModeEnum? savingMode = default(SavingModeEnum?), FormatEnum? format = FormatEnum.Unknown, string outputFormat = default(string), bool masters = false, bool formatting = true, string route = default(string), string separator = default(string), List<int> elements = default(List<int>), Dictionary<string, WorksheetData> ranges = default(Dictionary<string, WorksheetData>), Dictionary<string, List<string>> shortcodedict = default(Dictionary<string, List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), List<string> ignoreList = default(List<string>), bool isWhiteList = default(bool))
+        public FileRequest(string sourceLanguage = @"en", List<string> targetLanguages = default(List<string>), string originalFileName = default(string), string url = default(string), string origin = default(string), SavingModeEnum? savingMode = default(SavingModeEnum?), FormatEnum? format = FormatEnum.Unknown, string outputFormat = default(string), bool masters = false, bool formatting = true, string route = default(string), string separator = default(string), List<int> elements = default(List<int>), Dictionary<string, WorksheetData> ranges = default(Dictionary<string, WorksheetData>), Dictionary<string, List<string>> shortcodedict = default(Dictionary<string, List<string>>), List<List<string>> frontMatterList = default(List<List<string>>), List<string> ignoreList = default(List<string>), bool isWhiteList = default(bool))
         {
             // use default value if no "sourceLanguage" provided
             this.SourceLanguage = sourceLanguage ?? @"en";
             this.TargetLanguages = targetLanguages;
-            this.File = file;
             this.OriginalFileName = originalFileName;
             this.Url = url;
             this.Origin = origin;
@@ -362,13 +360,6 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <value>List of target languages</value>
         [DataMember(Name = "targetLanguages", EmitDefaultValue = false)]
         public List<string> TargetLanguages { get; set; }
-
-        /// <summary>
-        /// File as byte array
-        /// </summary>
-        /// <value>File as byte array</value>
-        [DataMember(Name = "file", EmitDefaultValue = true)]
-        public byte[] File { get; set; }
 
         /// <summary>
         /// Type in the file name. If null will be as request ID.
@@ -478,7 +469,6 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             sb.Append("class FileRequest {\n");
             sb.Append("  SourceLanguage: ").Append(SourceLanguage).Append("\n");
             sb.Append("  TargetLanguages: ").Append(TargetLanguages).Append("\n");
-            sb.Append("  File: ").Append(File).Append("\n");
             sb.Append("  OriginalFileName: ").Append(OriginalFileName).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");

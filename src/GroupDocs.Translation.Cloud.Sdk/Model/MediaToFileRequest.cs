@@ -181,7 +181,6 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// </summary>
         /// <param name="sourceLanguage">Language of original file (required) (default to &quot;en&quot;).</param>
         /// <param name="targetLanguages">List of target languages (required).</param>
-        /// <param name="file">File as byte array.</param>
         /// <param name="originalFileName">Type in the file name. If null will be as request ID..</param>
         /// <param name="url">Link to file for translation. Ignore, if \&quot;file\&quot; property not null.</param>
         /// <param name="origin">Url or name of application using this SDK. Not required..</param>
@@ -191,7 +190,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <param name="fragments">Time fragments that require translation.</param>
         /// <param name="interval">Define intervals of timestampts in the resulting file.</param>
         /// <param name="route">endpoints route.</param>
-        public MediaToFileRequest(string sourceLanguage = @"en", List<string> targetLanguages = default(List<string>), byte[] file = default(byte[]), string originalFileName = default(string), string url = default(string), string origin = default(string), SavingModeEnum? savingMode = default(SavingModeEnum?), FormatEnum format = FormatEnum.Mp3, string outputFormat = default(string), List<string> fragments = default(List<string>), int interval = default(int), string route = default(string))
+        public MediaToFileRequest(string sourceLanguage = @"en", List<string> targetLanguages = default(List<string>), string originalFileName = default(string), string url = default(string), string origin = default(string), SavingModeEnum? savingMode = default(SavingModeEnum?), FormatEnum format = FormatEnum.Mp3, string outputFormat = default(string), List<string> fragments = default(List<string>), int interval = default(int), string route = default(string))
         {
             // to ensure "sourceLanguage" is required (not null)
             if (sourceLanguage == null)
@@ -212,7 +211,6 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
                 throw new ArgumentNullException("outputFormat is a required property for MediaToFileRequest and cannot be null");
             }
             this.OutputFormat = outputFormat;
-            this.File = file;
             this.OriginalFileName = originalFileName;
             this.Url = url;
             this.Origin = origin;
@@ -235,13 +233,6 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// <value>List of target languages</value>
         [DataMember(Name = "targetLanguages", IsRequired = true, EmitDefaultValue = true)]
         public List<string> TargetLanguages { get; set; }
-
-        /// <summary>
-        /// File as byte array
-        /// </summary>
-        /// <value>File as byte array</value>
-        [DataMember(Name = "file", EmitDefaultValue = true)]
-        public byte[] File { get; set; }
 
         /// <summary>
         /// Type in the file name. If null will be as request ID.
@@ -302,7 +293,6 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
             sb.Append("class MediaToFileRequest {\n");
             sb.Append("  SourceLanguage: ").Append(SourceLanguage).Append("\n");
             sb.Append("  TargetLanguages: ").Append(TargetLanguages).Append("\n");
-            sb.Append("  File: ").Append(File).Append("\n");
             sb.Append("  OriginalFileName: ").Append(OriginalFileName).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
