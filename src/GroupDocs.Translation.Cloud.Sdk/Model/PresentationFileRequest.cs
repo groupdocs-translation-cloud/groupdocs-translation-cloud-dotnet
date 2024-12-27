@@ -108,7 +108,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Model
         /// Input file format
         /// </summary>
         /// <value>Input file format</value>
-        /// <example>Unknown</example>
+        /*
+        <example>Unknown</example>
+        */
         [DataMember(Name = "format", EmitDefaultValue = false)]
         public FormatEnum? Format { get; set; }
         /// <summary>

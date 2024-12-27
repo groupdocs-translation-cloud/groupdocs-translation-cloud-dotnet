@@ -3,9 +3,9 @@
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0;net6.0</TargetFrameworks>
     <AssemblyName>GroupDocs.Translation.Cloud.Sdk</AssemblyName>
-    <PackageId>GroupDocs.Translation.Cloud.Sdk</PackageId>
+    <PackageId>GroupDocs.Translation-Cloud</PackageId>
     <OutputType>Library</OutputType>
     <Authors>GroupDocs</Authors>
     <Company>Aspose</Company>
@@ -16,7 +16,7 @@ In detail, it&#39;s a set of SDKs for document and plain text translation in our
 </Description>
     <Copyright>© Aspose Pty Ltd 2001-2023. All Rights Reserved.</Copyright>
     <RootNamespace>GroupDocs.Translation.Cloud.Sdk</RootNamespace>
-    <Version>24.11.1</Version>
+    <Version>24.12.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\GroupDocs.Translation.Cloud.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/groupdocs-translation-cloud/groupdocs-translation-cloud-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -29,6 +29,7 @@ In detail, it&#39;s a set of SDKs for document and plain text translation in our
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageIcon>groupdocs_translation-for-net.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,6 +43,14 @@ In detail, it&#39;s a set of SDKs for document and plain text translation in our
 
   <ItemGroup>
     <None Remove="System.Web" />
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+      <None Include="groupdocs_translation-for-net.png">
+          <Pack>True</Pack>
+          <PackagePath>\</PackagePath>
+      </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web" />

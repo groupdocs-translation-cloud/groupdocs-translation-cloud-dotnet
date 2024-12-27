@@ -293,6 +293,8 @@ namespace GroupDocs.Translation.Cloud.Sdk.Client
         /// <value>The OAuth Client Secret.</value>
         public virtual string OAuthClientSecret { get; set; }
 
+        public string? OAuthScope { get; }
+
         /// <summary>
         /// Gets or sets the flow for OAuth2 authentication.
         /// </summary>

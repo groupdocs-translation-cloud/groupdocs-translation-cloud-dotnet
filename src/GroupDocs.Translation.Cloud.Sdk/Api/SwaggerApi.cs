@@ -70,7 +70,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SwaggerSpecGetAsync(bool? isYaml = default(bool?), bool? serialaizeAsV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SwaggerSpecGetAsync(bool? isYaml = default(bool?), bool? serialaizeAsV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -84,7 +84,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SwaggerSpecGetWithHttpInfoAsync(bool? isYaml = default(bool?), bool? serialaizeAsV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SwaggerSpecGetWithHttpInfoAsync(bool? isYaml = default(bool?), bool? serialaizeAsV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -301,7 +301,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SwaggerSpecGetAsync(bool? isYaml = default(bool?), bool? serialaizeAsV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SwaggerSpecGetAsync(bool? isYaml = default(bool?), bool? serialaizeAsV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await SwaggerSpecGetWithHttpInfoAsync(isYaml, serialaizeAsV2, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -315,7 +315,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Cloud.Sdk.Client.ApiResponse<Object>> SwaggerSpecGetWithHttpInfoAsync(bool? isYaml = default(bool?), bool? serialaizeAsV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Cloud.Sdk.Client.ApiResponse<Object>> SwaggerSpecGetWithHttpInfoAsync(bool? isYaml = default(bool?), bool? serialaizeAsV2 = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             GroupDocs.Translation.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Cloud.Sdk.Client.RequestOptions();

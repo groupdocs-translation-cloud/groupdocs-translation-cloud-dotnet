@@ -70,7 +70,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FileUploadPostAsync(string? format = default(string?), System.IO.Stream? file = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FileUploadPostAsync(string? format = default(string?), System.IO.Stream? file = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -84,7 +84,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FileUploadPostWithHttpInfoAsync(string? format = default(string?), System.IO.Stream? file = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FileUploadPostWithHttpInfoAsync(string? format = default(string?), System.IO.Stream? file = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -306,7 +306,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FileUploadPostAsync(string? format = default(string?), System.IO.Stream? file = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FileUploadPostAsync(string? format = default(string?), System.IO.Stream? file = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             GroupDocs.Translation.Cloud.Sdk.Client.ApiResponse<string> localVarResponse = await FileUploadPostWithHttpInfoAsync(format, file, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -321,7 +321,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<GroupDocs.Translation.Cloud.Sdk.Client.ApiResponse<string>> FileUploadPostWithHttpInfoAsync(string? format = default(string?), System.IO.Stream? file = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupDocs.Translation.Cloud.Sdk.Client.ApiResponse<string>> FileUploadPostWithHttpInfoAsync(string? format = default(string?), System.IO.Stream? file = default(System.IO.Stream?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             GroupDocs.Translation.Cloud.Sdk.Client.RequestOptions localVarRequestOptions = new GroupDocs.Translation.Cloud.Sdk.Client.RequestOptions();
