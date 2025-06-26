@@ -4,7 +4,9 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**AutoClassificationPost**](TranslationApi.md#autoclassificationpost) | **POST** /auto/classification | Domain Ttanslation of any supported file based on classification |
 | [**AutoPost**](TranslationApi.md#autopost) | **POST** /auto | Translate any supported file |
+| [**AutoSlangPost**](TranslationApi.md#autoslangpost) | **POST** /auto/slang | Slang translation of any supported file |
 | [**CsvPost**](TranslationApi.md#csvpost) | **POST** /csv | Translate CSV and TSV files |
 | [**DocumentPost**](TranslationApi.md#documentpost) | **POST** /document | Translate Microsoft Word documents, rtf, txt, odt |
 | [**DocumentRequestIdGet**](TranslationApi.md#documentrequestidget) | **GET** /document/{requestId} | Return document translation status.  Also return URLs for downloading of translated document if translation was successful |
@@ -26,11 +28,110 @@ All URIs are relative to *https://api.groupdocs.cloud/v2.0/translation*
 | [**ResxPost**](TranslationApi.md#resxpost) | **POST** /resx | Translate Resx files |
 | [**SpreadsheetPost**](TranslationApi.md#spreadsheetpost) | **POST** /spreadsheet | Translate Microsoft Excel workbooks, ods |
 | [**SrtPost**](TranslationApi.md#srtpost) | **POST** /srt | Translate Srt files |
+| [**SummarizeDocumentPost**](TranslationApi.md#summarizedocumentpost) | **POST** /summarize-document | Summarize and translate document file |
+| [**SummarizeImagePost**](TranslationApi.md#summarizeimagepost) | **POST** /summarize-image | Summarize and translate image or scanned pdf and return file |
+| [**SummarizeMediaPost**](TranslationApi.md#summarizemediapost) | **POST** /summarize-media | Summarize audio or video, translate it  and return file as a result |
+| [**SummarizeTextPost**](TranslationApi.md#summarizetextpost) | **POST** /summarize-text | Summarize and translate text |
+| [**TextClassificationPost**](TranslationApi.md#textclassificationpost) | **POST** /text/classification | Domain text translation based on classification |
+| [**TextMedicalPost**](TranslationApi.md#textmedicalpost) | **POST** /text/medical | Translate medical |
 | [**TextPost**](TranslationApi.md#textpost) | **POST** /text | Translate text |
 | [**TextRequestIdGet**](TranslationApi.md#textrequestidget) | **GET** /text/{requestId} | Return text translation status.  Also return translated text if translation was successful |
+| [**TextSlangPost**](TranslationApi.md#textslangpost) | **POST** /text/slang | Translate slang |
 | [**TextTrialGet**](TranslationApi.md#texttrialget) | **GET** /text/trial | Return text translation status for trial requests.  Also return translated text if translation was successful |
 | [**TextTrialPost**](TranslationApi.md#texttrialpost) | **POST** /text/trial | Trial translate text. Translate only 1000 symbols. |
 | [**XmlPost**](TranslationApi.md#xmlpost) | **POST** /xml | Translate XML files |
+
+<a id="autoclassificationpost"></a>
+# **AutoClassificationPost**
+> StatusResponse AutoClassificationPost (FileRequest? fileRequest = null)
+
+Domain Ttanslation of any supported file based on classification
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class AutoClassificationPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var fileRequest = new FileRequest?(); // FileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Domain Ttanslation of any supported file based on classification
+                StatusResponse result = apiInstance.AutoClassificationPost(fileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.AutoClassificationPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AutoClassificationPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Domain Ttanslation of any supported file based on classification
+    ApiResponse<StatusResponse> response = apiInstance.AutoClassificationPostWithHttpInfo(fileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.AutoClassificationPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileRequest** | [**FileRequest?**](FileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="autopost"></a>
 # **AutoPost**
@@ -92,6 +193,98 @@ try
 catch (ApiException e)
 {
     Debug.Print("Exception when calling TranslationApi.AutoPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileRequest** | [**FileRequest?**](FileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="autoslangpost"></a>
+# **AutoSlangPost**
+> StatusResponse AutoSlangPost (FileRequest? fileRequest = null)
+
+Slang translation of any supported file
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class AutoSlangPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var fileRequest = new FileRequest?(); // FileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Slang translation of any supported file
+                StatusResponse result = apiInstance.AutoSlangPost(fileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.AutoSlangPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AutoSlangPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Slang translation of any supported file
+    ApiResponse<StatusResponse> response = apiInstance.AutoSlangPostWithHttpInfo(fileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.AutoSlangPostWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -2050,6 +2243,558 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="summarizedocumentpost"></a>
+# **SummarizeDocumentPost**
+> StatusResponse SummarizeDocumentPost (FileRequest? fileRequest = null)
+
+Summarize and translate document file
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeDocumentPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var fileRequest = new FileRequest?(); // FileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Summarize and translate document file
+                StatusResponse result = apiInstance.SummarizeDocumentPost(fileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.SummarizeDocumentPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeDocumentPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Summarize and translate document file
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeDocumentPostWithHttpInfo(fileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.SummarizeDocumentPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileRequest** | [**FileRequest?**](FileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizeimagepost"></a>
+# **SummarizeImagePost**
+> StatusResponse SummarizeImagePost (ImageToFileRequest? imageToFileRequest = null)
+
+Summarize and translate image or scanned pdf and return file
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeImagePostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var imageToFileRequest = new ImageToFileRequest?(); // ImageToFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Summarize and translate image or scanned pdf and return file
+                StatusResponse result = apiInstance.SummarizeImagePost(imageToFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.SummarizeImagePost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeImagePostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Summarize and translate image or scanned pdf and return file
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeImagePostWithHttpInfo(imageToFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.SummarizeImagePostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **imageToFileRequest** | [**ImageToFileRequest?**](ImageToFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizemediapost"></a>
+# **SummarizeMediaPost**
+> StatusResponse SummarizeMediaPost (MediaToFileRequest? mediaToFileRequest = null)
+
+Summarize audio or video, translate it  and return file as a result
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeMediaPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var mediaToFileRequest = new MediaToFileRequest?(); // MediaToFileRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Summarize audio or video, translate it  and return file as a result
+                StatusResponse result = apiInstance.SummarizeMediaPost(mediaToFileRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.SummarizeMediaPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeMediaPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Summarize audio or video, translate it  and return file as a result
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeMediaPostWithHttpInfo(mediaToFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.SummarizeMediaPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **mediaToFileRequest** | [**MediaToFileRequest?**](MediaToFileRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="summarizetextpost"></a>
+# **SummarizeTextPost**
+> StatusResponse SummarizeTextPost (TextRequest? textRequest = null)
+
+Summarize and translate text
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class SummarizeTextPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var textRequest = new TextRequest?(); // TextRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Summarize and translate text
+                StatusResponse result = apiInstance.SummarizeTextPost(textRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.SummarizeTextPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SummarizeTextPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Summarize and translate text
+    ApiResponse<StatusResponse> response = apiInstance.SummarizeTextPostWithHttpInfo(textRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.SummarizeTextPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **textRequest** | [**TextRequest?**](TextRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="textclassificationpost"></a>
+# **TextClassificationPost**
+> StatusResponse TextClassificationPost (TextRequest? textRequest = null)
+
+Domain text translation based on classification
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class TextClassificationPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var textRequest = new TextRequest?(); // TextRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Domain text translation based on classification
+                StatusResponse result = apiInstance.TextClassificationPost(textRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.TextClassificationPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TextClassificationPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Domain text translation based on classification
+    ApiResponse<StatusResponse> response = apiInstance.TextClassificationPostWithHttpInfo(textRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.TextClassificationPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **textRequest** | [**TextRequest?**](TextRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="textmedicalpost"></a>
+# **TextMedicalPost**
+> StatusResponse TextMedicalPost (TextRequest? textRequest = null)
+
+Translate medical
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class TextMedicalPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var textRequest = new TextRequest?(); // TextRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Translate medical
+                StatusResponse result = apiInstance.TextMedicalPost(textRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.TextMedicalPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TextMedicalPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Translate medical
+    ApiResponse<StatusResponse> response = apiInstance.TextMedicalPostWithHttpInfo(textRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.TextMedicalPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **textRequest** | [**TextRequest?**](TextRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="textpost"></a>
 # **TextPost**
 > StatusResponse TextPost (TextRequest? textRequest = null)
@@ -2232,6 +2977,98 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 | **202** | Accepted |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="textslangpost"></a>
+# **TextSlangPost**
+> StatusResponse TextSlangPost (TextRequest? textRequest = null)
+
+Translate slang
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using GroupDocs.Translation.Cloud.Sdk.Api;
+using GroupDocs.Translation.Cloud.Sdk.Client;
+using GroupDocs.Translation.Cloud.Sdk.Model;
+
+namespace Example
+{
+    public class TextSlangPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.groupdocs.cloud/v2.0/translation";
+            // Configure OAuth2 access token for authorization: JWT
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new TranslationApi(config);
+            var textRequest = new TextRequest?(); // TextRequest? | String in body of request, containing JSON with parameters for translation. (optional) 
+
+            try
+            {
+                // Translate slang
+                StatusResponse result = apiInstance.TextSlangPost(textRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TranslationApi.TextSlangPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TextSlangPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Translate slang
+    ApiResponse<StatusResponse> response = apiInstance.TextSlangPostWithHttpInfo(textRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TranslationApi.TextSlangPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **textRequest** | [**TextRequest?**](TextRequest?.md) | String in body of request, containing JSON with parameters for translation. | [optional]  |
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

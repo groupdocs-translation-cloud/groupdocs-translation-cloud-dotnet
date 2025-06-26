@@ -57,11 +57,11 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             var conf = new Configuration()
             {
                 OAuthFlow = OAuthFlow.APPLICATION,
-                OAuthClientId = "translate.app",
-                OAuthClientSecret = "translate.app",
+                OAuthClientId = "translate.cloud",
+                //OAuthClientSecret = "5d0da472782620373473703904631795",
                 OAuthTokenUrl = "https://id-qa.groupdocs.cloud/connect/token",
-                //OAuthClientSecret = "translate.cloud",
-                BasePath = "http://translation-api.qa.groupdocs.cloud/"
+                OAuthClientSecret = "translate.cloud",
+                BasePath = "http://localhost:5000"
             };
             instance = new TranslationApi(conf);
             fileApi = new FileApi(conf);
@@ -107,7 +107,9 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
         /// Test AutoPost
         /// </summary>
         [Theory]
-        [InlineData("TestData/TestWord.docx", FileRequest.FormatEnum.Docx, "docx")]
+        //[InlineData("TestData/TestWord.docx", FileRequest.FormatEnum.Docx, "docx")]
+        [InlineData("TestData/word/demo.docx", FileRequest.FormatEnum.Docx, "docx")]
+        [InlineData("TestData/word/4 pages.docx", FileRequest.FormatEnum.Docx, "docx")]
         public async void AutoPostTest(string path, FileRequest.FormatEnum format, string outputFormat)
         {
             var url = await fileApi.FileUploadPostAsync(format.ToString().ToLowerInvariant(), GetFile(path));
@@ -116,6 +118,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             FileRequest autoPostRequest = new FileRequest()
             {
                 SourceLanguage = "en",
+                Url = url,
                 TargetLanguages = targets,
                 Format = format,
                 OutputFormat = outputFormat,
@@ -225,6 +228,7 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
                 if (response.Urls.Count > 0)
                 {
                     success = true;
+                    _logger.LogInformation($"Success: {response.Urls.First()}");
                     break;
                 }
                 Thread.Sleep(1000);
@@ -375,13 +379,13 @@ namespace GroupDocs.Translation.Cloud.Sdk.Test.Api
             front.Add(new List<string>(){"submenu", "middle", "text"});
             var request = new MarkdownFileRequest(
                 "en", 
-                new List<string>() { "es" }, 
-                url: GetUrl(@"TestData/hugo_test.md", "md", out string fileName),
+                new List<string>() { "ru" }, 
+                url: GetUrl(@"TestData/Semiannual Forecast – Anton Perhunov – February 2025.md", "md", out string fileName),
                 originalFileName: fileName, 
                 savingMode: MarkdownFileRequest.SavingModeEnum.Files, 
                 origin: "test",
-                outputFormat: "md",
-                shortCodeList: shortcodes);
+                outputFormat: "md"
+                );
             var status = instance.MarkdownPost(request);
             Assert.IsType<StatusResponse>(status);
             Assert.True(DocumentRequestIdGet(status.Id, Attempts));

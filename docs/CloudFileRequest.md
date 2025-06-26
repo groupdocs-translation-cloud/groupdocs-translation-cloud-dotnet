@@ -8,10 +8,13 @@ Name | Type | Description | Notes
 **OutFormat** | **string** | output file format | [optional] 
 **RequestId** | **string** | id of request | [optional] 
 **Ids** | **List&lt;int&gt;** | Language pairs to translate | [optional] 
+**Summarized** | **bool** | If summarization required | [optional] 
 **Url** | **string** | Link to file for translation | [optional] 
 **Size** | **long** | File size | [optional] 
 **Masters** | **bool** | If translate master slides | [optional] 
 **Formatting** | **bool** | If document&#39;s formatting should be preserved, default true | [optional] 
+**IsNeedAlignment** | **bool** | If need result like source formated text. | [optional] 
+**TranslationDictionary** | **Dictionary&lt;string, string&gt;** | Set a specific translation between source and target words. | [optional] 
 **Origin** | **string** | for analysis only | [optional] 
 **Elements** | **List&lt;int&gt;** | List of slides to translate | [optional] 
 **Ranges** | [**Dictionary&lt;string, WorksheetData&gt;**](WorksheetData.md) | Dictionary of ranges in Excel workbooks | [optional] 
@@ -22,6 +25,7 @@ Name | Type | Description | Notes
 **IsPaid** | **bool** | Set true if paid user | [optional] 
 **SavingMode** | **string** | Toggle files saving mode | [optional] 
 **Details** | **Dictionary&lt;string, string&gt;** | Details of the requests. Using for e2e tracking | [optional] 
+**Model** | **string** | Text array to translate | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Texts** | **List&lt;string&gt;** | Text array to translate | [optional] 
 **Origin** | **string** | For analysis only | [optional] 
 **ContainsMarkdown** | **bool** | Set to true if you want to handle markdown in text | [optional] 
+**TranslationDictionary** | **Dictionary&lt;string, string&gt;** | Set a specific translation between source and target words. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

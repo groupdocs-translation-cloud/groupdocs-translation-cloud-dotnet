@@ -1,15 +1,3 @@
----
-__Advertisement )__
-
-- __[pica](httpsnodeca.github.iopicademo)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](httpsgithub.comnodecababelfish)__ - developer friendly
-  i18n with plurals support and easy syntax.
-
-You will like those projects!
-
----
-
 # h1 Heading 8-)
 ## h2 Heading
 ### h3 Heading
